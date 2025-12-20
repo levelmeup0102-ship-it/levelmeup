@@ -183,6 +183,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { path: '/', label: '홈' },
     { path: '/about', label: '학원소개' },
     { path: '/teachers', label: '강사소개' },
+    { path: '/timetable', label: '시간표' },
     { path: '/gallery', label: '갤러리' },
     { path: '/hall-of-fame', label: '명예의전당' },
     { path: '/events', label: '이벤트' },

@@ -10,6 +10,8 @@ import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import QnA from './pages/QnA';
 import Consulting from './pages/Consulting';
+import SchoolDetail from './pages/SchoolDetail';
+import TimeTable from './pages/TimeTable';
 import './App.css';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/hall-of-fame" element={<HallOfFame />} />
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/timetable" element={<TimeTable />} />
+          <Route path="/school/:schoolName" element={<SchoolDetail />} />
           <Route path="/qna" element={<QnA />} />
           <Route path="/consulting" element={<Consulting />} />
         </Routes>

@@ -90,7 +90,7 @@ const UniversityGrid = styled.div`
   margin-top: 30px;
 `;
 
-const UniversityBadge = styled.div`
+const UniversityBadge = styled(Link)`
   background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
   color: white;
   padding: 20px;
@@ -100,6 +100,14 @@ const UniversityBadge = styled.div`
   font-size: 1.1rem;
   border: 3px solid #ff8c42;
   box-shadow: 0 4px 15px rgba(26, 95, 61, 0.3);
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(26, 95, 61, 0.5);
+  }
 `;
 
 const AchievementTable = styled.table`
@@ -201,7 +209,131 @@ const HallOfFame: React.FC = () => {
       </StatsSection>
 
       <CategorySection>
-        <CategoryTitle>2023학년도 대학 합격 실적</CategoryTitle>
+        <CategoryTitle>2023학년도 수시전형 합격 실적</CategoryTitle>
+        <p style={{color: '#666', marginBottom: '20px', fontSize: '1.1rem'}}>
+          서울대, 포스텍, 고려대 등 명문대 합격자 다수 배출
+        </p>
+        <AchievementTable>
+          <thead>
+            <tr>
+              <th>학생</th>
+              <th>출신 고등학교</th>
+              <th>합격 대학</th>
+              <th>합격 학과</th>
+              <th>전형</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="highlight">
+              <td>양*헌</td>
+              <td className="school">정명고등학교</td>
+              <td className="score">서울대학교</td>
+              <td>재료공학과</td>
+              <td>수시</td>
+            </tr>
+            <tr className="highlight">
+              <td>양*헌</td>
+              <td className="school">정명고등학교</td>
+              <td className="score">포스텍(포항공대)</td>
+              <td>무은재학과</td>
+              <td>수시</td>
+            </tr>
+            <tr className="highlight">
+              <td>이*수</td>
+              <td className="school">정명고등학교</td>
+              <td className="score">고려대학교</td>
+              <td>영어영문학과</td>
+              <td>수시</td>
+            </tr>
+            <tr className="highlight">
+              <td>양*헌</td>
+              <td className="school">정명고등학교</td>
+              <td className="score">고려대학교</td>
+              <td>신소재공학과</td>
+              <td>수시</td>
+            </tr>
+            <tr className="highlight">
+              <td>양*헌</td>
+              <td className="school">정명고등학교</td>
+              <td className="score">성균관대학교</td>
+              <td>공학계열</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>황*주</td>
+              <td className="school">소명여고</td>
+              <td>건국대학교</td>
+              <td>생명과학과</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>최*서</td>
+              <td className="school">정명고</td>
+              <td>동국대학교</td>
+              <td>기계로봇에너지공학과</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>최*서</td>
+              <td className="school">정명고</td>
+              <td>홍익대학교</td>
+              <td>건설환경공학과</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>정*서</td>
+              <td className="school">계남고</td>
+              <td>한국외국어대학교</td>
+              <td>프랑스어학부</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>배*서</td>
+              <td className="school">정명고</td>
+              <td>인하대학교</td>
+              <td>정보통신공학과</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>김*은</td>
+              <td className="school">부명고</td>
+              <td>인하대학교</td>
+              <td>건축학과</td>
+              <td>수시</td>
+            </tr>
+            <tr>
+              <td>김*은</td>
+              <td className="school">부명고</td>
+              <td>서울과학기술대학교</td>
+              <td>건축학과</td>
+              <td>수시</td>
+            </tr>
+          </tbody>
+        </AchievementTable>
+        <div style={{textAlign: 'center', marginTop: '20px'}}>
+          <a 
+            href="https://blog.naver.com/levelmeup/222978250103" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
+              color: 'white',
+              padding: '12px 30px',
+              borderRadius: '25px',
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
+              transition: 'all 0.3s'
+            }}
+          >
+            블로그에서 전체 수시 합격자 보기
+          </a>
+        </div>
+      </CategorySection>
+
+      <CategorySection>
+        <CategoryTitle>2023학년도 정시전형 합격 실적</CategoryTitle>
         <p style={{color: '#666', marginBottom: '20px', fontSize: '1.1rem'}}>
           서울대 경제학과 합격을 포함한 2023년 정시전형 최종 합격 결과입니다
         </p>
@@ -354,12 +486,12 @@ const HallOfFame: React.FC = () => {
       <UniversitySection>
         <CategoryTitle>주요 내신 대비 학교 (12개교)</CategoryTitle>
         <p style={{color: '#666', marginBottom: '20px', fontSize: '1.05rem'}}>
-          레벨미업 학원에서 내신 대비를 진행하는 부천 지역 주요 중·고등학교입니다
+          학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다
         </p>
         <UniversityGrid>
           {['덕산고', '부명고', '부천고', '부천북고', '상일고', '소명여고', 
             '심원고', '원미고', '정명고', '중원고', '중흥고', '심원중'].map((school, index) => (
-            <UniversityBadge key={index}>
+            <UniversityBadge key={index} to={`/school/${school}`}>
               {school}
             </UniversityBadge>
           ))}
