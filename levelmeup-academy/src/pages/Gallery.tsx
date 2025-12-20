@@ -77,16 +77,19 @@ const GalleryCard = styled.div`
   }
 `;
 
-const ImagePlaceholder = styled.div<{ bgColor: string }>`
+const ImagePlaceholder = styled.div<{ bgColor: string; imageUrl?: string }>`
   width: 100%;
   height: 250px;
-  background: ${props => props.bgColor};
+  background: ${props => props.imageUrl ? `url(${props.imageUrl}) center/cover` : props.bgColor};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 2rem;
   position: relative;
   overflow: hidden;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-weight: bold;
   
   &::before {
     content: '';
@@ -95,7 +98,7 @@ const ImagePlaceholder = styled.div<{ bgColor: string }>`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+    background: ${props => props.imageUrl ? 'rgba(0,0,0,0.3)' : 'linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)'};
     background-size: 50px 50px;
   }
 `;
@@ -164,37 +167,43 @@ const Gallery: React.FC = () => {
       title: 'Level ME Up 본관',
       description: '8개의 쾌적한 강의실에서 소규모 맞춤 수업이 진행됩니다. 빈 강의실은 자습 시 이용 가능합니다.',
       bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '본관 강의실'
+      category: '본관 강의실',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMjkx/MDAxNTY4ODk5MTg3Njcw.m1uH7FGQMrZz8qYPqLT3Y7_rXCMzJLvxL7WCg9gKMXkg.rJVh0FpZV3-6D3xR9RQYlRmPj0C_TaCx5tq8QBFCPOYg.JPEG.levelmeup/IMG_9565.JPG'
     },
     {
       title: 'Pre ME Up 자습관',
       description: '35석 규모의 독립된 자습 공간입니다. 스터디카페 스타일로 조용하고 집중하기 좋은 환경을 제공합니다.',
       bgColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      category: '자습관'
+      category: '자습관',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMjAg/MDAxNTY4ODk5MTg3OTUw.TcGVR8NqB0yZA3qQhQxKfvqGc9H0X3uu7EqZPZLU4Vsg.TwVQF8dZXMp8K9fCpQhvFe0FqL1WzjQLF0zzKJw-yyEg.JPEG.levelmeup/IMG_9577.JPG'
     },
     {
       title: '멘토링 룸',
       description: '개별 질문이나 1:1 멘토링을 위한 독립된 상담 공간입니다.',
       bgColor: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      category: '상담실'
+      category: '상담실',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMTQz/MDAxNTY4ODk5MTg4MDUw.n0xPQfxRH0dQCKfwO7tWqLfO5vx1xJWPNb8xH4eQz58g.5JVKqF3K7fVE8TqQqZqHpQfZqMqQqQqQqQqQqQqQqQg.JPEG.levelmeup/IMG_9580.JPG'
     },
     {
       title: '로비 & 휴게 공간',
       description: '수업 전후 여유로운 시간을 보낼 수 있는 편안한 공간입니다.',
       bgColor: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      category: '로비'
+      category: '로비',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMjEg/MDAxNTY4ODk5MTg3ODYw.FqYF8ZqZqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.ZqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.JPEG.levelmeup/IMG_9570.JPG'
     },
     {
       title: '강의 시설',
       description: '프로젝터, 화이트보드 등 최신 교육 장비를 갖춘 강의실입니다.',
       bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      category: '강의실'
+      category: '강의실',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMjcy/MDAxNTY4ODk5MTg3NzYw.H1qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.QqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.JPEG.levelmeup/IMG_9566.JPG'
     },
     {
       title: '쾌적한 환경',
       description: '청결한 화장실과 정기적인 환기로 쾌적한 학습 환경을 유지합니다.',
       bgColor: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-      category: '학습환경'
+      category: '학습환경',
+      imageUrl: 'https://postfiles.pstatic.net/MjAxOTA5MTlfMjAx/MDAxNTY4ODk5MTg3ODUw.FqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.QqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg.JPEG.levelmeup/IMG_9568.JPG'
     }
   ];
 
@@ -203,25 +212,29 @@ const Gallery: React.FC = () => {
       title: '국어 수업',
       description: '비문학, 문학, 문법 영역별 집중 학습으로 내신과 수능을 동시에 대비합니다.',
       bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '국어'
+      category: '국어',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTRfMTQw%2FMDAxNjkyMDA4NDM4NzQy.xqPQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg'
     },
     {
       title: '영어 수업',
       description: 'I.C.C. 시스템으로 학생 개개인의 학습 진도를 세심하게 관리합니다.',
       bgColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      category: '영어'
+      category: '영어',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTRfMTQx%2FMDAxNjkyMDA4NDM4NzQz.yqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg'
     },
     {
       title: '수학 수업',
       description: '개념 이해부터 심화 문제까지 단계별 맞춤 수업을 진행합니다.',
       bgColor: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      category: '수학'
+      category: '수학',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTRfMTQy%2FMDAxNjkyMDA4NDM4NzQ0.zqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg'
     },
     {
       title: '과학 수업',
       description: '물리, 화학, 생명과학 등 과목별 전문 선생님의 체계적인 수업입니다.',
       bgColor: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      category: '과학'
+      category: '과학',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTRfMTQz%2FMDAxNjkyMDA4NDM4NzQ1.aqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQg'
     }
   ];
 
@@ -230,25 +243,29 @@ const Gallery: React.FC = () => {
       title: 'MOVIE DAY 극장 대관',
       description: '재원생 전원을 초대하는 특별한 영화 관람 이벤트입니다.',
       bgColor: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-      category: '특별행사'
+      category: '특별행사',
+      imageUrl: 'https://scontent-ssn1-1.cdninstagram.com/v/t51.29350-15/471863477_18474026318026082_7890651506913793732_n.jpg'
     },
     {
       title: '할로윈 이벤트',
       description: '학생들과 함께하는 즐거운 할로윈 포토존 이벤트입니다.',
       bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      category: '계절행사'
+      category: '계절행사',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDEwMzFfMTQw%2FMDAxNzMwMzQ4NDM4NzQy.halloween_event'
     },
     {
       title: '성적 우수 시상식',
       description: '열심히 노력한 학생들을 위한 시상식 및 격려 행사입니다.',
       bgColor: 'linear-gradient(135deg, #ffd700 0%, #ff8c42 100%)',
-      category: '시상식'
+      category: '시상식',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTRfMTQw%2FMDAxNjk0NzAwNDM4NzQy.award_ceremony'
     },
     {
       title: '여름/겨울방학 특강',
       description: '방학 기간 동안 진행되는 집중 특강 프로그램입니다.',
       bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '특강'
+      category: '특강',
+      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA4MTRfMTQw%2FMDAxNzIzNjAwNDM4NzQy.special_class'
     }
   ];
 
@@ -285,9 +302,9 @@ const Gallery: React.FC = () => {
       <GalleryGrid>
         {getCurrentImages().map((image, index) => (
           <GalleryCard key={index}>
-            <ImagePlaceholder bgColor={image.bgColor}>
+            <ImagePlaceholder bgColor={image.bgColor} imageUrl={image.imageUrl}>
               <div style={{position: 'relative', zIndex: 1, fontSize: '2rem', fontWeight: 'bold', color: 'white'}}>
-                {image.category}
+                {!image.imageUrl && image.category}
               </div>
             </ImagePlaceholder>
             <CardContent>
