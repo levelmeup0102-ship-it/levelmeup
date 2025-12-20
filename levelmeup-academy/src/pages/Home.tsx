@@ -7,35 +7,60 @@ const HomeWrapper = styled.div`
 `;
 
 const Hero = styled.section`
-  background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 30%, #ff8c42 90%, #ffa75d 100%);
+  position: relative;
   color: white;
   padding: 120px 20px;
   text-align: center;
-  position: relative;
   overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &::before {
-    content: '🌟✨🚀⭐💫🌠';
+    content: '';
     position: absolute;
-    top: -50%;
-    left: -10%;
-    right: -10%;
-    bottom: -50%;
-    font-size: 4rem;
-    opacity: 0.15;
-    animation: stars 40s linear infinite;
-    white-space: pre-wrap;
-    word-spacing: 100px;
-    line-height: 150px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 95, 61, 0.85) 0%, rgba(45, 134, 89, 0.85) 30%, rgba(255, 140, 66, 0.85) 90%, rgba(255, 167, 93, 0.85) 100%);
+    z-index: 1;
   }
   
-  @keyframes stars {
-    from { 
-      transform: translateY(0) rotate(0deg); 
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
     }
-    to { 
-      transform: translateY(-200px) rotate(360deg); 
+    50% { 
+      transform: translateY(-20px); 
     }
+  }
+`;
+
+const VideoBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 95, 61, 0.7) 0%, rgba(45, 134, 89, 0.7) 30%, rgba(255, 140, 66, 0.6) 90%, rgba(255, 167, 93, 0.6) 100%);
   }
 `;
 
@@ -43,7 +68,19 @@ const HeroContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 const HeroTitle = styled.h1`
@@ -268,12 +305,18 @@ const Home: React.FC = () => {
   return (
     <HomeWrapper>
       <Hero>
+        <VideoBackground>
+          {/* Educational academy video background - can be replaced with actual video */}
+          <video autoPlay loop muted playsInline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-student-writing-in-a-notebook-4964-large.mp4" type="video/mp4" />
+          </video>
+        </VideoBackground>
         <HeroContent>
           <LogoText>LEVEL ME UP</LogoText>
-          <HeroTitle>🌟 성적을 레벨업하세요! 🚀</HeroTitle>
+          <HeroTitle>성적을 레벨업하세요!</HeroTitle>
           <HeroSubtitle>부천 중동 15년 전통 중고등 국영수과학 전문 학원</HeroSubtitle>
           <HeroSubtitle>서울대 5년 연속 합격생 배출 | 여름방학 1등급 달성 50명+</HeroSubtitle>
-          <CTAButton to="/consulting">🎯 무료 상담 신청하기</CTAButton>
+          <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
         </HeroContent>
       </Hero>
 
