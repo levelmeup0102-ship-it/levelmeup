@@ -185,54 +185,40 @@ const HeroContent = styled.div`
 `;
 
 const EpicTitle = styled.h1`
-  font-size: 8rem;
-  margin-bottom: 30px;
+  font-size: 4.5rem;
+  margin-bottom: 20px;
   color: #ffd700;
   font-weight: 900;
-  letter-spacing: 20px;
+  letter-spacing: 8px;
   animation: ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), ${glow} 3s ease-in-out infinite 1.5s;
   text-transform: uppercase;
   text-shadow: 
-    0 0 30px rgba(255, 215, 0, 1),
-    0 0 60px rgba(255, 140, 66, 0.8),
-    0 0 90px rgba(255, 215, 0, 0.6),
-    5px 5px 15px rgba(0, 0, 0, 0.8);
+    0 0 20px rgba(255, 215, 0, 1),
+    0 0 40px rgba(255, 140, 66, 0.8),
+    3px 3px 10px rgba(0, 0, 0, 0.8);
   position: relative;
-  
-  &::before {
-    content: 'LEVEL ME UP';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: ${float} 2s ease-in-out infinite;
-  }
+  text-align: center;
   
   @media (max-width: 768px) {
-    font-size: 3.5rem;
-    letter-spacing: 8px;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
   }
 `;
 
 const SubTitle = styled.p`
-  font-size: 2.5rem;
-  margin-bottom: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   animation: ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s backwards;
   text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.8),
-    0 0 40px rgba(255, 215, 0, 0.5),
-    3px 3px 8px rgba(0,0,0,0.9);
-  letter-spacing: 3px;
+    0 0 15px rgba(255, 255, 255, 0.8),
+    2px 2px 6px rgba(0,0,0,0.9);
+  letter-spacing: 2px;
+  text-align: center;
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
   }
 `;
@@ -245,16 +231,15 @@ const AchievementBadges = styled.div`
 `;
 
 const Badge = styled.div<{ delay?: string }>`
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 140, 66, 0.3));
-  border: 4px solid #ffd700;
-  border-radius: 20px;
-  padding: 35px 20px;
-  backdrop-filter: blur(15px);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 66, 0.2));
+  border: 3px solid #ffd700;
+  border-radius: 15px;
+  padding: 25px 15px;
+  backdrop-filter: blur(10px);
   animation: 
     ${explosiveEntry} 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${props => props.delay || '0s'} backwards,
-    ${energyPulse} 3s ease-in-out infinite ${props => props.delay || '0s'},
-    ${float} 5s ease-in-out infinite ${props => props.delay || '0s'};
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    ${float} 4s ease-in-out infinite ${props => props.delay || '0s'};
+  transition: all 0.3s;
   position: relative;
   overflow: hidden;
   
@@ -270,41 +255,39 @@ const Badge = styled.div<{ delay?: string }>`
   }
   
   &:hover {
-    transform: scale(1.15) translateY(-15px) rotateZ(5deg);
+    transform: scale(1.05) translateY(-5px);
     box-shadow: 
-      0 0 50px rgba(255, 215, 0, 1),
-      0 0 100px rgba(255, 140, 66, 0.8),
-      0 20px 40px rgba(0, 0, 0, 0.5);
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: #ff8c42;
   }
   
   .number {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 900;
     color: #ffd700;
-    margin-bottom: 10px;
-    animation: ${glow} 2s ease-in-out infinite;
+    margin-bottom: 8px;
     text-shadow: 
-      0 0 20px rgba(255, 215, 0, 1),
-      0 0 40px rgba(255, 140, 66, 0.8);
+      0 0 15px rgba(255, 215, 0, 0.8),
+      0 0 25px rgba(255, 140, 66, 0.6);
   }
   
   .label {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: #fff;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
   }
   
   @media (max-width: 768px) {
-    padding: 25px 15px;
+    padding: 20px 12px;
     
     .number {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     
     .label {
-      font-size: 1rem;
+      font-size: 0.85rem;
     }
   }
 `;
@@ -313,21 +296,19 @@ const CTAButton = styled(Link)`
   display: inline-block;
   background: linear-gradient(135deg, #ffd700 0%, #ff8c42 100%);
   color: #000;
-  padding: 30px 70px;
-  border-radius: 60px;
-  font-size: 2rem;
-  font-weight: 900;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  transition: all 0.3s;
   box-shadow: 
-    0 0 40px rgba(255, 215, 0, 0.8),
-    0 0 80px rgba(255, 140, 66, 0.6),
-    0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 5px solid #ffd700;
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid #ffd700;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   animation: 
-    ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards,
-    ${energyPulse} 2s ease-in-out infinite 2.5s;
+    ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
   position: relative;
   overflow: hidden;
   
@@ -350,19 +331,17 @@ const CTAButton = styled(Link)`
   }
   
   &:hover {
-    transform: translateY(-10px) scale(1.1);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 
-      0 0 60px rgba(255, 215, 0, 1),
-      0 0 120px rgba(255, 140, 66, 0.8),
-      0 20px 50px rgba(0, 0, 0, 0.6);
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 8px 20px rgba(0, 0, 0, 0.4);
     background: linear-gradient(135deg, #ff8c42 0%, #ffd700 100%);
-    border-color: #ff8c42;
   }
   
   @media (max-width: 768px) {
-    padding: 20px 45px;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
   }
 `;
 
