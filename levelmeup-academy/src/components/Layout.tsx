@@ -72,7 +72,9 @@ const LogoIcon = styled.span`
 
 const Nav = styled.nav<{ isOpen: boolean }>`
   display: flex;
-  gap: 30px;
+  gap: 15px;
+  align-items: center;
+  white-space: nowrap;
   
   @media (max-width: 768px) {
     position: absolute;
@@ -91,10 +93,12 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: white;
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   transition: all 0.3s;
   border-bottom: 3px solid ${props => props.$isActive ? 'white' : 'transparent'};
+  white-space: nowrap;
+  font-size: 0.95rem;
   
   &:hover {
     background: rgba(255,255,255,0.1);
