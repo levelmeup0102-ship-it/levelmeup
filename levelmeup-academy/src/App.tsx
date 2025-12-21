@@ -12,6 +12,7 @@ import QnA from './pages/QnA';
 import Consulting from './pages/Consulting';
 import SchoolDetail from './pages/SchoolDetail';
 import TimeTable from './pages/TimeTable';
+import MovieDay from './pages/MovieDay';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/hall-of-fame" element={<HallOfFame />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/movie-day" element={<MovieDay />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/timetable" element={<TimeTable />} />
           <Route path="/school/:schoolName" element={<SchoolDetail />} />

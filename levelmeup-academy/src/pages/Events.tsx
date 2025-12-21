@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const PageWrapper = styled.div`
   max-width: 1200px;
@@ -131,7 +132,7 @@ const EventDetails = styled.ul`
   }
 `;
 
-const EventButton = styled.a`
+const EventButton = styled(Link)`
   display: block;
   width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -151,131 +152,27 @@ const EventButton = styled.a`
   }
 `;
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  animation: fadeIn 0.3s ease-out;
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-`;
-
-const ModalContent = styled.div`
-  background: white;
-  border-radius: 20px;
-  max-width: 1000px;
+const ExternalButton = styled.a`
+  display: block;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  animation: slideUp 0.3s ease-out;
-  
-  @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 10;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
   transition: all 0.3s;
-  
-  &:hover {
-    background: #f0f0f0;
-    transform: scale(1.1);
-  }
-`;
-
-const VideoSection = styled.div`
-  padding: 60px 40px 20px;
   text-align: center;
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-  }
-  
-  video {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-  }
-`;
-
-const GallerySection = styled.div`
-  padding: 40px;
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-    text-align: center;
-  }
-`;
-
-const PhotoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-`;
-
-const PhotoCard = styled.div`
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-  
-  img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
+  text-decoration: none;
+  cursor: pointer;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  }
-  
-  p {
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    color: #444;
-    background: #f8f9fa;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
   }
 `;
 
 const Events: React.FC = () => {
-  const [showMovieDayModal, setShowMovieDayModal] = useState(false);
-  
   const events = [
     {
       featured: true,
@@ -289,9 +186,10 @@ const Events: React.FC = () => {
         '인기 신작 영화 단독 상영',
         '팝콘·음료 무료 제공',
         '명예의 전당 시상식',
-        '학원 우수 학생 14명 영화 100% 관람'
+        '학원 우수 학생 14명 시상',
+        '30초 하이라이트 + 4분 전체 영상'
       ],
-      hasModal: true
+      link: '/events/movie-day'
     },
     {
       featured: true,
@@ -402,80 +300,21 @@ const Events: React.FC = () => {
                   <li key={idx}>{detail}</li>
                 ))}
               </EventDetails>
-              {event.hasModal ? (
-                <EventButton 
-                  as="button"
-                  onClick={() => setShowMovieDayModal(true)}
-                  style={{border: 'none', width: '100%'}}
-                >
-                  영상·사진 보기 🎬 →
-                </EventButton>
-              ) : event.link ? (
+              {event.link && (
                 event.link.startsWith('http') ? (
-                  <EventButton href={event.link} target="_blank" rel="noopener noreferrer">
+                  <ExternalButton href={event.link} target="_blank" rel="noopener noreferrer">
                     자세히 보기 →
-                  </EventButton>
+                  </ExternalButton>
                 ) : (
-                  <EventButton href={event.link}>
-                    상담 신청하기 →
+                  <EventButton to={event.link}>
+                    {event.link === '/events/movie-day' ? '영상·사진 보기 🎬 →' : '상담 신청하기 →'}
                   </EventButton>
                 )
-              ) : null}
+              )}
             </EventContent>
           </EventCard>
         ))}
       </EventGrid>
-
-      {showMovieDayModal && (
-        <ModalOverlay onClick={() => setShowMovieDayModal(false)}>
-          <ModalContent onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={() => setShowMovieDayModal(false)}>×</CloseButton>
-            
-            <VideoSection>
-              <h2>🎬 2025년 1월 MOVIE DAY</h2>
-              <video controls autoPlay>
-                <source src="/videos/movie-day-2025.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </VideoSection>
-
-            <GallerySection>
-              <h3>📸 Moving Day 현장 사진</h3>
-              <PhotoGrid>
-                <PhotoCard>
-                  <img src="https://www.genspark.ai/api/files/s/nypjg1sZ" alt="MOVIE DAY 스크린" />
-                  <p>2025년 1학기 Moving Day 오프닝</p>
-                </PhotoCard>
-                <PhotoCard>
-                  <img src="https://www.genspark.ai/api/files/s/deqlPDQ5" alt="명예의 전당" />
-                  <p>25-1학기 레벨미업학원 학업최우수상 14명</p>
-                </PhotoCard>
-              </PhotoGrid>
-              
-              <div style={{marginTop: '40px', textAlign: 'center', paddingBottom: '20px'}}>
-                <a 
-                  href="https://www.instagram.com/levelme__up/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-block',
-                    background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-                    color: 'white',
-                    padding: '15px 40px',
-                    borderRadius: '50px',
-                    fontWeight: 'bold',
-                    textDecoration: 'none',
-                    boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-                    transition: 'all 0.3s'
-                  }}
-                >
-                  📷 Instagram에서 더 많은 사진 보기
-                </a>
-              </div>
-            </GallerySection>
-          </ModalContent>
-        </ModalOverlay>
-      )}
 
       <div style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
