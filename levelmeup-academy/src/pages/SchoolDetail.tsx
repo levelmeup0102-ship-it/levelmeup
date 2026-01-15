@@ -583,9 +583,9 @@ const SchoolDetail: React.FC = () => {
       <PageSubtitle>LEVEL ME UP</PageSubtitle>
 
       <Section>
-        <SectionTitle>{school.fullName} 특화 내신 대비 시스템</SectionTitle>
+        <SectionTitle>{school.fullName} 맞춤 LEVEL ME UP 커리큘럼</SectionTitle>
         <InfoBox>
-          <h3>레벨미업의 {school.name} 특화 프로그램</h3>
+          <h3>{school.name} 맞춤 LEVEL ME UP 프로그램</h3>
           {school.features.map((feature, index) => (
             <p key={index}>✓ {feature}</p>
           ))}
