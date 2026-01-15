@@ -491,7 +491,7 @@ const BannerCardButton = styled.span`
 // 브랜딩 헤드라인 섹션
 const BrandingSection = styled.section`
   padding: 80px 20px 60px;
-  background: white;
+  background: #F7F9FB;
   text-align: center;
 `;
 
@@ -553,14 +553,10 @@ const SubHeadline = styled.p`
 const SchoolsSection = styled.div<{ $variant?: 'high' | 'middle' }>`
   margin-top: 60px;
   padding: 50px 40px;
-  background: ${props => props.$variant === 'middle' 
-    ? 'linear-gradient(135deg, rgba(225, 245, 254, 0.2) 0%, rgba(179, 229, 252, 0.15) 100%)'
-    : 'linear-gradient(135deg, rgba(232, 245, 233, 0.2) 0%, rgba(200, 230, 201, 0.15) 100%)'};
-  border-radius: 16px;
-  border: 1px solid ${props => props.$variant === 'middle'
-    ? 'rgba(3, 169, 244, 0.1)'
-    : 'rgba(76, 175, 80, 0.1)'};
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E8EEF3;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -570,23 +566,34 @@ const SchoolsSection = styled.div<{ $variant?: 'high' | 'middle' }>`
   }
 `;
 
-const SchoolsTitle = styled.h3`
-  font-size: 1.8rem;
+const SchoolsTitleLabel = styled.div`
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #17B7A6;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+`;
+
+const SchoolsTitle = styled.h3`
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 16px;
   color: #1a1a1a;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
 
 const SchoolsSubtitle = styled.p`
   text-align: center;
-  font-size: 0.95rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: #8B95A1;
   margin-bottom: 40px;
   font-weight: 400;
 `;
@@ -608,51 +615,34 @@ const SchoolsGrid = styled.div`
 `;
 
 const SchoolBadge = styled(Link)`
-  background: rgba(255, 255, 255, 0.95);
+  background: #FFFFFF;
   color: #2d2d2d;
-  padding: 18px 16px;
-  border-radius: 10px;
+  padding: 22px 18px;
+  border-radius: 12px;
   text-align: center;
   font-weight: 600;
   font-size: 1rem;
-  border: 1.5px solid rgba(76, 175, 80, 0.15);
+  border: 1.5px solid #E8EEF3;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  min-height: 65px;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, ${colors.green.primary}, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 70px;
+  cursor: pointer;
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.2);
-    border-color: ${colors.green.primary};
-    color: ${colors.green.primary};
-    
-    &::before {
-      opacity: 1;
-    }
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(23, 183, 166, 0.15);
+    border-color: #17B7A6;
+    color: #17B7A6;
   }
   
   @media (max-width: 768px) {
     font-size: 0.9rem;
-    padding: 14px 12px;
-    min-height: 58px;
+    padding: 16px 14px;
+    min-height: 60px;
   }
 `;
 
@@ -736,7 +726,8 @@ const Home: React.FC = () => {
           </HeadlineContainer>
           
           <SchoolsSection id="schools-high" $variant="high">
-            <SchoolsTitle>LEVEL ME UP | 부천 고등학교 내신 맞춤 대비</SchoolsTitle>
+            <SchoolsTitleLabel>LEVEL ME UP</SchoolsTitleLabel>
+            <SchoolsTitle>부천 고등학교 내신 맞춤 대비</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
               <SchoolBadge to="/school/덕산고?from=home&section=high">덕산고</SchoolBadge>
@@ -755,7 +746,8 @@ const Home: React.FC = () => {
           </SchoolsSection>
           
           <SchoolsSection id="schools-middle" $variant="middle">
-            <SchoolsTitle>LEVEL ME UP | 부천 중학교 내신 맞춤 대비</SchoolsTitle>
+            <SchoolsTitleLabel>LEVEL ME UP</SchoolsTitleLabel>
+            <SchoolsTitle>부천 중학교 내신 맞춤 대비</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
               <SchoolBadge to="/school/부천중?from=home&section=middle">부천중</SchoolBadge>
