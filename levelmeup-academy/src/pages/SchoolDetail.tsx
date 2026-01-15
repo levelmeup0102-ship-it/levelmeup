@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { colors, gradients } from '../theme';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const PageWrapper = styled.div`
@@ -20,7 +20,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
+    background: #17B7A6;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -57,7 +57,7 @@ const AchievementTable = styled.table`
   margin-bottom: 40px;
   
   thead {
-    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    background: #17B7A6;
     color: white;
   }
   
@@ -90,32 +90,36 @@ const AchievementTable = styled.table`
   }
   
   .highlight {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    background: rgba(23, 183, 166, 0.1);
     font-weight: bold;
-    color: #4CAF50;
+    color: #17B7A6;
   }
   
   .score {
-    color: #FF6D00;
+    color: #17B7A6;
     font-weight: bold;
     font-size: 1.1rem;
   }
 `;
 
-const BackButton = styled(Link)`
+const BackButton = styled.button`
   display: inline-block;
   margin-bottom: 30px;
   padding: 12px 30px;
-  background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
+  background: #17B7A6;
   color: white;
   text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
   transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
   
   &:hover {
+    background: #0E8F86;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(26, 95, 61, 0.3);
+    box-shadow: 0 6px 20px rgba(23, 183, 166, 0.3);
   }
 `;
 
@@ -123,13 +127,13 @@ const InfoBox = styled.div`
   background: #f8f9fa;
   padding: 25px;
   border-radius: 10px;
-  border-left: 5px solid #4CAF50;
+  border-left: 5px solid #17B7A6;
   margin-bottom: 30px;
   
   h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #4CAF50;
+    color: #17B7A6;
   }
   
   p {
@@ -532,20 +536,48 @@ const schoolsData: Record<string, SchoolData> = {
 
 const SchoolDetail: React.FC = () => {
   const { schoolName } = useParams<{ schoolName: string }>();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const school = schoolsData[schoolName || ''];
+
+  const handleBackClick = () => {
+    const from = searchParams.get('from');
+    const section = searchParams.get('section');
+    
+    if (from === 'home' && section) {
+      // Navigate to home and scroll to the specific section
+      navigate('/');
+      setTimeout(() => {
+        const sectionId = section === 'high' ? 'schools-high' : 'schools-middle';
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // Default: go to home schools section
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById('schools');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  };
 
   if (!school) {
     return (
       <PageWrapper>
         <PageTitle>학교 정보를 찾을 수 없습니다</PageTitle>
-        <BackButton to="/hall-of-fame">← 명예의 전당으로 돌아가기</BackButton>
+        <BackButton onClick={handleBackClick}>← 학교 목록으로 돌아가기</BackButton>
       </PageWrapper>
     );
   }
 
   return (
     <PageWrapper>
-      <BackButton to="/hall-of-fame">← 명예의 전당으로 돌아가기</BackButton>
+      <BackButton onClick={handleBackClick}>← 학교 목록으로 돌아가기</BackButton>
       
       <PageTitle>{school.fullName} 내신 대비</PageTitle>
       <PageSubtitle>{school.description}</PageSubtitle>
@@ -595,7 +627,7 @@ const SchoolDetail: React.FC = () => {
           {school.examAnalysis.map((analysis, index) => (
             <Section key={index}>
               <SectionTitle>{analysis.title}</SectionTitle>
-              <InfoBox style={{borderLeft: '5px solid #FF6D00'}}>
+              <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
                 <h3>시험 난이도</h3>
                 <p><strong>{analysis.difficulty}</strong></p>
               </InfoBox>
@@ -607,7 +639,7 @@ const SchoolDetail: React.FC = () => {
                 ))}
               </InfoBox>
               
-              <InfoBox style={{borderLeft: '5px solid #66BB6A'}}>
+              <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
                 <h3>대비 전략</h3>
                 {analysis.strategies.map((strategy, idx) => (
                   <p key={idx}>✓ {strategy}</p>
@@ -631,15 +663,17 @@ const SchoolDetail: React.FC = () => {
             to="/consulting"
             style={{
               display: 'inline-block',
-              background: 'linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%)',
+              background: '#17B7A6',
               color: 'white',
               padding: '15px 40px',
               borderRadius: '50px',
               fontWeight: 'bold',
               textDecoration: 'none',
-              boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
+              boxShadow: '0 4px 15px rgba(23, 183, 166, 0.3)',
               transition: 'all 0.3s'
             }}
+            onMouseEnter={(e) => e.currentTarget.style.background = '#0E8F86'}
+            onMouseLeave={(e) => e.currentTarget.style.background = '#17B7A6'}
           >
             무료 상담 신청하기
           </Link>

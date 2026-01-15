@@ -728,42 +728,42 @@ const Home: React.FC = () => {
       </BannerSection>
 
       {/* 브랜딩 헤드라인 및 개설학교 섹션 */}
-      <BrandingSection>
+      <BrandingSection id="schools">
         <Container>
           <HeadlineContainer>
             <MainHeadline>LEVEL ME UP</MainHeadline>
             <SubHeadline>부천 학교별 맞춤 내신부터 체계적 수능대비까지</SubHeadline>
           </HeadlineContainer>
           
-          <SchoolsSection $variant="high">
+          <SchoolsSection id="schools-high" $variant="high">
             <SchoolsTitle>LEVEL ME UP 내신대비 부천 고등학교</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
-              <SchoolBadge to="/school/덕산고">덕산고</SchoolBadge>
-              <SchoolBadge to="/school/부명고">부명고</SchoolBadge>
-              <SchoolBadge to="/school/부천고">부천고</SchoolBadge>
-              <SchoolBadge to="/school/부천북고">부천북고</SchoolBadge>
-              <SchoolBadge to="/school/계남고">계남고</SchoolBadge>
-              <SchoolBadge to="/school/소명여고">소명여고</SchoolBadge>
-              <SchoolBadge to="/school/심원고">심원고</SchoolBadge>
-              <SchoolBadge to="/school/원미고">원미고</SchoolBadge>
-              <SchoolBadge to="/school/정명고">정명고</SchoolBadge>
-              <SchoolBadge to="/school/중원고">중원고</SchoolBadge>
-              <SchoolBadge to="/school/중흥고">중흥고</SchoolBadge>
-              <SchoolBadge to="/school/도당고">도당고</SchoolBadge>
+              <SchoolBadge to="/school/덕산고?from=home&section=high">덕산고</SchoolBadge>
+              <SchoolBadge to="/school/부명고?from=home&section=high">부명고</SchoolBadge>
+              <SchoolBadge to="/school/부천고?from=home&section=high">부천고</SchoolBadge>
+              <SchoolBadge to="/school/부천북고?from=home&section=high">부천북고</SchoolBadge>
+              <SchoolBadge to="/school/계남고?from=home&section=high">계남고</SchoolBadge>
+              <SchoolBadge to="/school/소명여고?from=home&section=high">소명여고</SchoolBadge>
+              <SchoolBadge to="/school/심원고?from=home&section=high">심원고</SchoolBadge>
+              <SchoolBadge to="/school/원미고?from=home&section=high">원미고</SchoolBadge>
+              <SchoolBadge to="/school/정명고?from=home&section=high">정명고</SchoolBadge>
+              <SchoolBadge to="/school/중원고?from=home&section=high">중원고</SchoolBadge>
+              <SchoolBadge to="/school/중흥고?from=home&section=high">중흥고</SchoolBadge>
+              <SchoolBadge to="/school/도당고?from=home&section=high">도당고</SchoolBadge>
             </SchoolsGrid>
           </SchoolsSection>
           
-          <SchoolsSection $variant="middle">
+          <SchoolsSection id="schools-middle" $variant="middle">
             <SchoolsTitle>LEVEL ME UP 내신대비 부천 중학교</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
-              <SchoolBadge to="/school/부천중">부천중</SchoolBadge>
-              <SchoolBadge to="/school/중흥중">중흥중</SchoolBadge>
-              <SchoolBadge to="/school/부흥중">부흥중</SchoolBadge>
-              <SchoolBadge to="/school/계남중">계남중</SchoolBadge>
-              <SchoolBadge to="/school/중원중">중원중</SchoolBadge>
-              <SchoolBadge to="/school/심원중">심원중</SchoolBadge>
+              <SchoolBadge to="/school/부천중?from=home&section=middle">부천중</SchoolBadge>
+              <SchoolBadge to="/school/중흥중?from=home&section=middle">중흥중</SchoolBadge>
+              <SchoolBadge to="/school/부흥중?from=home&section=middle">부흥중</SchoolBadge>
+              <SchoolBadge to="/school/계남중?from=home&section=middle">계남중</SchoolBadge>
+              <SchoolBadge to="/school/중원중?from=home&section=middle">중원중</SchoolBadge>
+              <SchoolBadge to="/school/심원중?from=home&section=middle">심원중</SchoolBadge>
             </SchoolsGrid>
           </SchoolsSection>
           
