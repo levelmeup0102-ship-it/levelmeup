@@ -143,6 +143,145 @@ const InfoBox = styled.div`
   }
 `;
 
+// Learning Flow Infographic Components
+const LearningFlowSection = styled.section`
+  background: linear-gradient(135deg, #f8fffe 0%, #ffffff 100%);
+  padding: 50px 40px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+  border: 2px solid rgba(23, 183, 166, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+`;
+
+const FlowTitle = styled.h2`
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+`;
+
+const FlowContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+`;
+
+const FlowStep = styled.div`
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(23, 183, 166, 0.15);
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.2);
+    border-color: #17B7A6;
+  }
+  
+  &::after {
+    content: '→';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #17B7A6;
+    font-weight: 300;
+    
+    @media (max-width: 968px) {
+      content: '↓';
+      right: auto;
+      top: auto;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  &:last-child::after {
+    display: none;
+  }
+  
+  @media (max-width: 968px) {
+    padding: 25px 20px;
+  }
+`;
+
+const StepNumber = styled.div`
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(23, 183, 166, 0.3);
+`;
+
+const StepTitle = styled.h3`
+  font-size: 1.1rem;
+  color: #17B7A6;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    min-height: auto;
+  }
+`;
+
+const StepDescription = styled.p`
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const StepIcon = styled.div`
+  font-size: 2rem;
+  margin-bottom: 15px;
+  opacity: 0.8;
+`;
+
 interface SchoolData {
   name: string;
   fullName: string;
@@ -539,6 +678,9 @@ const SchoolDetail: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const school = schoolsData[schoolName || ''];
+  
+  // Check if it's a high school (고등학교)
+  const isHighSchool = school?.fullName.includes('고등학교');
 
   const handleBackClick = () => {
     const from = searchParams.get('from');
@@ -581,6 +723,49 @@ const SchoolDetail: React.FC = () => {
       
       <PageTitle>{school.fullName} 내신 대비</PageTitle>
       <PageSubtitle>LEVEL ME UP</PageSubtitle>
+
+      {/* Learning Flow Infographic - Only for High Schools */}
+      {isHighSchool && (
+        <LearningFlowSection>
+          <FlowTitle>LEVEL ME UP 고등 내신 학습 흐름</FlowTitle>
+          <FlowContainer>
+            <FlowStep>
+              <StepNumber>1</StepNumber>
+              <StepIcon>📖</StepIcon>
+              <StepTitle>1회독</StepTitle>
+              <StepDescription>개념/지문 구조 정리</StepDescription>
+            </FlowStep>
+            
+            <FlowStep>
+              <StepNumber>2</StepNumber>
+              <StepIcon>🎯</StepIcon>
+              <StepTitle>2회독</StepTitle>
+              <StepDescription>빈출 포인트 & 학교 스타일 반영</StepDescription>
+            </FlowStep>
+            
+            <FlowStep>
+              <StepNumber>3</StepNumber>
+              <StepIcon>✍️</StepIcon>
+              <StepTitle>3회독</StepTitle>
+              <StepDescription>서술형/변형 대비 실전 적용</StepDescription>
+            </FlowStep>
+            
+            <FlowStep>
+              <StepNumber>4</StepNumber>
+              <StepIcon>🔍</StepIcon>
+              <StepTitle>Final Check</StepTitle>
+              <StepDescription>학교 기출 + 유형별 약점 보완</StepDescription>
+            </FlowStep>
+            
+            <FlowStep>
+              <StepNumber>5</StepNumber>
+              <StepIcon>📝</StepIcon>
+              <StepTitle>예상 모의시험</StepTitle>
+              <StepDescription>1차·2차·Final로 점수 확정</StepDescription>
+            </FlowStep>
+          </FlowContainer>
+        </LearningFlowSection>
+      )}
 
       <Section>
         <SectionTitle>{school.fullName} 맞춤 LEVEL ME UP 커리큘럼</SectionTitle>
