@@ -779,27 +779,23 @@ const SchoolDetail: React.FC = () => {
 
       {school.achievements.length > 0 && (
         <Section>
-          <SectionTitle>최근 내신 성과</SectionTitle>
+          <SectionTitle>최근 내신 결과</SectionTitle>
           <AchievementTable>
             <thead>
               <tr>
-                <th>연도</th>
                 <th>학기</th>
                 <th>시험</th>
                 <th>과목</th>
-                <th>성과</th>
-                <th>학생</th>
+                <th>결과</th>
               </tr>
             </thead>
             <tbody>
               {school.achievements.map((achievement, index) => (
                 <tr key={index} className={achievement.score.includes('100점') ? 'highlight' : ''}>
-                  <td>{achievement.year}</td>
                   <td>{achievement.semester}</td>
                   <td>{achievement.exam}</td>
                   <td>{achievement.subject}</td>
                   <td className="score">{achievement.score}</td>
-                  <td>{achievement.students}</td>
                 </tr>
               ))}
             </tbody>
