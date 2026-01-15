@@ -282,10 +282,144 @@ const StepIcon = styled.div`
   opacity: 0.8;
 `;
 
+// New Template Components
+const TopTagline = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: #17B7A6;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+`;
+
+const SchoolOneLiner = styled.div`
+  text-align: center;
+  font-size: 1.15rem;
+  color: #555;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background: linear-gradient(135deg, #f8fffe 0%, #ffffff 100%);
+  border-left: 4px solid #17B7A6;
+  border-radius: 8px;
+  max-width: 800px;
+  line-height: 1.6;
+  font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 20px 24px;
+  }
+`;
+
+const ManagementSection = styled.section`
+  background: #F7F9FB;
+  padding: 50px 40px;
+  border-radius: 20px;
+  margin: 60px 0;
+  
+  @media (max-width: 768px) {
+    padding: 40px 24px;
+  }
+`;
+
+const ManagementTitle = styled.h2`
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+  font-weight: 700;
+`;
+
+const ManagementGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+`;
+
+const ManagementCard = styled.div`
+  background: white;
+  padding: 30px 24px;
+  border-radius: 15px;
+  border: 1px solid #E8EEF3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.15);
+    border-color: #17B7A6;
+  }
+`;
+
+const ManagementIcon = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+`;
+
+const ManagementCardTitle = styled.h3`
+  font-size: 1.1rem;
+  color: #17B7A6;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+`;
+
+const ManagementCardDesc = styled.p`
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+`;
+
+const BrandClosing = styled.div`
+  text-align: center;
+  padding: 50px 30px;
+  margin: 60px 0 0;
+  background: linear-gradient(135deg, #0B1B2A 0%, #102B3F 100%);
+  border-radius: 20px;
+  color: white;
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #D7DEE7;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 40px 24px;
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+`;
+
 interface SchoolData {
   name: string;
   fullName: string;
   description: string;
+  keyPoint?: string; // School-specific one-liner
   achievements: Array<{
     year: string;
     semester: string;
@@ -538,6 +672,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '덕산고',
     fullName: '덕산고등학교',
     description: '부천 지역 내신 대비 학교 - 시험범위 지문 숙지만으로도 높은 점수 가능',
+    keyPoint: '덕산고는 지문 이해 + 선택지 함정이 핵심입니다.',
     achievements: [
       {
         year: '2024',
@@ -584,6 +719,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '부명고',
     fullName: '부명고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '부명고는 어휘 난이도와 변형 포인트가 성적을 가릅니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
@@ -610,6 +746,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '계남고',
     fullName: '계남고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '계남고는 서술형과 문장 구조 문제가 변별력을 만듭니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
@@ -721,13 +858,24 @@ const SchoolDetail: React.FC = () => {
     <PageWrapper>
       <BackButton onClick={handleBackClick}>← 학교 목록으로 돌아가기</BackButton>
       
-      <PageTitle>{school.fullName} 내신 대비</PageTitle>
-      <PageSubtitle>LEVEL ME UP</PageSubtitle>
+      {/* 1. Top Tagline */}
+      <TopTagline>부천 내신, 학교별로 전략이 달라야 합니다.</TopTagline>
+      
+      {/* 2. Main Title */}
+      <PageTitle>레벨미업 | {school.name} 내신 맞춤 대비</PageTitle>
+      
+      {/* 3. Subtitle */}
+      <PageSubtitle>학교 이름을 클릭하면 해당 학교의 내신 대비 흐름을 확인하실 수 있습니다.</PageSubtitle>
 
-      {/* Learning Flow Infographic - Only for High Schools */}
+      {/* 4. School-Specific One-Liner */}
+      {school.keyPoint && isHighSchool && (
+        <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
+      )}
+
+      {/* 5. Learning Flow Infographic - Only for High Schools */}
       {isHighSchool && (
         <LearningFlowSection>
-          <FlowTitle>LEVEL ME UP 고등 내신 학습 흐름</FlowTitle>
+          <FlowTitle>레벨미업 학습 흐름</FlowTitle>
           <FlowContainer>
             <FlowStep>
               <StepNumber>1</StepNumber>
@@ -831,6 +979,46 @@ const SchoolDetail: React.FC = () => {
             ))}
           </Section>
         </>
+      )}
+
+      {/* 6. Custom Management System - Only for High Schools */}
+      {isHighSchool && (
+        <ManagementSection>
+          <ManagementTitle>레벨미업 {school.name} 맞춤 관리</ManagementTitle>
+          <ManagementGrid>
+            <ManagementCard>
+              <ManagementIcon>📚</ManagementIcon>
+              <ManagementCardTitle>단어 주기 테스트<br />+ 누적 관리</ManagementCardTitle>
+              <ManagementCardDesc>
+                매 수업 단어 테스트와 누적 복습으로 어휘력을 탄탄하게 다집니다
+              </ManagementCardDesc>
+            </ManagementCard>
+            
+            <ManagementCard>
+              <ManagementIcon>📖</ManagementIcon>
+              <ManagementCardTitle>학교 맞춤 교재<br />N회독</ManagementCardTitle>
+              <ManagementCardDesc>
+                {school.name} 출제 경향에 최적화된 교재로 반복 학습합니다
+              </ManagementCardDesc>
+            </ManagementCard>
+            
+            <ManagementCard>
+              <ManagementIcon>💬</ManagementIcon>
+              <ManagementCardTitle>지문 꼼꼼 숙지<br />+ 자유 질의응답</ManagementCardTitle>
+              <ManagementCardDesc>
+                시험범위 지문을 완벽히 이해하고 궁금한 점은 바로바로 해결합니다
+              </ManagementCardDesc>
+            </ManagementCard>
+          </ManagementGrid>
+        </ManagementSection>
+      )}
+
+      {/* 7. Brand Closing - Only for High Schools */}
+      {isHighSchool && (
+        <BrandClosing>
+          <h3>Slow and steady wins the race.</h3>
+          <p>흔들리지 않는 실력의 리듬을 만들어드립니다</p>
+        </BrandClosing>
       )}
 
       <Section>
