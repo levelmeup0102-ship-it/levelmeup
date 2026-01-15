@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { colors } from '../theme';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
@@ -34,46 +33,127 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.div`
   width: 100%;
-  background: #0F1B2A;
+  min-height: 480px;
+  background: linear-gradient(135deg, #0a1628 0%, #0f1b2a 50%, #1a2332 100%);
   position: relative;
   overflow: hidden;
-  padding: 0;
-`;
-
-const HeroImageWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  background: #0F1B2A;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 80px 20px;
   
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    max-height: 600px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(23, 183, 166, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(23, 183, 166, 0.02) 0%, transparent 50%);
+    pointer-events: none;
   }
   
-  @media (max-width: 1400px) {
-    img {
-      max-height: 500px;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.015;
+    pointer-events: none;
   }
   
   @media (max-width: 968px) {
-    img {
-      max-height: 400px;
-      object-fit: cover;
-    }
+    min-height: 320px;
+    padding: 60px 20px;
   }
   
   @media (max-width: 768px) {
-    img {
-      max-height: 300px;
-      object-fit: cover;
-    }
+    min-height: 280px;
+    padding: 50px 16px;
+  }
+`;
+
+const HeroContent = styled.div`
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: ${riseUp} 1s ease-out;
+`;
+
+const HeroMainTitle = styled.h1`
+  font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  color: #F5F7FA;
+  margin: 0 0 36px 0;
+  text-transform: uppercase;
+  
+  @media (max-width: 1200px) {
+    font-size: 3.6rem;
+  }
+  
+  @media (max-width: 968px) {
+    font-size: 2.8rem;
+    margin-bottom: 28px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+  }
+`;
+
+const HeroAccentLine = styled.div`
+  width: 120px;
+  height: 3px;
+  background: #17B7A6;
+  margin: 0 auto 36px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(23, 183, 166, 0.4), 0 0 20px rgba(23, 183, 166, 0.2);
+  animation: ${riseUp} 1s ease-out 0.2s backwards;
+  
+  @media (max-width: 968px) {
+    width: 100px;
+    margin-bottom: 28px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 2px;
+    margin-bottom: 24px;
+  }
+`;
+
+const HeroSubTitle = styled.h2`
+  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #D7DEE7;
+  margin: 0;
+  animation: ${riseUp} 1s ease-out 0.3s backwards;
+  
+  @media (max-width: 1200px) {
+    font-size: 1.75rem;
+  }
+  
+  @media (max-width: 968px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+    letter-spacing: 0;
   }
 `;
 
@@ -260,16 +340,17 @@ const Paragraph = styled.p`
   line-height: 1.9;
 `;
 
-const IntroTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+const IntroSubtitle = styled.p`
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   color: #17B7A6;
-  margin-bottom: 32px;
-  line-height: 1.4;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  font-style: italic;
   
   @media (max-width: 768px) {
-    font-size: 1.75rem;
+    font-size: 0.875rem;
   }
 `;
 
@@ -548,12 +629,14 @@ const About: React.FC = () => {
   return (
     <PageWrapper>
       <HeroSection>
-        <HeroImageWrapper>
-          <img 
-            src="/images/about-banner-v2.png" 
-            alt="SLOW AND STEADY WINS THE RACE - Progress, not pressure" 
-          />
-        </HeroImageWrapper>
+        <HeroContent>
+          <HeroMainTitle>
+            SLOW AND STEADY<br />
+            WINS THE RACE.
+          </HeroMainTitle>
+          <HeroAccentLine />
+          <HeroSubTitle>Progress, not pressure.</HeroSubTitle>
+        </HeroContent>
       </HeroSection>
 
       <TabContainer data-tab-container>
@@ -572,7 +655,7 @@ const About: React.FC = () => {
         {activeTab === 'info' && (
           <TabContent>
             <Section>
-              <IntroTitle>Progress, not pressure.</IntroTitle>
+              <IntroSubtitle>우리가 추구하는 교육 철학</IntroSubtitle>
               
               <IntroParagraph>
                 레벨미업은 학생을 몰아붙이기보다, <strong>흔들리지 않는 실력의 리듬</strong>을 먼저 만듭니다.<br />
