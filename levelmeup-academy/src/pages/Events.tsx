@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { colors } from '../theme';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +21,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
     margin: 20px auto;
     border-radius: 2px;
   }
@@ -29,90 +31,130 @@ const PageSubtitle = styled.p`
   text-align: center;
   font-size: 1.2rem;
   color: #666;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 `;
 
-const EventGrid = styled.div`
+const TabContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #e0e0e0;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+    border-bottom: none;
+  }
+`;
+
+const Tab = styled.button<{ active: boolean }>`
+  padding: 15px 30px;
+  background: ${props => props.active ? 'white' : 'transparent'};
+  border: none;
+  border-bottom: 3px solid ${props => props.active ? colors.green.primary : 'transparent'};
+  font-size: 1.1rem;
+  font-weight: ${props => props.active ? '700' : '500'};
+  color: ${props => props.active ? colors.green.primary : '#666'};
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover {
+    color: ${colors.green.primary};
+    background: #fafafa;
+  }
+  
+  @media (max-width: 768px) {
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 3px solid ${props => props.active ? colors.green.primary : 'transparent'};
+    text-align: left;
+    padding: 12px 20px;
+  }
+`;
+
+const TabContent = styled.div`
+  animation: fadeIn 0.3s ease-in;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+const InfoBox = styled.div`
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(255, 109, 0, 0.05) 100%);
+  padding: 25px 30px;
+  border-radius: 12px;
+  border-left: 4px solid ${colors.green.primary};
+  margin-bottom: 40px;
+  text-align: center;
+  
+  p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+  }
+`;
+
+const ContentGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-bottom: 40px;
 `;
 
-const EventCard = styled.div<{ featured?: boolean }>`
+const ContentCard = styled.div`
   background: white;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: all 0.3s;
-  border: ${props => props.featured ? '3px solid #667eea' : 'none'};
-  position: relative;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
   }
 `;
 
-const FeaturedBadge = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #ff6b6b;
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  z-index: 1;
-`;
-
-const EventImage = styled.div<{ bgColor: string }>`
-  height: 220px;
+const CardHeader = styled.div<{ bgColor: string }>`
   background: ${props => props.bgColor};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  position: relative;
-  color: white;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
-    background-size: 30px 30px;
-  }
+  color: #2c3e50;
+  padding: 25px;
+  text-align: center;
 `;
 
-const EventDate = styled.div`
-  font-size: 1rem;
-  margin-top: 10px;
-  opacity: 0.9;
+const CardDate = styled.div`
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 8px;
 `;
 
-const EventContent = styled.div`
-  padding: 30px;
-`;
-
-const EventTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+const CardTitle = styled.h3`
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
   color: #1a1a1a;
 `;
 
-const EventDescription = styled.p`
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 20px;
+const CardContent = styled.div`
+  padding: 30px;
 `;
 
-const EventDetails = styled.ul`
+const CardDescription = styled.p`
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 0.98rem;
+`;
+
+const CardDetails = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
@@ -121,242 +163,331 @@ const EventDetails = styled.ul`
     padding: 8px 0;
     color: #444;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
     
     &::before {
-      content: '✓';
-      color: #667eea;
+      content: '•';
+      color: ${colors.green.primary};
       font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: -2px;
     }
   }
 `;
 
-const EventButton = styled(Link)`
+const CardButton = styled(Link)`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   color: white;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: all 0.3s;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
   }
 `;
 
 const ExternalButton = styled.a`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   color: white;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: all 0.3s;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
   }
 `;
 
 const Events: React.FC = () => {
-  const events = [
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState<'insights' | 'programs' | 'management'>('insights');
+  
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash === 'analysis') {
+      setActiveTab('insights');
+    } else if (hash === 'programs') {
+      setActiveTab('programs');
+    } else if (hash === 'management') {
+      setActiveTab('management');
+    }
+    
+    // 탭 전환 후 스크롤
+    if (hash) {
+      setTimeout(() => {
+        const tabContainer = document.querySelector('[data-tab-container]');
+        if (tabContainer) {
+          tabContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  // 내신 인사이트 콘텐츠
+  const insightsContent = [
     {
-      featured: true,
-      title: 'MOVIE DAY 극장 대관 이벤트 🎬',
-      emoji: '🎥',
-      date: '2025년 1월 학기 Moving Day',
-      bgColor: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-      description: '레벨미업 학생들을 위한 특별한 극장 대관 이벤트! 영화 관람과 함께하는 특별한 하루.',
+      title: '25년 2학기 내신 결과 분석',
+      date: '',
+      bgColor: 'linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%)',
+      description: '학교별 내신 시험 경향과 레벨미업 재원생들의 성적 향상 결과를 상세히 분석하여 다음 내신 대비 커리큘럼을 수립합니다.',
       details: [
-        '레벨미업 재원생 전원 초대',
-        '인기 신작 영화 단독 상영',
-        '팝콘·음료 무료 제공',
-        '명예의 전당 시상식',
-        '학원 우수 학생 14명 시상',
-        '30초 하이라이트 + 4분 전체 영상'
+        '부천 중고등학교 내신 분석 및 대비 전략',
+        '1등급, 만점 등 우수 성적 게재',
+        '재원생 평균 1,2 등급 향상 성과'
       ],
-      link: '/events/movie-day'
+      link: 'https://blog.naver.com/levelmeup'
     },
     {
-      featured: true,
-      title: '2024 겨울방학 특강',
-      emoji: '❄️',
-      date: '2024.12.23 - 2025.02.28',
-      bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      description: '겨울방학 동안 집중적으로 실력을 향상시킬 수 있는 특별 프로그램입니다.',
+      title: '고등학교별 내신 출제 경향',
+      date: '정기 업데이트',
+      bgColor: 'linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%)',
+      description: '부천 지역 주요 고등학교의 내신 출제 유형과 난이도를 지속적으로 분석하여 공유합니다.',
       details: [
-        '전 과목 8주 완성 커리큘럼',
-        '매일 학습 관리 및 테스트',
-        '소규모 맞춤형 수업',
-        '조기 등록 시 20% 할인'
+        '학교별 출제 패턴 분석',
+        '과목별 난이도 및 변별력 정리',
+        '효과적인 내신 대비 방법 제시'
+      ],
+      link: 'https://blog.naver.com/levelmeup'
+    },
+    {
+      title: '월간 학습 성과 리포트',
+      date: '매월 발행',
+      bgColor: 'linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%)',
+      description: '재원생들의 학습 진도와 성적 변화를 정기적으로 분석하여 학부모님께 안내드립니다.',
+      details: [
+        '개별 학생 성적 추이 분석',
+        '학습 목표 대비 달성도 점검',
+        '다음 달 학습 계획 수립'
+      ],
+      link: 'https://blog.naver.com/levelmeup'
+    }
+  ];
+
+  // 특강·프로그램 콘텐츠
+  const programsContent = [
+    {
+      title: '수학 CLASS UP 특강',
+      target: '중1 ~ 고2',
+      date: '1차 개강 2026년 1월 4일 (일)',
+      schedule: '주 1회 일요일',
+      bgColor: 'linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%)',
+      description: '고등 교과학습을 위한 연계개념 총정리 및 문제풀이 특강입니다.',
+      details: [
+        '고등 교과학습 연계개념 총정리',
+        '체계적인 문제풀이 훈련',
+        '학년별 맞춤 커리큘럼',
+        '개념 이해부터 응용까지 단계별 학습'
       ],
       link: '/consulting'
     },
     {
-      featured: true,
-      title: '신규 등록 이벤트',
-      emoji: '🎁',
-      date: '상시 진행',
-      bgColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      description: '레벨미업에 처음 등록하시는 분들을 위한 특별 혜택!',
+      title: '수학 기하 특강',
+      target: '고등부 (고1 ~ 고2)',
+      date: '2026년 1월 2일 (금) 개강',
+      schedule: '주 1회 금요일',
+      bgColor: 'linear-gradient(135deg, #E1F5FE 0%, #B3E5FC 100%)',
+      description: '선택과목 기하 선행 개념 강의 및 유형 문제풀이 특강입니다.',
       details: [
-        '첫 달 수강료 30% 할인',
-        '교재비 무료 제공',
-        '무료 레벨테스트',
-        '1:1 맞춤 학습 컨설팅'
+        '기하 선행 개념 완성',
+        '유형별 문제풀이 집중 훈련',
+        '고난도 문제 대비',
+        '내신 및 수능 대비 학습'
       ],
       link: '/consulting'
     },
     {
-      featured: false,
-      title: '친구 초대 이벤트',
-      emoji: '👫',
-      date: '2024.12.01 - 2024.12.31',
-      bgColor: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      description: '친구를 초대하고 함께 공부하면 더 많은 혜택을!',
+      title: '영어 Sentence UP 특강',
+      target: '중등부 (중1 ~ 중3)',
+      date: '2026년 1월 16일 (금) 개강',
+      schedule: '주 1회 금요일',
+      bgColor: 'linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%)',
+      description: '중등 기초 문법 정리 및 서술형 문항 연습 특강입니다.',
       details: [
-        '친구 1명 초대 시 스타벅스 기프티콘',
-        '친구 2명 이상 초대 시 추가 할인',
-        '함께 등록 시 각 15% 할인',
-        '그룹 스터디룸 무료 제공'
-      ]
+        '중등 기초 문법 체계적 정리',
+        '서술형 문항 집중 연습',
+        '문장 구조 분석 훈련',
+        '영작 및 독해 실력 향상'
+      ],
+      link: '/consulting'
     },
     {
-      featured: false,
-      title: '성적 향상 챌린지',
-      emoji: '🚀',
-      date: '매 학기 진행',
-      bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      description: '성적 향상 목표를 달성한 학생들에게 드리는 보상!',
+      title: '영어 Intensive GRAMMAR 특강',
+      target: '고등부 (고1 ~ 고3)',
+      date: '2026년 1월 16일 (금) 개강',
+      schedule: '주 1회 금요일',
+      bgColor: 'linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%)',
+      description: '고등 핵심 문법 구조화 및 서술형 문항 연습 특강입니다.',
       details: [
-        '2등급 향상 시 다음 달 50% 할인',
-        '1등급 달성 시 특별 상품',
-        '만점 달성 시 전액 환급',
-        '우수 학생 시상식'
-      ]
+        '고등 핵심 문법 체계적 구조화',
+        '서술형 문항 집중 연습',
+        '문법 개념 완성 및 응용',
+        '내신 대비 문법 완벽 정리'
+      ],
+      link: '/consulting'
     },
     {
-      featured: false,
-      title: '무료 학습 상담',
-      emoji: '💬',
-      date: '상시 진행',
-      bgColor: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      description: '학습 고민이 있으신가요? 무료로 상담해드립니다.',
+      title: '레벨미업 윈텀스쿨',
+      target: '중1 ~ 고3',
+      date: '2026년 1월 5일 (월) 개강',
+      schedule: '월 ~ 금 09:00 ~ 17:00',
+      bgColor: 'linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%)',
+      description: '겨울방학 자습 지도 및 학습 개인 관리 프로그램입니다.',
       details: [
-        '1:1 맞춤 학습 계획 수립',
-        '과목별 학습 전략 상담',
-        '진학 상담 및 정보 제공',
-        '학부모 상담 가능'
-      ]
-    },
+        '입시상담 - 진학 목표 설계 및 전략 수립',
+        '자습 관리 - 평일 의무자습 및 출결 관리',
+        '학습 코칭 - 주간 학습계획 작성 및 점검',
+        '멘토의 학습 피드백 및 비교과 활동 설계'
+      ],
+      link: '/winter-school'
+    }
+  ];
+
+  // 학습 관리 시스템 콘텐츠
+  const managementContent = [
     {
-      featured: false,
       title: '모의고사 무료 응시',
-      emoji: '📝',
-      date: '매월 마지막 주 토요일',
-      bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      description: '실전처럼 모의고사를 풀고 상세한 분석 리포트를 받으세요.',
+      date: '매주 주말',
+      bgColor: 'linear-gradient(135deg, #EDE7F6 0%, #D1C4E9 100%)',
+      description: '실전과 동일한 환경에서 모의고사를 응시하고, 현재 학습 수준을 정확히 파악할 수 있습니다.',
       details: [
-        '실전 모의고사 무료 응시',
-        '상세한 성적 분석 리포트',
-        '취약 영역 파악 및 보완',
-        '비회원도 참여 가능'
+        '실전 모의고사를 통한 현재 수준 점검',
+        '상세한 성적 분석 및 취약 영역 파악',
+        '개별 맞춤 학습 방향 제시'
+      ]
+    },
+    {
+      title: '성적 향상 챌린지',
+      date: '매 학기 진행',
+      bgColor: 'linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%)',
+      description: '목표 설정부터 과정 관리, 결과 확인까지 체계적인 학습 동기 부여 시스템입니다.',
+      details: [
+        '학기 초 개인별 목표 등급 설정',
+        '주간 학습 진도 점검 및 피드백',
+        '목표 달성 시 학습 동기 부여 혜택',
+        '꾸준한 관리를 통한 실질적 성적 향상'
       ]
     }
   ];
 
   return (
     <PageWrapper>
-      <PageTitle>이벤트</PageTitle>
-      <PageSubtitle>레벨미업 학원의 다양한 이벤트와 혜택을 놓치지 마세요!</PageSubtitle>
+      <PageTitle>학원소식</PageTitle>
+      <PageSubtitle>레벨미업 학원의 다양한 소식과 학습 관리 시스템을 확인하세요</PageSubtitle>
 
-      <EventGrid>
-        {events.map((event, index) => (
-          <EventCard key={index} featured={event.featured}>
-            {event.featured && <FeaturedBadge>HOT 🔥</FeaturedBadge>}
-            <EventImage bgColor={event.bgColor}>
-              <div>{event.emoji}</div>
-              <EventDate>{event.date}</EventDate>
-            </EventImage>
-            <EventContent>
-              <EventTitle>{event.title}</EventTitle>
-              <EventDescription>{event.description}</EventDescription>
-              <EventDetails>
-                {event.details.map((detail, idx) => (
-                  <li key={idx}>{detail}</li>
-                ))}
-              </EventDetails>
-              {event.link && (
-                event.link.startsWith('http') ? (
-                  <ExternalButton href={event.link} target="_blank" rel="noopener noreferrer">
-                    자세히 보기 →
+      <TabContainer data-tab-container>
+        <Tab active={activeTab === 'insights'} onClick={() => setActiveTab('insights')}>
+          내신 인사이트
+        </Tab>
+        <Tab active={activeTab === 'programs'} onClick={() => setActiveTab('programs')}>
+          특강·프로그램 안내
+        </Tab>
+        <Tab active={activeTab === 'management'} onClick={() => setActiveTab('management')}>
+          학습 관리 시스템
+        </Tab>
+      </TabContainer>
+
+      {activeTab === 'insights' && (
+        <TabContent>
+          <InfoBox>
+            <p>
+              학교별 내신 분석과 실제 성적 결과는<br />
+              레벨미업 공식 블로그를 통해 정기적으로 공유하고 있습니다.
+            </p>
+          </InfoBox>
+          <ContentGrid>
+            {insightsContent.map((content, index) => (
+              <ContentCard key={index}>
+                <CardHeader bgColor={content.bgColor}>
+                  <CardDate>{content.date}</CardDate>
+                  <CardTitle>{content.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{content.description}</CardDescription>
+                  <CardDetails>
+                    {content.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </CardDetails>
+                  <ExternalButton href={content.link} target="_blank" rel="noopener noreferrer">
+                    블로그에서 자세히 보기 →
                   </ExternalButton>
-                ) : (
-                  <EventButton to={event.link}>
-                    {event.link === '/events/movie-day' ? '영상·사진 보기 🎬 →' : '상담 신청하기 →'}
-                  </EventButton>
-                )
-              )}
-            </EventContent>
-          </EventCard>
-        ))}
-      </EventGrid>
+                </CardContent>
+              </ContentCard>
+            ))}
+          </ContentGrid>
+        </TabContent>
+      )}
 
-      <div style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white',
-        padding: '60px 40px',
-        borderRadius: '20px',
-        textAlign: 'center',
-        marginTop: '40px'
-      }}>
-        <h2 style={{fontSize: '2rem', marginBottom: '20px'}}>
-          궁금한 점이 있으신가요?
-        </h2>
-        <p style={{fontSize: '1.2rem', marginBottom: '30px', opacity: 0.9}}>
-          전화 또는 온라인으로 문의하시면 친절하게 안내해드립니다.
-        </p>
-        <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
-          <button style={{
-            background: 'white',
-            color: '#667eea',
-            padding: '15px 40px',
-            borderRadius: '50px',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            border: 'none',
-            cursor: 'pointer'
-          }}>
-            📞 전화 상담: 032-322-0592
-          </button>
-          <button style={{
-            background: 'rgba(255,255,255,0.2)',
-            color: 'white',
-            padding: '15px 40px',
-            borderRadius: '50px',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            border: '2px solid white',
-            cursor: 'pointer'
-          }}>
-            💬 온라인 상담 신청
-          </button>
-        </div>
-      </div>
+      {activeTab === 'programs' && (
+        <TabContent>
+          <ContentGrid>
+            {programsContent.map((content, index) => (
+              <ContentCard key={index}>
+                <CardHeader bgColor={content.bgColor}>
+                  <CardTitle>{content.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDetails style={{marginBottom: '15px', borderBottom: '1px solid #f0f0f0', paddingBottom: '15px'}}>
+                    <li><strong>대상:</strong> {content.target}</li>
+                    <li><strong>개강시기:</strong> {content.date}</li>
+                    <li><strong>시간표:</strong> {content.schedule}</li>
+                  </CardDetails>
+                  <CardDescription>{content.description}</CardDescription>
+                  <CardDetails>
+                    {content.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </CardDetails>
+                  <CardButton to={content.link}>
+                    자세히 보기 →
+                  </CardButton>
+                </CardContent>
+              </ContentCard>
+            ))}
+          </ContentGrid>
+        </TabContent>
+      )}
+
+      {activeTab === 'management' && (
+        <TabContent>
+          <ContentGrid>
+            {managementContent.map((content, index) => (
+              <ContentCard key={index}>
+                <CardHeader bgColor={content.bgColor}>
+                  <CardDate>{content.date}</CardDate>
+                  <CardTitle>{content.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{content.description}</CardDescription>
+                  <CardDetails>
+                    {content.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </CardDetails>
+                </CardContent>
+              </ContentCard>
+            ))}
+          </ContentGrid>
+        </TabContent>
+      )}
     </PageWrapper>
   );
 };

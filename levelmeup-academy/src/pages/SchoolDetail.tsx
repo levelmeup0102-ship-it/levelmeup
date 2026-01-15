@@ -1,4 +1,5 @@
 import React from 'react';
+import { colors, gradients } from '../theme';
 import { useParams, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -19,7 +20,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -56,7 +57,7 @@ const AchievementTable = styled.table`
   margin-bottom: 40px;
   
   thead {
-    background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
     color: white;
   }
   
@@ -91,11 +92,11 @@ const AchievementTable = styled.table`
   .highlight {
     background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
     font-weight: bold;
-    color: #1a5f3d;
+    color: #4CAF50;
   }
   
   .score {
-    color: #ff8c42;
+    color: #FF6D00;
     font-weight: bold;
     font-size: 1.1rem;
   }
@@ -105,7 +106,7 @@ const BackButton = styled(Link)`
   display: inline-block;
   margin-bottom: 30px;
   padding: 12px 30px;
-  background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -122,13 +123,13 @@ const InfoBox = styled.div`
   background: #f8f9fa;
   padding: 25px;
   border-radius: 10px;
-  border-left: 5px solid #1a5f3d;
+  border-left: 5px solid #4CAF50;
   margin-bottom: 30px;
   
   h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #1a5f3d;
+    color: #4CAF50;
   }
   
   p {
@@ -155,7 +156,6 @@ interface SchoolData {
     difficulty: string;
     keyPoints: string[];
     strategies: string[];
-    blogUrl?: string;
   }[];
   features: string[];
 }
@@ -201,6 +201,29 @@ const schoolsData: Record<string, SchoolData> = {
     ],
     examAnalysis: [
       {
+        title: '심원고1 25년 2학기 기말고사 영어 시험 분석',
+        difficulty: '평이한 난이도 - 객관식만 출제, 전형적인 내신형 스타일',
+        keyPoints: [
+          '모든 문항이 객관식으로 구성 (서술형 없음)',
+          '전반적으로 평이한 난이도로 출제',
+          '기존 심원고 경향성 유지: 너무 어렵지도 쉽지도 않은 전형적 내신형',
+          '함축 의미 유형이 속담 선지로 구성 - 실수 유발',
+          '빈칸 유형 오답 선지가 원문과 형태 유사 - 주의 필요',
+          '삽입/순서/흐름 유형에서 원문 변형 출제 포인트 활용',
+          '어법 유형이 가장 난이도 높게 출제 (가정법, 수일치, 관계사, 자타동사)',
+          '레벨미업 적중 문항 24문항 다수 (객관식 1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24번 등)'
+        ],
+        strategies: [
+          '꼼꼼한 지문 숙지 필수 - 빨리 풀고 넘어가면 실수 유발',
+          '많은 기출 문제와 변형 문제 풀이로 출제 포인트 파악',
+          '실전 감각 늘리는 연습 중요',
+          '어법 유형 집중 대비: 가정법, 수일치, 관계사, 자동사/타동사',
+          '속담 선지 대비: 함축 의미 유형 숙지',
+          '빈칸 유형 대비: 원문과 형태 유사한 오답 선지 주의',
+          '레벨미업 심원고 맞춤 커리큘럼: 3회독 + Final Check + 예상 모의시험 1,2차, Final'
+        ]
+      },
+      {
         title: '2024-2학기 기말고사 영어 시험 분석',
         difficulty: '평이한 난이도 - 실수 방지가 핵심',
         keyPoints: [
@@ -215,8 +238,7 @@ const schoolsData: Record<string, SchoolData> = {
           '모의고사 독해 연습을 통한 실전 대비',
           '심원고 함정 보기 유의 (부정어, 반의어)',
           '논술형은 조건과 어법에 맞춰 기본 문장 영작 연습 필수'
-        ],
-        blogUrl: 'https://blog.naver.com/levelmeup/223680335389'
+        ]
       },
       {
         title: '2024-2학기 중간고사 영어 시험 분석',
@@ -230,8 +252,7 @@ const schoolsData: Record<string, SchoolData> = {
           '시험범위 지문에 대한 완벽한 숙지',
           '변형 문제 다양하게 풀어보기',
           '서술형 대비 영작 연습'
-        ],
-        blogUrl: 'https://blog.naver.com/levelmeup/223602407428'
+        ]
       }
     ],
     features: [
@@ -300,8 +321,7 @@ const schoolsData: Record<string, SchoolData> = {
           '모르는 단어를 정리하며 복습하는 습관',
           '서술형: 직접 영작해보는 연습 (유형이 매년 변화)',
           '중하위권: 70점 목표로 본문 학습 꼼꼼히'
-        ],
-        blogUrl: 'https://blog.naver.com/levelmeup/223621470108'
+        ]
       },
       {
         title: '2024-1학기 중간고사 영어 시험 분석 (고3)',
@@ -315,8 +335,7 @@ const schoolsData: Record<string, SchoolData> = {
           '시험범위 본문 완벽 숙지',
           '외부지문 대비 모의고사 독해 연습',
           '실수 방지를 위한 꼼꼼한 검토'
-        ],
-        blogUrl: 'https://blog.naver.com/levelmeup/223455971217'
+        ]
       }
     ],
     features: [
@@ -406,8 +425,7 @@ const schoolsData: Record<string, SchoolData> = {
           '고1 빈출 단어 반드시 학습',
           '서술형: 빈칸 영작 유형 대비 (어법에 맞게 문장 쓰기 연습)',
           '지문 내 핵심 문장 확인하고 영작 연습'
-        ],
-        blogUrl: 'https://blog.naver.com/levelmeup/223451495397'
+        ]
       }
     ],
     features: [
@@ -577,7 +595,7 @@ const SchoolDetail: React.FC = () => {
           {school.examAnalysis.map((analysis, index) => (
             <Section key={index}>
               <SectionTitle>{analysis.title}</SectionTitle>
-              <InfoBox style={{borderLeft: '5px solid #ff8c42'}}>
+              <InfoBox style={{borderLeft: '5px solid #FF6D00'}}>
                 <h3>시험 난이도</h3>
                 <p><strong>{analysis.difficulty}</strong></p>
               </InfoBox>
@@ -589,35 +607,12 @@ const SchoolDetail: React.FC = () => {
                 ))}
               </InfoBox>
               
-              <InfoBox style={{borderLeft: '5px solid #2d8659'}}>
+              <InfoBox style={{borderLeft: '5px solid #66BB6A'}}>
                 <h3>대비 전략</h3>
                 {analysis.strategies.map((strategy, idx) => (
                   <p key={idx}>✓ {strategy}</p>
                 ))}
               </InfoBox>
-              
-              {analysis.blogUrl && (
-                <div style={{textAlign: 'center', marginTop: '20px'}}>
-                  <a 
-                    href={analysis.blogUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-block',
-                      background: 'linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%)',
-                      color: 'white',
-                      padding: '12px 30px',
-                      borderRadius: '25px',
-                      fontWeight: 'bold',
-                      textDecoration: 'none',
-                      boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-                      transition: 'all 0.3s'
-                    }}
-                  >
-                    블로그에서 전체 분석 보기 →
-                  </a>
-                </div>
-              )}
             </Section>
           ))}
         </>
@@ -636,7 +631,7 @@ const SchoolDetail: React.FC = () => {
             to="/consulting"
             style={{
               display: 'inline-block',
-              background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
+              background: 'linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%)',
               color: 'white',
               padding: '15px 40px',
               borderRadius: '50px',

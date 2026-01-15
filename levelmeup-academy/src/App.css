@@ -1,3 +1,27 @@
+:root {
+  /* Primary Colors - Deep Teal */
+  --primary: #18B7A6;
+  --primary-hover: #0E8F86;
+  --primary-light: #2DD4C1;
+  --primary-soft: rgba(24, 183, 166, 0.15);
+  --primary-dark: #0A6B64;
+  
+  /* Background Colors */
+  --bg-navy-dark: #0A1929;
+  --bg-navy-medium: #1A2332;
+  --bg-navy-light: #2C3E50;
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0BEC5;
+  --text-dark: #1E1E1E;
+  --text-gray: #757575;
+  
+  /* Accent Colors */
+  --accent-red: #E53935;
+  --accent-orange: #FF6D00;
+}
+
 * {
   margin: 0;
   padding: 0;

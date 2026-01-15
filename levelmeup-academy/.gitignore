@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Large build files
+*.tar.gz
+*.zip
+levelmeup-build-*.zip
+levelmeup-build.tar.gz

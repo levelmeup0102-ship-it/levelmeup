@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import { colors } from '../theme';
 
 const PageWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
 `;
@@ -18,7 +19,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: linear-gradient(135deg, ${colors.green.primary} 0%, #66BB6A 100%);
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -26,415 +27,413 @@ const PageTitle = styled.h1`
 
 const PageSubtitle = styled.p`
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   color: #666;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  line-height: 1.6;
 `;
 
-const TabContainer = styled.div`
+const MainTabContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 50px;
+  gap: 12px;
+  margin-bottom: 30px;
   flex-wrap: wrap;
 `;
 
-const Tab = styled.button<{ active: boolean }>`
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: bold;
+const MainTab = styled.button<{ active: boolean }>`
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s;
   cursor: pointer;
-  border: 3px solid ${props => props.active ? '#1a5f3d' : '#ddd'};
-  background: ${props => props.active ? 'linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%)' : 'white'};
+  border: 2px solid ${props => props.active ? colors.green.primary : '#ddd'};
+  background: ${props => props.active ? colors.green.primary : 'white'};
   color: ${props => props.active ? 'white' : '#666'};
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(26, 95, 61, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
   }
 `;
 
-const TimeTable = styled.table`
+const SubTabContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+`;
+
+const SubTab = styled.button<{ active: boolean }>`
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 1.5px solid ${props => props.active ? colors.green.primary : '#ddd'};
+  background: ${props => props.active ? 'rgba(76, 175, 80, 0.1)' : 'white'};
+  color: ${props => props.active ? colors.green.primary : '#666'};
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  
+  &:hover {
+    border-color: ${colors.green.primary};
+    color: ${colors.green.primary};
+  }
+`;
+
+const ContentSection = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  font-weight: 700;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+`;
+
+const ClassTable = styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 40px;
+  margin-top: 20px;
   
   thead {
-    background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
+    background: linear-gradient(135deg, ${colors.green.primary} 0%, #66BB6A 100%);
     color: white;
+    
+    th {
+      padding: 15px 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
   }
   
-  th, td {
-    padding: 20px 15px;
-    text-align: center;
-    border-bottom: 1px solid #e9ecef;
-    border-right: 1px solid #e9ecef;
-  }
-  
-  th {
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-  
-  tbody tr {
-    &:hover {
-      background: #f8f9fa;
+  tbody {
+    tr {
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: #f9f9f9;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
     }
     
-    &:last-child td {
-      border-bottom: none;
+    td {
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      border-right: 1px solid #f0f0f0;
+      
+      &:last-child {
+        border-right: none;
+      }
+      
+      &:first-of-type {
+        font-weight: 600;
+        color: #2d2d2d;
+      }
     }
   }
   
-  td {
-    font-size: 0.95rem;
-    color: #333;
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
     
-    &:first-of-type {
-      font-weight: bold;
-      background: #f8f9fa;
-      color: #1a5f3d;
+    thead th, tbody td {
+      padding: 10px 8px;
     }
-    
-    &:last-child {
-      border-right: none;
-    }
-  }
-  
-  .class-cell {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    font-weight: 500;
-    color: #1a5f3d;
-    line-height: 1.6;
-    
-    .subject {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    
-    .teacher {
-      font-size: 0.85rem;
-      color: #666;
-    }
-  }
-  
-  .empty-cell {
-    background: #fafafa;
-    color: #999;
   }
 `;
 
 const InfoBox = styled.div`
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  border-left: 5px solid #1a5f3d;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(102, 187, 106, 0.05) 100%);
+  padding: 25px 30px;
+  border-radius: 12px;
+  margin-top: 50px;
+  border-left: 4px solid ${colors.green.primary};
   
   h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #1a5f3d;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-weight: 700;
   }
   
   ul {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
   
   li {
-    padding: 12px 0;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
     
-    &:last-child {
-      border-bottom: none;
-    }
-    
-    .label {
+    &:before {
+      content: '•';
+      color: ${colors.green.primary};
       font-weight: bold;
-      color: #333;
-    }
-    
-    .value {
-      color: #666;
+      display: inline-block;
+      width: 1em;
+      margin-right: 8px;
     }
   }
 `;
 
 interface ClassInfo {
-  subject: string;
-  teacher: string;
+  name: string;
+  grade: string;
+  content: string;
+  days: string;
 }
 
-type Schedule = Record<string, ClassInfo | null>;
+interface SubjectData {
+  title: string;
+  classes: ClassInfo[];
+}
 
-const schedules: Record<string, { monday: Schedule; tuesday: Schedule; wednesday: Schedule; thursday: Schedule; friday: Schedule }> = {
+type GradeTab = '중학생' | '고1' | '고2' | '고3';
+type SubjectTab = 'korean' | 'english' | 'math' | 'science';
+
+const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
   '중학생': {
-    monday: {
-      '16:00-17:20': { subject: '중등 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '중등 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '중등 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': null
+    korean: {
+      title: '중등 국어',
+      classes: [
+        { name: '중등 기초', grade: '중1', content: '중등 기초 어휘/문법/이론 학습', days: '금' },
+        { name: '중등 심화', grade: '중2, 중3', content: '중등 심화 어휘/문법/이론 학습', days: '금' },
+        { name: '모의고사 리뷰', grade: '중1, 중2, 중3', content: '모의고사 오답 분석 및 보완', days: '토 / 일' }
+      ]
     },
-    tuesday: {
-      '16:00-17:20': { subject: '중등 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '중등 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '중등 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': null
+    english: {
+      title: '중등 영어',
+      classes: [
+        { name: 'Starter 1', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
+        { name: 'Starter 2', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
+        { name: 'Intermediate 1', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
+        { name: 'Intermediate 2', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
+        { name: 'Advanced 1', grade: '중3', content: '고1 모의고사 preview', days: '주 2회 + ICC' },
+        { name: 'Advanced 2', grade: '중3', content: '고1 모의고사 preview', days: '주 2회 + ICC' }
+      ]
     },
-    wednesday: {
-      '16:00-17:20': { subject: '중등 영어', teacher: '영어 전문 강사' },
-      '17:30-18:50': { subject: '중등 수학', teacher: '수학 전문 강사' },
-      '19:00-20:20': { subject: '중등 국어', teacher: '국어 전문 강사' },
-      '20:30-21:50': null
+    math: {
+      title: '중등 수학',
+      classes: [
+        { name: '중 1-1 B', grade: '중1', content: '중1 1학기 선행 개념 학습 및 유형문풀', days: '주 3회 + ICC' },
+        { name: '중 2-1 A', grade: '중2', content: '중2 1학기 기말~중2 2학기', days: '주 3회 + ICC' },
+        { name: '중 2-1 B', grade: '중2', content: '중2 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' },
+        { name: '중 3-1 A', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' },
+        { name: '중 3-1 B', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' }
+      ]
     },
-    thursday: {
-      '16:00-17:20': { subject: '중등 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '중등 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '중등 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': null
-    },
-    friday: {
-      '16:00-17:20': { subject: '중등 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '중등 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '중등 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': null
-    }
+    science: null
   },
   '고1': {
-    monday: {
-      '16:00-17:20': { subject: '고1 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고1 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고1 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
+    korean: {
+      title: '고1 국어',
+      classes: [
+        { name: '고1 A', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '주 1회 + 클리닉' },
+        { name: '고1 B', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '주 1회 + 클리닉' },
+        { name: 'weekly 모의', grade: '고1 전체', content: 'weekly 모의 풀이 및 리뷰', days: '주말' }
+      ]
     },
-    tuesday: {
-      '16:00-17:20': { subject: '고1 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고1 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고1 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
+    english: {
+      title: '고1 영어',
+      classes: [
+        { name: '고1 S', grade: '고1', content: 'Intensive READING + 미리 중간고사', days: '주 2회 + ICC' },
+        { name: '고1 A1', grade: '고1', content: 'Intensive READING + 미리 중간고사', days: '주 2회 + ICC' },
+        { name: '고1 A2', grade: '고1', content: 'Intensive READING + 미리 중간고사', days: '주 2회 + ICC' },
+        { name: '고1 B1', grade: '고1', content: 'Intensive READING + 미리 중간고사', days: '주 2회 + ICC' },
+        { name: '고1 B2', grade: '고1', content: 'Intensive READING + 미리 중간고사', days: '주 2회 + ICC' }
+      ]
     },
-    wednesday: {
-      '16:00-17:20': { subject: '고1 영어', teacher: '영어 전문 강사' },
-      '17:30-18:50': { subject: '고1 수학', teacher: '수학 전문 강사' },
-      '19:00-20:20': { subject: '고1 국어', teacher: '국어 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
+    math: {
+      title: '고1 수학',
+      classes: [
+        { name: '공통수학1 A반', grade: '고1', content: '공통수학 선행 진도 + 유형 문풀', days: '주 3회 + ICC' },
+        { name: '공통수학1 B1반', grade: '고1', content: '공통수학 선행 진도 + 유형 문풀', days: '주 3회 + ICC' },
+        { name: '공통수학1 B2반', grade: '고1', content: '공통수학 선행 진도 + 유형 문풀', days: '주 3회 + ICC' }
+      ]
     },
-    thursday: {
-      '16:00-17:20': { subject: '고1 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고1 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고1 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
-    },
-    friday: {
-      '16:00-17:20': { subject: '고1 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고1 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고1 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '주말 특강', teacher: '전담 강사' }
+    science: {
+      title: '고1 과학',
+      classes: [
+        { name: '통합과학', grade: '고1', content: '통합과학 개념·탐구', days: '토' }
+      ]
     }
   },
   '고2': {
-    monday: {
-      '16:00-17:20': { subject: '고2 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고2 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고2 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
+    korean: {
+      title: '고2 국어',
+      classes: [
+        { name: '고2 A반', grade: '고2', content: '고2 내신/모의 기출 문학 작품 분석', days: '주 1회 + 클리닉' },
+        { name: '고2 B반', grade: '고2', content: '고2 내신/모의 기출 문학 작품 분석', days: '주 1회 + 클리닉' },
+        { name: 'weekly 모의', grade: '고2', content: 'weekly 모의고사 풀이 및 리뷰', days: '주말' }
+      ]
     },
-    tuesday: {
-      '16:00-17:20': { subject: '고2 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고2 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고2 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '내신 특강', teacher: '담당 강사' }
+    english: {
+      title: '고2 영어',
+      classes: [
+        { name: '고2 A1', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: '고2 A2', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: '고2 A3', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: '고2 B1', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: '고2 B2', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: '고2 B3', grade: '고2', content: '중간고사 및 기말고사 대비', days: '주 2회' },
+        { name: 'WEEKLY 모의', grade: '고2', content: 'weekly 모의고사 풀이 및 리뷰', days: '주 1회' }
+      ]
     },
-    wednesday: {
-      '16:00-17:20': { subject: '고2 영어', teacher: '영어 전문 강사' },
-      '17:30-18:50': { subject: '고2 수학', teacher: '수학 전문 강사' },
-      '19:00-20:20': { subject: '고2 국어', teacher: '국어 전문 강사' },
-      '20:30-21:50': { subject: '자율학습', teacher: '관리 교사' }
+    math: {
+      title: '고2 수학',
+      classes: [
+        { name: '대수 A반', grade: '고2', content: '수학I·II 개념 및 문제풀이', days: '월 / 수 / 금' },
+        { name: '대수 B반', grade: '고2', content: '수학I·II 개념 및 문제풀이', days: '화 / 목 / 토' }
+      ]
     },
-    thursday: {
-      '16:00-17:20': { subject: '고2 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고2 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고2 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '내신 특강', teacher: '담당 강사' }
-    },
-    friday: {
-      '16:00-17:20': { subject: '고2 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고2 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고2 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '주말 특강', teacher: '전담 강사' }
+    science: {
+      title: '고2 과학',
+      classes: [
+        { name: '물리학', grade: '고2', content: '물리학 선택과목', days: '상담 후 안내' },
+        { name: '화학', grade: '고2', content: '화학 선택과목', days: '상담 후 안내' },
+        { name: '생명과학', grade: '고2', content: '생명과학 선택과목', days: '상담 후 안내' },
+        { name: '지구과학', grade: '고2', content: '지구과학 선택과목', days: '상담 후 안내' }
+      ]
     }
   },
   '고3': {
-    monday: {
-      '16:00-17:20': { subject: '고3 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고3 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고3 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '수능 대비', teacher: '수능 전담' }
+    korean: {
+      title: '고3 국어',
+      classes: [
+        { name: '고3 A반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '토 / 일' },
+        { name: '고3 B반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '일' },
+        { name: '고3 C반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '일' },
+        { name: '언어와매체', grade: '고3', content: '언어와매체 선택과목', days: '개설예정' }
+      ]
     },
-    tuesday: {
-      '16:00-17:20': { subject: '고3 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고3 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고3 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '수능 대비', teacher: '수능 전담' }
+    english: {
+      title: '고3 영어',
+      classes: [
+        { name: '고3 S', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 A1', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 A2', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 A3', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 A4', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 B1', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 B2', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 B3', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 B4', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: '고3 C', grade: '고3', content: '수능 영어 수준별 분반', days: '주 2회' },
+        { name: 'WEEKLY 모의고사', grade: '고3', content: '수능 기출 및 모의고사 풀이 및 리뷰', days: '주 1회' }
+      ]
     },
-    wednesday: {
-      '16:00-17:20': { subject: '고3 영어', teacher: '영어 전문 강사' },
-      '17:30-18:50': { subject: '고3 수학', teacher: '수학 전문 강사' },
-      '19:00-20:20': { subject: '고3 국어', teacher: '국어 전문 강사' },
-      '20:30-21:50': { subject: '수능 대비', teacher: '수능 전담' }
+    math: {
+      title: '고3 수학',
+      classes: [
+        { name: '미적분', grade: '고3', content: '미적분 심화 및 수능 대비', days: '월 / 수 / 금' },
+        { name: '확률과통계', grade: '고3', content: '확률과통계 심화 및 수능 대비', days: '화 / 목 / 토' }
+      ]
     },
-    thursday: {
-      '16:00-17:20': { subject: '고3 국어', teacher: '국어 전문 강사' },
-      '17:30-18:50': { subject: '고3 영어', teacher: '영어 전문 강사' },
-      '19:00-20:20': { subject: '고3 수학', teacher: '수학 전문 강사' },
-      '20:30-21:50': { subject: '수능 대비', teacher: '수능 전담' }
-    },
-    friday: {
-      '16:00-17:20': { subject: '고3 수학', teacher: '수학 전문 강사' },
-      '17:30-18:50': { subject: '고3 국어', teacher: '국어 전문 강사' },
-      '19:00-20:20': { subject: '고3 영어', teacher: '영어 전문 강사' },
-      '20:30-21:50': { subject: '주말 특강', teacher: '전담 강사' }
-    }
+    science: null
   }
 };
 
 const TimeTablePage: React.FC = () => {
-  const [activeGrade, setActiveGrade] = useState<'중학생' | '고1' | '고2' | '고3'>('고1');
-  
-  const schedule = schedules[activeGrade];
-  const days = ['월요일', 'tuesday', 'wednesday', 'thursday', 'friday'];
-  const dayLabels = ['월요일', '화요일', '수요일', '목요일', '금요일'];
-  const timeSlots = ['16:00-17:20', '17:30-18:50', '19:00-20:20', '20:30-21:50'];
+  const [activeGrade, setActiveGrade] = useState<GradeTab>('중학생');
+  const [activeSubject, setActiveSubject] = useState<SubjectTab>('korean');
+
+  const subjectData = classData[activeGrade][activeSubject];
 
   return (
     <PageWrapper>
-      <PageTitle>수업 시간표</PageTitle>
-      <PageSubtitle>레벨미업 학원의 학년별 수업 시간표를 확인하세요</PageSubtitle>
+      <PageTitle>개설 반 안내</PageTitle>
+      <PageSubtitle>학년별·과목별로 운영되는 수업 반 구성을 확인하세요</PageSubtitle>
 
-      <TabContainer>
-        <Tab active={activeGrade === '중학생'} onClick={() => setActiveGrade('중학생')}>
-          중학생
-        </Tab>
-        <Tab active={activeGrade === '고1'} onClick={() => setActiveGrade('고1')}>
-          고등학교 1학년
-        </Tab>
-        <Tab active={activeGrade === '고2'} onClick={() => setActiveGrade('고2')}>
-          고등학교 2학년
-        </Tab>
-        <Tab active={activeGrade === '고3'} onClick={() => setActiveGrade('고3')}>
-          고등학교 3학년
-        </Tab>
-      </TabContainer>
+      <MainTabContainer>
+        <MainTab active={activeGrade === '중학생'} onClick={() => setActiveGrade('중학생')}>
+          중등
+        </MainTab>
+        <MainTab active={activeGrade === '고1'} onClick={() => setActiveGrade('고1')}>
+          고1
+        </MainTab>
+        <MainTab active={activeGrade === '고2'} onClick={() => setActiveGrade('고2')}>
+          고2
+        </MainTab>
+        <MainTab active={activeGrade === '고3'} onClick={() => setActiveGrade('고3')}>
+          고3
+        </MainTab>
+      </MainTabContainer>
 
-      <TimeTable>
-        <thead>
-          <tr>
-            <th>시간</th>
-            {dayLabels.map((day, index) => (
-              <th key={index}>{day}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {timeSlots.map((time, timeIndex) => (
-            <tr key={timeIndex}>
-              <td>{time}</td>
-              {days.map((day, dayIndex) => {
-                const dayKey = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'][dayIndex];
-                const classInfo = schedule[dayKey as keyof typeof schedule][time];
-                
-                return (
-                  <td key={dayIndex}>
-                    {classInfo ? (
-                      <div className="class-cell">
-                        <div className="subject">{classInfo.subject}</div>
-                        <div className="teacher">{classInfo.teacher}</div>
-                      </div>
-                    ) : (
-                      <div className="empty-cell">-</div>
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </TimeTable>
+      <SubTabContainer>
+        <SubTab active={activeSubject === 'korean'} onClick={() => setActiveSubject('korean')}>
+          국어
+        </SubTab>
+        <SubTab active={activeSubject === 'english'} onClick={() => setActiveSubject('english')}>
+          영어
+        </SubTab>
+        <SubTab active={activeSubject === 'math'} onClick={() => setActiveSubject('math')}>
+          수학
+        </SubTab>
+        {(activeGrade === '고1' || activeGrade === '고2') && (
+          <SubTab active={activeSubject === 'science'} onClick={() => setActiveSubject('science')}>
+            과학
+          </SubTab>
+        )}
+      </SubTabContainer>
+
+      {subjectData && (
+        <ContentSection>
+          <SectionTitle>{subjectData.title}</SectionTitle>
+          <ClassTable>
+            <thead>
+              <tr>
+                <th>개설반</th>
+                <th>대상 학년</th>
+                <th>수업 내용</th>
+                <th>수업 요일</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subjectData.classes.map((classInfo, index) => (
+                <tr key={index}>
+                  <td>{classInfo.name}</td>
+                  <td>{classInfo.grade}</td>
+                  <td>{classInfo.content}</td>
+                  <td>{classInfo.days}</td>
+                </tr>
+              ))}
+            </tbody>
+          </ClassTable>
+        </ContentSection>
+      )}
 
       <InfoBox>
-        <h3>수업 안내</h3>
+        <h3>수업 운영 안내</h3>
         <ul>
-          <li>
-            <span className="label">수업 시간</span>
-            <span className="value">80분 수업 (10분 휴식)</span>
-          </li>
-          <li>
-            <span className="label">운영 요일</span>
-            <span className="value">월요일 ~ 금요일 (주 5일)</span>
-          </li>
-          <li>
-            <span className="label">반 편성</span>
-            <span className="value">소규모 반 (최대 12명)</span>
-          </li>
-          <li>
-            <span className="label">자습관 이용</span>
-            <span className="value">수업 전후 자유 이용 가능 (Pre ME Up)</span>
-          </li>
-          <li>
-            <span className="label">시험 기간</span>
-            <span className="value">학교별 맞춤 내신 대비 특강 운영</span>
-          </li>
+          <li>수업 시간은 100분 수업 기준으로 운영됩니다.</li>
+          <li>소규모 반 편성으로 맞춤형 관리가 가능합니다.</li>
+          <li>학교별 시험 일정에 맞춰 내신 대비 특강이 진행됩니다.</li>
+          <li>학원 자습관은 수업 전후 자유롭게 이용 가능합니다.</li>
+          <li>정확한 수업 시간 및 반 배정은 상담을 통해 안내해드립니다.</li>
         </ul>
       </InfoBox>
-
-      <div style={{textAlign: 'center', marginTop: '40px'}}>
-        <p style={{fontSize: '1.1rem', color: '#666', marginBottom: '20px'}}>
-          시간표는 학원 사정에 따라 변경될 수 있습니다. 자세한 상담은 전화 문의 바랍니다.
-        </p>
-        <a
-          href="tel:032-322-0592"
-          style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-            color: 'white',
-            padding: '15px 40px',
-            borderRadius: '50px',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-            transition: 'all 0.3s',
-            marginRight: '15px'
-          }}
-        >
-          전화 상담 (032-322-0592)
-        </a>
-        <a
-          href="/consulting"
-          style={{
-            display: 'inline-block',
-            background: 'white',
-            color: '#1a5f3d',
-            padding: '15px 40px',
-            borderRadius: '50px',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            border: '3px solid #1a5f3d',
-            transition: 'all 0.3s'
-          }}
-        >
-          온라인 상담 신청
-        </a>
-      </div>
     </PageWrapper>
   );
 };

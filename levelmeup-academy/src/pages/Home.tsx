@@ -2,95 +2,22 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { keyframes } from '@emotion/react';
+import { colors, gradients } from '../theme';
+import HeroCarousel from '../components/HeroCarousel';
 
 const HomeWrapper = styled.div`
   min-height: 100vh;
   overflow-x: hidden;
 `;
 
-// EPIC cinematic animations
-const epicZoom = keyframes`
-  0% {
-    transform: scale(1.2) rotate(0deg);
-    filter: blur(0px) brightness(1);
-  }
-  50% {
-    transform: scale(1) rotate(2deg);
-    filter: blur(0px) brightness(1.1);
-  }
-  100% {
-    transform: scale(1.2) rotate(0deg);
-    filter: blur(0px) brightness(1);
-  }
-`;
-
-const particleRise = keyframes`
-  0% {
-    transform: translateY(100vh) translateX(0) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(50px) scale(1);
-    opacity: 0;
-  }
-`;
-
 const explosiveEntry = keyframes`
   0% {
-    transform: scale(0.3) rotateY(180deg);
+    transform: scale(0.95);
     opacity: 0;
-    filter: blur(20px);
-  }
-  70% {
-    transform: scale(1.05) rotateY(0deg);
-    opacity: 1;
-    filter: blur(0px);
   }
   100% {
-    transform: scale(1) rotateY(0deg);
+    transform: scale(1);
     opacity: 1;
-    filter: blur(0px);
-  }
-`;
-
-const energyPulse = keyframes`
-  0%, 100% {
-    box-shadow: 
-      0 0 40px rgba(255, 215, 0, 0.8),
-      0 0 80px rgba(255, 140, 66, 0.6),
-      inset 0 0 40px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    box-shadow: 
-      0 0 80px rgba(255, 215, 0, 1),
-      0 0 120px rgba(255, 140, 66, 0.8),
-      inset 0 0 60px rgba(255, 215, 0, 0.5);
-  }
-`;
-
-const float = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-`;
-
-const glow = keyframes`
-  0%, 100% { 
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
-                 0 0 30px rgba(255, 215, 0, 0.6),
-                 0 0 40px rgba(255, 215, 0, 0.4),
-                 0 0 50px rgba(255, 140, 66, 0.3);
-  }
-  50% { 
-    text-shadow: 0 0 30px rgba(255, 215, 0, 1),
-                 0 0 40px rgba(255, 215, 0, 0.8),
-                 0 0 50px rgba(255, 215, 0, 0.6),
-                 0 0 60px rgba(255, 140, 66, 0.5);
   }
 `;
 
@@ -105,57 +32,6 @@ const Hero = styled.section`
   align-items: center;
   justify-content: center;
   background: #000;
-  
-  /* Epic particle effects */
-  &::before {
-    content: '⭐';
-    position: absolute;
-    font-size: 30px;
-    top: 0;
-    left: 10%;
-    animation: ${particleRise} 8s linear infinite;
-    animation-delay: 0s;
-    z-index: 2;
-  }
-  
-  &::after {
-    content: '✨';
-    position: absolute;
-    font-size: 25px;
-    top: 0;
-    left: 80%;
-    animation: ${particleRise} 10s linear infinite;
-    animation-delay: 2s;
-    z-index: 2;
-  }
-`;
-
-const Particle = styled.div<{ delay: number; left: string; size: string }>`
-  position: absolute;
-  top: 0;
-  left: ${props => props.left};
-  font-size: ${props => props.size};
-  animation: ${particleRise} ${props => 6 + props.delay}s linear infinite;
-  animation-delay: ${props => props.delay}s;
-  z-index: 2;
-  pointer-events: none;
-`;
-
-const VideoOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(180deg, 
-      rgba(0,0,0,0.7) 0%, 
-      rgba(0,0,0,0.3) 50%, 
-      rgba(0,0,0,0.7) 100%),
-    radial-gradient(circle at 50% 50%, 
-      rgba(255,215,0,0.1) 0%, 
-      transparent 70%);
-  z-index: 1;
 `;
 
 const VideoBackground = styled.div`
@@ -171,9 +47,20 @@ const VideoBackground = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: ${epicZoom} 20s ease-in-out infinite;
-    transform-origin: center center;
   }
+`;
+
+const VideoOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(0,0,0,0.6) 0%, 
+    rgba(0,0,0,0.3) 50%, 
+    rgba(0,0,0,0.6) 100%);
+  z-index: 1;
 `;
 
 const HeroContent = styled.div`
@@ -184,164 +71,161 @@ const HeroContent = styled.div`
   padding: 40px 20px;
 `;
 
-const EpicTitle = styled.h1`
-  font-size: 4.5rem;
-  margin-bottom: 20px;
-  color: #ffd700;
-  font-weight: 900;
-  letter-spacing: 8px;
-  animation: ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), ${glow} 3s ease-in-out infinite 1.5s;
-  text-transform: uppercase;
-  text-shadow: 
-    0 0 20px rgba(255, 215, 0, 1),
-    0 0 40px rgba(255, 140, 66, 0.8),
-    3px 3px 10px rgba(0, 0, 0, 0.8);
-  position: relative;
+const LogoText = styled.div`
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: ${colors.text.primary};
+  letter-spacing: 12px;
   text-align: center;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  animation: ${explosiveEntry} 0.8s ease backwards;
   
   @media (max-width: 768px) {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
+    font-size: 1.3rem;
+    letter-spacing: 8px;
+    margin-bottom: 50px;
+  }
+`;
+
+const EpicTitle = styled.h1`
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  color: ${colors.text.primary};
+  font-weight: 700;
+  letter-spacing: -1px;
+  animation: ${explosiveEntry} 1s ease 0.2s backwards;
+  text-align: center;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
   }
 `;
 
 const SubTitle = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  color: #fff;
-  font-weight: 600;
-  animation: ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s backwards;
-  text-shadow: 
-    0 0 15px rgba(255, 255, 255, 0.8),
-    2px 2px 6px rgba(0,0,0,0.9);
-  letter-spacing: 2px;
+  font-size: 1.05rem;
+  margin-bottom: 60px;
+  color: ${colors.text.secondary};
+  font-weight: 400;
+  animation: ${explosiveEntry} 1s ease 0.4s backwards;
+  letter-spacing: 1px;
   text-align: center;
+  opacity: 0.9;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    margin-bottom: 50px;
   }
 `;
 
 const AchievementBadges = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin: 50px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 60px auto 60px;
+  max-width: 720px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 20px;
+  }
 `;
 
 const Badge = styled.div<{ delay?: string }>`
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 66, 0.2));
-  border: 3px solid #ffd700;
-  border-radius: 15px;
-  padding: 25px 15px;
-  backdrop-filter: blur(10px);
-  animation: 
-    ${explosiveEntry} 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${props => props.delay || '0s'} backwards,
-    ${float} 4s ease-in-out infinite ${props => props.delay || '0s'};
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: ${float} 3s linear infinite;
-  }
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 32px 24px;
+  animation: ${explosiveEntry} 0.8s ease ${props => props.delay || '0s'} backwards;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.08);
   
   &:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 
-      0 0 30px rgba(255, 215, 0, 0.8),
-      0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: #ff8c42;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.12);
   }
   
   .number {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #ffd700;
-    margin-bottom: 8px;
-    text-shadow: 
-      0 0 15px rgba(255, 215, 0, 0.8),
-      0 0 25px rgba(255, 140, 66, 0.6);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
   }
   
   .label {
-    font-size: 0.95rem;
-    color: #fff;
-    font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-  }
-  
-  @media (max-width: 768px) {
-    padding: 20px 12px;
-    
-    .number {
-      font-size: 2rem;
-    }
-    
-    .label {
-      font-size: 0.85rem;
-    }
+    font-size: 0.9rem;
+    color: #000000;
+    font-weight: 400;
+    line-height: 1.5;
   }
 `;
 
 const CTAButton = styled(Link)`
   display: inline-block;
-  background: linear-gradient(135deg, #ffd700 0%, #ff8c42 100%);
-  color: #000;
-  padding: 18px 45px;
-  border-radius: 50px;
-  font-size: 1.3rem;
-  font-weight: 800;
-  transition: all 0.3s;
-  box-shadow: 
-    0 0 20px rgba(255, 215, 0, 0.6),
-    0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 3px solid #ffd700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: 
-    ${explosiveEntry} 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-  
-  &:hover::before {
-    width: 300px;
-    height: 300px;
-  }
+  background: ${gradients.greenButton};
+  color: ${colors.text.primary};
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  border: none;
+  letter-spacing: 0.5px;
   
   &:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-      0 0 30px rgba(255, 215, 0, 0.8),
-      0 8px 20px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, #ff8c42 0%, #ffd700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(76, 175, 80, 0.5);
+    background: linear-gradient(135deg, ${colors.green.hover} 0%, ${colors.green.primary} 100%);
   }
   
   @media (max-width: 768px) {
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+`;
+
+const SecondaryButton = styled(Link)`
+  display: inline-block;
+  background: ${colors.navy.dark};
+  color: ${colors.text.primary};
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+  letter-spacing: 0.5px;
+  
+  &:hover {
+    background: ${colors.navy.medium};
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.3);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 `;
 
@@ -369,7 +253,7 @@ const SectionTitle = styled.h2`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
     margin: 20px auto 0;
     border-radius: 3px;
   }
@@ -427,18 +311,12 @@ const Feature = styled.div`
   text-align: center;
 `;
 
-const FeatureIcon = styled.div`
-  width: 90px;
-  height: 90px;
-  background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.8rem;
+const FeatureIcon = styled.img`
+  width: 100px;
+  height: 100px;
   margin: 0 auto 20px;
-  box-shadow: 0 6px 20px rgba(26, 95, 61, 0.4);
-  border: 4px solid #ff8c42;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(13, 71, 161, 0.2));
 `;
 
 const FeatureTitle = styled.h4`
@@ -453,7 +331,7 @@ const FeatureDescription = styled.p`
 `;
 
 const StatsSection = styled.div`
-  background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 50%, #ff8c42 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #FF6D00 100%);
   color: white;
   padding: 100px 20px;
   margin: 80px 0;
@@ -493,7 +371,7 @@ const StatNumber = styled.div`
   font-weight: 900;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #fff 0%, #ffd700 100%);
+  background: linear-gradient(135deg, #fff 0%, #66BB6A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -504,296 +382,377 @@ const StatLabel = styled.div`
   opacity: 0.9;
 `;
 
+// 배너 이미지 카드 섹션 스타일
+const BannerSection = styled.section`
+  padding: 80px 20px;
+  background: white;
+`;
+
+const BannerCardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+`;
+
+const BannerCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+  
+  &:hover > a > div:first-of-type {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+  
+  &:hover span {
+    background: ${colors.green.hover};
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  }
+`;
+
+const BannerCardImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: #f5f5f5;
+`;
+
+const BannerCardImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+`;
+
+const BannerCardLink = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: inherit;
+`;
+
+const BannerCardContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+`;
+
+const BannerCardButton = styled.span`
+  color: white;
+  background: ${colors.green.primary};
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 2px solid ${colors.green.primary};
+  
+  &:hover {
+    background: ${colors.green.hover};
+    border-color: ${colors.green.hover};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  }
+  
+  &::after {
+    content: '→';
+    font-size: 1.2rem;
+  }
+`;
+
+
+
+// 브랜딩 헤드라인 섹션
+const BrandingSection = styled.section`
+  padding: 100px 20px 60px;
+  background: white;
+  text-align: center;
+`;
+
+const HeadlineContainer = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+`;
+
+const MainHeadline = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+`;
+
+const SubHeadline = styled.p`
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  letter-spacing: 0.3px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+// 개설학교 섹션
+const SchoolsSection = styled.div<{ $variant?: 'high' | 'middle' }>`
+  margin-top: 60px;
+  padding: 50px 40px;
+  background: ${props => props.$variant === 'middle' 
+    ? 'linear-gradient(135deg, rgba(225, 245, 254, 0.2) 0%, rgba(179, 229, 252, 0.15) 100%)'
+    : 'linear-gradient(135deg, rgba(232, 245, 233, 0.2) 0%, rgba(200, 230, 201, 0.15) 100%)'};
+  border-radius: 16px;
+  border: 1px solid ${props => props.$variant === 'middle'
+    ? 'rgba(3, 169, 244, 0.1)'
+    : 'rgba(76, 175, 80, 0.1)'};
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (max-width: 768px) {
+    padding: 40px 24px;
+  }
+`;
+
+const SchoolsTitle = styled.h3`
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const SchoolsSubtitle = styled.p`
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 40px;
+  font-weight: 400;
+`;
+
+const SchoolsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  
+  @media (max-width: 968px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+`;
+
+const SchoolBadge = styled(Link)`
+  background: rgba(255, 255, 255, 0.95);
+  color: #2d2d2d;
+  padding: 18px 16px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1.5px solid rgba(76, 175, 80, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-height: 65px;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, ${colors.green.primary}, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.2);
+    border-color: ${colors.green.primary};
+    color: ${colors.green.primary};
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 14px 12px;
+    min-height: 58px;
+  }
+`;
+
+const SchoolsDescription = styled.p`
+  margin-top: 60px;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    padding: 24px 20px;
+    margin-top: 40px;
+    white-space: normal;
+  }
+`;
+
 const Home: React.FC = () => {
   return (
     <HomeWrapper>
-      <Hero>
-        {/* Epic video background with cinematic zoom */}
-        <VideoBackground>
-          <video autoPlay loop muted playsInline>
-            <source src="https://cdn.pixabay.com/video/2023/07/28/173548-849632869_large.mp4" type="video/mp4" />
-          </video>
-        </VideoBackground>
-        
-        <VideoOverlay />
-        
-        {/* Floating particles */}
-        <Particle delay={0} left="10%" size="30px">⭐</Particle>
-        <Particle delay={1} left="25%" size="25px">✨</Particle>
-        <Particle delay={2} left="45%" size="35px">🏆</Particle>
-        <Particle delay={3} left="60%" size="28px">💫</Particle>
-        <Particle delay={4} left="75%" size="32px">🌟</Particle>
-        <Particle delay={5} left="90%" size="27px">⚡</Particle>
-        
-        <HeroContent>
-          <EpicTitle>LEVEL ME UP</EpicTitle>
-          <SubTitle>부천 중동 15년 전통 · 명문대 합격의 전설</SubTitle>
+      {/* 메인 슬라이드 캐러셀 */}
+      <HeroCarousel />
+
+      {/* 배너 이미지 카드 섹션 */}
+      <BannerSection>
+        <Container>
+          <BannerCardsGrid>
+            <BannerCardWrapper>
+              <BannerCardLink to="/winter-program-2026">
+                <BannerCardImageContainer>
+                  <BannerCardImage src="/images/banner-yebigo1.jpg" alt="예비고1 겨울방학 특강" />
+                </BannerCardImageContainer>
+                <BannerCardContent>
+                  <BannerCardButton>자세히 보기</BannerCardButton>
+                </BannerCardContent>
+              </BannerCardLink>
+            </BannerCardWrapper>
+            
+            <BannerCardWrapper>
+              <BannerCardLink to="/high3-guide">
+                <BannerCardImageContainer>
+                  <BannerCardImage 
+                    src="/images/banner-high3.jpg" 
+                    alt="고3 수능 정규·특강"
+                    style={{ objectFit: 'contain', background: '#EAF3FF', transform: 'scale(1.005)', objectPosition: 'center' }}
+                  />
+                </BannerCardImageContainer>
+                <BannerCardContent>
+                  <BannerCardButton>자세히 보기</BannerCardButton>
+                </BannerCardContent>
+              </BannerCardLink>
+            </BannerCardWrapper>
+            
+            <BannerCardWrapper>
+              <BannerCardLink to="/winter-school">
+                <BannerCardImageContainer>
+                  <BannerCardImage src="/images/banner-winter-school-new.jpg" alt="겨울방학 윈터스쿨" />
+                </BannerCardImageContainer>
+                <BannerCardContent>
+                  <BannerCardButton>자세히 보기</BannerCardButton>
+                </BannerCardContent>
+              </BannerCardLink>
+            </BannerCardWrapper>
+          </BannerCardsGrid>
+        </Container>
+      </BannerSection>
+
+      {/* 브랜딩 헤드라인 및 개설학교 섹션 */}
+      <BrandingSection>
+        <Container>
+          <HeadlineContainer>
+            <MainHeadline>LEVEL ME UP</MainHeadline>
+            <SubHeadline>부천 학교별 맞춤 내신부터 체계적 수능대비까지</SubHeadline>
+          </HeadlineContainer>
           
-          <AchievementBadges>
-            <Badge delay="0.5s">
-              <div className="number">5년</div>
-              <div className="label">서울대 연속 합격</div>
-            </Badge>
-            <Badge delay="0.7s">
-              <div className="number">37명</div>
-              <div className="label">2023 명문대 합격</div>
-            </Badge>
-            <Badge delay="0.9s">
-              <div className="number">100점</div>
-              <div className="label">영어 만점 다수</div>
-            </Badge>
-            <Badge delay="1.1s">
-              <div className="number">300+</div>
-              <div className="label">재원생</div>
-            </Badge>
-            <Badge delay="1.3s">
-              <div className="number">15년</div>
-              <div className="label">부천 전통</div>
-            </Badge>
-            <Badge delay="1.5s">
-              <div className="number">1등급</div>
-              <div className="label">여름방학 50명+</div>
-            </Badge>
-          </AchievementBadges>
+          <SchoolsSection $variant="high">
+            <SchoolsTitle>LEVEL ME UP 내신대비 부천 고등학교</SchoolsTitle>
+            <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
+            <SchoolsGrid>
+              <SchoolBadge to="/school/덕산고">덕산고</SchoolBadge>
+              <SchoolBadge to="/school/부명고">부명고</SchoolBadge>
+              <SchoolBadge to="/school/부천고">부천고</SchoolBadge>
+              <SchoolBadge to="/school/부천북고">부천북고</SchoolBadge>
+              <SchoolBadge to="/school/상일고">상일고</SchoolBadge>
+              <SchoolBadge to="/school/소명여고">소명여고</SchoolBadge>
+              <SchoolBadge to="/school/심원고">심원고</SchoolBadge>
+              <SchoolBadge to="/school/원미고">원미고</SchoolBadge>
+              <SchoolBadge to="/school/정명고">정명고</SchoolBadge>
+              <SchoolBadge to="/school/중원고">중원고</SchoolBadge>
+              <SchoolBadge to="/school/중흥고">중흥고</SchoolBadge>
+              <SchoolBadge to="/school/도당고">도당고</SchoolBadge>
+            </SchoolsGrid>
+          </SchoolsSection>
           
-          <CTAButton to="/consulting">무료 상담 신청</CTAButton>
-        </HeroContent>
-      </Hero>
-
-      <Section>
-        <Container>
-          <SectionTitle>왜 레벨미업 학원인가요?</SectionTitle>
-          <CardGrid>
-            <Card>
-              <CardIcon>👨‍🏫</CardIcon>
-              <CardTitle>15년 경력 강사진</CardTitle>
-              <CardDescription>
-                부천 지역 15년 전통! 10년 이상 경력의 최고 전문 강사진이 학생 개개인의 특성에 맞춘 맞춤형 수업을 제공합니다.
-              </CardDescription>
-            </Card>
-            <Card>
-              <CardIcon>📊</CardIcon>
-              <CardTitle>체계적인 커리큘럼</CardTitle>
-              <CardDescription>
-                예습-수업-복습 과제를 통한 3단계 학습 시스템으로 학습 습관을 형성하고 자기주도 학습 능력을 키웁니다.
-              </CardDescription>
-            </Card>
-            <Card>
-              <CardIcon>🎯</CardIcon>
-              <CardTitle>I.C.C. 집중 케어</CardTitle>
-              <CardDescription>
-                Intensive Care Class를 통해 부족한 부분을 개별 피드백하고 즉시 보충하여 학습 효율을 극대화합니다.
-              </CardDescription>
-            </Card>
-            <Card>
-              <CardIcon>🏆</CardIcon>
-              <CardTitle>검증된 입시 실적</CardTitle>
-              <CardDescription>
-                서울대·연세대·고려대 등 명문대 매년 다수 합격! 5년 연속 서울대 합격생 배출로 입증된 최고의 입시 전문성.
-              </CardDescription>
-            </Card>
-            <Card>
-              <CardIcon>💯</CardIcon>
-              <CardTitle>탁월한 내신 성과</CardTitle>
-              <CardDescription>
-                전교 1등 다수, 전교 3등 이내 13명 배출! 중등부·고등부 모두 뛰어난 성적 향상 사례를 자랑합니다.
-              </CardDescription>
-            </Card>
-          </CardGrid>
+          <SchoolsSection $variant="middle">
+            <SchoolsTitle>LEVEL ME UP 내신대비 부천 중학교</SchoolsTitle>
+            <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
+            <SchoolsGrid>
+              <SchoolBadge to="/school/부천중">부천중</SchoolBadge>
+              <SchoolBadge to="/school/중흥중">중흥중</SchoolBadge>
+              <SchoolBadge to="/school/부흥중">부흥중</SchoolBadge>
+              <SchoolBadge to="/school/계남중">계남중</SchoolBadge>
+              <SchoolBadge to="/school/중원중">중원중</SchoolBadge>
+              <SchoolBadge to="/school/심원중">심원중</SchoolBadge>
+            </SchoolsGrid>
+          </SchoolsSection>
+          
+          <SchoolsDescription>
+            레벨미업은 부천 지역 다수 학교의 내신 분석을 바탕으로, 학교별 맞춤 내신과 수준별 수능 커리큘럼을 함께 설계하는 전문 학원입니다.
+          </SchoolsDescription>
         </Container>
-      </Section>
-
-      <StatsSection>
-        <Container>
-          <SectionTitle style={{color: 'white', fontSize: '3rem'}}>🏆 레벨미업의 검증된 실적</SectionTitle>
-          <StatsGrid>
-            <StatItem>
-              <StatNumber>5년 연속</StatNumber>
-              <StatLabel>서울대 합격생 배출</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>50명+</StatNumber>
-              <StatLabel>여름방학 1등급 달성</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>전교 3등↑</StatNumber>
-              <StatLabel>13명 배출</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>전교 1등</StatNumber>
-              <StatLabel>다수 배출</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>15년</StatNumber>
-              <StatLabel>부천 지역 전통</StatLabel>
-            </StatItem>
-            <StatItem>
-              <StatNumber>300명+</StatNumber>
-              <StatLabel>재원생 (중고등)</StatLabel>
-            </StatItem>
-          </StatsGrid>
-        </Container>
-      </StatsSection>
-
-      <Section>
-        <Container>
-          <SectionTitle>주요 프로그램</SectionTitle>
-          <FeatureGrid>
-            <Feature>
-              <FeatureIcon>📚</FeatureIcon>
-              <FeatureTitle>국어</FeatureTitle>
-              <FeatureDescription>
-                비문학, 문학, 문법 영역별 집중 학습으로 수능 국어 완벽 대비
-              </FeatureDescription>
-            </Feature>
-            <Feature>
-              <FeatureIcon>🗣️</FeatureIcon>
-              <FeatureTitle>영어</FeatureTitle>
-              <FeatureDescription>
-                듣기, 독해, 문법, 어휘를 통합한 실전 영어 실력 향상
-              </FeatureDescription>
-            </Feature>
-            <Feature>
-              <FeatureIcon>🔢</FeatureIcon>
-              <FeatureTitle>수학</FeatureTitle>
-              <FeatureDescription>
-                개념 이해부터 심화 문제까지 단계별 수학 완성
-              </FeatureDescription>
-            </Feature>
-            <Feature>
-              <FeatureIcon>🔬</FeatureIcon>
-              <FeatureTitle>자습실 완비</FeatureTitle>
-              <FeatureDescription>
-                PreMeUp 자습관(35석)과 멘토링룸을 통해 쾌적한 학습 환경 제공
-              </FeatureDescription>
-            </Feature>
-          </FeatureGrid>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <SectionTitle>📝 블로그 최신 소식</SectionTitle>
-          <p style={{textAlign: 'center', color: '#666', marginBottom: '40px'}}>
-            레벨미업 블로그에서 더 많은 정보를 확인하세요
-          </p>
-          <CardGrid>
-            <Card>
-              <CardIcon>📊</CardIcon>
-              <CardTitle>학교별 시험 분석</CardTitle>
-              <CardDescription>
-                정명고, 심원고, 덕산고 등 부천 지역 주요 고등학교의 상세한 시험 분석 리포트를 
-                블로그에서 확인하세요. 출제 경향과 대비 방법을 상세히 안내합니다.
-              </CardDescription>
-              <div style={{marginTop: '20px'}}>
-                <a 
-                  href="https://blog.naver.com/levelmeup" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#1a5f3d', 
-                    fontWeight: 'bold',
-                    textDecoration: 'underline'
-                  }}
-                >
-                  블로그에서 보기 →
-                </a>
-              </div>
-            </Card>
-            <Card>
-              <CardIcon>🏆</CardIcon>
-              <CardTitle>우수 학생 성과</CardTitle>
-              <CardDescription>
-                국어 100점 4명, 영어 100점 다수 배출! 레벨미업 학생들의 실제 성적표와 
-                성공 스토리를 블로그에서 만나보세요.
-              </CardDescription>
-              <div style={{marginTop: '20px'}}>
-                <a 
-                  href="https://blog.naver.com/levelmeup" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#1a5f3d', 
-                    fontWeight: 'bold',
-                    textDecoration: 'underline'
-                  }}
-                >
-                  블로그에서 보기 →
-                </a>
-              </div>
-            </Card>
-            <Card>
-              <CardIcon>📚</CardIcon>
-              <CardTitle>내신 대비 커리큘럼</CardTitle>
-              <CardDescription>
-                I.C.C. 시스템, 예습-복습 과제, 학교별 맞춤 수업 등 레벨미업만의 
-                체계적인 내신 대비 시스템을 블로그에서 자세히 알아보세요.
-              </CardDescription>
-              <div style={{marginTop: '20px'}}>
-                <a 
-                  href="https://blog.naver.com/levelmeup" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#1a5f3d', 
-                    fontWeight: 'bold',
-                    textDecoration: 'underline'
-                  }}
-                >
-                  블로그에서 보기 →
-                </a>
-              </div>
-            </Card>
-          </CardGrid>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <SectionTitle>📸 더 많은 소식을 확인하세요</SectionTitle>
-          <CardGrid style={{maxWidth: '800px', margin: '0 auto'}}>
-            <Link to="/gallery" style={{textDecoration: 'none'}}>
-              <Card style={{cursor: 'pointer'}}>
-                <CardIcon>🏫</CardIcon>
-                <CardTitle>학원 시설 & 갤러리</CardTitle>
-                <CardDescription>
-                  Level ME Up 본관과 Pre ME Up 자습관(35석)의 
-                  쾌적한 학습 환경을 사진으로 확인하세요.
-                </CardDescription>
-                <div style={{marginTop: '20px'}}>
-                  <span style={{color: '#1a5f3d', fontWeight: 'bold'}}>
-                    갤러리 보기 →
-                  </span>
-                </div>
-              </Card>
-            </Link>
-            <Card style={{cursor: 'pointer'}} onClick={() => window.open('https://www.instagram.com/levelme__up/', '_blank')}>
-              <CardIcon>📷</CardIcon>
-              <CardTitle>Instagram</CardTitle>
-              <CardDescription>
-                @levelme__up<br/>
-                레벨미업의 일상, 이벤트, 학생들의 생생한 후기를 
-                인스타그램에서 만나보세요!
-              </CardDescription>
-              <div style={{marginTop: '20px'}}>
-                <span style={{color: '#1a5f3d', fontWeight: 'bold'}}>
-                  팔로우하기 →
-                </span>
-              </div>
-            </Card>
-          </CardGrid>
-        </Container>
-      </Section>
-
-      <Section style={{background: '#f8f9fa', textAlign: 'center', padding: '100px 20px'}}>
-        <Container>
-          <SectionTitle>지금 바로 시작하세요!</SectionTitle>
-          <p style={{fontSize: '1.2rem', color: '#666', marginBottom: '40px'}}>
-            무료 상담을 통해 학생에게 맞는 최적의 학습 계획을 제안해드립니다.
-          </p>
-          <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
-        </Container>
-      </Section>
+      </BrandingSection>
     </HomeWrapper>
   );
 };

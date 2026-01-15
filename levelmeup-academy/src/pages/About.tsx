@@ -1,236 +1,776 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { colors } from '../theme';
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
+
+const riseUp = keyframes`
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
 
 const PageWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 20px;
-`;
-
-const PageTitle = styled.h1`
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #1a1a1a;
-  
-  &::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
-    margin: 20px auto;
-    border-radius: 3px;
-  }
-`;
-
-const PageSubtitle = styled.p`
-  text-align: center;
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 60px;
-`;
-
-const ContentSection = styled.section`
+  padding: 0;
+  min-height: 70vh;
   background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 40px;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #1a1a1a;
+const HeroSection = styled.div`
+  text-align: center;
+  padding: 40px 20px 60px;
+  background: #0F1B2A;
+  position: relative;
+  overflow: hidden;
+`;
+
+const HeroImageWrapper = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #0F1B2A;
   display: flex;
   align-items: center;
-  gap: 10px;
-`;
-
-const SectionContent = styled.div`
-  color: #444;
-  line-height: 1.8;
-  font-size: 1.05rem;
+  justify-content: center;
   
-  p {
-    margin-bottom: 15px;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 500px;
   }
   
-  ul {
-    margin-left: 20px;
-    margin-bottom: 15px;
-  }
-  
-  li {
-    margin-bottom: 10px;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+    
+    img {
+      max-height: 350px;
+    }
   }
 `;
 
-const HighlightBox = styled.div`
-  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-  padding: 30px;
-  border-radius: 10px;
-  border-left: 4px solid #667eea;
-  margin: 30px 0;
+const TitleWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  margin-bottom: 50px;
 `;
 
-const GridSection = styled.div`
+const CurvedArrowSvg = styled.svg`
+  position: absolute;
+  left: 0;
+  bottom: -45px;
+  width: 100%;
+  height: 60px;
+  opacity: 0.85;
+  
+  @media (max-width: 768px) {
+    height: 40px;
+    bottom: -30px;
+  }
+`;
+
+const MainTitle = styled.h1`
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  animation: ${riseUp} 1s ease-out;
+  position: relative;
+  z-index: 1;
+  color: #2C3E50;
+  font-family: 'Montserrat', 'Pretendard', -apple-system, sans-serif;
+  text-transform: uppercase;
+  
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+  }
+`;
+
+const SubTitle = styled.p`
+  font-size: 1.3rem;
+  color: #666;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-style: italic;
+  animation: ${riseUp} 1s ease-out 0.3s backwards;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+`;
+
+const AccentLine = styled.div`
+  width: 150px;
+  height: 4px;
+  background: #17B7A6;
+  margin: 0 auto;
+  border-radius: 2px;
+  animation: ${riseUp} 1s ease-out 0.5s backwards;
+  position: relative;
+  z-index: 1;
+`;
+
+const AchievementSection = styled.section`
+  padding: 60px 20px;
+  background: rgba(23, 183, 166, 0.03);
+`;
+
+const AchievementContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+const AchievementGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
 `;
 
-const Card = styled.div`
+const AchievementCard = styled.div`
   background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 2px solid rgba(23, 183, 166, 0.15);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 24px rgba(23, 183, 166, 0.12);
+    border-color: #17B7A6;
+  }
+  
+  .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 12px;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .label {
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+`;
+
+const TabContainer = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+`;
+
+const TabList = styled.div`
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 50px;
+`;
+
+const Tab = styled.button<{ $active: boolean }>`
+  flex: 1;
+  padding: 20px 32px;
+  background: ${props => props.$active 
+    ? 'rgba(23, 183, 166, 0.08)'
+    : 'none'};
+  border: none;
+  font-size: 1.25rem;
+  font-weight: ${props => props.$active ? '700' : '500'};
+  color: ${props => props.$active ? '#17B7A6' : '#888'};
+  border-bottom: ${props => props.$active ? `4px solid #17B7A6` : '2px solid transparent'};
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  border-radius: ${props => props.$active ? '8px 8px 0 0' : '0'};
+  box-shadow: ${props => props.$active ? '0 -2px 10px rgba(23, 183, 166, 0.1)' : 'none'};
+  
+  &:hover {
+    color: #17B7A6;
+    background: rgba(23, 183, 166, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+    padding: 18px 22px;
+  }
+`;
+
+const TabContent = styled.div`
+  padding: 20px 0;
+  line-height: 1.9;
+  color: #333;
+  animation: ${riseUp} 0.5s ease-out;
+`;
+
+const Section = styled.div`
+  margin-bottom: 35px;
+`;
+
+const Paragraph = styled.p`
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+  color: #333;
+  line-height: 1.9;
+`;
+
+const IntroTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #17B7A6;
+  margin-bottom: 32px;
+  line-height: 1.4;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+`;
+
+const IntroParagraph = styled.p`
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 16px;
+  
+  strong {
+    font-weight: 700;
+    color: #17B7A6;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const IntroQuote = styled.p`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #17B7A6;
+  margin: 28px 0;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+  }
+`;
+
+const FacilityList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const FacilityItem = styled.li`
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #f0f0f0;
   transition: all 0.3s;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    padding-left: 10px;
+    border-left: 3px solid #17B7A6;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 `;
 
-const CardIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 15px;
-`;
-
-const CardTitle = styled.h3`
-  font-size: 1.4rem;
-  margin-bottom: 15px;
+const FacilityName = styled.h3`
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #1a1a1a;
+  margin-bottom: 10px;
 `;
 
-const CardContent = styled.p`
+const FacilityDesc = styled.p`
+  font-size: 1rem;
   color: #666;
-  line-height: 1.6;
+  margin: 0;
+  line-height: 1.7;
+`;
+
+const LocationInfo = styled.div`
+  margin-bottom: 20px;
+  padding: 18px 24px;
+  background: #fafafa;
+  border-radius: 8px;
+  border-left: 4px solid #17B7A6;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: #f5f5f5;
+  }
+`;
+
+const InfoLabel = styled.div`
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+`;
+
+const InfoText = styled.div`
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+`;
+
+const LocationGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+`;
+
+const MapContainer = styled.div`
+  margin-top: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  iframe {
+    display: block;
+  }
+`;
+
+const FacilityContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+`;
+
+const FacilityCard = styled.div`
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 420px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #17B7A6;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+`;
+
+const FacilityTextContent = styled.div`
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  @media (max-width: 968px) {
+    padding: 32px 24px;
+  }
+`;
+
+const FacilityNumber = styled.div`
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+`;
+
+const FacilityTitle = styled.h3`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+`;
+
+const FacilityDescription = styled.p`
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 90%;
+  
+  @media (max-width: 968px) {
+    max-width: 100%;
+  }
+`;
+
+const FacilityDetailButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #18B7A6;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: fit-content;
+  
+  &::after {
+    content: '→';
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    color: #0E8F86;
+    gap: 12px;
+    
+    &::after {
+      transform: translateX(4px);
+    }
+  }
+`;
+
+const FacilityImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @media (max-width: 968px) {
+    height: 280px;
+  }
+`;
+
+const LocationSection = styled.div`
+  margin-top: 20px;
 `;
 
 const About: React.FC = () => {
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState('info');
+  
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash === 'guide') {
+      setActiveTab('info');
+    } else if (hash === 'facilities') {
+      setActiveTab('facility');
+    } else if (hash === 'location') {
+      setActiveTab('location');
+    }
+    
+    // 탭 전환 후 스크롤
+    if (hash) {
+      setTimeout(() => {
+        const tabContainer = document.querySelector('[data-tab-container]');
+        if (tabContainer) {
+          tabContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <PageWrapper>
-      <PageTitle>학원 소개</PageTitle>
-      <PageSubtitle>레벨미업 학원과 함께 꿈을 이루세요</PageSubtitle>
+      <HeroSection>
+        <HeroImageWrapper>
+          <img 
+            src="/images/about-hero.png" 
+            alt="Slow and Steady Wins The Race" 
+          />
+        </HeroImageWrapper>
+      </HeroSection>
 
-      <ContentSection>
-        <SectionTitle>🏫 레벨미업 학원을 소개합니다</SectionTitle>
-        <SectionContent>
-          <p>
-            레벨미업 학원은 <strong>부천 신중동에 위치한 중고등학생을 위한 국영수 전문 학원</strong>으로, 
-            체계적인 커리큘럼과 집중 케어 시스템(I.C.C.)으로 학생들의 성적 향상과 
-            목표 달성을 도와왔습니다.
-          </p>
-          <p>
-            우리는 단순히 성적만을 추구하는 것이 아니라, 학생 개개인의 학습 습관을 
-            바로잡고 자기주도적 학습 능력을 키우는 것을 목표로 합니다. 
-            예습과 복습 과제를 통해 학생들이 '무엇을, 어떻게 공부해야 할지'를 
-            자연스럽게 터득할 수 있도록 지도합니다.
-          </p>
-        </SectionContent>
-      </ContentSection>
+      <TabContainer data-tab-container>
+        <TabList>
+          <Tab $active={activeTab === 'info'} onClick={() => setActiveTab('info')}>
+            학원안내
+          </Tab>
+          <Tab $active={activeTab === 'facility'} onClick={() => setActiveTab('facility')}>
+            학원시설
+          </Tab>
+          <Tab $active={activeTab === 'location'} onClick={() => setActiveTab('location')}>
+            찾아오는 길
+          </Tab>
+        </TabList>
 
-      <ContentSection>
-        <SectionTitle>✨ 우리의 교육 철학</SectionTitle>
-        <SectionContent>
-          <HighlightBox>
-            <h3 style={{marginBottom: '15px', fontSize: '1.3rem'}}>
-              "모든 학생은 무한한 가능성을 가지고 있습니다"
-            </h3>
-            <p>
-              레벨미업 학원은 학생 한 명 한 명의 개성과 재능을 존중하며, 
-              그들의 잠재력을 최대한 끌어올리는 교육을 실천합니다. 
-              우리는 학생들이 자신감을 가지고 도전할 수 있는 환경을 조성하고, 
-              성취감을 통해 자기주도적 학습 습관을 형성할 수 있도록 돕습니다.
-            </p>
-          </HighlightBox>
-        </SectionContent>
-      </ContentSection>
+        {activeTab === 'info' && (
+          <TabContent>
+            <Section>
+              <IntroTitle>Progress, not pressure.</IntroTitle>
+              
+              <IntroParagraph>
+                레벨미업은 학생을 몰아붙이기보다, <strong>흔들리지 않는 실력의 리듬</strong>을 먼저 만듭니다.<br />
+                빠른 성적보다 중요한 건, 매일의 루틴이 쌓여 결국 결과가 되는 구조입니다.
+              </IntroParagraph>
+              
+              <IntroParagraph>
+                우리는 '감으로 하는 공부'가 아니라,<br />
+                핵심 개념을 단단히 정리하고 기준을 세운 뒤,<br />
+                실전 훈련으로 완성되는 학습 흐름을 만들어갑니다.
+              </IntroParagraph>
+              
+              <IntroParagraph>
+                단순히 문제를 많이 푸는 것이 아니라,<br />
+                학생이 스스로 성장할 수 있는 공부의 구조를 갖추도록 돕겠습니다.
+              </IntroParagraph>
+              
+              <IntroQuote>
+                Slow and steady wins the race.<br />
+                그 문장은 레벨미업의 방식이자 약속입니다.
+              </IntroQuote>
+            </Section>
+          </TabContent>
+        )}
 
-      <SectionTitle style={{marginBottom: '30px'}}>🎯 레벨미업의 강점</SectionTitle>
-      <GridSection>
-        <Card>
-          <CardIcon>👨‍🏫</CardIcon>
-          <CardTitle>검증된 강사진</CardTitle>
-          <CardContent>
-            10년 이상의 교육 경력을 보유한 전문 강사진이 학생들의 학습을 책임집니다. 
-            각 과목별 전문가가 최신 교육 트렌드와 입시 정보를 바탕으로 효과적인 
-            수업을 진행합니다.
-          </CardContent>
-        </Card>
+        {activeTab === 'facility' && (
+          <TabContent>
+            <FacilityContainer>
+              <FacilityCard>
+                <FacilityImageWrapper>
+                  <img src="/images/classroom/1.png" alt="강의실" />
+                </FacilityImageWrapper>
+                <FacilityTextContent>
+                  <FacilityNumber>01</FacilityNumber>
+                  <FacilityTitle>강의실</FacilityTitle>
+                  <FacilityDescription>
+                    국어·영어·수학·과학 과목별 전용 강의실로 구성되어, 과목 특성에 맞는 수업 환경을 제공합니다
+                  </FacilityDescription>
+                  <FacilityDetailButton to="/facility/classroom">View details</FacilityDetailButton>
+                </FacilityTextContent>
+              </FacilityCard>
 
-        <Card>
-          <CardIcon>📚</CardIcon>
-          <CardTitle>체계적인 커리큘럼</CardTitle>
-          <CardContent>
-            기초부터 심화까지 단계별로 구성된 커리큘럼으로 탄탄한 실력을 쌓아갑니다. 
-            정기적인 평가를 통해 학습 진도를 점검하고, 필요한 부분을 집중 보완합니다.
-          </CardContent>
-        </Card>
+              <FacilityCard>
+                <FacilityImageWrapper>
+                  <img src="/images/facility-study-room.jpg" alt="자습관" />
+                </FacilityImageWrapper>
+                <FacilityTextContent>
+                  <FacilityNumber>02</FacilityNumber>
+                  <FacilityTitle>자습관</FacilityTitle>
+                  <FacilityDescription>
+                    빈 시간에 자유롭게 이용하는 스터디카페형 자습 공간
+                  </FacilityDescription>
+                  <FacilityDetailButton to="/facility/study-room">View details</FacilityDetailButton>
+                </FacilityTextContent>
+              </FacilityCard>
 
-        <Card>
-          <CardIcon>📊</CardIcon>
-          <CardTitle>I.C.C. 집중 케어 시스템</CardTitle>
-          <CardContent>
-            Intensive Care Class를 통해 과제 미수행 학생이나 보충이 필요한 학생을 
-            개별 관리합니다. 부족한 부분을 즉시 파악하고 집중 보완하여 학습 공백을 
-            최소화합니다.
-          </CardContent>
-        </Card>
+              <FacilityCard>
+                <FacilityImageWrapper>
+                  <img src="/images/facility-test-room.jpg" alt="테스트실" />
+                </FacilityImageWrapper>
+                <FacilityTextContent>
+                  <FacilityNumber>03</FacilityNumber>
+                  <FacilityTitle>테스트실</FacilityTitle>
+                  <FacilityDescription>
+                    모의고사, 데일리 테스트, ICC를 진행하는 집중 평가 공간
+                  </FacilityDescription>
+                  <FacilityDetailButton to="/facility/test-room">View details</FacilityDetailButton>
+                </FacilityTextContent>
+              </FacilityCard>
 
-        <Card>
-          <CardIcon>🤝</CardIcon>
-          <CardTitle>소규모 맞춤 수업</CardTitle>
-          <CardContent>
-            한 반당 10명 이하의 소규모 수업으로 학생 개개인에게 충분한 관심과 
-            지도를 제공합니다. 질문이 많은 학생도 자유롭게 소통할 수 있는 환경을 
-            만듭니다.
-          </CardContent>
-        </Card>
+              <FacilityCard>
+                <FacilityImageWrapper>
+                  <img src="/images/facility-lounge.jpg" alt="라운지" />
+                </FacilityImageWrapper>
+                <FacilityTextContent>
+                  <FacilityNumber>04</FacilityNumber>
+                  <FacilityTitle>라운지</FacilityTitle>
+                  <FacilityDescription>
+                    휴식과 자유 학습이 모두 가능한 공용 공간
+                  </FacilityDescription>
+                  <FacilityDetailButton to="/facility/lounge">View details</FacilityDetailButton>
+                </FacilityTextContent>
+              </FacilityCard>
 
-        <Card>
-          <CardIcon>💬</CardIcon>
-          <CardTitle>학부모 소통 시스템</CardTitle>
-          <CardContent>
-            학원 어플 '메이크에듀'를 통해 실시간으로 학생의 과제 수행 및 테스트 결과를 
-            확인할 수 있습니다. 학습일지와 성적 확인 기능으로 투명한 학습 관리가 
-            가능합니다.
-          </CardContent>
-        </Card>
+              <FacilityCard>
+                <FacilityImageWrapper>
+                  <img src="/images/facility-lobby.jpg" alt="로비" />
+                </FacilityImageWrapper>
+                <FacilityTextContent>
+                  <FacilityNumber>05</FacilityNumber>
+                  <FacilityTitle>로비</FacilityTitle>
+                  <FacilityDescription>
+                    학원의 첫인상이자 주요 안내와 성과를 확인할 수 있는 공간
+                  </FacilityDescription>
+                  <FacilityDetailButton to="/facility/lobby">View details</FacilityDetailButton>
+                </FacilityTextContent>
+              </FacilityCard>
+            </FacilityContainer>
+          </TabContent>
+        )}
 
-        <Card>
-          <CardIcon>🏆</CardIcon>
-          <CardTitle>입증된 실적</CardTitle>
-          <CardContent>
-            매년 평균 2등급 이상의 성적 향상과 주요 대학 합격생 배출로 교육 품질을 
-            입증하고 있습니다. 학생들의 성공 스토리가 우리의 자부심입니다.
-          </CardContent>
-        </Card>
-      </GridSection>
-
-      <ContentSection style={{marginTop: '60px'}}>
-        <SectionTitle>📍 찾아오시는 길</SectionTitle>
-        <SectionContent>
-          <p><strong>주소:</strong> 경기도 부천시 길주로 275 중동프라자 6층</p>
-          <p><strong>전화:</strong> 032-322-0592</p>
-          <p><strong>휴대폰:</strong> 010-2406-0591</p>
-          <p><strong>운영시간:</strong></p>
-          <ul>
-            <li>평일: 15:00 - 22:00</li>
-            <li>주말: 12:00 - 19:00</li>
-            <li>※ 전화문의 상시 응대 가능</li>
-          </ul>
-          <p style={{marginTop: '15px'}}><strong>오시는 길:</strong></p>
-          <ul>
-            <li>신중동역 4번 출구 방향</li>
-            <li>중동프라자 건물 6층</li>
-          </ul>
-        </SectionContent>
-      </ContentSection>
+        {activeTab === 'location' && (
+          <TabContent>
+            <LocationGrid>
+              <LocationInfo>
+                <InfoLabel>주소</InfoLabel>
+                <InfoText>경기도 부천시 길주로 275 중동프라자 6층</InfoText>
+              </LocationInfo>
+              <LocationInfo>
+                <InfoLabel>위치</InfoLabel>
+                <InfoText>신중동역 4번 출구 인근</InfoText>
+              </LocationInfo>
+            </LocationGrid>
+            <MapContainer>
+              {/* 구글맵 iframe - 마커 포함 */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.8!2d126.7648558!3d37.5025873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2z6rK96riw64-EIOu2gOyynOyLnCDquLjso7zroZwgMjc1!5e0!3m2!1sko!2skr!4v1234567890123!5m2!1sko!2skr"
+                width="100%"
+                height="450"
+                style={{
+                  border: 'none',
+                  borderRadius: '12px'
+                }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="레벨미업 학원 위치"
+              />
+              
+              {/* 지도 버튼들 */}
+              <div style={{ marginTop: '20px', textAlign: 'center', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a 
+                  href="https://map.naver.com/p/search/%EB%A0%88%EB%B2%A8%EB%AF%B8%EC%97%85%20%ED%95%99%EC%9B%90" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ 
+                    display: 'inline-block',
+                    padding: '14px 28px',
+                    background: '#17B7A6',
+                    color: 'white',
+                    textDecoration: 'none',
+                    borderRadius: '8px',
+                    fontFamily: 'Pretendard, Noto Sans KR, sans-serif',
+                    fontWeight: '600',
+                    fontSize: '1rem',
+                    transition: 'all 0.2s',
+                    boxShadow: '0 4px 12px rgba(23, 183, 166, 0.25)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(23, 183, 166, 0.35)';
+                    e.currentTarget.style.background = '#0E8F84';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(23, 183, 166, 0.25)';
+                    e.currentTarget.style.background = '#17B7A6';
+                  }}
+                >
+                  🗺️ 네이버 지도
+                </a>
+                <a 
+                  href="https://map.kakao.com/link/map/레벨미업학원,37.5025873,126.7648558" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ 
+                    display: 'inline-block',
+                    padding: '14px 28px',
+                    background: '#17B7A6',
+                    color: 'white',
+                    textDecoration: 'none',
+                    borderRadius: '8px',
+                    fontFamily: 'Pretendard, Noto Sans KR, sans-serif',
+                    fontWeight: '600',
+                    fontSize: '1rem',
+                    transition: 'all 0.2s',
+                    boxShadow: '0 4px 12px rgba(23, 183, 166, 0.25)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(23, 183, 166, 0.35)';
+                    e.currentTarget.style.background = '#0E8F84';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(23, 183, 166, 0.25)';
+                    e.currentTarget.style.background = '#17B7A6';
+                  }}
+                >
+                  🗺️ 카카오맵
+                </a>
+              </div>
+            </MapContainer>
+            
+            {/* 바운스 애니메이션 키프레임 추가 */}
+            <style>
+              {`
+                @keyframes bounce {
+                  0%, 100% {
+                    transform: translate(-50%, -100%) translateY(0);
+                  }
+                  50% {
+                    transform: translate(-50%, -100%) translateY(-10px);
+                  }
+                }
+              `}
+            </style>
+          </TabContent>
+        )}
+      </TabContainer>
     </PageWrapper>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { colors, gradients } from '../theme';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ const HeroSection = styled.div`
   position: relative;
   padding: 80px 20px 60px;
   text-align: center;
-  background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
   color: white;
 `;
 
@@ -117,8 +118,8 @@ const VideoControls = styled.div`
 
 const ControlButton = styled.button<{ primary?: boolean }>`
   background: ${props => props.primary 
-    ? 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)' 
-    : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
+    ? 'linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%)' 
+    : 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)'};
   color: white;
   border: none;
   padding: 15px 35px;
@@ -195,7 +196,7 @@ const PhotoCaption = styled.div`
 `;
 
 const HighlightSection = styled.div`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   border-radius: 20px;
   padding: 50px;
   color: white;
@@ -245,7 +246,7 @@ const HighlightCard = styled.div`
 const InstagramButton = styled.a`
   display: inline-block;
   background: white;
-  color: #667eea;
+  color: #4CAF50;
   padding: 18px 45px;
   border-radius: 50px;
   font-size: 1.1rem;

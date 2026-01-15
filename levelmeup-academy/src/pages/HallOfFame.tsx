@@ -1,11 +1,12 @@
 import React from 'react';
+import { colors } from '../theme';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 const PageWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  background: white;
 `;
 
 const PageTitle = styled.h1`
@@ -13,515 +14,1242 @@ const PageTitle = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   color: #1a1a1a;
+  font-weight: 700;
   
   &::after {
     content: '';
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
     margin: 20px auto;
     border-radius: 3px;
   }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
-const PageSubtitle = styled.p`
+const PageSubtitle = styled.div`
   text-align: center;
   font-size: 1.2rem;
   color: #666;
   margin-bottom: 60px;
+  line-height: 1.8;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
 `;
 
-const StatsSection = styled.section`
-  background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 50%, #ff8c42 100%);
-  color: white;
-  padding: 60px 40px;
-  border-radius: 20px;
-  margin-bottom: 60px;
-  position: relative;
-  overflow: hidden;
+const SummarySection = styled.section`
+  margin-bottom: 80px;
 `;
 
-const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  text-align: center;
-`;
-
-const StatItem = styled.div``;
-
-const StatNumber = styled.div`
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-`;
-
-const StatLabel = styled.div`
-  font-size: 1.1rem;
-  opacity: 0.9;
-`;
-
-const CategorySection = styled.section`
-  margin-bottom: 60px;
-`;
-
-const CategoryTitle = styled.h2`
-  font-size: 2rem;
+const SummaryTitle = styled.h3`
+  font-size: 1.8rem;
   margin-bottom: 30px;
-  color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
-const UniversitySection = styled.div`
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 40px;
-`;
-
-const UniversityGrid = styled.div`
+const SummaryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  margin-top: 30px;
+  
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: 968px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
-const UniversityBadge = styled(Link)`
-  background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
+const SummaryCard = styled.div`
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  border: 3px solid #ff8c42;
-  box-shadow: 0 4px 15px rgba(26, 95, 61, 0.3);
-  text-decoration: none;
-  display: block;
   transition: all 0.3s;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(26, 95, 61, 0.5);
+    background: #f5f5f5;
+    border-color: #d0d0d0;
   }
 `;
 
-const AchievementTable = styled.table`
+const CardYear = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 15px;
+`;
+
+const CardLabel = styled.div`
+  font-size: 0.95rem;
+  color: #95a5a6;
+  margin-bottom: 10px;
+`;
+
+const CardValue = styled.div`
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  font-style: italic;
+`;
+
+const SchoolBreakdown = styled.div`
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  text-align: left;
+`;
+
+const SchoolItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+  }
+`;
+
+const SchoolName = styled.span`
+  font-weight: 600;
+  color: #2c3e50;
+`;
+
+const SchoolCount = styled.span`
+  font-weight: 700;
+  color: ${colors.green.primary};
+  font-size: 1rem;
+`;
+
+const YearSection = styled.section`
+  margin-bottom: 80px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const YearTitle = styled.h3`
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #34495e;
+  
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const YearDescription = styled.p`
+  font-size: 1.05rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`;
+
+const RecordTable = styled.table`
   width: 100%;
   border-collapse: collapse;
   background: white;
-  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 40px;
   
   thead {
-    background: linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%);
+    background: #34495e;
     color: white;
   }
   
-  th, td {
+  th {
     padding: 18px 15px;
     text-align: center;
-    border-bottom: 1px solid #e9ecef;
-  }
-  
-  th {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.05rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    
+    &:last-child {
+      border-right: none;
+    }
   }
   
   tbody tr {
-    transition: background 0.3s;
+    border-bottom: 1px solid #e0e0e0;
     
-    &:hover {
-      background: #f8f9fa;
+    &:last-child {
+      border-bottom: none;
     }
     
-    &:last-child td {
-      border-bottom: none;
+    &:hover {
+      background: #fafafa;
     }
   }
   
   td {
+    padding: 16px 15px;
+    text-align: center;
     font-size: 1rem;
-    color: #333;
+    color: #2c3e50;
+    border-right: 1px solid #f0f0f0;
+    
+    &:last-child {
+      border-right: none;
+    }
   }
   
-  .highlight {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    font-weight: bold;
-    color: #1a5f3d;
+  @media (max-width: 768px) {
+    th, td {
+      padding: 12px 8px;
+      font-size: 0.9rem;
+    }
   }
-  
-  .school {
-    color: #666;
-    font-weight: 500;
-  }
-  
-  .score {
-    color: #ff8c42;
-    font-weight: bold;
-    font-size: 1.1rem;
+`;
+
+const EmptyMessage = styled.tr`
+  td {
+    padding: 60px 20px !important;
+    text-align: center;
+    color: #95a5a6;
+    font-style: italic;
+    font-size: 1.05rem;
   }
 `;
 
 const HallOfFame: React.FC = () => {
   return (
     <PageWrapper>
-      <PageTitle>명예의 전당</PageTitle>
-      <PageSubtitle>레벨미업과 함께 꿈을 이룬 학생들의 자랑스러운 성과</PageSubtitle>
+      <PageTitle>합격 이야기</PageTitle>
+      <PageSubtitle>
+        명예의 전당<br/>
+        -<br/>
+        레벨미업에서 함께 만들어 온<br/>
+        최근 5개년 대학 합격 성과<br/>
+        <span style={{display: 'block', marginTop: '15px', fontSize: '1rem', color: '#888', fontStyle: 'italic'}}>
+          "성적보다 과정을, 결과보다 성장을 중시한<br/>
+          레벨미업 학생들의 실제 진학 기록입니다."
+        </span>
+      </PageSubtitle>
 
-      <StatsSection>
-        <h2 style={{textAlign: 'center', marginBottom: '40px', fontSize: '2.5rem', position: 'relative', zIndex: 1}}>
-          레벨미업 15년 실적 통계
-        </h2>
-        <StatsGrid style={{position: 'relative', zIndex: 1}}>
-          <StatItem>
-            <StatNumber>5년 연속</StatNumber>
-            <StatLabel>서울대 합격생 배출</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber>50명+</StatNumber>
-            <StatLabel>여름방학 1등급 달성</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber>13명</StatNumber>
-            <StatLabel>전교 3등 이내 배출</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber>다수</StatNumber>
-            <StatLabel>전교 1등 배출</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber>300명+</StatNumber>
-            <StatLabel>재원생 (중고등)</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber>15년</StatNumber>
-            <StatLabel>부천 지역 전통</StatLabel>
-          </StatItem>
-        </StatsGrid>
-      </StatsSection>
+      {/* 최근 5개년 대학 진학 성과 요약 */}
+      <SummarySection>
+        <SummaryTitle>LEVEL ME UP 최근 5개년 주요대학 합격 결과</SummaryTitle>
+        <SummaryGrid>
+          <SummaryCard>
+            <CardYear>26학년도</CardYear>
+            <CardLabel>주요대학 합격 결과</CardLabel>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>27명</CardValue>
+            <SchoolBreakdown>
+              <SchoolItem>
+                <SchoolName>서울대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>2명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>2명</SchoolCount>
+              </SchoolItem>
+            </SchoolBreakdown>
+            <CardLabel style={{marginTop: '15px', fontSize: '0.85rem', color: '#95a5a6'}}>현재 집계중</CardLabel>
+          </SummaryCard>
+          <SummaryCard>
+            <CardYear>25학년도</CardYear>
+            <CardLabel>주요대학 합격 결과</CardLabel>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>26명</CardValue>
+            <SchoolBreakdown>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>약학과</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+            </SchoolBreakdown>
+          </SummaryCard>
+          <SummaryCard>
+            <CardYear>24학년도</CardYear>
+            <CardLabel>주요대학 합격 결과</CardLabel>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>38명</CardValue>
+            <SchoolBreakdown>
+              <SchoolItem>
+                <SchoolName>서울대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>3명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>2명</SchoolCount>
+              </SchoolItem>
+            </SchoolBreakdown>
+          </SummaryCard>
+          <SummaryCard>
+            <CardYear>23학년도</CardYear>
+            <CardLabel>주요대학 합격 결과</CardLabel>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>37명</CardValue>
+            <SchoolBreakdown>
+              <SchoolItem>
+                <SchoolName>한의예과</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>서울대학교</SchoolName>
+                <SchoolCount>2명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>포스텍</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>2명</SchoolCount>
+              </SchoolItem>
+            </SchoolBreakdown>
+          </SummaryCard>
+          <SummaryCard>
+            <CardYear>22학년도</CardYear>
+            <CardLabel>주요대학 합격 결과</CardLabel>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>30명</CardValue>
+            <SchoolBreakdown>
+              <SchoolItem>
+                <SchoolName>서울대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+            </SchoolBreakdown>
+          </SummaryCard>
+        </SummaryGrid>
+      </SummarySection>
 
-      <CategorySection>
-        <CategoryTitle>2023학년도 수시전형 합격 실적</CategoryTitle>
-        <p style={{color: '#666', marginBottom: '20px', fontSize: '1.1rem'}}>
-          서울대, 포스텍, 고려대 등 명문대 합격자 다수 배출
-        </p>
-        <AchievementTable>
+      {/* 26학년도 합격 실적 */}
+      <YearSection>
+        <YearTitle>26학년도 대학 합격 실적</YearTitle>
+        <YearDescription>
+          2026학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+        </YearDescription>
+        <RecordTable>
           <thead>
             <tr>
-              <th>학생</th>
               <th>출신 고등학교</th>
               <th>합격 대학</th>
               <th>합격 학과</th>
-              <th>전형</th>
             </tr>
           </thead>
           <tbody>
-            <tr className="highlight">
-              <td>양*헌</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">서울대학교</td>
-              <td>재료공학과</td>
-              <td>수시</td>
-            </tr>
-            <tr className="highlight">
-              <td>양*헌</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">포스텍(포항공대)</td>
-              <td>무은재학과</td>
-              <td>수시</td>
-            </tr>
-            <tr className="highlight">
-              <td>이*수</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">고려대학교</td>
-              <td>영어영문학과</td>
-              <td>수시</td>
-            </tr>
-            <tr className="highlight">
-              <td>양*헌</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">고려대학교</td>
-              <td>신소재공학과</td>
-              <td>수시</td>
-            </tr>
-            <tr className="highlight">
-              <td>양*헌</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">성균관대학교</td>
-              <td>공학계열</td>
-              <td>수시</td>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울대학교</td>
+              <td>기계공학부</td>
             </tr>
             <tr>
-              <td>황*주</td>
-              <td className="school">소명여고</td>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>신소재공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>KENTECH</td>
+              <td>에너지공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>건축사회환경공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>사학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>사학과</td>
+            </tr>
+            <tr>
+              <td>부천북고등학교</td>
+              <td>성균관대학교</td>
+              <td>전자전기공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성균관대학교</td>
+              <td>전자전기공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>중앙대학교</td>
+              <td>기계공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>경희대학교</td>
+              <td>기계공학부</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>경희대학교</td>
+              <td>응용화학과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>이화여자대학교</td>
+              <td>경제학과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>경제학부</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>독일어과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>건국대학교</td>
+              <td>공과대학 자율전공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>공군사관학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>동국대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>중흥고등학교</td>
+              <td>동국대학교</td>
+              <td>전자전기공학부</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>숭실대학교</td>
+              <td>경영학부</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>세종대학교</td>
+              <td>호텔관광외식경영학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>성신여자대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>인하대학교</td>
+              <td>화학공학과</td>
+            </tr>
+            <tr>
+              <td>부천북고등학교</td>
+              <td>명지대학교</td>
+              <td>신소재공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>가톨릭대학교</td>
+              <td>수학과</td>
+            </tr>
+            <tr>
+              <td>부천북고등학교</td>
+              <td>가천대학교</td>
+              <td>신소재공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>순천향대학교</td>
+              <td>정보통신학과</td>
+            </tr>
+          </tbody>
+        </RecordTable>
+      </YearSection>
+
+      {/* 25학년도 합격 실적 */}
+      <YearSection>
+        <YearTitle>25학년도 대학 합격 실적</YearTitle>
+        <YearDescription>
+          2025학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+        </YearDescription>
+        <RecordTable>
+          <thead>
+            <tr>
+              <th>출신 고등학교</th>
+              <th>합격 대학</th>
+              <th>합격 학과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>원미고등학교</td>
+              <td>충남대학교</td>
+              <td>약학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>화공생명공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서강대학교</td>
+              <td>인공지능학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서강대학교</td>
+              <td>사학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성균관대학교</td>
+              <td>사회계열</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한양대학교</td>
+              <td>사학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한양대학교</td>
+              <td>사회학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>이화여자대학교</td>
+              <td>인공지능데이터사이언스학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>경영학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>일본언어문화학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>상경대학</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>중국어교육학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울시립대학교</td>
+              <td>자유전공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>기계시스템학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>르꼬르동블루외식경영학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성신여자대학교</td>
+              <td>수리통계데이터사이언스학부</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>성신여자대학교</td>
+              <td>영어영문학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인하대학교</td>
+              <td>기계공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인하대학교</td>
+              <td>아태물류학과</td>
+            </tr>
+            <tr>
+              <td>덕산고등학교</td>
+              <td>인하대학교</td>
+              <td>기계공학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>인하대학교</td>
+              <td>생명과학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>홍익대학교</td>
+              <td>기계시스템디자인공학과</td>
+            </tr>
+            <tr>
+              <td>덕산고등학교</td>
+              <td>홍익대학교</td>
+              <td>기계시스템디자인공학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>국민대학교</td>
+              <td>영어영문학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>단국대학교</td>
+              <td>전자전기공학과</td>
+            </tr>
+            <tr>
+              <td>중원고등학교</td>
+              <td>수원대학교</td>
+              <td>경영학과</td>
+            </tr>
+          </tbody>
+        </RecordTable>
+      </YearSection>
+
+      {/* 24학년도 합격 실적 */}
+      <YearSection>
+        <YearTitle>24학년도 대학 합격 실적</YearTitle>
+        <YearDescription>
+          2024학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+        </YearDescription>
+        <RecordTable>
+          <thead>
+            <tr>
+              <th>출신 고등학교</th>
+              <th>합격 대학</th>
+              <th>합격 학과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울대학교</td>
+              <td>자유전공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>연세대학교</td>
+              <td>심리학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>약학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>고려대학교</td>
+              <td>교육학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>성균관대학교</td>
+              <td>사회과학계열</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>서강대학교</td>
+              <td>사회과학부</td>
+            </tr>
+            <tr>
+              <td>계남고등학교</td>
+              <td>한양대학교</td>
+              <td>기계공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>한양대학교</td>
+              <td>교육공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울시립대학교</td>
+              <td>경영학부</td>
+            </tr>
+            <tr>
+              <td>중흥고등학교</td>
+              <td>서울시립대학교</td>
+              <td>도시사회학과</td>
+            </tr>
+            <tr>
+              <td>수원외국어고등학교</td>
+              <td>서울시립대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>부천여자고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>중어중문학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>중어중문학과</td>
+            </tr>
+            <tr>
+              <td>중흥고등학교</td>
+              <td>숙명여자대학교</td>
+              <td>경제학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>터키아제르바이잔어과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>중앙대학교</td>
+              <td>디자인학부</td>
+            </tr>
+            <tr>
+              <td>김포외국어고등학교</td>
+              <td>경희대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>부천여자고등학교</td>
+              <td>경희대학교</td>
+              <td>건축학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>동국대학교</td>
+              <td>회계학과</td>
+            </tr>
+            <tr>
+              <td>계남고등학교</td>
+              <td>동국대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>홍익대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>중흥고등학교</td>
+              <td>홍익대학교</td>
+              <td>영어영문학과</td>
+            </tr>
+            <tr>
+              <td>부명고등학교</td>
+              <td>인하대학교</td>
+              <td>기계공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>인하대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인하대학교</td>
+              <td>문화콘텐츠문화경영학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>숭실대학교</td>
+              <td>일어일문학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>아주대학교</td>
+              <td>e-비즈니스학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>인천대학교</td>
+              <td>나노바이오공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>인천대학교</td>
+              <td>건축학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인천대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>광운대학교</td>
+              <td>국문학과</td>
+            </tr>
+            <tr>
+              <td>경기예술고등학교</td>
+              <td>세종대학교</td>
+              <td>만화애니메이션과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>서경대학교</td>
+              <td>군사학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>가천대학교</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>수원대학교</td>
+              <td>디자인학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>부천대학교</td>
+              <td>치위생학과</td>
+            </tr>
+          </tbody>
+        </RecordTable>
+      </YearSection>
+
+      {/* 23학년도 합격 실적 */}
+      <YearSection>
+        <YearTitle>23학년도 대학 합격 실적</YearTitle>
+        <YearDescription>
+          2023학년도 대학입시 합격 결과입니다.
+        </YearDescription>
+        <RecordTable>
+          <thead>
+            <tr>
+              <th>출신 고등학교</th>
+              <th>합격 대학</th>
+              <th>학과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>정명고등학교</td>
+              <td>상지대학교</td>
+              <td>한의예과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울대학교</td>
+              <td>재료공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울대학교</td>
+              <td>경제학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>포스텍(포항공과대학교)</td>
+              <td>무은재학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>경제학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>영어영문학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>신소재공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성균관대학교</td>
+              <td>공학계열</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
               <td>건국대학교</td>
               <td>생명과학과</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>최*서</td>
-              <td className="school">정명고</td>
+              <td>정명고등학교</td>
               <td>동국대학교</td>
               <td>기계로봇에너지공학과</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>최*서</td>
-              <td className="school">정명고</td>
+              <td>정명고등학교</td>
               <td>홍익대학교</td>
               <td>건설환경공학과</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>정*서</td>
-              <td className="school">계남고</td>
+              <td>계남고등학교</td>
               <td>한국외국어대학교</td>
               <td>프랑스어학부</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>배*서</td>
-              <td className="school">정명고</td>
+              <td>정명고등학교</td>
               <td>인하대학교</td>
               <td>정보통신공학과</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>김*은</td>
-              <td className="school">부명고</td>
+              <td>부명고등학교</td>
               <td>인하대학교</td>
               <td>건축학과</td>
-              <td>수시</td>
             </tr>
             <tr>
-              <td>김*은</td>
-              <td className="school">부명고</td>
-              <td>서울과학기술대학교</td>
-              <td>건축학과</td>
-              <td>수시</td>
-            </tr>
-          </tbody>
-        </AchievementTable>
-        <div style={{textAlign: 'center', marginTop: '20px'}}>
-          <a 
-            href="https://blog.naver.com/levelmeup/222978250103" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-              color: 'white',
-              padding: '12px 30px',
-              borderRadius: '25px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-              transition: 'all 0.3s'
-            }}
-          >
-            블로그에서 전체 수시 합격자 보기
-          </a>
-        </div>
-      </CategorySection>
-
-      <CategorySection>
-        <CategoryTitle>2023학년도 정시전형 합격 실적</CategoryTitle>
-        <p style={{color: '#666', marginBottom: '20px', fontSize: '1.1rem'}}>
-          서울대 경제학과 합격을 포함한 2023년 정시전형 최종 합격 결과입니다
-        </p>
-        <AchievementTable>
-          <thead>
-            <tr>
-              <th>학생</th>
-              <th>출신 고등학교</th>
-              <th>합격 대학</th>
-              <th>합격 학과</th>
-              <th>전형</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="highlight">
-              <td>장*정</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">서울대학교</td>
-              <td>경제학과</td>
-              <td>정시</td>
+              <td>소사고등학교</td>
+              <td>아주대학교</td>
+              <td>미디어학과</td>
             </tr>
             <tr>
-              <td>장*정</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">연세대학교</td>
-              <td>경제학과</td>
-              <td>정시</td>
+              <td>중흥고등학교</td>
+              <td>성신여자대학교</td>
+              <td>사회복지학과</td>
             </tr>
             <tr>
-              <td>장*정</td>
-              <td className="school">정명고등학교</td>
-              <td className="score">상지대학교</td>
-              <td>한의예과</td>
-              <td>정시</td>
+              <td>소명여자고등학교</td>
+              <td>가톨릭대학교</td>
+              <td>경영학과</td>
             </tr>
             <tr>
-              <td>하*진</td>
-              <td className="school">정명고등학교</td>
-              <td>인천대학교</td>
-              <td>생명과학과</td>
-              <td>정시</td>
+              <td>소명여자고등학교</td>
+              <td>가톨릭대학교</td>
+              <td>식품영양학과</td>
             </tr>
             <tr>
-              <td>하*진</td>
-              <td className="school">정명고등학교</td>
+              <td>정명고등학교</td>
               <td>가톨릭대학교</td>
               <td>어문계열</td>
-              <td>정시</td>
+            </tr>
+            <tr>
+              <td>소사고등학교</td>
+              <td>상명대학교</td>
+              <td>소프트웨어학과</td>
+            </tr>
+            <tr>
+              <td>소사고등학교</td>
+              <td>상명대학교</td>
+              <td>소프트웨어학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인천대학교</td>
+              <td>생명과학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교 글로벌캠퍼스</td>
+              <td>언어인지학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>단국대학교 천안캠퍼스</td>
+              <td>보건행정학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>경기대학교</td>
+              <td>산업경영정보공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>수원대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한성대학교</td>
+              <td>IT공과학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성결대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한서대학교</td>
+              <td>치위생학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>협성대학교</td>
+              <td>세무회계학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>협성대학교</td>
+              <td>중국어문화학과</td>
+            </tr>
+            <tr>
+              <td>중원고등학교</td>
+              <td>한국공학대학교</td>
+              <td>IT경영학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>한국공학대학교</td>
+              <td>IT경영학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>한국공학대학교</td>
+              <td>경영학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>경인여자대학교</td>
+              <td>간호학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>삼육보건대학교</td>
+              <td>간호학과</td>
+            </tr>
+            <tr>
+              <td>부명고등학교</td>
+              <td>서울과학기술대학교</td>
+              <td>건축학과</td>
             </tr>
           </tbody>
-        </AchievementTable>
-        <div style={{textAlign: 'center', marginTop: '20px'}}>
-          <a 
-            href="https://m.blog.naver.com/levelmeup/223055871967" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-              color: 'white',
-              padding: '12px 30px',
-              borderRadius: '25px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-              transition: 'all 0.3s'
-            }}
-          >
-            블로그에서 합격 스토리 보기
-          </a>
-        </div>
-      </CategorySection>
+        </RecordTable>
+      </YearSection>
 
-      <CategorySection>
-        <CategoryTitle>2023년 1학기 국어 만점자 (중간고사)</CategoryTitle>
-        <AchievementTable>
+      {/* 22학년도 합격 실적 */}
+      <YearSection>
+        <YearTitle>22학년도 대학 합격 실적</YearTitle>
+        <YearDescription>
+          2022학년도 대학입시 합격 결과입니다.
+        </YearDescription>
+        <RecordTable>
           <thead>
             <tr>
-              <th>학생</th>
-              <th>학교</th>
-              <th>학년</th>
-              <th>과목</th>
-              <th>점수</th>
+              <th>출신 고등학교</th>
+              <th>합격 대학</th>
+              <th>학과</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>김*민</td>
-              <td className="school">중흥고등학교</td>
-              <td>1학년</td>
-              <td>국어</td>
-              <td className="score">100점</td>
+              <td>소명여자고등학교</td>
+              <td>서울대학교</td>
+              <td>국사학과</td>
             </tr>
             <tr>
-              <td>김*현</td>
-              <td className="school">심원고등학교</td>
-              <td>1학년</td>
-              <td>국어</td>
-              <td className="score">100점</td>
+              <td>정명고등학교</td>
+              <td>연세대학교</td>
+              <td>중어중문학과</td>
             </tr>
             <tr>
-              <td>박*민</td>
-              <td className="school">부천북고등학교</td>
-              <td>1학년</td>
-              <td>국어</td>
-              <td className="score">100점</td>
+              <td>정명고등학교</td>
+              <td>고려대학교</td>
+              <td>식품자원경제학과</td>
             </tr>
             <tr>
-              <td>김*원</td>
-              <td className="school">정명고등학교</td>
-              <td>2학년</td>
-              <td>국어</td>
-              <td className="score">100점</td>
+              <td>소명여자고등학교</td>
+              <td>서강대학교</td>
+              <td>사학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>성균관대학교</td>
+              <td>인문과학계열</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>성균관대학교</td>
+              <td>스포츠과학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>성균관대학교</td>
+              <td>사회과학계열</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한양대학교</td>
+              <td>정책학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>중앙대학교</td>
+              <td>체육교육학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>경희대학교</td>
+              <td>정보전자신소재공학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>경희대학교</td>
+              <td>체육학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>서울시립대학교</td>
+              <td>행정학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>ELLT학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>한국외국어대학교</td>
+              <td>프랑스어학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>건국대학교</td>
+              <td>체육교육과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>홍익대학교</td>
+              <td>전기전자공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>홍익대학교</td>
+              <td>건설환경공학과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>국민대학교</td>
+              <td>나노전자물리학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>숭실대학교</td>
+              <td>융합특화자유전공학부</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인하대학교</td>
+              <td>신소재공학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인하대학교</td>
+              <td>영어영문학과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>인하대학교</td>
+              <td>체육교육과</td>
+            </tr>
+            <tr>
+              <td>소명여자고등학교</td>
+              <td>인하대학교</td>
+              <td>영어교육과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>세종대학교</td>
+              <td>생명시스템학부</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>광운대학교</td>
+              <td>전자공학과</td>
+            </tr>
+            <tr>
+              <td>원미고등학교</td>
+              <td>명지대학교</td>
+              <td>아랍지역학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>인천대학교</td>
+              <td>불어불문학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>인천대학교</td>
+              <td>해양학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>인천대학교</td>
+              <td>독어독문학과</td>
+            </tr>
+            <tr>
+              <td>심원고등학교</td>
+              <td>가천대학교</td>
+              <td>유럽어문학과</td>
             </tr>
           </tbody>
-        </AchievementTable>
-      </CategorySection>
-
-      <CategorySection>
-        <CategoryTitle>2024년 영어 만점자 성과</CategoryTitle>
-        <AchievementTable>
-          <thead>
-            <tr>
-              <th>시험</th>
-              <th>학교</th>
-              <th>학년</th>
-              <th>과목</th>
-              <th>성과</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="highlight">
-              <td>2024-1학기 중간</td>
-              <td className="school">정명고등학교</td>
-              <td>3학년</td>
-              <td>영어</td>
-              <td className="score">100점 7명 중 4명 배출</td>
-            </tr>
-            <tr className="highlight">
-              <td>2024-2학기 기말</td>
-              <td className="school">심원고등학교</td>
-              <td>1학년</td>
-              <td>영어</td>
-              <td className="score">100점 4명 배출</td>
-            </tr>
-          </tbody>
-        </AchievementTable>
-      </CategorySection>
-
-      <UniversitySection>
-        <CategoryTitle>주요 내신 대비 학교 (12개교)</CategoryTitle>
-        <p style={{color: '#666', marginBottom: '20px', fontSize: '1.05rem'}}>
-          학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다
-        </p>
-        <UniversityGrid>
-          {['덕산고', '부명고', '부천고', '부천북고', '상일고', '소명여고', 
-            '심원고', '원미고', '정명고', '중원고', '중흥고', '심원중'].map((school, index) => (
-            <UniversityBadge key={index} to={`/school/${school}`}>
-              {school}
-            </UniversityBadge>
-          ))}
-        </UniversityGrid>
-      </UniversitySection>
-
-      <div style={{textAlign: 'center', marginTop: '60px', padding: '40px', background: '#f8f9fa', borderRadius: '15px'}}>
-        <h3 style={{fontSize: '1.8rem', marginBottom: '20px', color: '#1a1a1a'}}>
-          더 많은 학원 소식이 궁금하신가요?
-        </h3>
-        <p style={{fontSize: '1.1rem', color: '#666', marginBottom: '30px'}}>
-          학원 시설, 수업 모습, 이벤트 사진을 갤러리에서 확인하세요!
-        </p>
-        <Link
-          to="/gallery"
-          style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-            color: 'white',
-            padding: '15px 40px',
-            borderRadius: '50px',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            boxShadow: '0 4px 15px rgba(26, 95, 61, 0.3)',
-            transition: 'all 0.3s'
-          }}
-        >
-          갤러리 바로가기
-        </Link>
-      </div>
+        </RecordTable>
+      </YearSection>
     </PageWrapper>
   );
 };
