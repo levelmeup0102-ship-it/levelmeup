@@ -341,16 +341,16 @@ const Paragraph = styled.p`
 `;
 
 const IntroSubtitle = styled.p`
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   color: #17B7A6;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   line-height: 1.6;
   font-style: italic;
   
   @media (max-width: 768px) {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
   }
 `;
 
@@ -655,7 +655,7 @@ const About: React.FC = () => {
         {activeTab === 'info' && (
           <TabContent>
             <Section>
-              <IntroSubtitle>우리가 추구하는 교육 철학</IntroSubtitle>
+              <IntroSubtitle>Progress, not pressure</IntroSubtitle>
               
               <IntroParagraph>
                 레벨미업은 학생을 몰아붙이기보다, <strong>흔들리지 않는 실력의 리듬</strong>을 먼저 만듭니다.<br />
