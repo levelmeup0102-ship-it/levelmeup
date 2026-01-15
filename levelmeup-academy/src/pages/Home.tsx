@@ -732,7 +732,7 @@ const Home: React.FC = () => {
         <Container>
           <HeadlineContainer>
             <MainHeadline>LEVEL ME UP</MainHeadline>
-            <SubHeadline>부천 학교별 맞춤 내신부터 체계적 수능대비까지</SubHeadline>
+            <SubHeadline>부천 내신, 학교별로 전략이 달라야 합니다.</SubHeadline>
           </HeadlineContainer>
           
           <SchoolsSection id="schools-high" $variant="high">
