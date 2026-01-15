@@ -736,7 +736,7 @@ const Home: React.FC = () => {
           </HeadlineContainer>
           
           <SchoolsSection id="schools-high" $variant="high">
-            <SchoolsTitle>LEVEL ME UP 내신대비 부천 고등학교</SchoolsTitle>
+            <SchoolsTitle>LEVEL ME UP | 부천 고등학교 내신 맞춤 대비</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
               <SchoolBadge to="/school/덕산고?from=home&section=high">덕산고</SchoolBadge>
@@ -755,7 +755,7 @@ const Home: React.FC = () => {
           </SchoolsSection>
           
           <SchoolsSection id="schools-middle" $variant="middle">
-            <SchoolsTitle>LEVEL ME UP 내신대비 부천 중학교</SchoolsTitle>
+            <SchoolsTitle>LEVEL ME UP | 부천 중학교 내신 맞춤 대비</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
               <SchoolBadge to="/school/부천중?from=home&section=middle">부천중</SchoolBadge>
