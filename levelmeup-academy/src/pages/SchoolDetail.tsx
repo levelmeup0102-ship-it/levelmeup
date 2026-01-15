@@ -463,9 +463,9 @@ const schoolsData: Record<string, SchoolData> = {
       '개별 학습 지도'
     ]
   },
-  '상일고': {
-    name: '상일고',
-    fullName: '상일고등학교',
+  '계남고': {
+    name: '계남고',
+    fullName: '계남고등학교',
     description: '부천 지역 내신 대비 학교',
     achievements: [],
     features: [

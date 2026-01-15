@@ -724,7 +724,7 @@ const Home: React.FC = () => {
               <SchoolBadge to="/school/부명고">부명고</SchoolBadge>
               <SchoolBadge to="/school/부천고">부천고</SchoolBadge>
               <SchoolBadge to="/school/부천북고">부천북고</SchoolBadge>
-              <SchoolBadge to="/school/상일고">상일고</SchoolBadge>
+              <SchoolBadge to="/school/계남고">계남고</SchoolBadge>
               <SchoolBadge to="/school/소명여고">소명여고</SchoolBadge>
               <SchoolBadge to="/school/심원고">심원고</SchoolBadge>
               <SchoolBadge to="/school/원미고">원미고</SchoolBadge>
