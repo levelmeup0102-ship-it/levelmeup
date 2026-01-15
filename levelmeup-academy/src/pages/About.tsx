@@ -34,7 +34,7 @@ const PageWrapper = styled.div`
 const HeroSection = styled.div`
   width: 100%;
   min-height: 480px;
-  background: linear-gradient(135deg, #0a1628 0%, #0f1b2a 50%, #1a2332 100%);
+  background: linear-gradient(135deg, #0B1B2A 0%, #102B3F 100%);
   position: relative;
   overflow: hidden;
   display: flex;
