@@ -33,15 +33,15 @@ const PageWrapper = styled.div`
 `;
 
 const HeroSection = styled.div`
-  text-align: center;
-  padding: 40px 20px 60px;
+  width: 100%;
   background: #0F1B2A;
   position: relative;
   overflow: hidden;
+  padding: 0;
 `;
 
 const HeroImageWrapper = styled.div`
-  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   background: #0F1B2A;
   display: flex;
@@ -52,16 +52,27 @@ const HeroImageWrapper = styled.div`
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
-    max-height: 500px;
+    object-fit: cover;
+    max-height: 600px;
+  }
+  
+  @media (max-width: 1400px) {
+    img {
+      max-height: 500px;
+    }
+  }
+  
+  @media (max-width: 968px) {
+    img {
+      max-height: 400px;
+      object-fit: cover;
+    }
   }
   
   @media (max-width: 768px) {
-    max-width: 100%;
-    width: 100%;
-    
     img {
-      max-height: 350px;
+      max-height: 300px;
+      object-fit: cover;
     }
   }
 `;
@@ -539,8 +550,8 @@ const About: React.FC = () => {
       <HeroSection>
         <HeroImageWrapper>
           <img 
-            src="/images/about-hero.png" 
-            alt="Slow and Steady Wins The Race" 
+            src="/images/about-banner-v2.png" 
+            alt="SLOW AND STEADY WINS THE RACE - Progress, not pressure" 
           />
         </HeroImageWrapper>
       </HeroSection>
