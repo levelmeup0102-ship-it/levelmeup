@@ -490,7 +490,7 @@ const BannerCardButton = styled.span`
 
 // 브랜딩 헤드라인 섹션
 const BrandingSection = styled.section`
-  padding: 100px 20px 60px;
+  padding: 80px 20px 60px;
   background: white;
   text-align: center;
 `;
@@ -505,28 +505,47 @@ const HeadlineContainer = styled.div`
 `;
 
 const MainHeadline = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-  line-height: 1.3;
+  color: #0F1E2E;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #17B7A6;
+    margin: 16px auto 0;
+    border-radius: 2px;
+  }
   
   @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    letter-spacing: 0.3px;
+    
+    &::after {
+      width: 50px;
+      margin-top: 12px;
+    }
   }
 `;
 
 const SubHeadline = styled.p`
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #666;
-  margin: 0;
-  letter-spacing: 0.3px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #17B7A6;
+  margin: 20px 0 0;
+  letter-spacing: 0.2px;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-top: 16px;
   }
 `;
 
