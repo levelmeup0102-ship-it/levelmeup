@@ -624,29 +624,31 @@ const SchoolDetail: React.FC = () => {
 
       {school.examAnalysis && school.examAnalysis.length > 0 && (
         <>
-          {school.examAnalysis.map((analysis, index) => (
-            <Section key={index}>
-              <SectionTitle>{analysis.title}</SectionTitle>
-              <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
-                <h3>시험 난이도</h3>
-                <p><strong>{analysis.difficulty}</strong></p>
-              </InfoBox>
-              
-              <InfoBox>
-                <h3>주요 특징</h3>
-                {analysis.keyPoints.map((point, idx) => (
-                  <p key={idx}>• {point}</p>
-                ))}
-              </InfoBox>
-              
-              <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
-                <h3>대비 전략</h3>
-                {analysis.strategies.map((strategy, idx) => (
-                  <p key={idx}>✓ {strategy}</p>
-                ))}
-              </InfoBox>
-            </Section>
-          ))}
+          <Section>
+            <SectionTitle>{school.fullName} 내신 출제 경향 분석</SectionTitle>
+            {school.examAnalysis.map((analysis, index) => (
+              <div key={index}>
+                <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
+                  <h3>시험 난이도</h3>
+                  <p><strong>{analysis.difficulty}</strong></p>
+                </InfoBox>
+                
+                <InfoBox>
+                  <h3>주요 특징</h3>
+                  {analysis.keyPoints.map((point, idx) => (
+                    <p key={idx}>• {point}</p>
+                  ))}
+                </InfoBox>
+                
+                <InfoBox style={{borderLeft: '5px solid #17B7A6'}}>
+                  <h3>대비 전략</h3>
+                  {analysis.strategies.map((strategy, idx) => (
+                    <p key={idx}>✓ {strategy}</p>
+                  ))}
+                </InfoBox>
+              </div>
+            ))}
+          </Section>
         </>
       )}
 
