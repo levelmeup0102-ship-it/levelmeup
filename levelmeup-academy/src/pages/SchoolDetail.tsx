@@ -580,7 +580,7 @@ const SchoolDetail: React.FC = () => {
       <BackButton onClick={handleBackClick}>← 학교 목록으로 돌아가기</BackButton>
       
       <PageTitle>{school.fullName} 내신 대비</PageTitle>
-      <PageSubtitle>{school.description}</PageSubtitle>
+      <PageSubtitle>LEVEL ME UP</PageSubtitle>
 
       <Section>
         <SectionTitle>{school.fullName} 특화 내신 대비 시스템</SectionTitle>
