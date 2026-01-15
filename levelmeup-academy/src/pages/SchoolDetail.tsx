@@ -672,7 +672,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '덕산고',
     fullName: '덕산고등학교',
     description: '부천 지역 내신 대비 학교 - 시험범위 지문 숙지만으로도 높은 점수 가능',
-    keyPoint: '덕산고는 지문 이해 + 선택지 함정이 핵심입니다.',
+    keyPoint: '덕산고는 꼼꼼한 지문 이해와 다양한 변형 문제 풀이가 핵심입니다.',
     achievements: [
       {
         year: '2024',
