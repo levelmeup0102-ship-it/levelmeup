@@ -1112,22 +1112,40 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '도당고는 종합적 사고력과 응용 문제가 성적을 결정합니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '응용 문제 고득점'
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '1등급 배출 + 3등급→1등급 상승 (도당고2)'
       },
       {
-        semester: '2024-2학기',
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '2등급 3명 배출 (도당고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '22점 상승 + 90.8점 달성 (도당고2)'
+      },
+      {
+        semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '종합 사고력 향상'
+        score: '1등급 배출 + 수강생 4명 중 3명 전교 11등 이내 (도당고2)'
       },
       {
-        semester: '2024-1학기',
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 2명 배출 (도당고2)'
+      },
+      {
+        semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '내신 성적 상승'
+        score: '14점 상승 + 18점 상승 (도당고2)'
       }
     ],
     features: [
