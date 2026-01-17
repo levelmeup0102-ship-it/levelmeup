@@ -1369,7 +1369,7 @@ const schoolsData: Record<string, SchoolData> = {
       { university: '연세대학교', department: '신소재공학부' },
       { university: '고려대학교', department: '건축사회환경공학부' },
       { university: '성균관대학교', department: '전자전기공학부' },
-      { university: '서강대학교', department: '인공지능학과' }
+      { university: '가천대학교', department: '의예과' }
     ],
     features: [
       '정명고 전용 내신 대비반 운영 (가장 많은 재원생)',
