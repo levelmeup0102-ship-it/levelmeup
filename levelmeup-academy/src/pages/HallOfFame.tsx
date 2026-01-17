@@ -677,7 +677,7 @@ const HallOfFame: React.FC = () => {
       <YearSection>
         <YearTitle>26학년도 대학 합격 실적</YearTitle>
         <YearDescription>
-          2026학년도 대학입시 합격 결과입니다.
+          2026학년도 대학입시 합격 결과입니다. 현재 집계중입니다.
         </YearDescription>
         <RecordTable>
           <thead>
