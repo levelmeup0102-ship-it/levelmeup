@@ -189,56 +189,86 @@ const TestimonialGrid = styled.div`
 
 const TestimonialCard = styled.div`
   background: white;
-  border: 2px solid #17B7A6;
-  border-radius: 15px;
-  padding: 30px;
-  transition: all 0.3s;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  min-height: 280px;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.2);
+    transform: translateY(-8px);
+    border-color: #17B7A6;
+    box-shadow: 0 12px 35px rgba(23, 183, 166, 0.15);
   }
 `;
 
-const TestimonialYear = styled.div`
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #17B7A6;
+const TestimonialHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f5f5f5;
+`;
+
+const UniversityLogo = styled.div`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+`;
+
+const TestimonialYear = styled.div`
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: -0.02em;
+`;
+
+const UniversityInfo = styled.div`
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  word-break: keep-all;
   
-  &::before {
-    content: '📖';
-    font-size: 1.3rem;
+  span {
+    color: #888;
+    font-weight: 400;
+    margin: 0 6px;
   }
 `;
 
 const TestimonialQuote = styled.blockquote`
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #2c3e50;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #555;
   margin: 0;
-  font-style: italic;
+  position: relative;
+  padding-left: 20px;
   word-break: keep-all;
+  flex: 1;
   
   &::before {
     content: '"';
-    font-size: 2rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-size: 2.5rem;
     color: #17B7A6;
-    line-height: 0;
-    margin-right: 5px;
-  }
-  
-  &::after {
-    content: '"';
-    font-size: 2rem;
-    color: #17B7A6;
-    line-height: 0;
-    margin-left: 5px;
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.5;
   }
 `;
 
@@ -246,24 +276,33 @@ const TestimonialButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: #2c3e50;
-  color: white;
+  gap: 6px;
+  padding: 10px 18px;
+  background: transparent;
+  color: #17B7A6;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s;
+  font-size: 0.88rem;
+  transition: all 0.25s ease;
+  margin-top: auto;
   
   &:hover {
     background: #17B7A6;
-    transform: translateX(5px);
+    color: white;
+    border-color: #17B7A6;
+    transform: translateX(3px);
   }
   
   &::after {
     content: '→';
-    font-size: 1.2rem;
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+  }
+  
+  &:hover::after {
+    transform: translateX(3px);
   }
 `;
 
@@ -553,9 +592,15 @@ const HallOfFame: React.FC = () => {
         <TestimonialTitle>합격 수기 하이라이트</TestimonialTitle>
         <TestimonialGrid>
           <TestimonialCard>
-            <TestimonialYear>26학년도</TestimonialYear>
+            <TestimonialHeader>
+              <UniversityLogo>서</UniversityLogo>
+              <TestimonialYear>26학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              서울대학교<span>·</span>기계공학부
+            </UniversityInfo>
             <TestimonialQuote>
-              레벨미업에서 체계적인 내신 관리로 서울대 기계공학부에 합격했습니다.
+              레벨미업에서 체계적인 내신 관리로 목표했던 대학에 합격할 수 있었습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -563,9 +608,15 @@ const HallOfFame: React.FC = () => {
           </TestimonialCard>
           
           <TestimonialCard>
-            <TestimonialYear>25학년도</TestimonialYear>
+            <TestimonialHeader>
+              <UniversityLogo>가</UniversityLogo>
+              <TestimonialYear>25학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              가천대학교<span>·</span>의예과
+            </UniversityInfo>
             <TestimonialQuote>
-              의대 준비를 포기하지 않고 끝까지 노력해 가천대 의예과에 합격했습니다.
+              의대 준비를 포기하지 않고 끝까지 노력해 꿈을 이룰 수 있었습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -573,9 +624,15 @@ const HallOfFame: React.FC = () => {
           </TestimonialCard>
           
           <TestimonialCard>
-            <TestimonialYear>24학년도</TestimonialYear>
+            <TestimonialHeader>
+              <UniversityLogo>서</UniversityLogo>
+              <TestimonialYear>24학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              서울대학교<span>·</span>자유전공학부
+            </UniversityInfo>
             <TestimonialQuote>
-              학교별 맞춤 커리큘럼 덕분에 서울대 자유전공학부에 합격할 수 있었습니다.
+              학교별 맞춤 커리큘럼 덕분에 원하는 학과에 합격할 수 있었습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -583,9 +640,15 @@ const HallOfFame: React.FC = () => {
           </TestimonialCard>
           
           <TestimonialCard>
-            <TestimonialYear>23학년도</TestimonialYear>
+            <TestimonialHeader>
+              <UniversityLogo>포</UniversityLogo>
+              <TestimonialYear>23학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              포스텍<span>·</span>무은재학과
+            </UniversityInfo>
             <TestimonialQuote>
-              포스텍 무은재학과 합격, 선생님들의 세심한 관리가 큰 힘이 되었습니다.
+              선생님들의 세심한 관리와 격려가 큰 힘이 되었습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -593,9 +656,15 @@ const HallOfFame: React.FC = () => {
           </TestimonialCard>
           
           <TestimonialCard>
-            <TestimonialYear>21학년도</TestimonialYear>
+            <TestimonialHeader>
+              <UniversityLogo>서</UniversityLogo>
+              <TestimonialYear>21학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              서울대학교<span>·</span>국사학과
+            </UniversityInfo>
             <TestimonialQuote>
-              부천 지역에서 서울대 국사학과 합격, 꿈을 이룰 수 있었습니다.
+              부천 지역에서도 충분히 SKY 진학이 가능하다는 것을 증명했습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
