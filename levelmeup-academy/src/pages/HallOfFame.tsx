@@ -370,7 +370,7 @@ const HallOfFame: React.FC = () => {
       <YearSection>
         <YearTitle>26학년도 대학 합격 실적</YearTitle>
         <YearDescription>
-          2026학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+          2026학년도 대학입시 합격 결과입니다.
         </YearDescription>
         <RecordTable>
           <thead>
@@ -524,7 +524,7 @@ const HallOfFame: React.FC = () => {
       <YearSection>
         <YearTitle>25학년도 대학 합격 실적</YearTitle>
         <YearDescription>
-          2025학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+          2025학년도 대학입시 합격 결과입니다.
         </YearDescription>
         <RecordTable>
           <thead>
@@ -678,7 +678,7 @@ const HallOfFame: React.FC = () => {
       <YearSection>
         <YearTitle>24학년도 대학 합격 실적</YearTitle>
         <YearDescription>
-          2024학년도 대학입시 합격 결과입니다. 집계가 완료되는 대로 업데이트됩니다.
+          2024학년도 대학입시 합격 결과입니다.
         </YearDescription>
         <RecordTable>
           <thead>
