@@ -559,36 +559,58 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '정명고는 고난이도 어휘와 외부지문 대비가 핵심입니다.',
     achievements: [
       {
-        year: '2024',
-        semester: '2학기',
+        semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '고3 수준 고난이도',
-        students: '변별력 높은 시험'
+        score: '1등급 9명 배출 (정명고1)'
       },
       {
-        year: '2024',
-        semester: '2학기',
-        exam: '중간고사',
+        semester: '25-2학기',
+        exam: '기말고사',
         subject: '영어',
-        score: '외부지문 고난이도',
-        students: '1등급 변별 문항'
+        score: '90점 이상 11명 배출 (정명고2)'
       },
       {
-        year: '2024',
-        semester: '1학기',
-        exam: '중간고사',
+        semester: '25-2학기',
+        exam: '기말고사',
         subject: '영어',
-        score: '100점 7명 중 4명',
-        students: '레벨미업 학생'
+        score: '96.1점·전교 1등(21점 상승) (정명고1)'
       },
       {
-        year: '2023',
-        semester: '1학기',
-        exam: '중간고사',
-        subject: '국어',
-        score: '100점',
-        students: '김*원 학생'
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.2점·전교 2등(22점 상승) (정명고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '전교 4등 다수 배출 (정명고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '전교 2등 다수 배출 (정명고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 5명(총 9명 중) (정명고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '수강생 전원 성적 상승 (정명고2)'
+      },
+      {
+        semester: '24-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '3등급 상승 (정명고1)'
       }
     ],
     examAnalysis: [
