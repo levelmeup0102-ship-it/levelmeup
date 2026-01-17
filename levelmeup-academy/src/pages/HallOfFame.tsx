@@ -425,10 +425,7 @@ const HallOfFame: React.FC = () => {
     <PageWrapper>
       <PageTitle>합격 이야기</PageTitle>
       <PageSubtitle>
-        명예의 전당<br/>
         -<br/>
-        레벨미업에서 함께 만들어 온<br/>
-        최근 5개년 대학 합격 성과<br/>
         <span style={{display: 'block', marginTop: '15px', fontSize: '1rem', color: '#888', fontStyle: 'italic'}}>
           "성적보다 과정을, 결과보다 성장을 중시한<br/>
           레벨미업 학생들의 실제 진학 기록입니다."
