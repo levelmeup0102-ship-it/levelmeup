@@ -2657,7 +2657,7 @@ const SchoolDetail: React.FC = () => {
       <TopTagline>부천 내신, 학교별로 전략이 달라야 합니다.</TopTagline>
       
       {/* 2. Main Title */}
-      <PageTitle>레벨미업 | {school.name} 맞춤 커리큘럼</PageTitle>
+      <PageTitle>LEVEL ME UP {school.name} 맞춤 커리큘럼</PageTitle>
       
       {/* 3. Subtitle - Only for Middle Schools */}
       {!isHighSchool && (
