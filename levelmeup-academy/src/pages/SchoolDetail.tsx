@@ -1031,22 +1031,28 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '중원고는 문법과 독해의 균형 잡힌 학습이 핵심입니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '문법 만점자 다수'
-      },
-      {
-        semester: '2024-2학기',
+        semester: '24-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '독해 고득점'
+        score: '1등급 배출 (중원고3)'
       },
       {
-        semester: '2024-1학기',
+        semester: '24-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '균형 잡힌 성적 향상'
+        score: '98점 달성 (중원고3)'
+      },
+      {
+        semester: '23-2학기',
+        exam: '(내신)',
+        subject: '영어',
+        score: '1등급 배출 (중원고2)'
+      },
+      {
+        semester: '23-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '96.1점 달성 (중원고1)'
       }
     ],
     features: [
