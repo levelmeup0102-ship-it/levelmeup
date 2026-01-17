@@ -699,12 +699,40 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '덕산고는 꼼꼼한 지문 이해와 다양한 변형 문제 풀이가 핵심입니다.',
     achievements: [
       {
-        year: '2024',
-        semester: '1학기',
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '전교 1등 배출 + 수강생 전원 성적 상승'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 4등 배출 + 1등급 1명 / 2등급 2명'
+      },
+      {
+        semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '전반적 난이도 상승',
-        students: '1~2문항 변별'
+        score: '2등급 3명 배출 + 수강생 전원 24등 이내'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '1등급 배출 + 25점 상승 (3등급→1등급)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 달성 + 전교 5등 배출'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '21점 상승'
       }
     ],
     examAnalysis: [
