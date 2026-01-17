@@ -1493,85 +1493,97 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '전교 1등 배출'
+        score: '전교 1등 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '전원 성적 상승'
+        score: '수강생 전원 성적 상승 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '전교 1등 배출(추가) (고2)'
       },
       {
         semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '전교 4등 배출'
+        score: '전교 4등 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '1등급 1명 배출'
+        score: '1등급 1명 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '2등급 2명 배출'
+        score: '2등급 2명 배출 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '2등급 3명 배출'
+        score: '2등급 3명 배출 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '수강생 전원 \'전교 24등 이내\' 기록'
+        score: '수강생 전원 24등 이내 기록 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '8등 기록'
+        score: '8등 기록 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '11등 기록'
+        score: '11등 기록 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '15등 기록'
+        score: '15등 기록 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '1등급 배출'
+        score: '1등급 배출 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '25점 상승(1명)'
+        score: '25점 상승(1명) (고2)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '3등급 → 1등급 상승'
+        score: '3등급 → 1등급 상승 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '합산',
         subject: '영어',
-        score: '1등급 + 전교 5등 기록'
+        score: '1등급 달성 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 5등 배출 (고2)'
       },
       {
         semester: '25-2학기',
