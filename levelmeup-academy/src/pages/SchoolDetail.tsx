@@ -1848,7 +1848,20 @@ const schoolsData: Record<string, SchoolData> = {
     name: '부명중',
     fullName: '부명중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (부명중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점대 배출 (부명중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
