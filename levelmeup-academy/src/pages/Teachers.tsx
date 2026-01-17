@@ -32,7 +32,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(90deg, ${colors.green.primary} 0%, #FF6D00 100%);
+    background: linear-gradient(90deg, ${colors.green.primary} 0%, ${colors.green.primary} 100%);
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -65,7 +65,7 @@ const Tab = styled.button<{ $active: boolean }>`
   flex: 1;
   min-width: 120px;
   padding: 16px 24px;
-  background: ${props => props.$active ? '#1a2332' : '#f5f5f5'};
+  background: ${props => props.$active ? colors.green.primary : '#f5f5f5'};
   border: none;
   border-radius: 12px;
   font-size: 1.05rem;
@@ -77,9 +77,9 @@ const Tab = styled.button<{ $active: boolean }>`
   white-space: nowrap;
   
   &:hover {
-    background: ${props => props.$active ? '#2a3442' : '#e8e8e8'};
+    background: ${props => props.$active ? '#0E8F86' : '#e8e8e8'};
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
   }
   
   @media (max-width: 768px) {
@@ -322,7 +322,7 @@ ICC 보충 학습을 통해 학습 누락 없이 관리합니다.`
             <TeacherCard key={index}>
               <TeacherName>{teacher.name}</TeacherName>
               <TeacherGrade>{teacher.grade}</TeacherGrade>
-              <TeacherGrade style={{ color: '#FF6D00', marginBottom: '18px', fontSize: '1.15rem' }}>
+              <TeacherGrade style={{ color: colors.green.primary, marginBottom: '18px', fontSize: '1.15rem' }}>
                 {teacher.subtitle}
               </TeacherGrade>
               <TeacherDescription>{teacher.description}</TeacherDescription>

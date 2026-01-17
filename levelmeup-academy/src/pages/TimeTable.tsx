@@ -19,7 +19,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, ${colors.green.primary} 0%, #66BB6A 100%);
+    background: ${colors.green.primary};
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -108,7 +108,7 @@ const ClassTable = styled.table`
   margin-top: 20px;
   
   thead {
-    background: linear-gradient(135deg, ${colors.green.primary} 0%, #66BB6A 100%);
+    background: ${colors.green.primary};
     color: white;
     
     th {
