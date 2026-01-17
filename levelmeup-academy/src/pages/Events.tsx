@@ -363,7 +363,7 @@ const Events: React.FC = () => {
   // 학습 관리 시스템 콘텐츠
   const managementContent = [
     {
-      title: '모의고사 무료 응시',
+      title: 'Weekly 모의고사',
       date: '매주 주말',
       bgColor: 'linear-gradient(135deg, #EDE7F6 0%, #D1C4E9 100%)',
       description: '실전과 동일한 환경에서 모의고사를 응시하고, 현재 학습 수준을 정확히 파악할 수 있습니다.',
