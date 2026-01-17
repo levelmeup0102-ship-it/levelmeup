@@ -249,6 +249,13 @@ const UniversityInfo = styled.div`
   }
 `;
 
+const StudentInfo = styled.div`
+  font-size: 0.88rem;
+  color: #888;
+  margin-bottom: 8px;
+  font-weight: 500;
+`;
+
 const TestimonialQuote = styled.blockquote`
   font-size: 0.95rem;
   line-height: 1.65;
@@ -599,8 +606,10 @@ const HallOfFame: React.FC = () => {
             <UniversityInfo>
               서울대학교<span>·</span>기계공학부
             </UniversityInfo>
+            <StudentInfo>이*헌 (정명고)</StudentInfo>
             <TestimonialQuote>
-              레벨미업에서 체계적인 내신 관리로 목표했던 대학에 합격할 수 있었습니다.
+              단어 반복 학습 덕분에 난이도 높은 수능 어휘에 효과적으로 대비할 수 있었습니다.
+              또한 기출·사설 모의고사 실전 훈련이 큰 도움이 됐습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -609,14 +618,34 @@ const HallOfFame: React.FC = () => {
           
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>가</UniversityLogo>
+              <UniversityLogo>성</UniversityLogo>
               <TestimonialYear>25학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
-              가천대학교<span>·</span>의예과
+              성균관대학교<span>·</span>사회과학계열
             </UniversityInfo>
+            <StudentInfo>김*원 (정명고)</StudentInfo>
             <TestimonialQuote>
-              의대 준비를 포기하지 않고 끝까지 노력해 꿈을 이룰 수 있었습니다.
+              겨울방학 특강에서 정리한 문법 기초가 3년 내내 큰 기반이 되었습니다.
+              질문이 추상적이어도 핵심 포인트를 정확히 짚어주는 피드백이 좋았습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+          
+          <TestimonialCard>
+            <TestimonialHeader>
+              <UniversityLogo>연</UniversityLogo>
+              <TestimonialYear>24학년도</TestimonialYear>
+            </TestimonialHeader>
+            <UniversityInfo>
+              연세대학교<span>·</span>경영학과
+            </UniversityInfo>
+            <StudentInfo>함*아 (정명고)</StudentInfo>
+            <TestimonialQuote>
+              열정적인 수업과 응원·격려 덕분에 꾸준히 동기부여를 받을 수 있었습니다.
+              철저한 숙제 관리와 체계적인 시스템, 자습관까지 있어 학습 환경이 좋았습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -626,29 +655,15 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>서</UniversityLogo>
-              <TestimonialYear>24학년도</TestimonialYear>
-            </TestimonialHeader>
-            <UniversityInfo>
-              서울대학교<span>·</span>자유전공학부
-            </UniversityInfo>
-            <TestimonialQuote>
-              학교별 맞춤 커리큘럼 덕분에 원하는 학과에 합격할 수 있었습니다.
-            </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
-              합격 수기 보기
-            </TestimonialButton>
-          </TestimonialCard>
-          
-          <TestimonialCard>
-            <TestimonialHeader>
-              <UniversityLogo>포</UniversityLogo>
               <TestimonialYear>23학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
-              포스텍<span>·</span>무은재학과
+              서울대학교<span>·</span>경제학부
             </UniversityInfo>
+            <StudentInfo>장*정 (정명고)</StudentInfo>
             <TestimonialQuote>
-              선생님들의 세심한 관리와 격려가 큰 힘이 되었습니다.
+              문법이 약했지만 문법특강과 복습을 통해 문법 실력이 확실히 잡혔습니다.
+              내신 기간에는 꼼꼼한 지문 분석과 충분한 과제로 시험 준비에 큰 도움이 됐습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
@@ -663,8 +678,10 @@ const HallOfFame: React.FC = () => {
             <UniversityInfo>
               서울대학교<span>·</span>국사학과
             </UniversityInfo>
+            <StudentInfo>오*쁨 (소명여고)</StudentInfo>
             <TestimonialQuote>
-              부천 지역에서도 충분히 SKY 진학이 가능하다는 것을 증명했습니다.
+              문법·독해·내신 등 영역별 수업이 체계적으로 구성되어 학습 효율이 높았습니다.
+              자습실이 있어 별도 독서실 없이도 꾸준히 공부할 수 있었습니다.
             </TestimonialQuote>
             <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
