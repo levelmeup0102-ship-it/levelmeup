@@ -576,6 +576,10 @@ interface SchoolData {
     score: string;
     students?: string;
   }>;
+  collegeAdmissions?: Array<{
+    university: string;
+    department: string;
+  }>;
   examAnalysis?: {
     title: string;
     difficulty: string;
@@ -2552,10 +2556,41 @@ const SchoolDetail: React.FC = () => {
         <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
       )}
 
+      {/* 4.4. 대학 합격 현황 - Only for High Schools */}
+      {isHighSchool && (
+        <Section>
+          <SectionTitle>대학 합격 현황</SectionTitle>
+          <AchievementTable>
+            <thead>
+              <tr>
+                <th>대학교</th>
+                <th>학과</th>
+              </tr>
+            </thead>
+            <tbody>
+              {school.collegeAdmissions && school.collegeAdmissions.length > 0 ? (
+                school.collegeAdmissions.map((admission, index) => (
+                  <tr key={index}>
+                    <td>{admission.university}</td>
+                    <td>{admission.department}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={2} style={{ textAlign: 'center', color: '#999', padding: '40px 20px' }}>
+                    대학 합격 데이터 준비 중입니다
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </AchievementTable>
+        </Section>
+      )}
+
       {/* 4.5. 최근 내신 결과 - Only for High Schools (moved before Learning Flow) */}
       {school.achievements.length > 0 && isHighSchool && (
         <Section>
-          <SectionTitle>최근 내신 결과</SectionTitle>
+          <SectionTitle>최신 내신 성과</SectionTitle>
           <AchievementTable>
             <thead>
               <tr>
