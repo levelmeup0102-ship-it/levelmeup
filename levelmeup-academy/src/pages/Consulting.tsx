@@ -19,7 +19,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: ${gradients.greenOrange};
+    background: #17B7A6;
     margin: 20px auto;
     border-radius: 2px;
   }
@@ -49,12 +49,12 @@ const ContactSection = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(255, 109, 0, 0.12) 100%);
-  border: 2px solid ${colors.green.primary};
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.12) 0%, rgba(23, 183, 166, 0.08) 100%);
+  border: 2px solid #17B7A6;
   padding: 30px 25px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.15);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@ const ContactCard = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.25);
+    box-shadow: 0 8px 30px rgba(23, 183, 166, 0.25);
   }
   
   @media (max-width: 768px) {
@@ -74,13 +74,13 @@ const ContactCard = styled.div`
 `;
 
 const PhoneSection = styled.div`
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(255, 109, 0, 0.12) 100%);
-  border: 2px solid ${colors.green.primary};
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.12) 0%, rgba(23, 183, 166, 0.08) 100%);
+  border: 2px solid #17B7A6;
   padding: 30px 40px;
   border-radius: 15px;
   text-align: center;
   margin-bottom: 40px;
-  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.15);
   
   @media (max-width: 768px) {
     padding: 25px 20px;
@@ -220,10 +220,10 @@ const CardDescription = styled.p`
 `;
 
 const InfoSection = styled.div`
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(255, 109, 0, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(23, 183, 166, 0.03) 100%);
   padding: 40px;
   border-radius: 15px;
-  border-left: 5px solid ${colors.green.primary};
+  border-left: 5px solid #17B7A6;
   margin-bottom: 50px;
   
   @media (max-width: 768px) {

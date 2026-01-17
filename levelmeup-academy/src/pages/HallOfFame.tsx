@@ -21,7 +21,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #4CAF50 0%, #FF6D00 100%);
+    background: #17B7A6;
     margin: 20px auto;
     border-radius: 3px;
   }
