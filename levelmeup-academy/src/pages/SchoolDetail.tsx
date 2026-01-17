@@ -891,25 +891,43 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '100점 배출 + 95점대 다수 (부천북고3)'
-      },
-      {
-        semester: '25-2학기',
-        exam: '중간고사',
-        subject: '국어',
-        score: '2등급 2명 배출 (부천북고2)'
-      },
-      {
-        semester: '25-2학기',
-        exam: '중간고사',
-        subject: '국어',
-        score: '90점 달성 (부천북고2)'
+        score: '2등급 2명 배출 (고2)'
       },
       {
         semester: '24-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '95점 달성 (부천북고1)'
+        score: '95점 기록 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '100점 기록 (고3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '95.7점 기록 (고3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '95.4점 기록 (고3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '95.3점 기록 (고3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90점 기록 (고2)'
       }
     ],
     features: [
