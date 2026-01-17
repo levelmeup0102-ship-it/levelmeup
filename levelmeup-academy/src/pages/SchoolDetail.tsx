@@ -2548,8 +2548,10 @@ const SchoolDetail: React.FC = () => {
       {/* 2. Main Title */}
       <PageTitle>레벨미업 | {school.name} 내신 맞춤 대비</PageTitle>
       
-      {/* 3. Subtitle */}
-      <PageSubtitle>학교 이름을 클릭하면 해당 학교의 내신 대비 흐름을 확인하실 수 있습니다.</PageSubtitle>
+      {/* 3. Subtitle - Only for Middle Schools */}
+      {!isHighSchool && (
+        <PageSubtitle>학교 이름을 클릭하면 해당 학교의 내신 대비 흐름을 확인하실 수 있습니다.</PageSubtitle>
+      )}
 
       {/* 4. School-Specific One-Liner */}
       {school.keyPoint && isHighSchool && (
