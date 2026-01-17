@@ -891,22 +891,40 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '소명여고는 세부 내용 파악과 서술형 대비가 필수입니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
+        semester: '25-1학기',
+        exam: '합산',
         subject: '영어',
-        score: '내신 1등급 다수'
+        score: '전교 3등 배출 (소명여고2)'
       },
       {
-        semester: '2024-2학기',
+        semester: '25-2학기',
+        exam: '내신',
+        subject: '영어',
+        score: '전교 7등 배출 (소명여고2)'
+      },
+      {
+        semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '평균 90점 이상'
+        score: '96.4점 달성 (소명여고2)'
       },
       {
-        semester: '2024-1학기',
-        exam: '기말고사',
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '96점 달성 (소명여고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
         subject: '영어',
-        score: '고득점자 배출'
+        score: '30점 이상 상승 (소명여고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '21점 상승 (소명여고1)'
       }
     ],
     features: [
