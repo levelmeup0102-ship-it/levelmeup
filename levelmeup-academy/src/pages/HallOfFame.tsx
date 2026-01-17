@@ -270,15 +270,15 @@ const HallOfFame: React.FC = () => {
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>기계공학부</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>2명</SchoolCount>
+                <SchoolCount>신소재공학부 외</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>2명</SchoolCount>
+                <SchoolCount>건축사회환경공학부 외</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
             <CardLabel style={{marginTop: '15px', fontSize: '0.85rem', color: '#95a5a6'}}>현재 집계중</CardLabel>
@@ -290,15 +290,15 @@ const HallOfFame: React.FC = () => {
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>화공생명공학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>의예과</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>가천대학교</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>약학과</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>충남대학교</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
@@ -309,15 +309,15 @@ const HallOfFame: React.FC = () => {
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>자유전공학부</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>3명</SchoolCount>
+                <SchoolCount>약학과 외</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>2명</SchoolCount>
+                <SchoolCount>경영학과 외</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
@@ -328,23 +328,23 @@ const HallOfFame: React.FC = () => {
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>한의예과</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>상지대학교</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>2명</SchoolCount>
+                <SchoolCount>재료공학과 외</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>포스텍</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>무은재학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>경제학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>2명</SchoolCount>
+                <SchoolCount>영어영문학과 외</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
@@ -355,15 +355,15 @@ const HallOfFame: React.FC = () => {
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>국사학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>중어중문학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>1명</SchoolCount>
+                <SchoolCount>식품자원경제학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
