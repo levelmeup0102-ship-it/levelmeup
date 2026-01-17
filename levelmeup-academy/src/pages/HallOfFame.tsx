@@ -293,6 +293,10 @@ const HallOfFame: React.FC = () => {
                 <SchoolCount>1명</SchoolCount>
               </SchoolItem>
               <SchoolItem>
+                <SchoolName>의예과</SchoolName>
+                <SchoolCount>1명</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
                 <SchoolName>약학과</SchoolName>
                 <SchoolCount>1명</SchoolCount>
               </SchoolItem>
