@@ -249,36 +249,37 @@ const Events: React.FC = () => {
       title: 'WINTERM SCHOOL',
       subtitle: '겨울방학',
       bgColor: 'linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%)',
-      description: '겨울방학 집중 자습·학습 설계 프로그램',
-      mainText: '겨울방학 동안 학습 흐름이 끊기지 않도록 자습 관리 + 학습 루틴 형성을 함께 진행합니다.',
+      description: '겨울방학 집중 자습 · 학습 설계 프로그램',
       details: [
-        '레벨미업 졸업생 출신 멘토와 1:1 대화를 통해 학생의 수준과 목표에 맞는 맞춤 학습 계획을 설계하고, 실행까지 관리합니다.',
-        '멘토가 실제 경험을 바탕으로 학교별 내신 정보와 공부 포인트까지 함께 안내해 "무작정 공부"가 아니라 방향 있는 학습이 가능해집니다.'
-      ]
+        '<strong>졸업생 멘토 1:1 상담</strong>으로 목표·수준에 맞는 <strong>맞춤 학습 계획</strong> 수립',
+        '방학 동안 <strong>학습 루틴 유지</strong> + 약점 파트 집중 보완',
+        '"무작정 공부"가 아니라 <strong>방향 있는 공부</strong>로 성적 기반 만들기'
+      ],
+      buttonText: '프로그램 자세히 보기'
     },
     {
       title: 'SUMMARIZE',
       subtitle: '여름방학',
       bgColor: 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)',
-      description: '여름방학 맞춤 자습·성적 점프 프로그램',
-      mainText: '여름방학은 2학기 성적을 좌우하는 중요한 시기입니다.',
+      description: '여름방학 맞춤 자습 · 성적 점프 프로그램',
       details: [
-        'SUMMARIZE는 방학 동안 자습 관리 + 취약 파트 정리 + 실전 대비 학습을 중심으로 진행됩니다.',
-        '특히 졸업생 멘토와의 1:1 맞춤 상담을 통해 학생 본인의 상황에 맞는 현실적인 계획을 세우고 꾸준히 점검합니다.',
-        '"혼자 하면 흔들리는 방학 공부"를 끝까지 끌고 가는 시스템으로 만들어드립니다.'
-      ]
+        '방학 동안 자습 관리 + 취약 파트 정리 + <strong>실전 대비</strong> 학습 진행',
+        '<strong>졸업생 멘토 1:1 상담</strong>으로 상황에 맞는 현실적인 계획 설계',
+        '"혼자 하면 흔들리는 공부"를 끝까지 끌고 가는 시스템'
+      ],
+      buttonText: '프로그램 자세히 보기'
     },
     {
       title: '코어 자습제',
-      subtitle: '내신 기간 신청제 / 무료',
+      subtitle: '내신 기간 신청제 · 무료',
       bgColor: 'linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%)',
-      description: '내신 기간 무료 자습 지원 프로그램',
-      mainText: '코어 자습제는 내신 기간에 신청제로 운영되는 무료 프로그램입니다.',
+      description: '내신 기간 신청제 · <strong>무료</strong> 자습 지원 프로그램',
       details: [
-        '시험 직전, 혼자 공부하다 막히는 부분을 줄이기 위해 자습 환경 제공 + 학습 관리 + 내신 대비 집중 지원을 진행합니다.',
-        '학교별 시험 범위에 맞춰 내신 대비 흐름이 흔들리지 않도록 끝까지 밀어드립니다.',
-        '"내신 기간에 공부가 안 되는 학생"이 아니라 내신 기간에 공부가 되는 학생으로 바뀌게 하는 실전형 관리입니다.'
-      ]
+        '내신 기간에 신청제로 운영되는 <strong>무료</strong> 프로그램',
+        '시험 직전, 혼자 공부의 빈틈을 줄이는 학습 환경 + 관리 + <strong>내신 대응</strong>',
+        '내신 범위 흐름이 흔들리지 않도록 끝까지 밀어주는 <strong>실전형 관리</strong>'
+      ],
+      buttonText: '신청 방법 보기'
     }
   ];
 
@@ -453,12 +454,11 @@ const Events: React.FC = () => {
           <InfoBox>
             <p>
               <strong>✅ 레벨미업 자습 프로그램 공통 강점</strong><br /><br />
-              레벨미업의 자습 프로그램은 <strong>졸업생 출신 멘토와 1:1 소통</strong>을 중심으로 운영됩니다.<br />
-              학생과 나이 차이가 크지 않은 멘토가 직접 함께하며,<br />
-              실제 경험 기반의 현실적인 학습 조언과 맞춤 상담이 가능합니다.<br /><br />
-              또한 멘토가 <strong>해당 학교의 내신 구조</strong>, <strong>시험 경향과 공부 포인트</strong>, <strong>학기별 준비 전략</strong>을<br />
-              함께 공유해, 자기 학교에 맞는 실질적인 내신 정보까지 얻을 수 있습니다.<br /><br />
-              단순 관리가 아니라 <strong>이해되는 설명 · 공감되는 조언 · 실행 가능한 계획</strong>으로<br />
+              레벨미업 자습 프로그램은 <strong style={{color: colors.green.primary}}>졸업생 출신 멘토와 1:1 소통</strong>을 중심으로 운영됩니다.<br />
+              학생과 나이 차이가 크지 않은 멘토가 함께하며, 현실적인 학습 조언 + <strong style={{color: colors.green.primary}}>맞춤 상담</strong>이 가능합니다.<br /><br />
+              또한 멘토가 <strong style={{color: colors.green.primary}}>해당 학교 내신 구조</strong> / 시험 경향 / 학년별 전략을 공유하여<br />
+              <strong style={{color: '#2c3e50'}}>"내 학교에 맞는 내신 정보"</strong>까지 얻을 수 있습니다.<br /><br />
+              단순 관리가 아니라 <strong>이해되는 설명</strong> → <strong>실행 가능한 계획</strong> → <strong>끝까지 점검</strong>으로<br />
               학생이 스스로 공부 방향을 잡을 수 있도록 돕습니다.
             </p>
           </InfoBox>
@@ -470,17 +470,18 @@ const Events: React.FC = () => {
                   <CardDate>{content.subtitle}</CardDate>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription style={{fontWeight: 600, color: '#2c3e50', marginBottom: '15px'}}>
-                    {content.description}
-                  </CardDescription>
-                  <CardDescription style={{marginBottom: '20px'}}>
-                    {content.mainText}
-                  </CardDescription>
+                  <CardDescription 
+                    style={{fontWeight: 600, color: '#2c3e50', marginBottom: '20px', fontSize: '1.05rem'}}
+                    dangerouslySetInnerHTML={{ __html: content.description }}
+                  />
                   <CardDetails>
                     {content.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
+                      <li key={idx} dangerouslySetInnerHTML={{ __html: detail }} />
                     ))}
                   </CardDetails>
+                  <CardButton to="#">
+                    {content.buttonText} →
+                  </CardButton>
                 </CardContent>
               </ContentCard>
             ))}
