@@ -322,8 +322,7 @@ const Consulting: React.FC = () => {
     <PageWrapper>
       <PageTitle>상담 안내</PageTitle>
       <PageSubtitle>
-        전화 주시면 학생에게 맞는 학습 방향을<br />
-        자세히 안내해드립니다
+        문의 주시면 학생에게 맞는 학습 방향을 자세히 안내드립니다
       </PageSubtitle>
 
       <ContactSection>
