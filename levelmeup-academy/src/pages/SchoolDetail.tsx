@@ -2759,7 +2759,7 @@ const SchoolDetail: React.FC = () => {
       {/* 5. Learning Flow Infographic - Only for High Schools */}
       {isHighSchool && (
         <LearningFlowSection>
-          <FlowTitle>레벨미업 학습 흐름</FlowTitle>
+          <FlowTitle>레벨미업 내신 대비 프로세스</FlowTitle>
           <FlowContainer>
             <FlowStep>
               <StepNumber>1</StepNumber>
