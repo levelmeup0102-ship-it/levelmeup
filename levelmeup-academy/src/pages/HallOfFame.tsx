@@ -606,7 +606,7 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>
-                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+                <img src="/images/universities/snu.png" alt="서울대학교" />
               </UniversityLogo>
               <TestimonialYear>26학년도</TestimonialYear>
             </TestimonialHeader>
@@ -626,7 +626,7 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>
-                <img src="https://www.genspark.ai/api/files/s/zTMUXiYs" alt="성균관대학교" />
+                <img src="/images/universities/skku.png" alt="성균관대학교" />
               </UniversityLogo>
               <TestimonialYear>25학년도</TestimonialYear>
             </TestimonialHeader>
@@ -646,7 +646,7 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>
-                <img src="https://www.genspark.ai/api/files/s/BXwp8F3c" alt="연세대학교" />
+                <img src="/images/universities/yonsei.png" alt="연세대학교" />
               </UniversityLogo>
               <TestimonialYear>24학년도</TestimonialYear>
             </TestimonialHeader>
@@ -666,7 +666,7 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>
-                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+                <img src="/images/universities/snu.png" alt="서울대학교" />
               </UniversityLogo>
               <TestimonialYear>23학년도</TestimonialYear>
             </TestimonialHeader>
@@ -686,7 +686,7 @@ const HallOfFame: React.FC = () => {
           <TestimonialCard>
             <TestimonialHeader>
               <UniversityLogo>
-                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+                <img src="/images/universities/snu.png" alt="서울대학교" />
               </UniversityLogo>
               <TestimonialYear>21학년도</TestimonialYear>
             </TestimonialHeader>
