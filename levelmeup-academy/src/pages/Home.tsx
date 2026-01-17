@@ -733,18 +733,18 @@ const Home: React.FC = () => {
             <SchoolsTitle>부천 고등학교 내신 맞춤 대비</SchoolsTitle>
             <SchoolsSubtitle>학교 이름을 클릭하면 해당 학교의 상세 내신 대비 정보를 확인하실 수 있습니다</SchoolsSubtitle>
             <SchoolsGrid>
-              <SchoolBadge to="/school/덕산고?from=home&section=high">덕산고</SchoolBadge>
-              <SchoolBadge to="/school/부명고?from=home&section=high">부명고</SchoolBadge>
-              <SchoolBadge to="/school/부천고?from=home&section=high">부천고</SchoolBadge>
-              <SchoolBadge to="/school/부천북고?from=home&section=high">부천북고</SchoolBadge>
-              <SchoolBadge to="/school/계남고?from=home&section=high">계남고</SchoolBadge>
+              <SchoolBadge to="/school/정명고?from=home&section=high">정명고</SchoolBadge>
               <SchoolBadge to="/school/소명여고?from=home&section=high">소명여고</SchoolBadge>
               <SchoolBadge to="/school/심원고?from=home&section=high">심원고</SchoolBadge>
-              <SchoolBadge to="/school/원미고?from=home&section=high">원미고</SchoolBadge>
-              <SchoolBadge to="/school/정명고?from=home&section=high">정명고</SchoolBadge>
-              <SchoolBadge to="/school/중원고?from=home&section=high">중원고</SchoolBadge>
               <SchoolBadge to="/school/중흥고?from=home&section=high">중흥고</SchoolBadge>
+              <SchoolBadge to="/school/원미고?from=home&section=high">원미고</SchoolBadge>
+              <SchoolBadge to="/school/부명고?from=home&section=high">부명고</SchoolBadge>
+              <SchoolBadge to="/school/덕산고?from=home&section=high">덕산고</SchoolBadge>
+              <SchoolBadge to="/school/중원고?from=home&section=high">중원고</SchoolBadge>
               <SchoolBadge to="/school/도당고?from=home&section=high">도당고</SchoolBadge>
+              <SchoolBadge to="/school/계남고?from=home&section=high">계남고</SchoolBadge>
+              <SchoolBadge to="/school/부천고?from=home&section=high">부천고</SchoolBadge>
+              <SchoolBadge to="/school/부천북고?from=home&section=high">부천북고</SchoolBadge>
             </SchoolsGrid>
           </SchoolsSection>
           
