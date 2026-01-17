@@ -1772,7 +1772,38 @@ const schoolsData: Record<string, SchoolData> = {
     name: '까치울중',
     fullName: '까치울중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '12점 상승 사례 배출 (까치울중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점대 배출 (까치울중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (까치울중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '90점대 배출 (까치울중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '만점(100점) 배출 (까치울중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
