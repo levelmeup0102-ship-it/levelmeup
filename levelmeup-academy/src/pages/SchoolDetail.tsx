@@ -2664,11 +2664,6 @@ const SchoolDetail: React.FC = () => {
         <PageSubtitle>학교 이름을 클릭하면 해당 학교의 내신 대비 흐름을 확인하실 수 있습니다.</PageSubtitle>
       )}
 
-      {/* 4. School-Specific One-Liner */}
-      {school.keyPoint && isHighSchool && (
-        <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
-      )}
-
       {/* 4.4. 대학 합격 현황 - Only for High Schools */}
       {isHighSchool && school.collegeAdmissions && school.collegeAdmissions.length > 0 && (
         <CollegeAdmissionsSection>
@@ -2722,6 +2717,11 @@ const SchoolDetail: React.FC = () => {
             </tbody>
           </AchievementTable>
         </Section>
+      )}
+
+      {/* 4.5.5. School-Specific One-Liner - Between Achievements and Management */}
+      {school.keyPoint && isHighSchool && (
+        <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
       )}
 
       {/* 4.6. Custom Management System - Only for High Schools */}
