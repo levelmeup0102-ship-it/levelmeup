@@ -852,22 +852,28 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '계남고는 서술형과 문장 구조 문제가 변별력을 만듭니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '서술형 만점 다수'
+        semester: '25-1학기',
+        exam: '확률과통계',
+        subject: '수학',
+        score: '5등급 → 전교 9등 (계남고3)'
       },
       {
-        semester: '2024-2학기',
+        semester: '24-1학기',
         exam: '중간고사',
-        subject: '영어',
-        score: '1등급 컷 상승'
+        subject: '수학',
+        score: '3등급 → 1등급 상승 (계남고3)'
       },
       {
-        semester: '2024-1학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '95점 이상 배출'
+        semester: '24-1학기',
+        exam: '합산',
+        subject: '수학',
+        score: '2등급 달성 (계남고3)'
+      },
+      {
+        semester: '24-1학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '90점 배출 (계남고3)'
       }
     ],
     features: [
