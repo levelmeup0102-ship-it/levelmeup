@@ -286,7 +286,7 @@ const HallOfFame: React.FC = () => {
           <SummaryCard>
             <CardYear>25학년도</CardYear>
             <CardLabel>주요대학 합격 결과</CardLabel>
-            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>26명</CardValue>
+            <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>27명</CardValue>
             <SchoolBreakdown>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
