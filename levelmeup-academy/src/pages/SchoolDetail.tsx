@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { colors, gradients } from '../theme';
+import React from 'react';
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -276,12 +275,6 @@ const StepDescription = styled.p`
   }
 `;
 
-const StepIcon = styled.div`
-  font-size: 2rem;
-  margin-bottom: 15px;
-  opacity: 0.8;
-`;
-
 // New Template Components
 const TopTagline = styled.p`
   text-align: center;
@@ -505,7 +498,7 @@ const ProcessStep = styled.div`
   }
 `;
 
-const StepIcon = styled.div`
+const MiddleStepIcon = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -527,7 +520,7 @@ const StepIcon = styled.div`
   }
 `;
 
-const StepTitle = styled.h4`
+const MiddleStepTitle = styled.h4`
   font-size: 0.95rem;
   font-weight: 600;
   color: #0B1B2A;
@@ -570,7 +563,7 @@ interface SchoolData {
   description: string;
   keyPoint?: string; // School-specific one-liner
   achievements: Array<{
-    year: string;
+    year?: string;
     semester: string;
     exam: string;
     subject: string;
@@ -1435,33 +1428,33 @@ const SchoolDetail: React.FC = () => {
           
           <ProcessFlow>
             <ProcessStep>
-              <StepIcon>1</StepIcon>
-              <StepTitle>주 2회 정규 진도수업<br/>+ Daily TEST</StepTitle>
+              <MiddleStepIcon>1</MiddleStepIcon>
+              <MiddleStepTitle>주 2회 정규 진도수업<br/>+ Daily TEST</MiddleStepTitle>
             </ProcessStep>
             
             <ProcessStep>
-              <StepIcon>2</StepIcon>
-              <StepTitle>Weekly TEST<br/>(실전/변형)</StepTitle>
+              <MiddleStepIcon>2</MiddleStepIcon>
+              <MiddleStepTitle>Weekly TEST<br/>(실전/변형)</MiddleStepTitle>
             </ProcessStep>
             
             <ProcessStep>
-              <StepIcon>3</StepIcon>
-              <StepTitle>내신 대비 집중<br/>(시험범위 Daily TEST<br/>+ 단어 TEST)</StepTitle>
+              <MiddleStepIcon>3</MiddleStepIcon>
+              <MiddleStepTitle>내신 대비 집중<br/>(시험범위 Daily TEST<br/>+ 단어 TEST)</MiddleStepTitle>
             </ProcessStep>
             
             <ProcessStep>
-              <StepIcon>4</StepIcon>
-              <StepTitle>학교별 맞춤<br/>자체제작 교재</StepTitle>
+              <MiddleStepIcon>4</MiddleStepIcon>
+              <MiddleStepTitle>학교별 맞춤<br/>자체제작 교재</MiddleStepTitle>
             </ProcessStep>
             
             <ProcessStep>
-              <StepIcon>5</StepIcon>
-              <StepTitle>실전 모의시험<br/>(최종 점검)</StepTitle>
+              <MiddleStepIcon>5</MiddleStepIcon>
+              <MiddleStepTitle>실전 모의시험<br/>(최종 점검)</MiddleStepTitle>
             </ProcessStep>
             
             <ProcessStep>
-              <StepIcon>6</StepIcon>
-              <StepTitle>ICC<br/>개별 학습지도</StepTitle>
+              <MiddleStepIcon>6</MiddleStepIcon>
+              <MiddleStepTitle>ICC<br/>개별 학습지도</MiddleStepTitle>
             </ProcessStep>
           </ProcessFlow>
           
