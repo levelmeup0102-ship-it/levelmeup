@@ -322,7 +322,7 @@ ICC 보충 학습을 통해 학습 누락 없이 관리합니다.`
             <TeacherCard key={index}>
               <TeacherName>{teacher.name}</TeacherName>
               <TeacherGrade>{teacher.grade}</TeacherGrade>
-              <TeacherGrade style={{ color: colors.green.primary, marginBottom: '18px', fontSize: '1.15rem' }}>
+              <TeacherGrade style={{ color: '#1a1a1a', marginBottom: '18px', fontSize: '1.15rem' }}>
                 {teacher.subtitle}
               </TeacherGrade>
               <TeacherDescription>{teacher.description}</TeacherDescription>
