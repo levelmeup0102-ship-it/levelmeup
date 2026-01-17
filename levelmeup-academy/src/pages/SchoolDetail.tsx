@@ -774,22 +774,28 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '부명고는 어휘 난이도와 변형 포인트가 성적을 가릅니다.',
     achievements: [
       {
-        semester: '2024-2학기',
+        semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '1등급 다수 배출'
+        score: '전교 2등 배출 + 신규 원생 전원 성적 상승'
       },
       {
-        semester: '2024-2학기',
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 1등 배출 + 1등급 2명 배출'
+      },
+      {
+        semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '90점 이상 다수'
+        score: '1등급 배출'
       },
       {
-        semester: '2024-1학기',
+        semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '평균 85점 이상'
+        score: '수강생 전원 90점대 이상 (부명고1·2)'
       }
     ],
     features: [
