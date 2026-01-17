@@ -429,7 +429,7 @@ const HallOfFame: React.FC = () => {
 
       {/* 최근 5개년 대학 진학 성과 요약 */}
       <SummarySection>
-        <SummaryTitle>LEVEL ME UP 최근 5개년 주요대학 합격 결과</SummaryTitle>
+        <SummaryTitle>LEVEL ME UP 최근 5개년 주요대학 합격 현황</SummaryTitle>
         <SummaryGrid>
           <SummaryCard>
             <CardYear>26학년도</CardYear>
