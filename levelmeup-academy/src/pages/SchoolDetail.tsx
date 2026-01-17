@@ -593,46 +593,112 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '심원고는 어휘 난이도와 지문 분석이 성적을 가릅니다.',
     achievements: [
       {
-        semester: '25-2학기',
-        exam: '합산',
-        subject: '영어',
-        score: '전교 2등·3등 배출 (심원고2)'
-      },
-      {
-        semester: '25-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '100점 2명 + 90점대 다수 (심원고1·2)'
-      },
-      {
-        semester: '25-2학기',
-        exam: '합산',
+        semester: '25-1학기',
+        exam: '중간고사',
         subject: '국어',
-        score: '1등급 2명 배출 (10등·19등)'
+        score: '100점 배출 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '100점 2명 + 90점대 다수 (심원고1·2·3)'
+        score: '95점 다수 배출 (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90점 배출 (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90점대 다수 기록 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '100점 기록 (고3)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '99점·96점 배출 (심원고2·3)'
+        score: '99점 기록 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '93~94점대 다수 기록 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '94~96점대 기록 (고3)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '수학',
-        score: '38점 상승 + 20점 이상 3명 (심원고1)'
+        score: '38점 상승 (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '10점 이상 상승(2명) (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '20점 이상 상승(3명) (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '국어',
+        score: '1등급 2명 배출 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '32점 상승 (심원고2)'
+        score: '100점 포함 90점대 다수 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 2등 기록 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 3등 기록 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '100점 포함 96점대 다수 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '재원생 절반 이상 87점 이상 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '32점 상승 사례 포함 (고2)'
       }
     ],
     examAnalysis: [
