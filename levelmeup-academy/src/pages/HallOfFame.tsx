@@ -683,7 +683,7 @@ const HallOfFame: React.FC = () => {
               문법·독해·내신 등 영역별 수업이 체계적으로 구성되어 학습 효율이 높았습니다.
               자습실이 있어 별도 독서실 없이도 꾸준히 공부할 수 있었습니다.
             </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+            <TestimonialButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=222208454612&referrerCode=0&searchKeyword=%EA%B5%AD%EC%82%AC%ED%95%99%EA%B3%BC" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
             </TestimonialButton>
           </TestimonialCard>
