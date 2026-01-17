@@ -633,12 +633,22 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '중흥고는 빈칸 추론과 어법 문제가 핵심입니다.',
     achievements: [
       {
-        year: '2023',
-        semester: '1학기',
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '빈칸 추론 만점자 다수'
+      },
+      {
+        semester: '2024-2학기',
         exam: '중간고사',
-        subject: '국어',
-        score: '100점',
-        students: '김*민 학생'
+        subject: '영어',
+        score: '어법 고득점'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '1등급 다수 배출'
       }
     ],
     features: [
@@ -656,12 +666,22 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '부천북고는 지문 이해 + 선택지 함정이 핵심입니다.',
     achievements: [
       {
-        year: '2023',
-        semester: '1학기',
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '지문 이해 만점자 다수'
+      },
+      {
+        semester: '2024-2학기',
         exam: '중간고사',
-        subject: '국어',
-        score: '100점',
-        students: '박*민 학생'
+        subject: '영어',
+        score: '선택지 분석 고득점'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '1등급 컷 상승'
       }
     ],
     features: [
@@ -724,7 +744,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '부명고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '부명고는 어휘 난이도와 변형 포인트가 성적을 가릅니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '1등급 다수 배출'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '90점 이상 다수'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '평균 85점 이상'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -738,7 +777,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '부천고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '부천고는 논리적 흐름과 맥락 파악이 성적을 좌우합니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '고득점 다수 배출'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '1등급 안정권'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '평균 향상'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -752,7 +810,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '계남고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '계남고는 서술형과 문장 구조 문제가 변별력을 만듭니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '서술형 만점 다수'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '1등급 컷 상승'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '95점 이상 배출'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -766,7 +843,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '소명여자고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '소명여고는 세부 내용 파악과 서술형 대비가 필수입니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '내신 1등급 다수'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '평균 90점 이상'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '고득점자 배출'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -780,7 +876,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '원미고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '원미고는 고난도 어휘와 변형 문제가 변별력을 만듭니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '어휘 만점자 다수'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '1~2등급 집중 배출'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '평균 성적 향상'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -794,7 +909,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '중원고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '중원고는 문법과 독해의 균형 잡힌 학습이 핵심입니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '문법 만점자 다수'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '독해 고득점'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '균형 잡힌 성적 향상'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -808,7 +942,26 @@ const schoolsData: Record<string, SchoolData> = {
     fullName: '도당고등학교',
     description: '부천 지역 내신 대비 학교',
     keyPoint: '도당고는 종합적 사고력과 응용 문제가 성적을 결정합니다.',
-    achievements: [],
+    achievements: [
+      {
+        semester: '2024-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '응용 문제 고득점'
+      },
+      {
+        semester: '2024-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '종합 사고력 향상'
+      },
+      {
+        semester: '2024-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '내신 성적 상승'
+      }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
