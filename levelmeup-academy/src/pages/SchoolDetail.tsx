@@ -1347,43 +1347,55 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '100점 배출 + 99점 달성 (원미고3)'
+        score: '100점 기록 (3학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '99점 기록 (3학년)'
       },
       {
         semester: '24-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '20점 이상 상승 2명 (원미고2)'
+        score: '20점 이상 상승 1명 (2학년)'
       },
       {
         semester: '24-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '96.3점 달성 (원미고2)'
+        score: '20점 이상 상승 1명 (2학년)'
       },
       {
         semester: '24-2학기',
-        exam: '(내신)',
+        exam: '중간고사',
         subject: '영어',
-        score: '1등급 배출 (원미고2)'
+        score: '96.3점 기록 (2학년)'
+      },
+      {
+        semester: '24-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 배출 (2학년)'
       },
       {
         semester: '24-2학기',
         exam: '중간고사',
         subject: '수학',
-        score: '1등급 상승 (원미고2)'
+        score: '1등급 상승 (2학년)'
       },
       {
         semester: '24-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '92.6점 달성 (원미고2)'
+        score: '92.6점 기록 (2학년)'
       },
       {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '92점 달성 (원미고2)'
+        score: '92점 기록 (2학년)'
       }
     ],
     features: [
