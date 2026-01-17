@@ -275,6 +275,12 @@ const StepDescription = styled.p`
   }
 `;
 
+const StepIcon = styled.div`
+  font-size: 2rem;
+  margin-bottom: 15px;
+  opacity: 0.8;
+`;
+
 // New Template Components
 const TopTagline = styled.p`
   text-align: center;
