@@ -665,7 +665,7 @@ const HallOfFame: React.FC = () => {
               문법이 약했지만 문법특강과 복습을 통해 문법 실력이 확실히 잡혔습니다.
               내신 기간에는 꼼꼼한 지문 분석과 충분한 과제로 시험 준비에 큰 도움이 됐습니다.
             </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+            <TestimonialButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223020666894&referrerCode=0&searchKeyword=%EA%B2%BD%EC%A0%9C%ED%95%99%EB%B6%80" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
             </TestimonialButton>
           </TestimonialCard>
