@@ -49,12 +49,12 @@ const ContactSection = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.12) 0%, rgba(23, 183, 166, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.15) 0%, rgba(14, 143, 134, 0.15) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 25px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.15);
+  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,8 @@ const ContactCard = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(23, 183, 166, 0.25);
+    box-shadow: 0 8px 30px rgba(23, 183, 166, 0.35);
+    background: linear-gradient(135deg, rgba(23, 183, 166, 0.2) 0%, rgba(14, 143, 134, 0.2) 100%);
   }
   
   @media (max-width: 768px) {
@@ -74,13 +75,13 @@ const ContactCard = styled.div`
 `;
 
 const PhoneSection = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.12) 0%, rgba(23, 183, 166, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.15) 0%, rgba(14, 143, 134, 0.15) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 40px;
   border-radius: 15px;
   text-align: center;
   margin-bottom: 40px;
-  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.15);
+  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
   
   @media (max-width: 768px) {
     padding: 25px 20px;
@@ -114,7 +115,7 @@ const PhoneNumberContainer = styled.div`
 `;
 
 const PhoneNumber = styled.a`
-  color: ${colors.green.primary};
+  color: #17B7A6;
   font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
@@ -125,7 +126,7 @@ const PhoneNumber = styled.a`
   padding: 2px 4px;
   
   &:hover {
-    color: ${colors.orange.primary};
+    color: #0E8F86;
     text-decoration: underline;
   }
   
