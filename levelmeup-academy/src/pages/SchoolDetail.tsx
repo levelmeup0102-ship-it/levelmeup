@@ -1816,7 +1816,26 @@ const schoolsData: Record<string, SchoolData> = {
     name: '성주중',
     fullName: '성주중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '학기 합산 만점(100점) 배출 (성주중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (성주중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 2명 배출 (성주중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
