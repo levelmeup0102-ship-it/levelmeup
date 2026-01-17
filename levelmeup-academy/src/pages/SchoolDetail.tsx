@@ -2912,13 +2912,11 @@ const SchoolDetail: React.FC = () => {
         </>
       )}
 
-      {/* 7. Brand Closing - Only for High Schools */}
-      {isHighSchool && (
-        <BrandClosing>
-          <h3>Slow and steady wins the race.</h3>
-          <p>흔들리지 않는 실력의 리듬을 만들어드립니다</p>
-        </BrandClosing>
-      )}
+      {/* 7. Brand Closing - For All Schools */}
+      <BrandClosing>
+        <h3>Slow and steady wins the race.</h3>
+        <p>흔들리지 않는 실력의 리듬을 만들어드립니다</p>
+      </BrandClosing>
 
       <Section>
         <SectionTitle>수강 신청 및 상담</SectionTitle>
