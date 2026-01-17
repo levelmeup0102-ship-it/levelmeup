@@ -666,22 +666,28 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '부천북고는 지문 이해 + 선택지 함정이 핵심입니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '지문 이해 만점자 다수'
-      },
-      {
-        semester: '2024-2학기',
+        semester: '25-2학기',
         exam: '중간고사',
-        subject: '영어',
-        score: '선택지 분석 고득점'
+        subject: '국어',
+        score: '100점 배출 + 95점대 다수 (부천북고3)'
       },
       {
-        semester: '2024-1학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '1등급 컷 상승'
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '2등급 2명 배출 (부천북고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90점 달성 (부천북고2)'
+      },
+      {
+        semester: '24-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '95점 달성 (부천북고1)'
       }
     ],
     features: [
