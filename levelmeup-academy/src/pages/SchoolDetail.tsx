@@ -1308,7 +1308,38 @@ const schoolsData: Record<string, SchoolData> = {
     name: '부천중',
     fullName: '부천중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점대 배출 (부천중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '80점대 이상 배출 (부천중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '학기 합산 만점(100점) 배출 (부천중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (부천중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '99점 배출 + 90점대 배출 (부천중1)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
