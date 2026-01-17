@@ -2360,6 +2360,33 @@ const SchoolDetail: React.FC = () => {
         <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
       )}
 
+      {/* 4.5. 최근 내신 결과 - Only for High Schools (moved before Learning Flow) */}
+      {school.achievements.length > 0 && isHighSchool && (
+        <Section>
+          <SectionTitle>최근 내신 결과</SectionTitle>
+          <AchievementTable>
+            <thead>
+              <tr>
+                <th>학기</th>
+                <th>시험</th>
+                <th>과목</th>
+                <th>결과</th>
+              </tr>
+            </thead>
+            <tbody>
+              {school.achievements.map((achievement, index) => (
+                <tr key={index} className={achievement.score.includes('100점') ? 'highlight' : ''}>
+                  <td>{achievement.semester}</td>
+                  <td>{achievement.exam}</td>
+                  <td>{achievement.subject}</td>
+                  <td className="score">{achievement.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </AchievementTable>
+        </Section>
+      )}
+
       {/* 5. Learning Flow Infographic - Only for High Schools */}
       {isHighSchool && (
         <LearningFlowSection>
@@ -2459,7 +2486,8 @@ const SchoolDetail: React.FC = () => {
         </InfoBox>
       </Section>
 
-      {school.achievements.length > 0 && (
+      {/* 최근 내신 결과 - Only for Middle Schools */}
+      {school.achievements.length > 0 && !isHighSchool && (
         <Section>
           <SectionTitle>최근 내신 결과</SectionTitle>
           <AchievementTable>
