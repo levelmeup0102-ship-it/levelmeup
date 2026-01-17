@@ -128,6 +128,7 @@ const SchoolItem = styled.div`
   padding: 8px 0;
   font-size: 0.9rem;
   color: #555;
+  word-break: keep-all;
   
   &:not(:last-child) {
     border-bottom: 1px solid #f0f0f0;
@@ -135,14 +136,17 @@ const SchoolItem = styled.div`
 `;
 
 const SchoolName = styled.span`
-  font-weight: 600;
-  color: #2c3e50;
+  font-weight: 700;
+  color: #17B7A6;
+  white-space: nowrap;
+  margin-right: 8px;
 `;
 
 const SchoolCount = styled.span`
-  font-weight: 700;
-  color: ${colors.green.primary};
-  font-size: 1rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-align: right;
+  flex: 1;
 `;
 
 const YearSection = styled.section`
