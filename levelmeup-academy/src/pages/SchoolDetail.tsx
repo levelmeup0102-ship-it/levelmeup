@@ -393,6 +393,7 @@ const BrandClosing = styled.div`
     margin-bottom: 15px;
     letter-spacing: 0.5px;
     font-style: italic;
+    color: #FFFFFF;
   }
   
   p {
@@ -407,6 +408,7 @@ const BrandClosing = styled.div`
     
     h3 {
       font-size: 1.2rem;
+      color: #FFFFFF;
     }
     
     p {
