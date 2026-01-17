@@ -1634,25 +1634,25 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '전교 2등 배출'
+        score: '전교 2등 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '전교 1등 배출'
+        score: '전교 1등 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '1등급 2명 배출'
+        score: '1등급 2명 배출 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '신규 원생 전원 성적 상승'
+        score: '신규 원생 전원 성적 상승 (고2)'
       },
       {
         semester: '25-2학기',
@@ -1664,13 +1664,13 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '수강생 전원 90점대 이상 (고1)'
+        score: '수강생 전원 90점대 이상 기록 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '수강생 전원 90점대 이상 (고2)'
+        score: '수강생 전원 90점대 이상 기록 (고2)'
       }
     ],
     features: [
