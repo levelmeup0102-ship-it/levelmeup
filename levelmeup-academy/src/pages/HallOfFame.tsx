@@ -149,6 +149,124 @@ const SchoolCount = styled.span`
   flex: 1;
 `;
 
+const TestimonialSection = styled.section`
+  margin: 80px 0;
+  padding: 60px 0;
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(52, 73, 94, 0.05) 100%);
+  border-radius: 20px;
+`;
+
+const TestimonialTitle = styled.h3`
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #2c3e50;
+  font-weight: 700;
+  
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+`;
+
+const TestimonialGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+`;
+
+const TestimonialCard = styled.div`
+  background: white;
+  border: 2px solid #17B7A6;
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.2);
+  }
+`;
+
+const TestimonialYear = styled.div`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #17B7A6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &::before {
+    content: '📖';
+    font-size: 1.3rem;
+  }
+`;
+
+const TestimonialQuote = styled.blockquote`
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  margin: 0;
+  font-style: italic;
+  word-break: keep-all;
+  
+  &::before {
+    content: '"';
+    font-size: 2rem;
+    color: #17B7A6;
+    line-height: 0;
+    margin-right: 5px;
+  }
+  
+  &::after {
+    content: '"';
+    font-size: 2rem;
+    color: #17B7A6;
+    line-height: 0;
+    margin-left: 5px;
+  }
+`;
+
+const TestimonialButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #2c3e50;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: #17B7A6;
+    transform: translateX(5px);
+  }
+  
+  &::after {
+    content: '→';
+    font-size: 1.2rem;
+  }
+`;
+
 const YearSection = styled.section`
   margin-bottom: 80px;
   
@@ -373,6 +491,62 @@ const HallOfFame: React.FC = () => {
           </SummaryCard>
         </SummaryGrid>
       </SummarySection>
+
+      {/* 합격 수기 하이라이트 */}
+      <TestimonialSection>
+        <TestimonialTitle>합격 수기 하이라이트</TestimonialTitle>
+        <TestimonialGrid>
+          <TestimonialCard>
+            <TestimonialYear>26학년도</TestimonialYear>
+            <TestimonialQuote>
+              레벨미업에서 체계적인 내신 관리로 서울대 기계공학부에 합격했습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+          
+          <TestimonialCard>
+            <TestimonialYear>25학년도</TestimonialYear>
+            <TestimonialQuote>
+              의대 준비를 포기하지 않고 끝까지 노력해 가천대 의예과에 합격했습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+          
+          <TestimonialCard>
+            <TestimonialYear>24학년도</TestimonialYear>
+            <TestimonialQuote>
+              학교별 맞춤 커리큘럼 덕분에 서울대 자유전공학부에 합격할 수 있었습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+          
+          <TestimonialCard>
+            <TestimonialYear>23학년도</TestimonialYear>
+            <TestimonialQuote>
+              포스텍 무은재학과 합격, 선생님들의 세심한 관리가 큰 힘이 되었습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+          
+          <TestimonialCard>
+            <TestimonialYear>22학년도</TestimonialYear>
+            <TestimonialQuote>
+              부천 지역에서 서울대 국사학과 합격, 꿈을 이룰 수 있었습니다.
+            </TestimonialQuote>
+            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+              합격 수기 보기
+            </TestimonialButton>
+          </TestimonialCard>
+        </TestimonialGrid>
+      </TestimonialSection>
 
       {/* 26학년도 합격 실적 */}
       <YearSection>
