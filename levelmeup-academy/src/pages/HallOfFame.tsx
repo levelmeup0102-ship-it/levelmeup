@@ -611,7 +611,7 @@ const HallOfFame: React.FC = () => {
               단어 반복 학습 덕분에 난이도 높은 수능 어휘에 효과적으로 대비할 수 있었습니다.
               또한 기출·사설 모의고사 실전 훈련이 큰 도움이 됐습니다.
             </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+            <TestimonialButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224113299666&referrerCode=0&searchKeyword=%ED%95%A9%EA%B2%A9%EC%88%98%EA%B8%B0" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
             </TestimonialButton>
           </TestimonialCard>
