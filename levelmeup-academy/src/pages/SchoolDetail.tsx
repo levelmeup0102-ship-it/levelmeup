@@ -596,109 +596,235 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '100점 배출 (고1)'
+        score: '100점 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '95점 다수 배출 (고1)'
+        score: '95점 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '90점 배출 (고1)'
+        score: '95점 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '90점대 다수 기록 (고2)'
+        score: '95점 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '100점 기록 (고3)'
+        score: '90점 (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90.5점 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90.1점 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90.0점 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '100점 (고3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '90.9점 (고3)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '99점 기록 (고2)'
+        score: '99점 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '93~94점대 다수 기록 (고2)'
+        score: '93.8점 (고2)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '94~96점대 기록 (고3)'
+        score: '93.8점 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '93점 (고2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '96점 (고3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '95점 (고3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '94점 (고3)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '수학',
-        score: '38점 상승 (고1)'
+        score: '38점 상승 1명 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '수학',
-        score: '10점 이상 상승(2명) (고1)'
+        score: '20점 이상 상승 3명 (고1)'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '수학',
-        score: '20점 이상 상승(3명) (고1)'
+        score: '10점 이상 상승 2명 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '합산',
         subject: '국어',
-        score: '1등급 2명 배출 (고1)'
+        score: '1등급 (고1)'
       },
       {
         semester: '25-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '100점 포함 90점대 다수 (고1)'
+        exam: '합산',
+        subject: '국어',
+        score: '1등급 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '합산',
         subject: '영어',
-        score: '전교 2등 기록 (고2)'
+        score: '전교 2등 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '합산',
         subject: '영어',
-        score: '전교 3등 기록 (고2)'
+        score: '전교 3등 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '100점 포함 96점대 다수 (고2)'
+        score: '100점 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '재원생 절반 이상 87점 이상 (고2)'
+        score: '97점 (고2)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '32점 상승 사례 포함 (고2)'
+        score: '96.6점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.4점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.3점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '94점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '93.1점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.7점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90.9점 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '32점 상승 1명 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.1점 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '95.7점 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '95.7점 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '91점 (고1)'
       }
     ],
     examAnalysis: [
