@@ -1304,9 +1304,126 @@ const schoolsData: Record<string, SchoolData> = {
       '개별 학습 지도'
     ]
   },
+  '부천중': {
+    name: '부천중',
+    fullName: '부천중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '중흥중': {
+    name: '중흥중',
+    fullName: '중흥중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '부흥중': {
+    name: '부흥중',
+    fullName: '부흥중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '계남중': {
+    name: '계남중',
+    fullName: '계남중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '중원중': {
+    name: '중원중',
+    fullName: '중원중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
   '심원중': {
     name: '심원중',
     fullName: '심원중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '부천여중': {
+    name: '부천여중',
+    fullName: '부천여자중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '까치울중': {
+    name: '까치울중',
+    fullName: '까치울중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '성주중': {
+    name: '성주중',
+    fullName: '성주중학교',
+    description: '부천 지역 내신 대비 중학교',
+    achievements: [],
+    features: [
+      '중학교 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '부명중': {
+    name: '부명중',
+    fullName: '부명중학교',
     description: '부천 지역 내신 대비 중학교',
     achievements: [],
     features: [
