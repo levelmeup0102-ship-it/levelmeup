@@ -101,6 +101,70 @@ const AchievementTable = styled.table`
   }
 `;
 
+const CollegeAdmissionsSection = styled.div`
+  margin-bottom: 50px;
+`;
+
+const CollegeTitle = styled.h3`
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: bold;
+`;
+
+const CollegeNote = styled.p`
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  background: #fff9e6;
+  border-left: 4px solid #ffc107;
+  border-radius: 5px;
+  
+  strong {
+    color: #1a1a1a;
+  }
+`;
+
+const CollegeGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+`;
+
+const CollegeCard = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  border: 2px solid #f0f0f0;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(23, 183, 166, 0.15);
+    border-color: #17B7A6;
+  }
+`;
+
+const UniversityName = styled.h4`
+  font-size: 1.2rem;
+  color: #17B7A6;
+  margin-bottom: 10px;
+  font-weight: bold;
+`;
+
+const DepartmentName = styled.p`
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+`;
+
 const BackButton = styled.button`
   display: inline-block;
   margin-bottom: 30px;
@@ -887,6 +951,13 @@ const schoolsData: Record<string, SchoolData> = {
         ]
       }
     ],
+    collegeAdmissions: [
+      { university: '이화여자대학교', department: '인공지능데이터사이언스학부' },
+      { university: '경희대학교', department: '응용화학과' },
+      { university: '동국대학교', department: '경영학과' },
+      { university: '인하대학교', department: '화학공학과' },
+      { university: '숭실대학교', department: '경영학부' }
+    ],
     features: [
       '심원고 전용 내신 대비반 운영',
       '학교별 맞춤 교재 제작 (기출 완벽 분석)',
@@ -1131,6 +1202,13 @@ const schoolsData: Record<string, SchoolData> = {
         ]
       }
     ],
+    collegeAdmissions: [
+      { university: '서울대학교', department: '기계공학부' },
+      { university: '연세대학교', department: '신소재공학부' },
+      { university: '고려대학교', department: '건축사회환경공학부' },
+      { university: '성균관대학교', department: '전자전기공학부' },
+      { university: '서강대학교', department: '인공지능학과' }
+    ],
     features: [
       '정명고 전용 내신 대비반 운영 (가장 많은 재원생)',
       '역대 기출 문제 DB 구축 및 완벽 분석',
@@ -1332,6 +1410,13 @@ const schoolsData: Record<string, SchoolData> = {
         subject: '수학',
         score: '수강생 절반 성적 상승 (고2)'
       }
+    ],
+    collegeAdmissions: [
+      { university: '서울시립대학교', department: '도시사회학과' },
+      { university: '동국대학교', department: '전자전기공학부' },
+      { university: '숙명여자대학교', department: '경제학부' },
+      { university: '홍익대학교', department: '영어영문학과' },
+      { university: '성신여자대학교', department: '사회복지학과' }
     ],
     features: [
       '중흥고 시험 경향 분석',
@@ -1735,6 +1820,13 @@ const schoolsData: Record<string, SchoolData> = {
         score: '전교 7등 배출 (2학년)'
       }
     ],
+    collegeAdmissions: [
+      { university: '연세대학교', department: '심리학과' },
+      { university: '고려대학교', department: '교육학과' },
+      { university: '성균관대학교', department: '사회과학계열' },
+      { university: '서강대학교', department: '사회과학부' },
+      { university: '중앙대학교', department: '디자인학부' }
+    ],
     features: [
       '학교별 맞춤 교재',
       '기출 문제 분석',
@@ -1803,6 +1895,13 @@ const schoolsData: Record<string, SchoolData> = {
         subject: '영어',
         score: '92점 기록 (2학년)'
       }
+    ],
+    collegeAdmissions: [
+      { university: '충남대학교', department: '약학과' },
+      { university: '이화여자대학교', department: '경제학과' },
+      { university: '한국외국어대학교', department: '경제학부' },
+      { university: '건국대학교', department: '공과대학 자율전공학부' },
+      { university: '국민대학교', department: '나노전자물리학과' }
     ],
     features: [
       '학교별 맞춤 교재',
@@ -2559,34 +2658,21 @@ const SchoolDetail: React.FC = () => {
       )}
 
       {/* 4.4. 대학 합격 현황 - Only for High Schools */}
-      {isHighSchool && (
-        <Section>
-          <SectionTitle>대학 합격 현황</SectionTitle>
-          <AchievementTable>
-            <thead>
-              <tr>
-                <th>대학교</th>
-                <th>학과</th>
-              </tr>
-            </thead>
-            <tbody>
-              {school.collegeAdmissions && school.collegeAdmissions.length > 0 ? (
-                school.collegeAdmissions.map((admission, index) => (
-                  <tr key={index}>
-                    <td>{admission.university}</td>
-                    <td>{admission.department}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={2} style={{ textAlign: 'center', color: '#999', padding: '40px 20px' }}>
-                    대학 합격 데이터 준비 중입니다
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </AchievementTable>
-        </Section>
+      {isHighSchool && school.collegeAdmissions && school.collegeAdmissions.length > 0 && (
+        <CollegeAdmissionsSection>
+          <SectionTitle>최근 합격 TOP 5</SectionTitle>
+          <CollegeNote>
+            📌 <strong>최근 입시 실적(25~26학년도 기준 대표 성과)</strong>로 정리한 주요 합격 라인업입니다.
+          </CollegeNote>
+          <CollegeGrid>
+            {school.collegeAdmissions.map((admission, index) => (
+              <CollegeCard key={index}>
+                <UniversityName>{admission.university}</UniversityName>
+                <DepartmentName>{admission.department}</DepartmentName>
+              </CollegeCard>
+            ))}
+          </CollegeGrid>
+        </CollegeAdmissionsSection>
       )}
 
       {/* 4.5. 최근 내신 결과 - Only for High Schools (moved before Learning Flow) */}
