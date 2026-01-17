@@ -536,6 +536,11 @@ const HallOfFame: React.FC = () => {
           </thead>
           <tbody>
             <tr>
+              <td>정명고등학교</td>
+              <td>가천대학교</td>
+              <td>의예과</td>
+            </tr>
+            <tr>
               <td>원미고등학교</td>
               <td>충남대학교</td>
               <td>약학과</td>
