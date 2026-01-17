@@ -1492,7 +1492,68 @@ const schoolsData: Record<string, SchoolData> = {
     name: '부흥중',
     fullName: '부흥중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '학기 합산 만점(100점) 배출 (부흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (부흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '10점 이상 상승 (부흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '90점대 배출 (부흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '20점 상승 (부흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (부흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '신규 원생 전원 성적 상승 (부흥중2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '30점 이상 상승 (부흥중2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (부흥중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '90점 이상 배출 (부흥중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
