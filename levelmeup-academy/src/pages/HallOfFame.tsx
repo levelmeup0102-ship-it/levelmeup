@@ -430,6 +430,18 @@ const HallOfFame: React.FC = () => {
                 <SchoolName>약학과</SchoolName>
                 <SchoolCount>충남대학교</SchoolCount>
               </SchoolItem>
+              <SchoolItem>
+                <SchoolName>서강대학교</SchoolName>
+                <SchoolCount>인공지능학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>서강대학교</SchoolName>
+                <SchoolCount>사학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>성균관대학교</SchoolName>
+                <SchoolCount>사회과학계열</SchoolCount>
+              </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
           <SummaryCard>
@@ -514,6 +526,22 @@ const HallOfFame: React.FC = () => {
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
                 <SchoolCount>식품자원경제학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>서강대학교</SchoolName>
+                <SchoolCount>사학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>성균관대학교</SchoolName>
+                <SchoolCount>인문과학계열</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>성균관대학교</SchoolName>
+                <SchoolCount>스포츠과학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>성균관대학교</SchoolName>
+                <SchoolCount>사회과학계열</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
