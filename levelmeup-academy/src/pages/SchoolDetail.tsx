@@ -665,22 +665,64 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '중흥고는 빈칸 추론과 어법 문제가 핵심입니다.',
     achievements: [
       {
-        semester: '2024-2학기',
+        semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '빈칸 추론 만점자 다수'
+        score: '전교 1등(100점) 배출 (중흥고1)'
       },
       {
-        semester: '2024-2학기',
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점 이상 10명 배출 (중흥고1)'
+      },
+      {
+        semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '어법 고득점'
+        score: '전교 1등(100점) + 1등급 5명 (중흥고1)'
       },
       {
-        semester: '2024-1학기',
-        exam: '기말고사',
+        semester: '25-2학기',
+        exam: '중간고사',
         subject: '영어',
-        score: '1등급 다수 배출'
+        score: '90점 이상 7명 배출 (중흥고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 1등 + 1등급 배출 (중흥고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '1등급 배출 + 최대 22점 상승 (중흥고1·2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '수학',
+        score: '1등급 배출 (중흥고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '95.9점 달성 (중흥고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '(전과목)',
+        score: '신규생 전원 상승(최대 30점↑)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '(전과목)',
+        score: '신규생 전원 상승(최대 29점↑)'
       }
     ],
     features: [
