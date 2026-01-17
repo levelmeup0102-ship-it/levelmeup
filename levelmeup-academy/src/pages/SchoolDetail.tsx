@@ -445,36 +445,46 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '심원고는 어휘 난이도와 지문 분석이 성적을 가릅니다.',
     achievements: [
       {
-        year: '2024',
-        semester: '2학기',
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 2등·3등 배출 (심원고2)'
+      },
+      {
+        semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '100점 4명 배출',
-        students: '레벨미업 재원생'
+        score: '100점 2명 + 90점대 다수 (심원고1·2)'
       },
       {
-        year: '2024',
-        semester: '2학기',
-        exam: '중간고사',
-        subject: '영어',
-        score: '7명 100점 중 7명',
-        students: '레벨미업 재원생'
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '국어',
+        score: '1등급 2명 배출 (10등·19등)'
       },
       {
-        year: '2024',
-        semester: '1학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '만점 다수',
-        students: '내신 대비반'
-      },
-      {
-        year: '2023',
-        semester: '1학기',
+        semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '100점',
-        students: '김*현 학생'
+        score: '100점 2명 + 90점대 다수 (심원고1·2·3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '99점·96점 배출 (심원고2·3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '38점 상승 + 20점 이상 3명 (심원고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '32점 상승 (심원고2)'
       }
     ],
     examAnalysis: [
