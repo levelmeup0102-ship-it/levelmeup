@@ -213,11 +213,11 @@ const TestimonialHeader = styled.div`
   border-bottom: 1px solid #f5f5f5;
 `;
 
-const UniversityLogo = styled.div`
-  width: 28px;
-  height: 28px;
+const UniversityLogo = styled.div<{ $logoUrl?: string }>`
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%);
+  background: ${props => props.$logoUrl ? `url(${props.$logoUrl}) center/cover` : 'linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%)'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,6 +225,14 @@ const UniversityLogo = styled.div`
   font-weight: 700;
   font-size: 0.75rem;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const TestimonialYear = styled.div`
@@ -600,7 +608,9 @@ const HallOfFame: React.FC = () => {
         <TestimonialGrid>
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>서</UniversityLogo>
+              <UniversityLogo>
+                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+              </UniversityLogo>
               <TestimonialYear>26학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
@@ -618,7 +628,9 @@ const HallOfFame: React.FC = () => {
           
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>성</UniversityLogo>
+              <UniversityLogo>
+                <img src="https://www.genspark.ai/api/files/s/zTMUXiYs" alt="성균관대학교" />
+              </UniversityLogo>
               <TestimonialYear>25학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
@@ -636,7 +648,9 @@ const HallOfFame: React.FC = () => {
           
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>연</UniversityLogo>
+              <UniversityLogo>
+                <img src="https://www.genspark.ai/api/files/s/BXwp8F3c" alt="연세대학교" />
+              </UniversityLogo>
               <TestimonialYear>24학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
@@ -654,7 +668,9 @@ const HallOfFame: React.FC = () => {
           
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>서</UniversityLogo>
+              <UniversityLogo>
+                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+              </UniversityLogo>
               <TestimonialYear>23학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
@@ -672,7 +688,9 @@ const HallOfFame: React.FC = () => {
           
           <TestimonialCard>
             <TestimonialHeader>
-              <UniversityLogo>서</UniversityLogo>
+              <UniversityLogo>
+                <img src="https://www.genspark.ai/api/files/s/ESVDmTlU" alt="서울대학교" />
+              </UniversityLogo>
               <TestimonialYear>21학년도</TestimonialYear>
             </TestimonialHeader>
             <UniversityInfo>
