@@ -2672,9 +2672,9 @@ const SchoolDetail: React.FC = () => {
       {/* 4.4. 대학 합격 현황 - Only for High Schools */}
       {isHighSchool && school.collegeAdmissions && school.collegeAdmissions.length > 0 && (
         <CollegeAdmissionsSection>
-          <SectionTitle>최근 합격 TOP 5</SectionTitle>
+          <SectionTitle>최근 {school.name} 재원생 주요 입결</SectionTitle>
           <CollegeNote>
-            📌 <strong>최근 입시 실적(25~26학년도 기준 대표 성과)</strong>로 정리한 주요 합격 라인업입니다.
+            📌 <strong>최근 입시 실적(24~26학년도 기준 대표 성과)</strong>로 정리한 주요 합격 라인업입니다.
           </CollegeNote>
           <CollegeGrid>
             {school.collegeAdmissions.map((admission, index) => (
