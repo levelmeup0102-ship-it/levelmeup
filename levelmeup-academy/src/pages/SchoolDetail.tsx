@@ -1566,7 +1566,44 @@ const schoolsData: Record<string, SchoolData> = {
     name: '계남중',
     fullName: '계남중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '성취도 A 기록 (계남중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '80점대 이상 배출 (계남중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '90점대 배출 (계남중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '학기 합산 만점(100점) 배출 (계남중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (계남중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (계남중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
