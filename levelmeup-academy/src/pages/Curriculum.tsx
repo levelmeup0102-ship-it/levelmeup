@@ -20,7 +20,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(90deg, ${colors.green.primary} 0%, #FF6D00 100%);
+    background: #17B7A6;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -46,7 +46,7 @@ const MainTab = styled.button<{ active: boolean }>`
   padding: 15px 25px;
   background: ${props => props.active ? 'white' : 'transparent'};
   border: none;
-  border-bottom: 3px solid ${props => props.active ? colors.green.primary : 'transparent'};
+  border-bottom: 3px solid ${props => props.active ? '#17B7A6' : 'transparent'};
   font-size: 1.05rem;
   font-weight: ${props => props.active ? '700' : '500'};
   color: ${props => props.active ? colors.green.primary : '#666'};
@@ -158,7 +158,7 @@ const ClassTable = styled.table`
   margin-top: 20px;
   
   thead {
-    background: linear-gradient(135deg, ${colors.green.primary} 0%, #66BB6A 100%);
+    background: #17B7A6;
     color: white;
     
     th {
@@ -213,8 +213,8 @@ const ClassTable = styled.table`
 `;
 
 const CommonSystemSection = styled.div`
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(255, 109, 0, 0.05) 100%);
-  border: 1px solid rgba(76, 175, 80, 0.15);
+  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(23, 183, 166, 0.03) 100%);
+  border: 1px solid rgba(23, 183, 166, 0.15);
   border-radius: 12px;
   padding: 30px 40px;
   margin-bottom: 50px;
