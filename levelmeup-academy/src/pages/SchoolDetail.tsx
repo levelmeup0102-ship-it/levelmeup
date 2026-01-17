@@ -2685,18 +2685,28 @@ const SchoolDetail: React.FC = () => {
                 <th>학기</th>
                 <th>시험</th>
                 <th>과목</th>
+                <th>학년</th>
                 <th>결과</th>
               </tr>
             </thead>
             <tbody>
-              {school.achievements.map((achievement, index) => (
-                <tr key={index} className={achievement.score.includes('100점') ? 'highlight' : ''}>
-                  <td>{achievement.semester}</td>
-                  <td>{achievement.exam}</td>
-                  <td>{achievement.subject}</td>
-                  <td className="score">{achievement.score}</td>
-                </tr>
-              ))}
+              {school.achievements.map((achievement, index) => {
+                // Extract grade from score (e.g., "(고1)", "(고2)", "(1학년)")
+                const gradeMatch = achievement.score.match(/\((고\d|[123]학년)\)/);
+                const grade = gradeMatch ? gradeMatch[1].replace('고', '고').replace('학년', '') : '-';
+                // Remove grade from score display
+                const cleanScore = achievement.score.replace(/\s*\((고\d|[123]학년)\)\s*/g, '').trim();
+                
+                return (
+                  <tr key={index} className={achievement.score.includes('100점') ? 'highlight' : ''}>
+                    <td>{achievement.semester}</td>
+                    <td>{achievement.exam}</td>
+                    <td>{achievement.subject}</td>
+                    <td>{grade}</td>
+                    <td className="score">{cleanScore}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </AchievementTable>
         </Section>
