@@ -1266,7 +1266,19 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '8등 / 11등 / 15등 기록'
+        score: '8등 기록'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '11등 기록'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '15등 기록'
       },
       {
         semester: '25-2학기',
