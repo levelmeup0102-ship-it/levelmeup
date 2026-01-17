@@ -813,22 +813,22 @@ const schoolsData: Record<string, SchoolData> = {
     keyPoint: '부천고는 논리적 흐름과 맥락 파악이 성적을 좌우합니다.',
     achievements: [
       {
-        semester: '2024-2학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '고득점 다수 배출'
-      },
-      {
-        semester: '2024-2학기',
+        semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '1등급 안정권'
+        score: '95점 배출 (부천고3)'
       },
       {
-        semester: '2024-1학기',
-        exam: '기말고사',
-        subject: '영어',
-        score: '평균 향상'
+        semester: '24-1학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '93점 배출 (부천고2)'
+      },
+      {
+        semester: '24-1학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '4등급 → 3등급 상승 (부천고2)'
       }
     ],
     features: [
