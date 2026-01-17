@@ -49,10 +49,10 @@ const ContactSection = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.15) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.35) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 25px;
-  border-radius: 20px;
+  border-radius: 30px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
   transition: all 0.3s;
@@ -65,7 +65,7 @@ const ContactCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(23, 183, 166, 0.35);
-    background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.25) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.45) 100%);
   }
   
   @media (max-width: 768px) {
@@ -75,10 +75,10 @@ const ContactCard = styled.div`
 `;
 
 const PhoneSection = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.15) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.35) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 40px;
-  border-radius: 15px;
+  border-radius: 30px;
   text-align: center;
   margin-bottom: 40px;
   box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
@@ -349,12 +349,6 @@ const Consulting: React.FC = () => {
         <ContactCard>
           <ContactIcon>💬</ContactIcon>
           <PhoneTitle>카카오톡 상담</PhoneTitle>
-          <PhoneNumberContainer>
-            <div style={{ fontSize: '0.95rem', color: '#555', marginBottom: '10px' }}>
-              카카오톡으로 편하게<br />
-              문의하실 수 있습니다
-            </div>
-          </PhoneNumberContainer>
           <KakaoID>카카오톡 ID: Levelmeup</KakaoID>
           <KakaoQRCode src="/images/kakao-qr.png" alt="카카오톡 친구추가 QR코드" />
           <KakaoButton href="http://pf.kakao.com/_xexjTxbn" target="_blank" rel="noopener noreferrer">
