@@ -776,55 +776,193 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '1등급 9명 배출 (정명고1)'
+        score: '1등급 9명 배출 (1학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점 이상 11명 배출 (정명고2)'
+        score: '96.1점 / 전교 1등 / 21점 상승 (1학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '96.1점·전교 1등(21점 상승) (정명고1)'
+        score: '92.2점 / 전교 4등 / 1등급 (1학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '96.2점·전교 2등(22점 상승) (정명고2)'
+        score: '92.2점 / 전교 4등 / 10점 상승 / 1등급 (1학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '전교 4등 다수 배출 (정명고1)'
+        score: '92.0점 / 전교 4등 / 1등급 (1학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '전교 2등 다수 배출 (정명고2)'
+        score: '92.0점 / 전교 4등 / 1등급 (1학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '91.0점 / 전교 14등 / 1등급 (1학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.0점 / 전교 4등 / 중간 114등→기말 4등 (110등 상승) (1학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점 이상 11명 배출 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.2점 / 전교 2등 / 11점 상승 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.2점 / 전교 2등 / 2학기 전교 2등 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.0점 / 전교 2등 / 22점 상승 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '95.0점 / 전교 2등 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '97.0점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.6점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.4점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.3점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '96.0점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '94.0점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '93.1점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.7점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90.9점 기록 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.6점 / 전교 17등 / 1등급 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.6점 / 전교 17등 / 1등급 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.6점 / 전교 17등 / 25점 상승 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '93.0점 / 전교 12등 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '92.0점 / 전교 17등 / 1등급 (2학년)'
       },
       {
         semester: '25-2학기',
         exam: '합산',
         subject: '영어',
-        score: '1등급 5명(총 9명 중) (정명고2)'
+        score: '1등급 5명 배출 (총 9명 중) (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '전과목',
+        score: '전교 1등 배출 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '합산',
+        subject: '전과목',
+        score: '전교 2등 배출 (2학년)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '수강생 전원 성적 상승 (정명고2)'
+        score: '수강생 전원 성적 상승 (2학년)'
       },
       {
         semester: '24-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '3등급 상승 (정명고1)'
+        score: '3등급 상승 (1학년)'
       }
     ],
     examAnalysis: [
