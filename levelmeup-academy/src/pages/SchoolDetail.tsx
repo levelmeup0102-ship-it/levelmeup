@@ -1672,7 +1672,50 @@ const schoolsData: Record<string, SchoolData> = {
     name: '심원중',
     fullName: '심원중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (심원중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '10점 이상 상승 사례 배출 (심원중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '14점 상승 사례 배출 (심원중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '수강생 90점 이상 (심원중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '신규 원생 전원 성적 상승 (심원중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '최대 17점 상승 사례 배출 (심원중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '90점 이상 배출 (심원중3)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
