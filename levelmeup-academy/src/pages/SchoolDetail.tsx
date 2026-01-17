@@ -2545,11 +2545,6 @@ const SchoolDetail: React.FC = () => {
       {/* 1. Top Tagline */}
       <TopTagline>부천 내신, 학교별로 전략이 달라야 합니다.</TopTagline>
       
-      {/* 1.5. Description */}
-      <PageSubtitle style={{ marginTop: '20px', marginBottom: '30px' }}>
-        레벨미업은 부천 지역 다수 학교의 내신 분석을 바탕으로, 학교별 맞춤 내신과 수준별 수능 커리큘럼을 함께 설계합니다.
-      </PageSubtitle>
-      
       {/* 2. Main Title */}
       <PageTitle>레벨미업 | {school.name} 맞춤 커리큘럼</PageTitle>
       

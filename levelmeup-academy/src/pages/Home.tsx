@@ -723,6 +723,9 @@ const Home: React.FC = () => {
           <HeadlineContainer>
             <MainHeadline>LEVEL ME UP</MainHeadline>
             <SubHeadline>부천 내신, 학교별로 전략이 달라야 합니다.</SubHeadline>
+            <SchoolsDescription style={{ marginTop: '20px', marginBottom: '40px' }}>
+              레벨미업은 부천 지역 다수 학교의 내신 분석을 바탕으로, 학교별 맞춤 내신과 수준별 수능 커리큘럼을 함께 설계합니다.
+            </SchoolsDescription>
           </HeadlineContainer>
           
           <SchoolsSection id="schools-high" $variant="high">
@@ -762,10 +765,6 @@ const Home: React.FC = () => {
               <SchoolBadge to="/school/부명중?from=home&section=middle">부명중</SchoolBadge>
             </SchoolsGrid>
           </SchoolsSection>
-          
-          <SchoolsDescription>
-            레벨미업은 부천 지역 다수 학교의 내신 분석을 바탕으로, 학교별 맞춤 내신과 수준별 수능 커리큘럼을 함께 설계하는 전문 학원입니다.
-          </SchoolsDescription>
         </Container>
       </BrandingSection>
     </HomeWrapper>
