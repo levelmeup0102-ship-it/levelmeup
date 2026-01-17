@@ -351,9 +351,6 @@ const Consulting: React.FC = () => {
           <PhoneTitle>카카오톡 상담</PhoneTitle>
           <KakaoID>카카오톡 ID: Levelmeup</KakaoID>
           <KakaoQRCode src="/images/kakao-qr.png" alt="카카오톡 친구추가 QR코드" />
-          <KakaoButton href="http://pf.kakao.com/_xexjTxbn" target="_blank" rel="noopener noreferrer">
-            💬 카카오톡 문의하기
-          </KakaoButton>
           <OperatingHours>
             빠른 시간 내에 답변드립니다
           </OperatingHours>
