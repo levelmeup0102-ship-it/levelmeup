@@ -629,7 +629,7 @@ const HallOfFame: React.FC = () => {
               겨울방학 특강에서 정리한 문법 기초가 3년 내내 큰 기반이 되었습니다.
               질문이 추상적이어도 핵심 포인트를 정확히 짚어주는 피드백이 좋았습니다.
             </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+            <TestimonialButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223724458746&referrerCode=0&searchKeyword=%EA%B9%80*%EC%9B%90" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
             </TestimonialButton>
           </TestimonialCard>
