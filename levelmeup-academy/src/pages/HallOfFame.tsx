@@ -396,11 +396,19 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>신소재공학부, 사학과</SchoolCount>
+                <SchoolCount>신소재공학부</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>사학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>건축사회환경공학부, 사학과</SchoolCount>
+                <SchoolCount>건축사회환경공학부</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>사학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
             <CardLabel style={{marginTop: '15px', fontSize: '0.85rem', color: '#95a5a6'}}>현재 집계중</CardLabel>
@@ -435,11 +443,23 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>경영학과, 심리학과, 약학과</SchoolCount>
+                <SchoolCount>경영학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>심리학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>연세대학교</SchoolName>
+                <SchoolCount>약학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>교육학과, 경영학과</SchoolCount>
+                <SchoolCount>교육학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>경영학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
@@ -454,7 +474,11 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>재료공학과, 경제학과</SchoolCount>
+                <SchoolCount>재료공학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>서울대학교</SchoolName>
+                <SchoolCount>경제학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>포스텍</SchoolName>
@@ -466,12 +490,16 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>영어영문학과, 신소재공학과</SchoolCount>
+                <SchoolCount>영어영문학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>고려대학교</SchoolName>
+                <SchoolCount>신소재공학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
           <SummaryCard>
-            <CardYear>22학년도</CardYear>
+            <CardYear>21학년도</CardYear>
             <CardLabel>주요대학 합격 결과</CardLabel>
             <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>30명</CardValue>
             <SchoolBreakdown>
@@ -537,7 +565,7 @@ const HallOfFame: React.FC = () => {
           </TestimonialCard>
           
           <TestimonialCard>
-            <TestimonialYear>22학년도</TestimonialYear>
+            <TestimonialYear>21학년도</TestimonialYear>
             <TestimonialQuote>
               부천 지역에서 서울대 국사학과 합격, 꿈을 이룰 수 있었습니다.
             </TestimonialQuote>
@@ -1269,11 +1297,11 @@ const HallOfFame: React.FC = () => {
         </RecordTable>
       </YearSection>
 
-      {/* 22학년도 합격 실적 */}
+      {/* 21학년도 합격 실적 */}
       <YearSection>
-        <YearTitle>22학년도 대학 합격 실적</YearTitle>
+        <YearTitle>21학년도 대학 합격 실적</YearTitle>
         <YearDescription>
-          2022학년도 대학입시 합격 결과입니다.
+          2021학년도 대학입시 합격 결과입니다.
         </YearDescription>
         <RecordTable>
           <thead>
