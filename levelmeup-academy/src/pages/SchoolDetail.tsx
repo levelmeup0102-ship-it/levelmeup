@@ -441,7 +441,8 @@ const schoolsData: Record<string, SchoolData> = {
   '심원고': {
     name: '심원고',
     fullName: '심원고등학교',
-    description: '부천 지역의 우수한 학교로, 레벨미업 학원에서 체계적인 내신 대비를 진행하고 있습니다.',
+    description: '부천 지역 내신 대비 학교',
+    keyPoint: '심원고는 어휘 난이도와 지문 분석이 성적을 가릅니다.',
     achievements: [
       {
         year: '2024',
@@ -544,7 +545,8 @@ const schoolsData: Record<string, SchoolData> = {
   '정명고': {
     name: '정명고',
     fullName: '정명고등학교',
-    description: '부천 지역 최상위권 학교로, 레벨미업 학원에서 가장 많은 재원생이 다니는 학교입니다. 고난이도 시험으로 유명합니다.',
+    description: '부천 지역 내신 대비 학교',
+    keyPoint: '정명고는 고난이도 어휘와 외부지문 대비가 핵심입니다.',
     achievements: [
       {
         year: '2024',
@@ -627,7 +629,8 @@ const schoolsData: Record<string, SchoolData> = {
   '중흥고': {
     name: '중흥고',
     fullName: '중흥고등학교',
-    description: '레벨미업 학원에서 꾸준히 우수한 성과를 내고 있는 학교입니다.',
+    description: '부천 지역 내신 대비 학교',
+    keyPoint: '중흥고는 빈칸 추론과 어법 문제가 핵심입니다.',
     achievements: [
       {
         year: '2023',
@@ -649,7 +652,8 @@ const schoolsData: Record<string, SchoolData> = {
   '부천북고': {
     name: '부천북고',
     fullName: '부천북고등학교',
-    description: '레벨미업 학원에서 내신 대비를 진행하는 주요 학교입니다.',
+    description: '부천 지역 내신 대비 학교',
+    keyPoint: '부천북고는 지문 이해 + 선택지 함정이 핵심입니다.',
     achievements: [
       {
         year: '2023',
@@ -733,6 +737,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '부천고',
     fullName: '부천고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '부천고는 논리적 흐름과 맥락 파악이 성적을 좌우합니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
@@ -760,6 +765,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '소명여고',
     fullName: '소명여자고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '소명여고는 세부 내용 파악과 서술형 대비가 필수입니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
@@ -773,6 +779,7 @@ const schoolsData: Record<string, SchoolData> = {
     name: '원미고',
     fullName: '원미고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '원미고는 고난도 어휘와 변형 문제가 변별력을 만듭니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
@@ -786,6 +793,21 @@ const schoolsData: Record<string, SchoolData> = {
     name: '중원고',
     fullName: '중원고등학교',
     description: '부천 지역 내신 대비 학교',
+    keyPoint: '중원고는 문법과 독해의 균형 잡힌 학습이 핵심입니다.',
+    achievements: [],
+    features: [
+      '학교별 맞춤 교재',
+      '기출 문제 분석',
+      '내신 성적 관리',
+      '소규모 수업',
+      '개별 학습 지도'
+    ]
+  },
+  '도당고': {
+    name: '도당고',
+    fullName: '도당고등학교',
+    description: '부천 지역 내신 대비 학교',
+    keyPoint: '도당고는 종합적 사고력과 응용 문제가 성적을 결정합니다.',
     achievements: [],
     features: [
       '학교별 맞춤 교재',
