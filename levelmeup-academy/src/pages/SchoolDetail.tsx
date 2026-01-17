@@ -1664,38 +1664,134 @@ const schoolsData: Record<string, SchoolData> = {
       {
         semester: '25-2학기',
         exam: '중간고사',
-        subject: '국어',
-        score: '1등급 배출 + 3등급→1등급 상승 (도당고2)'
+        subject: '영어',
+        score: '전교 1등(100점) 배출 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
-        subject: '국어',
-        score: '2등급 3명 배출 (도당고2)'
+        subject: '영어',
+        score: '1등급 5명 배출 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '90점 이상 7명 배출 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '신규원생 전원 성적 상승 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '수학',
-        score: '22점 상승 + 90.8점 달성 (도당고2)'
+        score: '1등급 배출 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
-        subject: '영어',
-        score: '1등급 배출 + 수강생 4명 중 3명 전교 11등 이내 (도당고2)'
+        subject: '수학',
+        score: '수강생 전원 성적 상승 (고2)'
       },
       {
         semester: '25-2학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '최대 22점 상승 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '신규원생 전원 성적 상승'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '(성적 상승)',
+        score: '10점 이상 5명'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '(성적 상승)',
+        score: '20점 이상 1명'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '(성적 상승)',
+        score: '30점 이상 1명'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '수학',
+        score: '1등급 배출 (고1)'
+      },
+      {
+        semester: '25-1학기',
         exam: '합산',
         subject: '영어',
-        score: '1등급 2명 배출 (도당고2)'
+        score: '전교 1등 (고1)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 배출 (고1)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '14점 상승 + 18점 상승 (도당고2)'
+        score: '100점 배출 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '전교 1등 배출 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '98점 / 97점 / 95점 / 93점대 다수 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '93.2점 기록 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '20점 상승 (고2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '95.9점 기록 (고1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '(신규원생)',
+        score: '4명 전원 성적 상승(29점 상승 포함)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '수강생 절반 성적 상승 (고2)'
       }
     ],
     features: [
