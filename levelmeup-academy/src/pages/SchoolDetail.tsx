@@ -1352,7 +1352,134 @@ const schoolsData: Record<string, SchoolData> = {
     name: '중흥중',
     fullName: '중흥중학교',
     description: '부천 지역 내신 대비 중학교',
-    achievements: [],
+    achievements: [
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '만점(100점) 2명 배출 (중흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '수강생 전원 만점(100점) (중흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '학기 합산 만점(100점) 다수 배출 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '수강생 10명 중 7명 만점(100점) (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '수강생 전원 90점 이상 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 2명 배출 (중흥중1)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 3명 배출 (중흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '최대 25점 상승 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '만점(100점) 다수 배출 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '70점대 → 100점 상승 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '기말고사',
+        subject: '수학',
+        score: '95점대 다수 배출 (중흥중3)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '국어',
+        score: '수강생 전원 90점 이상 (중흥중2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (중흥중1·2)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '90점 이상 6명 배출 (중흥중 전체)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '만점(100점) 2명 배출 (중흥중2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '국어',
+        score: '만점(100점) 배출 (중흥중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 2명 배출 (중흥중2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '기말고사',
+        subject: '영어',
+        score: '만점(100점) 배출 (중흥중3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '수학',
+        score: '만점(100점) 배출 (중흥중2·3)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '만점(100점) 4명 배출 (중흥중2)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '90점 이상 6명 배출 (중흥중2)'
+      }
+    ],
     features: [
       '중학교 맞춤 교재',
       '기출 문제 분석',
