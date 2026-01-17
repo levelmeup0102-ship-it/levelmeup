@@ -417,6 +417,153 @@ const BrandClosing = styled.div`
   }
 `;
 
+// Middle School Curriculum Styles
+const MiddleCurriculumSection = styled.div`
+  margin: 60px 0;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #F7F9FB 0%, #FFFFFF 100%);
+  border-radius: 20px;
+  border: 1px solid #E8EEF3;
+`;
+
+const CurriculumTitle = styled.h2`
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0B1B2A;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const CurriculumSubtitle = styled.p`
+  text-align: center;
+  font-size: 1.1rem;
+  color: #5A6C7D;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+`;
+
+const ProcessFlow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 40px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, #17B7A6 0%, #0B1B2A 100%);
+    z-index: 0;
+  }
+  
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    gap: 30px;
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 25px;
+  }
+`;
+
+const ProcessStep = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  min-width: 140px;
+  
+  @media (max-width: 1024px) {
+    flex: 0 0 calc(33.333% - 20px);
+  }
+  
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+`;
+
+const StepIcon = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #17B7A6 0%, #14A090 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(23, 183, 166, 0.3);
+  border: 3px solid white;
+  
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+`;
+
+const StepTitle = styled.h4`
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0B1B2A;
+  margin: 0;
+  line-height: 1.4;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    min-height: auto;
+  }
+`;
+
+const CurriculumDescription = styled.p`
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #2C3E50;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #17B7A6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    padding: 20px;
+    line-height: 1.7;
+  }
+`;
+
 interface SchoolData {
   name: string;
   fullName: string;
@@ -1276,6 +1423,52 @@ const SchoolDetail: React.FC = () => {
             </FlowStep>
           </FlowContainer>
         </LearningFlowSection>
+      )}
+
+      {/* Middle School Curriculum - Only for Middle Schools */}
+      {!isHighSchool && (
+        <MiddleCurriculumSection>
+          <CurriculumTitle>중등부 국/영/수 통합 커리큘럼</CurriculumTitle>
+          <CurriculumSubtitle>
+            체계적인 6단계 학습 프로세스로 내신 완성
+          </CurriculumSubtitle>
+          
+          <ProcessFlow>
+            <ProcessStep>
+              <StepIcon>1</StepIcon>
+              <StepTitle>주 2회 정규 진도수업<br/>+ Daily TEST</StepTitle>
+            </ProcessStep>
+            
+            <ProcessStep>
+              <StepIcon>2</StepIcon>
+              <StepTitle>Weekly TEST<br/>(실전/변형)</StepTitle>
+            </ProcessStep>
+            
+            <ProcessStep>
+              <StepIcon>3</StepIcon>
+              <StepTitle>내신 대비 집중<br/>(시험범위 Daily TEST<br/>+ 단어 TEST)</StepTitle>
+            </ProcessStep>
+            
+            <ProcessStep>
+              <StepIcon>4</StepIcon>
+              <StepTitle>학교별 맞춤<br/>자체제작 교재</StepTitle>
+            </ProcessStep>
+            
+            <ProcessStep>
+              <StepIcon>5</StepIcon>
+              <StepTitle>실전 모의시험<br/>(최종 점검)</StepTitle>
+            </ProcessStep>
+            
+            <ProcessStep>
+              <StepIcon>6</StepIcon>
+              <StepTitle>ICC<br/>개별 학습지도</StepTitle>
+            </ProcessStep>
+          </ProcessFlow>
+          
+          <CurriculumDescription>
+            중등부는 학습 습관이 성적을 만듭니다. 레벨미업은 Daily/Weekly TEST로 학습을 점검하고, 내신 기간에는 시험범위·단어 테스트와 학교별 맞춤 교재로 대비합니다. 마지막은 실전 모의시험과 ICC 개별 지도로 완성합니다.
+          </CurriculumDescription>
+        </MiddleCurriculumSection>
       )}
 
       <Section>
