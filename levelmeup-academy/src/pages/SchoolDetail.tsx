@@ -1192,39 +1192,75 @@ const schoolsData: Record<string, SchoolData> = {
     achievements: [
       {
         semester: '25-1학기',
-        exam: '합산',
-        subject: '영어',
-        score: '전교 3등 배출 (소명여고2)'
-      },
-      {
-        semester: '25-2학기',
-        exam: '내신',
-        subject: '영어',
-        score: '전교 7등 배출 (소명여고2)'
-      },
-      {
-        semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '96.4점 달성 (소명여고2)'
+        score: '30점 이상 상승 (2학년)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '96점 달성 (소명여고2)'
+        score: '96점 기록 (2학년)'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '30점 이상 상승 (소명여고2)'
+        score: '96.4점 기록 (2학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '90점 기록 (3학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '100점 기록 (3학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '전교 3등 배출 (2학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 배출 (2학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '국어',
+        score: '1등급 배출 (2학년)'
+      },
+      {
+        semester: '25-1학기',
+        exam: '합산',
+        subject: '영어',
+        score: '1등급 배출 (3학년)'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '21점 상승 (소명여고1)'
+        score: '1등급 배출 (2학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '중간고사',
+        subject: '영어',
+        score: '21점 상승 (1학년)'
+      },
+      {
+        semester: '25-2학기',
+        exam: '(학기 성과)',
+        subject: '영어',
+        score: '전교 7등 배출 (2학년)'
       }
     ],
     features: [
