@@ -647,7 +647,7 @@ const HallOfFame: React.FC = () => {
               열정적인 수업과 응원·격려 덕분에 꾸준히 동기부여를 받을 수 있었습니다.
               철저한 숙제 관리와 체계적인 시스템, 자습관까지 있어 학습 환경이 좋았습니다.
             </TestimonialQuote>
-            <TestimonialButton href="#" target="_blank" rel="noopener noreferrer">
+            <TestimonialButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223348491159&referrerCode=0&searchKeyword=%EA%B2%BD%EC%98%81%ED%95%99%EA%B3%BC" target="_blank" rel="noopener noreferrer">
               합격 수기 보기
             </TestimonialButton>
           </TestimonialCard>
