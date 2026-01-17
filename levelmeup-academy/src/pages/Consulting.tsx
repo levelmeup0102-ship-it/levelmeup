@@ -49,7 +49,7 @@ const ContactSection = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.15) 0%, rgba(14, 143, 134, 0.15) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.15) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 25px;
   border-radius: 20px;
@@ -65,7 +65,7 @@ const ContactCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(23, 183, 166, 0.35);
-    background: linear-gradient(135deg, rgba(23, 183, 166, 0.2) 0%, rgba(14, 143, 134, 0.2) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.25) 100%);
   }
   
   @media (max-width: 768px) {
@@ -75,7 +75,7 @@ const ContactCard = styled.div`
 `;
 
 const PhoneSection = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.15) 0%, rgba(14, 143, 134, 0.15) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.15) 100%);
   border: 2px solid #17B7A6;
   padding: 30px 40px;
   border-radius: 15px;
