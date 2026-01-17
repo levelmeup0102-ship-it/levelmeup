@@ -1971,7 +1971,7 @@ const SchoolDetail: React.FC = () => {
               <StepNumber>5</StepNumber>
               <StepIcon>📝</StepIcon>
               <StepTitle>예상 모의시험</StepTitle>
-              <StepDescription>1차·2차·Final로 점수 확정</StepDescription>
+              <StepDescription>1차·2차·3차Final로 점수 확정</StepDescription>
             </FlowStep>
           </FlowContainer>
         </LearningFlowSection>
