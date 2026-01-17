@@ -278,11 +278,11 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>신소재공학부 외</SchoolCount>
+                <SchoolCount>신소재공학부, 사학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>건축사회환경공학부 외</SchoolCount>
+                <SchoolCount>건축사회환경공학부, 사학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
             <CardLabel style={{marginTop: '15px', fontSize: '0.85rem', color: '#95a5a6'}}>현재 집계중</CardLabel>
@@ -317,11 +317,11 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
-                <SchoolCount>약학과 외</SchoolCount>
+                <SchoolCount>경영학과, 심리학과, 약학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>경영학과 외</SchoolCount>
+                <SchoolCount>교육학과, 경영학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
@@ -336,7 +336,7 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
-                <SchoolCount>재료공학과 외</SchoolCount>
+                <SchoolCount>재료공학과, 경제학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>포스텍</SchoolName>
@@ -348,7 +348,7 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>영어영문학과 외</SchoolCount>
+                <SchoolCount>영어영문학과, 신소재공학과</SchoolCount>
               </SchoolItem>
             </SchoolBreakdown>
           </SummaryCard>
