@@ -532,10 +532,6 @@ const HallOfFame: React.FC = () => {
             <CardValue style={{fontSize: '2rem', color: '#1a1a1a', fontWeight: '700', fontStyle: 'normal'}}>37명</CardValue>
             <SchoolBreakdown>
               <SchoolItem>
-                <SchoolName>한의예과</SchoolName>
-                <SchoolCount>상지대학교</SchoolCount>
-              </SchoolItem>
-              <SchoolItem>
                 <SchoolName>서울대학교</SchoolName>
                 <SchoolCount>재료공학과</SchoolCount>
               </SchoolItem>
@@ -546,6 +542,10 @@ const HallOfFame: React.FC = () => {
               <SchoolItem>
                 <SchoolName>포스텍</SchoolName>
                 <SchoolCount>무은재학과</SchoolCount>
+              </SchoolItem>
+              <SchoolItem>
+                <SchoolName>한의예과</SchoolName>
+                <SchoolCount>상지대학교</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>연세대학교</SchoolName>
@@ -1239,11 +1239,6 @@ const HallOfFame: React.FC = () => {
           <tbody>
             <tr>
               <td>정명고등학교</td>
-              <td>상지대학교</td>
-              <td>한의예과</td>
-            </tr>
-            <tr>
-              <td>정명고등학교</td>
               <td>서울대학교</td>
               <td>재료공학과</td>
             </tr>
@@ -1256,6 +1251,11 @@ const HallOfFame: React.FC = () => {
               <td>정명고등학교</td>
               <td>포스텍(포항공과대학교)</td>
               <td>무은재학과</td>
+            </tr>
+            <tr>
+              <td>정명고등학교</td>
+              <td>상지대학교</td>
+              <td>한의예과</td>
             </tr>
             <tr>
               <td>정명고등학교</td>
