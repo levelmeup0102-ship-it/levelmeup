@@ -214,8 +214,8 @@ const TestimonialHeader = styled.div`
 `;
 
 const UniversityLogo = styled.div<{ $logoUrl?: string }>`
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: ${props => props.$logoUrl ? `url(${props.$logoUrl}) center/cover` : 'linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%)'};
   display: flex;
@@ -223,7 +223,7 @@ const UniversityLogo = styled.div<{ $logoUrl?: string }>`
   justify-content: center;
   color: white;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid #e5e5e5;
