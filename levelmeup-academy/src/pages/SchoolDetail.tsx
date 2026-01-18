@@ -3086,7 +3086,6 @@ const SchoolDetail: React.FC = () => {
           <h3>레벨미업 학원</h3>
           <p>📍 주소: 경기도 부천시 길주로 275</p>
           <p>📞 전화: 032-322-0592 / 010-2406-0591</p>
-          <p>⏰ 운영: 월~토 (학년별 상이)</p>
         </InfoBox>
         <div style={{textAlign: 'center', marginTop: '30px'}}>
           <Link
