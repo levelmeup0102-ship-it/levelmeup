@@ -152,6 +152,12 @@ const CardDescription = styled.p`
   line-height: 1.7;
   margin-bottom: 20px;
   font-size: 0.98rem;
+  word-break: keep-all;
+  
+  strong {
+    color: #2c3e50;
+    font-weight: 700;
+  }
 `;
 
 const CardDetails = styled.ul`
@@ -167,6 +173,7 @@ const CardDetails = styled.ul`
     gap: 10px;
     font-size: 0.95rem;
     line-height: 1.6;
+    word-break: keep-all;
     
     &::before {
       content: '•';
@@ -174,6 +181,12 @@ const CardDetails = styled.ul`
       font-weight: bold;
       font-size: 1.2rem;
       margin-top: -2px;
+      flex-shrink: 0;
+    }
+    
+    strong {
+      color: #2c3e50;
+      font-weight: 700;
     }
   }
 `;
