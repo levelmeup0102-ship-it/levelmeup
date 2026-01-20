@@ -235,6 +235,7 @@ const Logo = styled(Link)`
   justify-content: flex-start;
   text-decoration: none;
   flex: 0 0 auto;
+  flex-shrink: 0;
   min-width: 160px;
   transition: opacity 0.2s ease;
   
