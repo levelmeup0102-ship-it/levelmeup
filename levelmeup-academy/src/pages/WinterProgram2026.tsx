@@ -286,7 +286,7 @@ const ButtonGroup = styled.div`
   flex-wrap: wrap;
 `;
 
-const CTAButton = styled.a<{ primary?: boolean }>`
+const CTAButton = styled(Link)<{ primary?: boolean }>`
   display: inline-block;
   background: ${props => props.primary ? '#4CAF50' : 'white'};
   color: ${props => props.primary ? 'white' : '#333'};
@@ -385,6 +385,17 @@ const WinterProgram2026: React.FC = () => {
           </ContentWithThumbnail>
 
         </MenuSection>
+
+        <CTASection>
+          <CTATitle>지금 바로 상담 신청하세요</CTATitle>
+          <CTAText>
+            예비고1 겨울학기 영어 프로그램에 대해 더 자세히 알고 싶으신가요?<br />
+            전문 상담을 통해 자녀에게 맞는 최적의 학습 계획을 안내해 드립니다.
+          </CTAText>
+          <ButtonGroup>
+            <CTAButton to="/consulting" primary>상담 신청하기</CTAButton>
+          </ButtonGroup>
+        </CTASection>
       </Container>
     </PageWrapper>
   );

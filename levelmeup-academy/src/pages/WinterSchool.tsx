@@ -221,6 +221,65 @@ const MenuContent = styled.div`
   }
 `;
 
+const CTASection = styled.div`
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  border-radius: 16px;
+  padding: 50px 40px;
+  text-align: center;
+  margin-top: 50px;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+  
+  @media (max-width: 768px) {
+    padding: 40px 25px;
+  }
+`;
+
+const CTATitle = styled.h3`
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 700;
+  
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const CTADescription = styled.p`
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const CTAButton = styled(Link)`
+  display: inline-block;
+  background: white;
+  color: #4CAF50;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: #f8f9fa;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 14px 40px;
+    font-size: 1rem;
+  }
+`;
+
 const WinterSchool: React.FC = () => {
   return (
     <PageWrapper>
@@ -301,6 +360,15 @@ const WinterSchool: React.FC = () => {
           </ContentWithThumbnail>
 
         </MenuSection>
+
+        <CTASection>
+          <CTATitle>지금 바로 상담 신청하세요</CTATitle>
+          <CTADescription>
+            윈터스쿨 프로그램에 대해 더 자세히 알고 싶으신가요?<br />
+            전문 상담을 통해 자녀에게 맞는 최적의 학습 계획을 안내해 드립니다.
+          </CTADescription>
+          <CTAButton to="/consulting">상담 신청하기</CTAButton>
+        </CTASection>
       </Container>
     </PageWrapper>
   );
