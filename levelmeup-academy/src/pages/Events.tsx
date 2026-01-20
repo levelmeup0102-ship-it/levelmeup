@@ -268,7 +268,8 @@ const Events: React.FC = () => {
         '방학 동안 <strong>학습 루틴 유지</strong> + 약점 파트 집중 보완',
         '"무작정 공부"가 아니라 <strong>방향 있는 공부</strong>로 성적 기반 만들기'
       ],
-      buttonText: '프로그램 자세히 보기'
+      buttonText: '프로그램 자세히 보기',
+      link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224136617778&referrerCode=0&searchKeyword=%EC%9C%88%ED%85%80'
     },
     {
       title: 'SUMMARIZE',
@@ -280,7 +281,8 @@ const Events: React.FC = () => {
         '<strong>졸업생 멘토 1:1 상담</strong>으로 상황에 맞는 현실적인 계획 설계',
         '"혼자 하면 흔들리는 공부"를 끝까지 끌고 가는 시스템'
       ],
-      buttonText: '프로그램 자세히 보기'
+      buttonText: '프로그램 자세히 보기',
+      link: 'https://blog.naver.com/levelmeup'
     },
     {
       title: '코어 자습제',
@@ -292,7 +294,8 @@ const Events: React.FC = () => {
         '시험 직전, 혼자 공부의 빈틈을 줄이는 학습 환경 + 관리 + <strong>내신 대응</strong>',
         '내신 범위 흐름이 흔들리지 않도록 끝까지 밀어주는 <strong>실전형 관리</strong>'
       ],
-      buttonText: '신청 방법 보기'
+      buttonText: '신청 방법 보기',
+      link: 'https://blog.naver.com/levelmeup'
     }
   ];
 
@@ -492,7 +495,7 @@ const Events: React.FC = () => {
                       <li key={idx} dangerouslySetInnerHTML={{ __html: detail }} />
                     ))}
                   </CardDetails>
-                  <CardButton to="#">
+                  <CardButton to={content.link || '#'}>
                     {content.buttonText} →
                   </CardButton>
                 </CardContent>
