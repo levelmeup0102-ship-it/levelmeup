@@ -46,6 +46,9 @@ const PageSubtitle = styled.div`
 
 const SummarySection = styled.section`
   margin-bottom: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 `;
 
 const SummaryTitle = styled.h3`
@@ -63,19 +66,21 @@ const SummaryTitle = styled.h3`
 
 const SummaryGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
   
-  @media (max-width: 1400px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   
-  @media (max-width: 968px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -88,10 +93,16 @@ const SummaryCard = styled.div`
   padding: 30px;
   text-align: center;
   transition: all 0.3s;
+  min-width: 0;
+  box-sizing: border-box;
   
   &:hover {
     background: #f5f5f5;
     border-color: #d0d0d0;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 20px;
   }
 `;
 
