@@ -315,15 +315,15 @@ const WinterProgram2026: React.FC = () => {
         <BackButton to="/">← 홈으로</BackButton>
         
         <HeroCard>
-          <HeroTitle>예비고1 Intensive READING (1~2월)</HeroTitle>
+          <HeroTitle>예비고1 겨울학기 영어 2차 개강</HeroTitle>
           <HeroSubtitle>
-            레벨미업 자체제작 독해교재 &lt;예비고1 미리 중간고사&gt;로<br />
-            고1 학교별 내신 기출 독해 지문 학습
+            12월 Intensive GRAMMAR → 1~2월 Intensive READING<br />
+            → 3월 미리 중간고사 & 내신 대비 개강
           </HeroSubtitle>
         </HeroCard>
 
         <MenuSection>
-          <MenuTitle>1월 수업 주차별 수업 커리큘럼</MenuTitle>
+          <MenuTitle>예비고1 겨울학기 커리큘럼 진행 흐름</MenuTitle>
           
           <ContentWithThumbnail>
             <ThumbnailContainer>
@@ -335,40 +335,49 @@ const WinterProgram2026: React.FC = () => {
             
             <ContentArea>
               <MenuContent style={{marginBottom: '30px'}}>
-                <div style={{padding: '20px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
-                  <h4 style={{fontSize: '1.3rem', marginBottom: '20px', color: '#1a1a1a'}}>주차별 수업 내용</h4>
+                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '25px'}}>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>12월 | Intensive GRAMMAR (문법 기반)</h3>
                   
-                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '20px'}}>
-                    <div>
-                      <p style={{fontWeight: '600', color: '#1a1a1a', marginBottom: '10px'}}>1회차</p>
-                      <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                        <li>weekly 모의고사 리뷰 + test</li>
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <p style={{fontWeight: '600', color: '#1a1a1a', marginBottom: '10px'}}>2회차</p>
-                      <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                        <li>미리 중간고사 진도 + test</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', marginBottom: '20px'}}>
+                    고등 영어의 기본은 "암기"가 아니라 <strong>문장 구조를 정확히 읽는 힘</strong>입니다.<br />
+                    겨울학기 12월은 중등 문법을 고등 내신/수능 관점으로 재정리하며,<br />
+                    해석·적용까지 가능한 문법 실력을 만드는 단계입니다.
+                  </p>
                   
-                  <div>
-                    <p style={{fontWeight: '600', color: '#1a1a1a', marginBottom: '10px'}}>weekly 모의고사</p>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>토/일 모의고사 회차 주 1회 필수 응일</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div style={{marginTop: '30px', padding: '20px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
-                  <h4 style={{fontSize: '1.3rem', marginBottom: '15px', color: '#1a1a1a'}}>교재 및 학습 내용</h4>
                   <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                    <li>독해 지문 구조 분석 강의</li>
-                    <li>내신 출제 유형별 지문 학습 워크북</li>
-                    <li>서술형 유형 대비 워크북</li>
-                    <li>Intensive READING 교재 & 학습 가이드</li>
+                    <li>핵심 문법 개념 정리 + 적용 훈련</li>
+                    <li>문장 구조 읽기(해석) 기반 다지기</li>
+                    <li>고등 내신형 문제 접근 방식 익히기</li>
+                  </ul>
+                </div>
+
+                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '25px'}}>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>1~2월 | Intensive READING (독해 구조/유형)</h3>
+                  
+                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', marginBottom: '20px'}}>
+                    12월에 쌓은 문법 기반을 바탕으로,<br />
+                    독해 지문을 <strong>"감으로 푸는 것"이 아니라 구조로 분석하고 흐름으로 이해</strong>하는 방식으로 훈련합니다.
+                  </p>
+                  
+                  <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                    <li>지문 문장 구조 분석 + 내용 흐름 파악</li>
+                    <li>내신/수능 유형별 독해 연습</li>
+                    <li>약점 유형 보완 + 실전 적용 훈련</li>
+                  </ul>
+                </div>
+
+                <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>3월 | 미리 중간고사 + 내신 대비 개강</h3>
+                  
+                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', marginBottom: '20px'}}>
+                    방학 동안 학습한 내용을 실전 시험으로 점검하고,<br />
+                    학교별 내신 대비 커리큘럼으로 자연스럽게 연결합니다.
+                  </p>
+                  
+                  <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                    <li>3월 첫째 주: 예비고1 미리 중간고사 진행</li>
+                    <li>결과 기반 약점 진단 및 학습 방향 피드백</li>
+                    <li>3월 중순~: 학교별 내신 대비 본격 개강</li>
                   </ul>
                 </div>
               </MenuContent>
