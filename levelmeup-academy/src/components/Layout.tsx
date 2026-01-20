@@ -666,7 +666,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h3>운영시간</h3>
               <p>평일: 15:00 - 22:00</p>
               <p>주말: 12:00 - 22:00</p>
-              <p>※ 전화문의 상시 응대 가능</p>
+              <p>※ 전화 카카오톡 문의 상시 응대 가능</p>
             </FooterSection>
           </FooterContent>
           <Copyright>
