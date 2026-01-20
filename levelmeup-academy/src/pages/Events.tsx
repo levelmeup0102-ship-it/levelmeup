@@ -302,7 +302,7 @@ const Events: React.FC = () => {
         '"혼자 하면 흔들리는 공부"를 끝까지 끌고 가는 시스템'
       ],
       buttonText: '프로그램 자세히 보기',
-      link: 'https://blog.naver.com/levelmeup'
+      link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223907565538&referrerCode=0&searchKeyword=%EC%8D%B8%EB%A8%B8'
     },
     {
       title: '코어 자습제',
