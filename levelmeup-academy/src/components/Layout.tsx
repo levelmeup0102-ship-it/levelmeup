@@ -16,17 +16,17 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 12px 0;
+  padding: 8px 0;
   
   @media (max-width: 968px) {
-    padding: 10px 0;
+    padding: 6px 0;
   }
 `;
 
 const TopBar = styled.div`
   background: rgba(26, 35, 50, 0.95);
   padding: 0;
-  min-height: 36px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -36,7 +36,7 @@ const TopBarContainer = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 8px 20px;
+  padding: 6px 20px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -47,6 +47,7 @@ const TopBarContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr auto;
     gap: 12px;
+    padding: 5px 20px;
   }
 `;
 
@@ -230,8 +231,8 @@ const Logo = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 12px 16px;
-  margin: -12px -16px;
+  padding: 8px 12px;
+  margin: -8px -12px;
   transition: opacity 0.2s ease;
   
   &:hover {
@@ -239,23 +240,23 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    padding: 10px 12px;
-    margin: -10px -12px;
+    padding: 6px 10px;
+    margin: -6px -10px;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 110px;
+  height: 52px;
   width: auto;
   display: block;
   object-fit: contain;
   
   @media (max-width: 1200px) {
-    height: 90px;
+    height: 46px;
   }
   
   @media (max-width: 768px) {
-    height: 75px;
+    height: 40px;
   }
 `;
 
