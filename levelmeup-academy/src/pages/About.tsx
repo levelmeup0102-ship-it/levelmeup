@@ -557,19 +557,19 @@ const FacilityDescription = styled.p`
 
 const FacilityImageWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  padding-top: 75%; /* 4:3 비율 (3/4 = 0.75 = 75%) */
   position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
   
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  @media (max-width: 968px) {
-    height: 280px;
   }
 `;
 
@@ -662,7 +662,7 @@ const About: React.FC = () => {
             <FacilityContainer>
               <FacilityCard>
                 <FacilityImageWrapper>
-                  <img src="/images/classroom/1.png" alt="강의실" />
+                  <img src="/images/facility-placeholder.jpg" alt="강의실" style={{display: 'none'}} />
                 </FacilityImageWrapper>
                 <FacilityTextContent>
                   <FacilityNumber>01</FacilityNumber>
@@ -675,7 +675,7 @@ const About: React.FC = () => {
 
               <FacilityCard>
                 <FacilityImageWrapper>
-                  <img src="/images/facility-study-room.jpg" alt="자습관" />
+                  <img src="/images/facility-placeholder.jpg" alt="자습관" style={{display: 'none'}} />
                 </FacilityImageWrapper>
                 <FacilityTextContent>
                   <FacilityNumber>02</FacilityNumber>
@@ -688,7 +688,7 @@ const About: React.FC = () => {
 
               <FacilityCard>
                 <FacilityImageWrapper>
-                  <img src="/images/facility-test-room.jpg" alt="테스트실" />
+                  <img src="/images/facility-placeholder.jpg" alt="테스트실" style={{display: 'none'}} />
                 </FacilityImageWrapper>
                 <FacilityTextContent>
                   <FacilityNumber>03</FacilityNumber>
@@ -701,7 +701,7 @@ const About: React.FC = () => {
 
               <FacilityCard>
                 <FacilityImageWrapper>
-                  <img src="/images/facility-lounge.jpg" alt="라운지" />
+                  <img src="/images/facility-placeholder.jpg" alt="라운지" style={{display: 'none'}} />
                 </FacilityImageWrapper>
                 <FacilityTextContent>
                   <FacilityNumber>04</FacilityNumber>
@@ -714,7 +714,7 @@ const About: React.FC = () => {
 
               <FacilityCard>
                 <FacilityImageWrapper>
-                  <img src="/images/facility-lobby.jpg" alt="로비" />
+                  <img src="/images/facility-placeholder.jpg" alt="로비" style={{display: 'none'}} />
                 </FacilityImageWrapper>
                 <FacilityTextContent>
                   <FacilityNumber>05</FacilityNumber>
