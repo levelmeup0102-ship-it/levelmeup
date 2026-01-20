@@ -235,7 +235,7 @@ const Logo = styled(Link)`
   justify-content: flex-start;
   text-decoration: none;
   flex: 0 0 auto;
-  min-width: 140px;
+  min-width: 160px;
   transition: opacity 0.2s ease;
   
   &:hover {
@@ -243,18 +243,18 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    min-width: 120px;
+    min-width: 130px;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 48px;
+  height: 52px;
   width: auto;
   display: block;
   object-fit: contain;
   
   @media (max-width: 1200px) {
-    height: 44px;
+    height: 48px;
   }
   
   @media (max-width: 768px) {
