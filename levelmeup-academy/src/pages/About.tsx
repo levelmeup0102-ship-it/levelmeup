@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
@@ -553,31 +553,7 @@ const FacilityDescription = styled.p`
   }
 `;
 
-const FacilityDetailButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #18B7A6;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  width: fit-content;
-  
-  &::after {
-    content: '→';
-    transition: transform 0.3s ease;
-  }
-  
-  &:hover {
-    color: #0E8F86;
-    gap: 12px;
-    
-    &::after {
-      transform: translateX(4px);
-    }
-  }
-`;
+
 
 const FacilityImageWrapper = styled.div`
   width: 100%;
@@ -694,7 +670,6 @@ const About: React.FC = () => {
                   <FacilityDescription>
                     국어·영어·수학·과학 과목별 전용 강의실로 구성되어, 과목 특성에 맞는 수업 환경을 제공합니다
                   </FacilityDescription>
-                  <FacilityDetailButton to="/facility/classroom">View details</FacilityDetailButton>
                 </FacilityTextContent>
               </FacilityCard>
 
@@ -708,7 +683,6 @@ const About: React.FC = () => {
                   <FacilityDescription>
                     빈 시간에 자유롭게 이용하는 스터디카페형 자습 공간
                   </FacilityDescription>
-                  <FacilityDetailButton to="/facility/study-room">View details</FacilityDetailButton>
                 </FacilityTextContent>
               </FacilityCard>
 
@@ -722,7 +696,6 @@ const About: React.FC = () => {
                   <FacilityDescription>
                     모의고사, 데일리 테스트, ICC를 진행하는 집중 평가 공간
                   </FacilityDescription>
-                  <FacilityDetailButton to="/facility/test-room">View details</FacilityDetailButton>
                 </FacilityTextContent>
               </FacilityCard>
 
@@ -736,7 +709,6 @@ const About: React.FC = () => {
                   <FacilityDescription>
                     휴식과 자유 학습이 모두 가능한 공용 공간
                   </FacilityDescription>
-                  <FacilityDetailButton to="/facility/lounge">View details</FacilityDetailButton>
                 </FacilityTextContent>
               </FacilityCard>
 
@@ -750,7 +722,6 @@ const About: React.FC = () => {
                   <FacilityDescription>
                     학원의 첫인상이자 주요 안내와 성과를 확인할 수 있는 공간
                   </FacilityDescription>
-                  <FacilityDetailButton to="/facility/lobby">View details</FacilityDetailButton>
                 </FacilityTextContent>
               </FacilityCard>
             </FacilityContainer>
