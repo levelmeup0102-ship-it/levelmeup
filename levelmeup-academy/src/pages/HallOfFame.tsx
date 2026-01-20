@@ -135,6 +135,7 @@ const SchoolBreakdown = styled.div`
 const SchoolItem = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 10px 0;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -146,13 +147,15 @@ const SchoolName = styled.span`
   font-weight: 700;
   color: #17B7A6;
   white-space: nowrap;
-  margin-right: 4px;
+  margin-right: 0;
+  flex-shrink: 0;
 `;
 
 const SchoolCount = styled.span`
   font-weight: 400;
   color: #888;
   font-size: 0.9em;
+  flex-shrink: 0;
   
   &::before {
     content: '· ';
