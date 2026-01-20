@@ -127,37 +127,38 @@ const CardValue = styled.div`
 
 const SchoolBreakdown = styled.div`
   margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
   text-align: left;
 `;
 
 const SchoolItem = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  font-size: 0.9rem;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: #555;
   word-break: keep-all;
-  
-  &:not(:last-child) {
-    border-bottom: 1px solid #f0f0f0;
-  }
 `;
 
 const SchoolName = styled.span`
   font-weight: 700;
   color: #17B7A6;
   white-space: nowrap;
-  margin-right: 8px;
+  margin-right: 4px;
 `;
 
 const SchoolCount = styled.span`
   font-weight: 400;
-  color: #1a1a1a;
-  text-align: right;
-  flex: 1;
+  color: #888;
+  font-size: 0.9em;
+  
+  &::before {
+    content: '· ';
+    margin: 0 4px;
+    color: #ddd;
+  }
 `;
 
 const TestimonialSection = styled.section`
