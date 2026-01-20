@@ -317,8 +317,8 @@ const WinterProgram2026: React.FC = () => {
         <HeroCard>
           <HeroTitle>예비고1 겨울학기 영어 2차 개강</HeroTitle>
           <HeroSubtitle>
-            12월 Intensive GRAMMAR → 1~2월 Intensive READING<br />
-            → 3월 미리 중간고사 & 내신 대비 개강
+            겨울 한 학기로 문법·독해·내신 대비까지 완성하는 체계적 커리큘럼<br />
+            12월 문법 기초 → 1~2월 독해 완성 → 3월 미리 중간고사로 실전까지
           </HeroSubtitle>
         </HeroCard>
 
