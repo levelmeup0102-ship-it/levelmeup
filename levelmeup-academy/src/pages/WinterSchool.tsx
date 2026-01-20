@@ -242,7 +242,7 @@ const WinterSchool: React.FC = () => {
           <ContentWithThumbnail>
             <ThumbnailContainer>
               <ThumbnailImage src="/images/winter-school-poster.jpg" alt="레벨미업 윈터스쿨 학습 특강 포스터" />
-              <BlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
+              <BlogButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224085414673&referrerCode=0&searchKeyword=%EC%9C%88%ED%84%B0" target="_blank" rel="noopener noreferrer">
                 자세히 알아보기
               </BlogButton>
             </ThumbnailContainer>
