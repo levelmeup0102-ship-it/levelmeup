@@ -565,6 +565,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       path: '/events', 
       label: '학원소식',
       subMenu: [
+        { path: '/events#study', label: '자습 프로그램' },
         { path: '/events#analysis', label: '내신 분석' },
         { path: '/events#programs', label: '특강 프로그램' },
         { path: '/events#management', label: '학습 관리' }
