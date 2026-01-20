@@ -517,9 +517,9 @@ const Events: React.FC = () => {
                       </li>
                     ))}
                   </CardDetails>
-                  <CardButton to={content.link || '#'}>
+                  <ExternalButton href={content.link || '#'} target="_blank" rel="noopener noreferrer">
                     {content.buttonText} →
-                  </CardButton>
+                  </ExternalButton>
                 </CardContent>
               </ContentCard>
             ))}
