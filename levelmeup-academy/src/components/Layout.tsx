@@ -16,10 +16,10 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 8px 0;
+  padding: 10px 0;
   
   @media (max-width: 968px) {
-    padding: 6px 0;
+    padding: 8px 0;
   }
 `;
 
@@ -191,18 +191,20 @@ const NavContainer = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 180px 1fr auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 30px;
+  min-height: 60px;
   
   @media (max-width: 1200px) {
-    grid-template-columns: 150px 1fr auto;
     gap: 20px;
+    min-height: 56px;
   }
   
   @media (max-width: 968px) {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
     gap: 15px;
+    min-height: 52px;
   }
 `;
 
@@ -230,9 +232,10 @@ const NavRow = styled.div`
 const Logo = styled(Link)`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   text-decoration: none;
-  padding: 8px 12px;
-  margin: -8px -12px;
+  flex: 0 0 auto;
+  min-width: 140px;
   transition: opacity 0.2s ease;
   
   &:hover {
@@ -240,19 +243,18 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    padding: 6px 10px;
-    margin: -6px -10px;
+    min-width: 120px;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 52px;
+  height: 48px;
   width: auto;
   display: block;
   object-fit: contain;
   
   @media (max-width: 1200px) {
-    height: 46px;
+    height: 44px;
   }
   
   @media (max-width: 768px) {
