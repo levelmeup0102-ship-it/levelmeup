@@ -237,7 +237,7 @@ const WinterSchool: React.FC = () => {
         </HeroCard>
 
         <MenuSection>
-          <MenuTitle>이런 학생에게 추천합니다</MenuTitle>
+          <MenuTitle>윈터스쿨 진행 내용</MenuTitle>
           
           <ContentWithThumbnail>
             <ThumbnailContainer>
@@ -249,17 +249,17 @@ const WinterSchool: React.FC = () => {
             
             <ContentArea>
               <MenuContent style={{marginBottom: '30px'}}>
-                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '20px'}}>
-                  <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                    <li>겨울방학에 무엇부터 해야 할지 막막한 학생</li>
-                    <li>내신과 수능을 동시에 잡고 싶은 학생</li>
-                    <li>공부 시간은 늘었는데 성적이 안 오르는 학생</li>
-                  </ul>
-                </div>
-
                 <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>윈터스쿨 진행 내용</h3>
                   
+                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>이런 학생에게 추천합니다</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>겨울방학에 무엇부터 해야 할지 막막한 학생</li>
+                      <li>내신과 수능을 동시에 잡고 싶은 학생</li>
+                      <li>공부 시간은 늘었는데 성적이 안 오르는 학생</li>
+                    </ul>
+                  </div>
+
                   <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
                     <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>1) 학년별 맞춤 학습 전략</h4>
                     <ul style={{marginLeft: '0', paddingLeft: '0'}}>
