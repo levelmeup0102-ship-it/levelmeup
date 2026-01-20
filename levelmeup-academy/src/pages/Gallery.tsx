@@ -241,7 +241,7 @@ const FeatureItem = styled.li`
 
 const Gallery: React.FC = () => {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState<'class' | 'event'>('class');
+  const [activeTab, setActiveTab] = useState<'class' | 'event'>('event');
   
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -316,11 +316,11 @@ const Gallery: React.FC = () => {
       <PageSubtitle>레벨미업 학원의 수업과 학습과정을 소개합니다</PageSubtitle>
 
       <TabContainer>
-        <Tab active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
-          학습시스템
-        </Tab>
         <Tab active={activeTab === 'event'} onClick={() => setActiveTab('event')}>
           학습 이벤트
+        </Tab>
+        <Tab active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
+          학습시스템
         </Tab>
       </TabContainer>
 
