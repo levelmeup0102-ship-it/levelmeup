@@ -115,12 +115,32 @@ const Slide = styled.div<{ active: boolean; backgroundColor?: string }>`
     width: 100%;
     height: 100%;
     min-height: unset;
-    background: transparent;
+    background: #0b1620;
     overflow: hidden;
     
     &:first-of-type {
       position: absolute;
     }
+  }
+`;
+
+const SlideBackground = styled.div<{ backgroundImage: string }>`
+  display: none;
+  
+  @media (max-width: 1023px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${props => props.backgroundImage});
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px);
+    transform: scale(1.1);
+    opacity: 0.6;
+    z-index: 0;
   }
 `;
 
@@ -140,9 +160,11 @@ const SlideImage = styled.img`
   @media (max-width: 1023px) {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
+    object-fit: contain;
+    object-position: center;
     display: block;
+    position: relative;
+    z-index: 1;
   }
 `;
 
@@ -156,6 +178,7 @@ const SlideOverlay = styled.div`
     rgba(0,0,0,0.3) 0%, 
     rgba(0,0,0,0.1) 50%, 
     rgba(0,0,0,0.3) 100%);
+  z-index: 2;
 `;
 
 const ArrowButton = styled.button<{ direction: 'left' | 'right' }>`
@@ -305,6 +328,7 @@ const HeroCarousel: React.FC = () => {
       <SlideWrapper>
         {slides.map((slide, index) => (
           <Slide key={index} active={currentSlide === index} backgroundColor={slide.backgroundColor}>
+            <SlideBackground backgroundImage={isMobile ? slide.mobileImage : slide.image} />
             <SlideImage 
               src={isMobile ? slide.mobileImage : slide.image} 
               alt={slide.alt} 
