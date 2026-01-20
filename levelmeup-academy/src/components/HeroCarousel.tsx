@@ -260,8 +260,8 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: '/images/slide1.jpg',
-    mobileImage: '/images/slide1-mobile.jpg',
+    image: '/images/slide1.png',
+    mobileImage: '/images/slide1-mobile.png',
     alt: '국영수과 입시학원 LEVEL ME UP - 개념 기출까지 잡는 내신 집중! 관리 - 전교 1등 12명 달성 - 실원고·정명고·중흥고·부천북고·부명고·원미고 등 - 2025학년도 1~2학기 고등부 중간기말고사 누적 기준',
     backgroundColor: '#0a1a2a'
   },
@@ -278,8 +278,8 @@ const slides: Slide[] = [
     backgroundColor: '#1a3d3d'
   },
   {
-    image: '/images/slide4.jpg',
-    mobileImage: '/images/slide4-mobile.jpg',
+    image: '/images/slide4.png',
+    mobileImage: '/images/slide4-mobile.png',
     alt: '2025년, 결과로 다시 한 번 증명 - 심원고 전학년 전교 1등 동시 배출 - 정명고 전교 1,2등 동시 배출 - 국영수과 전 과목 입시대비 학원',
     backgroundColor: '#1a1a1a'
   }
