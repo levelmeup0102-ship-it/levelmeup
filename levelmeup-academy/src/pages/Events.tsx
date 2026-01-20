@@ -280,7 +280,7 @@ const Events: React.FC = () => {
   const studyProgramsContent = [
     {
       title: 'WINTERM SCHOOL',
-      subtitle: '겨울방학',
+      subtitle: '겨울방학 자습제',
       bgColor: 'linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%)',
       description: '겨울방학 집중 자습 · 학습 설계 프로그램',
       details: [
@@ -293,7 +293,7 @@ const Events: React.FC = () => {
     },
     {
       title: 'SUMMARIZE',
-      subtitle: '여름방학',
+      subtitle: '여름방학 자습제',
       bgColor: 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)',
       description: '여름방학 맞춤 자습 · 성적 점프 프로그램',
       details: [
