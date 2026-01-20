@@ -466,7 +466,7 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>건축사회환경공학부</SchoolCount>
+                <SchoolCount style={{fontSize: '0.8em'}}>건축사회환경공학부</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
@@ -587,7 +587,7 @@ const HallOfFame: React.FC = () => {
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>고려대학교</SchoolName>
-                <SchoolCount>식품자원경제학과</SchoolCount>
+                <SchoolCount style={{fontSize: '0.8em'}}>식품자원경제학과</SchoolCount>
               </SchoolItem>
               <SchoolItem>
                 <SchoolName>서강대학교</SchoolName>
