@@ -217,12 +217,12 @@ const MenuContent = styled.div`
 `;
 
 const CTASection = styled.div`
-  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  background: linear-gradient(135deg, #17B7A6 0%, #2DD4C1 100%);
   border-radius: 16px;
   padding: 50px 40px;
   text-align: center;
   margin-top: 50px;
-  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.3);
   
   @media (max-width: 768px) {
     padding: 40px 25px;
@@ -254,7 +254,7 @@ const CTADescription = styled.p`
 const CTAButton = styled(Link)`
   display: inline-block;
   background: white;
-  color: #4CAF50;
+  color: #17B7A6;
   padding: 16px 48px;
   border-radius: 50px;
   font-size: 1.1rem;

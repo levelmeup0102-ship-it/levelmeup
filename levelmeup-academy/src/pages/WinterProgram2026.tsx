@@ -257,7 +257,7 @@ const CTASection = styled.div`
   border-radius: 16px;
   padding: 50px 40px;
   text-align: center;
-  border: 2px solid #4CAF50;
+  border: 2px solid #17B7A6;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   
   @media (max-width: 768px) {
@@ -288,21 +288,21 @@ const ButtonGroup = styled.div`
 
 const CTAButton = styled(Link)<{ primary?: boolean }>`
   display: inline-block;
-  background: ${props => props.primary ? '#4CAF50' : 'white'};
+  background: ${props => props.primary ? '#17B7A6' : 'white'};
   color: ${props => props.primary ? 'white' : '#333'};
   padding: 16px 36px;
   border-radius: 8px;
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  border: 2px solid ${props => props.primary ? '#4CAF50' : '#e0e0e0'};
+  border: 2px solid ${props => props.primary ? '#17B7A6' : '#e0e0e0'};
   transition: all 0.3s;
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(76, 175, 80, 0.25);
-    background: ${props => props.primary ? '#45a049' : '#f8f9fa'};
-    border-color: #4CAF50;
+    box-shadow: 0 6px 16px rgba(23, 183, 166, 0.25);
+    background: ${props => props.primary ? '#0E8F86' : '#f8f9fa'};
+    border-color: #17B7A6;
   }
 `;
 
