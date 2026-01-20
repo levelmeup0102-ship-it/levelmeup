@@ -315,7 +315,7 @@ const Events: React.FC = () => {
         '내신 범위 흐름이 흔들리지 않도록 끝까지 밀어주는 <strong>실전형 관리</strong>'
       ],
       buttonText: '신청 방법 보기',
-      link: 'https://blog.naver.com/levelmeup'
+      link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223973158623&referrerCode=0&searchKeyword=%EC%BD%94%EC%96%B4'
     }
   ];
 
