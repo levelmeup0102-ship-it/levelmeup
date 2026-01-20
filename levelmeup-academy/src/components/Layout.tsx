@@ -230,20 +230,32 @@ const Logo = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding: 12px 16px;
+  margin: -12px -16px;
+  transition: opacity 0.2s ease;
   
   &:hover {
     opacity: 0.9;
   }
+  
+  @media (max-width: 768px) {
+    padding: 10px 12px;
+    margin: -10px -12px;
+  }
 `;
 
 const LogoImage = styled.img`
-  height: 80px;
+  height: 110px;
   width: auto;
   display: block;
   object-fit: contain;
   
+  @media (max-width: 1200px) {
+    height: 90px;
+  }
+  
   @media (max-width: 768px) {
-    height: 65px;
+    height: 75px;
   }
 `;
 
