@@ -670,7 +670,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </FooterSection>
           </FooterContent>
           <Copyright>
-            © 2024 레벨미업 학원 (LevelMeUp Academy). All rights reserved.
+            © 2026 레벨미업 학원 (LevelMeUp Academy). All rights reserved.
           </Copyright>
         </FooterContainer>
       </Footer>
