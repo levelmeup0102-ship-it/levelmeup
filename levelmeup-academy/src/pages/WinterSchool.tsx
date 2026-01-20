@@ -66,6 +66,11 @@ const HeroSubtitle = styled.p`
   max-width: 800px;
   margin: 0 auto;
   font-weight: 400;
+  
+  strong {
+    color: #1a1a1a;
+    font-weight: 600;
+  }
 `;
 
 const ContentWithThumbnail = styled.div`
@@ -226,8 +231,8 @@ const WinterSchool: React.FC = () => {
           <HeroTitle>윈터스쿨 학습 특강</HeroTitle>
           <HeroSubtitle>
             방학은 길지만, 성적이 오르는 시간은 짧습니다.<br />
-            레벨미업 윈터스쿨은 "열심히"를 강요하는 프로그램이 아니라, 레벨미업 졸업생 멘토의 1:1 케어로 공부 루틴을 끝까지 잡아주는 겨울 프로그램입니다.<br />
-            혼자 하면 흐트러지는 계획도, 옆에서 함께 점검하고 피드백해 주면 결과가 달라집니다.
+            레벨미업 윈터스쿨은 "열심히"를 강요하는 프로그램이 아니라, <strong>레벨미업 졸업생 멘토의 1:1 케어</strong>로 공부 루틴을 끝까지 잡아주는 겨울 프로그램입니다.<br />
+            혼자 하면 흐트러지는 계획도, <strong>옆에서 함께 점검하고 피드백</strong>해 주면 결과가 달라집니다.
           </HeroSubtitle>
         </HeroCard>
 
@@ -249,7 +254,6 @@ const WinterSchool: React.FC = () => {
                     <li>겨울방학에 무엇부터 해야 할지 막막한 학생</li>
                     <li>내신과 수능을 동시에 잡고 싶은 학생</li>
                     <li>공부 시간은 늘었는데 성적이 안 오르는 학생</li>
-                    <li>학년별 목표에 맞는 전략이 필요한 학생</li>
                   </ul>
                 </div>
 
