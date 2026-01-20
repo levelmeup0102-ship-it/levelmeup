@@ -237,13 +237,13 @@ const Logo = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 60px;
+  height: 80px;
   width: auto;
   display: block;
   object-fit: contain;
   
   @media (max-width: 768px) {
-    height: 50px;
+    height: 65px;
   }
 `;
 
