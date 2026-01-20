@@ -282,12 +282,15 @@ const Nav = styled.nav<{ isOpen: boolean }>`
     display: ${props => props.isOpen ? 'flex' : 'none'};
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(240px, 80vw);
     background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
-    padding: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    padding: 14px 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
     flex-direction: column;
+    gap: 8px;
   }
 `;
 
@@ -299,6 +302,11 @@ const MenuItemWrapper = styled.div`
   @media (max-width: 968px) {
     width: 100%;
     padding: 0;
+    margin-bottom: 6px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -318,10 +326,21 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   }
   
   @media (max-width: 968px) {
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    font-size: 1rem;
+    display: block;
+    padding: 11px 13px;
+    font-size: 15.5px;
+    line-height: 1.4;
     width: 100%;
+    text-align: left;
+    border-radius: ${props => props.$isActive ? '11px' : '8px'};
+    font-weight: ${props => props.$isActive ? '600' : '500'};
+    background: ${props => props.$isActive ? 'rgba(23, 183, 166, 0.2)' : 'transparent'};
+    border: ${props => props.$isActive ? '1px solid rgba(23, 183, 166, 0.3)' : '1px solid transparent'};
+    
+    &:hover {
+      background: rgba(23, 183, 166, 0.15);
+      border-color: rgba(23, 183, 166, 0.25);
+    }
   }
 `;
 
