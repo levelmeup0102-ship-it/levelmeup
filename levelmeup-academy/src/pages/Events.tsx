@@ -149,10 +149,15 @@ const CardContent = styled.div`
 
 const CardDescription = styled.p`
   color: #555;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 20px;
   font-size: 0.98rem;
+  text-align: left;
   word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+  letter-spacing: 0;
+  word-spacing: 0;
   
   strong {
     color: #2c3e50;
@@ -173,7 +178,12 @@ const CardDetails = styled.ul`
     gap: 10px;
     font-size: 0.95rem;
     line-height: 1.6;
+    text-align: left;
     word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+    letter-spacing: 0;
+    word-spacing: 0;
     
     &::before {
       content: '•';
@@ -182,6 +192,16 @@ const CardDetails = styled.ul`
       font-size: 1.2rem;
       margin-top: -2px;
       flex-shrink: 0;
+    }
+    
+    span {
+      flex: 1;
+      text-align: left;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      white-space: normal;
+      letter-spacing: 0;
+      word-spacing: 0;
     }
     
     strong {
@@ -492,7 +512,9 @@ const Events: React.FC = () => {
                   />
                   <CardDetails>
                     {content.details.map((detail, idx) => (
-                      <li key={idx} dangerouslySetInnerHTML={{ __html: detail }} />
+                      <li key={idx}>
+                        <span dangerouslySetInnerHTML={{ __html: detail }} />
+                      </li>
                     ))}
                   </CardDetails>
                   <CardButton to={content.link || '#'}>
@@ -524,7 +546,9 @@ const Events: React.FC = () => {
                   <CardDescription>{content.description}</CardDescription>
                   <CardDetails>
                     {content.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
+                      <li key={idx}>
+                        <span>{detail}</span>
+                      </li>
                     ))}
                   </CardDetails>
                   <ExternalButton href={content.link} target="_blank" rel="noopener noreferrer">
@@ -554,7 +578,9 @@ const Events: React.FC = () => {
                   <CardDescription>{content.description}</CardDescription>
                   <CardDetails>
                     {content.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
+                      <li key={idx}>
+                        <span>{detail}</span>
+                      </li>
                     ))}
                   </CardDetails>
                   <CardButton to={content.link}>
@@ -580,7 +606,9 @@ const Events: React.FC = () => {
                   <CardDescription>{content.description}</CardDescription>
                   <CardDetails>
                     {content.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
+                      <li key={idx}>
+                        <span>{detail}</span>
+                      </li>
                     ))}
                   </CardDetails>
                 </CardContent>
