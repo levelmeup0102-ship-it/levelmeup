@@ -331,7 +331,7 @@ const Events: React.FC = () => {
         '1등급, 만점 등 우수 성적 게재',
         '재원생 평균 1,2 등급 향상 성과'
       ],
-      link: 'https://blog.naver.com/levelmeup'
+      link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224065797898&referrerCode=0&searchKeyword=%EC%86%8C%EC%8B%9D'
     },
     {
       title: '고등학교별 내신 출제 경향',
@@ -343,7 +343,7 @@ const Events: React.FC = () => {
         '과목별 난이도 및 변별력 정리',
         '효과적인 내신 대비 방법 제시'
       ],
-      link: 'https://blog.naver.com/levelmeup'
+      link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224111856325&referrerCode=0&searchKeyword=%EC%A0%95%EB%AA%85%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90'
     },
     {
       title: '월간 학습 성과 리포트',
@@ -355,7 +355,7 @@ const Events: React.FC = () => {
         '학습 목표 대비 달성도 점검',
         '다음 달 학습 계획 수립'
       ],
-      link: 'https://blog.naver.com/levelmeup'
+      link: 'https://m.blog.naver.com/levelmeup/224150084140'
     }
   ];
 
