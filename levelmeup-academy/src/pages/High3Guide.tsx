@@ -223,19 +223,19 @@ const High3Guide: React.FC = () => {
         <BackButton to="/">← 홈으로</BackButton>
         
         <HeroCard>
-          <HeroTitle>예비고3 학습 가이드</HeroTitle>
+          <HeroTitle>예비고3 수업 안내</HeroTitle>
           <HeroSubtitle>
-            겨울방학부터 시작하는 체계적인 고3 준비<br />
-            내신과 수능을 함께 대비하는 학습 전략
+            12월 8일(월)부터 학교 일정에 맞춰 순차 개강<br />
+            겨울방학 동안 내신과 수능을 함께 대비하는 기반 학습과 유형 훈련
           </HeroSubtitle>
         </HeroCard>
 
         <MenuSection>
-          <MenuTitle>고3 진입 전 겨울방학의 중요성</MenuTitle>
+          <MenuTitle>예비고3 겨울방학 특강 안내</MenuTitle>
           
           <ContentWithThumbnail>
             <ThumbnailContainer>
-              <ThumbnailImage src="/images/high3-guide-poster.jpg" alt="예비고3 학습 가이드 포스터" />
+              <ThumbnailImage src="/images/high3-guide-poster.jpg" alt="예비고3 수업 안내 포스터" />
               <BlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
                 자세히 알아보기
               </BlogButton>
@@ -243,53 +243,65 @@ const High3Guide: React.FC = () => {
             
             <ContentArea>
               <MenuContent style={{marginBottom: '30px'}}>
-                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '20px'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>마지막 기회, 겨울방학</h3>
-                  <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#555', marginBottom: '20px'}}>
-                    고3 진입 전 겨울방학은<br />
-                    <strong>입시 전략을 정리하고, 내신과 수능을 함께 준비할 수 있는 마지막 기회</strong>입니다.
+                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '25px'}}>
+                  <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#555', marginBottom: '15px'}}>
+                    레벨미업 예비고3 수업은 <strong>12월 8일(월)부터</strong> 학교 일정에 맞춰 순차 개강합니다.
                   </p>
-                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#666', padding: '15px', background: '#f8f9fa', borderRadius: '8px'}}>
-                    이 시기에 방향을 잡지 못하면<br />
-                    3학년 1학기부터는 학습량과 속도를 따라가기 어려워집니다.
+                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#666'}}>
+                    겨울방학 동안 내신과 수능을 함께 대비할 수 있는 기반 학습과 유형 훈련을 진행합니다.
                   </p>
                 </div>
 
-                <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '20px'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>레벨미업 고3 정규수업</h3>
+                <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '25px'}}>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>수업 구성 (국어/수학/영어)</h3>
+                  
                   <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                    <li>내신과 수능을 분리하지 않고</li>
-                    <li>등급대별로 필요한 학습을 구분하여</li>
-                    <li>겨울방학부터 체계적으로 연결하는 수업입니다</li>
+                    <li>등급대별 맞춤 학습 방향 설정</li>
+                    <li>내신·수능 연계 핵심 개념 정리</li>
+                    <li>유형별 접근 방법 훈련 및 실전 적용</li>
+                    <li>주간 학습 점검 + 피드백</li>
+                    <li>과목별 약점 보완 및 학습 루틴 정착</li>
                   </ul>
                 </div>
 
-                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '20px'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>겨울방학 학습 계획</h3>
-                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', marginBottom: '15px'}}>
-                    <strong>겨울방학(12~2월) 동안</strong>
-                  </p>
-                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#666', marginBottom: '15px'}}>
-                    개념 정리와 유형별 접근법을 충분히 다지고,<br />
-                    이를 바탕으로 3월 이후 내신 대비 수업에서는<br />
-                    문제풀이 중심 학습이 진행됩니다.
-                  </p>
-                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', padding: '15px', background: '#E8F5E9', borderRadius: '8px', borderLeft: '4px solid #4CAF50'}}>
-                    겨울방학 학습은<br />
-                    <strong>고3 1학기 내신뿐 아니라 11월 수능까지 이어지는 기초</strong>가 되는 과정입니다.
-                  </p>
+                <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '25px'}}>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>학습 타임라인</h3>
+                  
+                  <div style={{marginBottom: '20px', padding: '20px', background: '#f8f9fa', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a', fontWeight: '600'}}>12월 ~ 2월</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>예비고3 기반 학습(개념 정리)</li>
+                      <li>수능까지 연결되는 유형별 학습</li>
+                      <li>과목별 핵심 내용 선행 및 적용 훈련</li>
+                    </ul>
+                  </div>
+
+                  <div style={{padding: '20px', background: '#E8F5E9', borderRadius: '10px', borderLeft: '4px solid #4CAF50'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a', fontWeight: '600'}}>3월 이후</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>학교별 내신 대비(문제풀이 중심)</li>
+                      <li>시험 범위에 맞춘 실전 대비 진행</li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div style={{padding: '25px', background: '#fff3cd', borderRadius: '12px', border: '1px solid #ffc107'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>수강 권장 안내</h3>
-                  <p style={{fontSize: '1.05rem', lineHeight: '1.8', color: '#555', marginBottom: '15px'}}>
-                    고3 수업 진입과 학습 연계를 위해<br />
-                    <strong>겨울방학 기간 수업 수강을 권장드립니다.</strong>
-                  </p>
-                  <p style={{fontSize: '0.95rem', color: '#666', marginTop: '15px', fontStyle: 'italic'}}>
-                    * 수업 일정 및 반 편성은 학원 운영 상황에 따라 변동될 수 있습니다.<br />
-                    * 자세한 상담은 학원으로 문의해 주세요.
-                  </p>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a', fontWeight: '700'}}>수강 안내</h3>
+                  
+                  <ul style={{marginLeft: '0', paddingLeft: '0', listStyle: 'none'}}>
+                    <li style={{padding: '10px 0', color: '#555', fontSize: '1.05rem', display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+                      <span style={{color: '#ffc107', fontWeight: 'bold', fontSize: '1.2rem'}}>•</span>
+                      <span>수업 등록은 레벨테스트 후 상담으로 진행됩니다.</span>
+                    </li>
+                    <li style={{padding: '10px 0', color: '#555', fontSize: '1.05rem', display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+                      <span style={{color: '#ffc107', fontWeight: 'bold', fontSize: '1.2rem'}}>•</span>
+                      <span>수업 일정은 학원 운영 상황에 따라 변동될 수 있습니다.</span>
+                    </li>
+                    <li style={{padding: '10px 0', color: '#555', fontSize: '1.05rem', display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+                      <span style={{color: '#ffc107', fontWeight: 'bold', fontSize: '1.2rem'}}>•</span>
+                      <span>상담 예약 및 수업 문의는 학원으로 연락 부탁드립니다.</span>
+                    </li>
+                  </ul>
                 </div>
               </MenuContent>
             </ContentArea>
