@@ -237,18 +237,13 @@ const Logo = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 168px;
+  height: 60px;
   width: auto;
-  margin-left: -30px;
-  margin-top: -50px;
-  margin-bottom: -50px;
   display: block;
+  object-fit: contain;
   
   @media (max-width: 768px) {
-    height: 140px;
-    margin-left: -25px;
-    margin-top: -40px;
-    margin-bottom: -40px;
+    height: 50px;
   }
 `;
 
