@@ -340,7 +340,7 @@ const Consulting: React.FC = () => {
             </PhoneNumber>
           </PhoneNumberContainer>
           <OperatingHours>
-            평일 15:00 - 22:00 | 주말 12:00 - 19:00<br />
+            평일 15:00 - 22:00 | 주말 12:00 - 22:00<br />
             전화문의 상시 응대 가능
           </OperatingHours>
         </ContactCard>
