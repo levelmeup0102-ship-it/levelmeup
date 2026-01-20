@@ -328,7 +328,7 @@ const WinterProgram2026: React.FC = () => {
           <ContentWithThumbnail>
             <ThumbnailContainer>
               <ThumbnailImage src="/images/winter-yebigo1-poster.jpg" alt="예비고1 겨울학기 특강 포스터" />
-              <BlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
+              <BlogButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224137896050&navType=by" target="_blank" rel="noopener noreferrer">
                 자세히 알아보기
               </BlogButton>
             </ThumbnailContainer>
