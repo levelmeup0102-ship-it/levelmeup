@@ -59,11 +59,12 @@ const CarouselContainer = styled.div`
     max-width: 100vw;
     margin: 0;
     padding: 0;
-    height: auto;
+    height: 0;
+    padding-bottom: 125%; /* 4:5 ratio = 5/4 = 125% */
     min-height: unset;
     max-height: unset;
     background: transparent;
-    aspect-ratio: 4 / 5;
+    overflow: hidden;
     
     &::before,
     &::after {
@@ -78,10 +79,13 @@ const SlideWrapper = styled.div`
   height: auto;
   
   @media (max-width: 1023px) {
-    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    aspect-ratio: 4 / 5;
   }
 `;
 
@@ -105,12 +109,18 @@ const Slide = styled.div<{ active: boolean; backgroundColor?: string }>`
   }
   
   @media (max-width: 1023px) {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
     min-height: unset;
     background: transparent;
-    aspect-ratio: 4 / 5;
     overflow: hidden;
+    
+    &:first-of-type {
+      position: absolute;
+    }
   }
 `;
 
@@ -166,7 +176,7 @@ const ArrowButton = styled.button<{ direction: 'left' | 'right' }>`
   font-size: 1.5rem;
   color: #333;
   transition: all 0.3s;
-  z-index: 10;
+  z-index: 100;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   
   &:hover {
@@ -200,7 +210,7 @@ const IndicatorContainer = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 10;
+  z-index: 100;
 `;
 
 const Indicator = styled.button<{ active: boolean }>`
