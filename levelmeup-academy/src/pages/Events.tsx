@@ -233,7 +233,7 @@ const CardButton = styled(Link)`
 const ExternalButton = styled.a`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  background: linear-gradient(135deg, #17B7A6 0%, #1DD1BE 100%);
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -245,7 +245,7 @@ const ExternalButton = styled.a`
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
   }
 `;
 
@@ -314,7 +314,7 @@ const Events: React.FC = () => {
         '시험 직전, 혼자 공부의 빈틈을 줄이는 학습 환경 + 관리 + <strong>내신 대응</strong>',
         '내신 범위 흐름이 흔들리지 않도록 끝까지 밀어주는 <strong>실전형 관리</strong>'
       ],
-      buttonText: '신청 방법 보기',
+      buttonText: '프로그램 자세히 보기',
       link: 'https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=223973158623&referrerCode=0&searchKeyword=%EC%BD%94%EC%96%B4'
     }
   ];
