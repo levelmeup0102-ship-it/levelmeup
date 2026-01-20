@@ -54,7 +54,7 @@ const CarouselContainer = styled.div`
       transparent 100%);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     width: 100vw;
     max-width: 100vw;
     margin: 0;
@@ -63,6 +63,7 @@ const CarouselContainer = styled.div`
     min-height: unset;
     max-height: unset;
     background: transparent;
+    aspect-ratio: 4 / 5;
     
     &::before,
     &::after {
@@ -76,10 +77,11 @@ const SlideWrapper = styled.div`
   width: 100%;
   height: auto;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     width: 100vw;
     margin: 0;
     padding: 0;
+    aspect-ratio: 4 / 5;
   }
 `;
 
@@ -102,11 +104,13 @@ const Slide = styled.div<{ active: boolean; backgroundColor?: string }>`
     position: relative;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     position: relative;
-    height: auto;
+    height: 100%;
     min-height: unset;
     background: transparent;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
   }
 `;
 
@@ -116,19 +120,19 @@ const SlideImage = styled.img`
   height: auto;
   display: block;
   object-fit: contain;
-  
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-  }
   object-position: center;
   margin: 0 auto;
   
   @media (min-width: 1921px) {
     max-width: 1920px;
+  }
+  
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 `;
 
