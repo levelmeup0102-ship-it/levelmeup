@@ -223,19 +223,19 @@ const WinterSchool: React.FC = () => {
         <BackButton to="/">← 홈으로</BackButton>
         
         <HeroCard>
-          <HeroTitle>레벨미업 윈터스쿨</HeroTitle>
+          <HeroTitle>윈터스쿨 학습 특강</HeroTitle>
           <HeroSubtitle>
-            LEVEL ME UP 전과목 집중케어 프로그램<br />
-            단순 자습이 아닌 체계적인 학습 관리 시스템
+            방학은 길지만, 성적이 오르는 시간은 짧습니다.<br />
+            레벨미업 윈터스쿨은 "열심히"가 아니라 성적이 오르는 루틴을 만들어주는 겨울 프로그램입니다.
           </HeroSubtitle>
         </HeroCard>
 
         <MenuSection>
-          <MenuTitle>윈터스쿨이 특별한 이유</MenuTitle>
+          <MenuTitle>이런 학생에게 추천합니다</MenuTitle>
           
           <ContentWithThumbnail>
             <ThumbnailContainer>
-              <ThumbnailImage src="/images/winter-school-poster.jpg" alt="레벨미업 윈터스쿨 포스터" />
+              <ThumbnailImage src="/images/winter-school-poster.jpg" alt="레벨미업 윈터스쿨 학습 특강 포스터" />
               <BlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
                 자세히 알아보기
               </BlogButton>
@@ -244,40 +244,52 @@ const WinterSchool: React.FC = () => {
             <ContentArea>
               <MenuContent style={{marginBottom: '30px'}}>
                 <div style={{padding: '25px', background: 'white', borderRadius: '12px', border: '1px solid #e0e0e0', marginBottom: '20px'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>단순 자습이 아니라</h3>
-                  <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#555'}}>
-                    나의 공부가 어땠는지 <strong>매주 점검하는 과정</strong>을 통해<br />
-                    마음 먹은 계획을 <strong>끝까지 실천</strong>할 수 있도록 한다는 것 !!
-                  </p>
+                  <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                    <li>겨울방학에 무엇부터 해야 할지 막막한 학생</li>
+                    <li>내신과 수능을 동시에 잡고 싶은 학생</li>
+                    <li>공부 시간은 늘었는데 성적이 안 오르는 학생</li>
+                    <li>학년별 목표에 맞는 전략이 필요한 학생</li>
+                  </ul>
                 </div>
 
                 <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
-                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>윈터 학습 설명회</h3>
-                  <p style={{fontSize: '1.05rem', marginBottom: '15px', color: '#555'}}>
-                    <strong>입시/학습 전략 안내</strong>
-                  </p>
-                  <p style={{fontSize: '1.05rem', marginBottom: '20px', color: '#555', padding: '15px', background: 'white', borderRadius: '8px'}}>
-                    <strong>📅 12/27(토) ~ 12/28(일)</strong><br />
-                    자습 시작 일주일 전, 윈터 학습 설명회를 통해<br />
-                    방학 동안의 입시/학습 목표를 생각해봅시다
-                  </p>
+                  <h3 style={{fontSize: '1.5rem', marginBottom: '20px', color: '#1a1a1a'}}>윈터스쿨 진행 내용</h3>
                   
-                  <h4 style={{fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px', color: '#1a1a1a'}}>✅ 윈터 학습 설명회 진행 내용</h4>
-                  <p style={{fontSize: '0.95rem', color: '#666', marginBottom: '15px', fontStyle: 'italic'}}>
-                    (윈터스쿨 신청자 필수 등원, 신청자 외 참여 원하는 경우 문자 신청)
-                  </p>
-                  
-                  <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                    <li>학년별 대입 준비 전략 & 겨울방학 필수 학습 안내</li>
-                    <li>윈터스쿨 프로그램 안내</li>
-                    <li>선배와의 만남 (멘토T)</li>
-                    <li>겨울방학 학습 계획 작성하기</li>
-                    <li>개별 입시 목표 상담 & 학습 계획 피드백</li>
-                  </ul>
-                  
-                  <p style={{fontSize: '0.9rem', color: '#999', marginTop: '20px', fontStyle: 'italic'}}>
-                    * 설명회 진행 회차 추후 공지 예정
-                  </p>
+                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>1) 학년별 맞춤 학습 전략</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>중등/고1/고2/고3 학년별 목표 설정</li>
+                      <li>내신 중심 / 수능 중심 / 병행 전략 정리</li>
+                      <li>과목별 공부 우선순위와 시간 배분</li>
+                    </ul>
+                  </div>
+
+                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>2) 겨울방학 집중 커리큘럼</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>핵심 개념 정리 + 유형 훈련 + 실전 적용</li>
+                      <li>약점 단원 집중 보완</li>
+                      <li>주간 목표 점검으로 흐트러지지 않게 관리</li>
+                    </ul>
+                  </div>
+
+                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>3) 학습 루틴 & 계획표 완성</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>개인 성향/현재 수준에 맞춘 공부 루틴 설계</li>
+                      <li>하루 공부 흐름(자습-복습-오답) 고정</li>
+                      <li>실천 가능한 방학 계획표 작성</li>
+                    </ul>
+                  </div>
+
+                  <div style={{padding: '20px', background: 'white', borderRadius: '10px'}}>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>4) 개별 피드백 & 목표 관리</h4>
+                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
+                      <li>학습 방향 점검</li>
+                      <li>과목별 약점 진단</li>
+                      <li>목표 달성을 위한 구체적 수정 피드백</li>
+                    </ul>
+                  </div>
                 </div>
               </MenuContent>
             </ContentArea>
