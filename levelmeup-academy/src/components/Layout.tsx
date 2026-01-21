@@ -230,10 +230,10 @@ const NavRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   
   @media (max-width: 1200px) {
-    gap: 2px;
+    gap: 4px;
   }
   
   @media (max-width: 968px) {
@@ -249,34 +249,36 @@ const Logo = styled(Link)`
   text-decoration: none;
   flex: 0 0 auto !important;
   flex-shrink: 0 !important;
-  min-width: 200px !important;
+  min-width: 220px !important;
   transition: opacity 0.2s ease;
+  margin-right: -8px;
   
   &:hover {
     opacity: 0.9;
   }
   
   @media (max-width: 768px) {
-    min-width: 140px !important;
+    min-width: 150px !important;
+    margin-right: -4px;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 52px !important;
+  height: 56px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 52px !important;
+  min-height: 56px !important;
   object-fit: contain !important;
   display: block !important;
   
   @media (max-width: 1200px) {
-    height: 48px !important;
-    min-height: 48px !important;
+    height: 52px !important;
+    min-height: 52px !important;
   }
   
   @media (max-width: 768px) {
-    height: 42px !important;
-    min-height: 42px !important;
+    height: 46px !important;
+    min-height: 46px !important;
   }
 `;
 
