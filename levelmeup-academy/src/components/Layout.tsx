@@ -342,17 +342,18 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
-  padding: 8px 14px;
-  min-width: 90px;
+  padding: 8px 14px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   border-radius: 6px;
   transition: all 0.3s;
   background: transparent;
   white-space: nowrap;
   font-size: 0.95rem;
   position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   
   ${props => props.$isActive && `
     &::after {
