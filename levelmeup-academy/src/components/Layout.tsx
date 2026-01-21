@@ -72,13 +72,14 @@ const HeaderRight = styled.div`
   align-items: center;
   gap: 14px;
   flex-shrink: 0;
+  white-space: nowrap;
   
   @media (max-width: 1200px) {
     gap: 10px;
   }
   
   @media (max-width: 968px) {
-    gap: 0;
+    gap: 8px;
   }
 `;
 
@@ -91,11 +92,19 @@ const PhoneNumber = styled.a`
   font-size: 0.8rem;
   font-weight: 500;
   transition: all 0.3s;
+  white-space: nowrap;
   
   svg {
     width: 14px;
     height: 14px;
     opacity: 0.8;
+    flex-shrink: 0;
+  }
+  
+  span {
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
   
   &:hover {
@@ -190,20 +199,20 @@ const NavContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 30px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
   min-height: 60px;
   
   @media (max-width: 1200px) {
-    gap: 20px;
+    gap: 15px;
     min-height: 56px;
   }
   
   @media (max-width: 968px) {
-    grid-template-columns: auto 1fr auto;
-    gap: 15px;
+    gap: 10px;
     min-height: 52px;
   }
 `;
@@ -244,23 +253,23 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    min-width: 140px;
+    min-width: 120px;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 48px;
-  width: auto;
-  max-height: none;
-  display: block;
-  object-fit: contain;
+  height: 48px !important;
+  width: auto !important;
+  max-height: none !important;
+  display: block !important;
+  object-fit: contain !important;
   
   @media (max-width: 1200px) {
-    height: 46px;
+    height: 46px !important;
   }
   
   @media (max-width: 768px) {
-    height: 38px;
+    height: 40px !important;
   }
 `;
 
@@ -368,7 +377,7 @@ const DropdownMenu = styled.div<{ show: boolean }>`
   margin-top: 4px;
   min-width: 160px;
   padding: 8px 0;
-  z-index: 1001;
+  z-index: 9999;
   animation: fadeInDown 0.3s ease;
   
   /* 부모와 드롭다운 사이 간격을 채워서 hover 유지 */
@@ -589,7 +598,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header>
         <NavContainer>
           <Logo to="/">
-            <LogoImage src="/logo.png" alt="LEVEL ME UP" />
+            <LogoImage src="/logo-v2.png?v=2" alt="LEVEL ME UP" />
           </Logo>
           
           <Nav isOpen={menuOpen}>
