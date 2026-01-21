@@ -329,7 +329,9 @@ const MenuItemWrapper = styled.div`
   /* 첫 번째 메뉴 항목 (홈) */
   &:first-child {
     a {
-      padding: 8px 8px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      min-width: auto !important;
     }
   }
   
