@@ -637,7 +637,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header>
         <NavContainer>
           <Logo to="/">
-            <LogoImage src="/logo-v2.png?v=2" alt="LEVEL ME UP" />
+            <LogoImage src="/logo-new.png?v=3" alt="LEVEL ME UP" />
           </Logo>
           
           <Nav isOpen={menuOpen}>
