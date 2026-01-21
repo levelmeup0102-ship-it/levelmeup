@@ -230,10 +230,10 @@ const NavRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 4px;
   
   @media (max-width: 1200px) {
-    gap: 12px;
+    gap: 2px;
   }
   
   @media (max-width: 968px) {
@@ -249,7 +249,7 @@ const Logo = styled(Link)`
   text-decoration: none;
   flex: 0 0 auto !important;
   flex-shrink: 0 !important;
-  min-width: 160px !important;
+  min-width: 200px !important;
   transition: opacity 0.2s ease;
   
   &:hover {
@@ -257,26 +257,26 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    min-width: 120px !important;
+    min-width: 140px !important;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 44px !important;
+  height: 52px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 44px !important;
+  min-height: 52px !important;
   object-fit: contain !important;
   display: block !important;
   
   @media (max-width: 1200px) {
-    height: 44px !important;
-    min-height: 44px !important;
+    height: 48px !important;
+    min-height: 48px !important;
   }
   
   @media (max-width: 768px) {
-    height: 40px !important;
-    min-height: 40px !important;
+    height: 42px !important;
+    min-height: 42px !important;
   }
 `;
 
@@ -326,7 +326,6 @@ const Nav = styled.nav<{ isOpen: boolean }>`
 const MenuItemWrapper = styled.div`
   position: relative;
   display: inline-block;
-  padding: 8px 0;
   
   @media (max-width: 968px) {
     width: 100%;
@@ -342,16 +341,30 @@ const MenuItemWrapper = styled.div`
 const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
-  font-weight: 600;
-  padding: 8px 14px;
+  font-weight: ${props => props.$isActive ? '700' : '600'};
+  padding: 10px 18px;
   border-radius: 6px;
   transition: all 0.3s;
-  background: ${props => props.$isActive ? '#17B7A6' : 'transparent'};
+  background: transparent;
   white-space: nowrap;
   font-size: 0.95rem;
+  position: relative;
+  
+  ${props => props.$isActive && `
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 18px;
+      right: 18px;
+      height: 2px;
+      background: #17B7A6;
+      border-radius: 2px;
+    }
+  `}
   
   &:hover {
-    background: #17B7A6;
+    background: rgba(23, 183, 166, 0.1);
   }
   
   @media (max-width: 968px) {
