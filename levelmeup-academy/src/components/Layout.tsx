@@ -342,21 +342,22 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
-  padding: 10px 18px;
+  padding: 8px 14px;
   border-radius: 6px;
   transition: all 0.3s;
   background: transparent;
   white-space: nowrap;
   font-size: 0.95rem;
   position: relative;
+  display: inline-block;
   
   ${props => props.$isActive && `
     &::after {
       content: '';
       position: absolute;
-      bottom: 6px;
-      left: 18px;
-      right: 18px;
+      bottom: 4px;
+      left: 14px;
+      right: 14px;
       height: 2px;
       background: #17B7A6;
       border-radius: 2px;

@@ -46,7 +46,7 @@ header a[href="/"] {
 }
 
 .navbar-nav a, .nav-menu a, .nav-links a {
-  display: inline-flex !important;
+  display: inline-block !important;
   width: auto !important;
 }
 
@@ -57,6 +57,7 @@ header a[href="/"] {
 .nav-links a.active,
 .nav-links .active > a {
   width: auto !important;
-  padding: 10px 18px !important;
+  padding: 8px 14px !important;
   white-space: nowrap !important;
+  display: inline-block !important;
 }
