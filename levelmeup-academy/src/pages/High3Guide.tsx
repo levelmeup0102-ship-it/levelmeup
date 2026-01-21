@@ -217,17 +217,70 @@ const MenuContent = styled.div`
 `;
 
 const CTASection = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.05) 100%);
-  border-radius: 20px;
-  padding: 60px 40px;
-  text-align: center;
-  margin-top: 50px;
-  border: 2px solid #17B7A6;
-  box-shadow: 0 8px 30px rgba(23, 183, 166, 0.15);
+  margin-top: 60px;
   
   @media (max-width: 768px) {
-    padding: 40px 25px;
+    margin-top: 40px;
   }
+`;
+
+const BrandClosing = styled.div`
+  background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    padding: 35px 25px;
+    margin-bottom: 30px;
+  }
+`;
+
+const BrandMotto = styled.h2`
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 15px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const BrandSubtitle = styled.p`
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const ConsultSection = styled.div`
+  background: transparent;
+`;
+
+const ConsultTitle = styled.h3`
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: left;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 const CTATitle = styled.h3`
@@ -258,25 +311,24 @@ const CTADescription = styled.p`
 
 const ContactInfo = styled.div`
   background: white;
-  padding: 30px;
+  padding: 35px 40px;
   border-radius: 15px;
-  margin-bottom: 30px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  border-left: 5px solid #17B7A6;
+  margin-bottom: 30px;
+  text-align: left;
   
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #17B7A6;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: 700;
   }
   
   p {
     font-size: 1.05rem;
     color: #333;
-    margin: 10px 0;
+    margin: 12px 0;
     line-height: 1.6;
   }
   
@@ -284,11 +336,13 @@ const ContactInfo = styled.div`
     padding: 25px 20px;
     
     h3 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
     }
     
     p {
       font-size: 0.95rem;
+      margin: 10px 0;
     }
   }
 `;
@@ -411,16 +465,22 @@ const High3Guide: React.FC = () => {
         </MenuSection>
 
         <CTASection>
-          <CTADescription>
-            예비고3 수업에 대해 더 자세히 알고 싶으신가요?<br />
-            전문 상담을 통해 자녀에게 맞는 최적의 학습 계획을 안내해 드립니다.
-          </CTADescription>
-          <ContactInfo>
-            <h3>레벨미업 학원</h3>
-            <p>📍 주소: 경기도 부천시 길주로 275</p>
-            <p>📞 전화: 032-322-0592 / 010-2406-0591</p>
-          </ContactInfo>
-          <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
+          <BrandClosing>
+            <BrandMotto>Slow and steady wins the race.</BrandMotto>
+            <BrandSubtitle>흔들리지 않는 실력의 리듬을 만들어드립니다</BrandSubtitle>
+          </BrandClosing>
+          
+          <ConsultSection>
+            <ConsultTitle>수강 신청 및 상담</ConsultTitle>
+            <ContactInfo>
+              <h3>레벨미업 학원</h3>
+              <p>📍 주소: 경기도 부천시 길주로 275</p>
+              <p>📞 전화: 032-322-0592 / 010-2406-0591</p>
+            </ContactInfo>
+            <ButtonGroup>
+              <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
+            </ButtonGroup>
+          </ConsultSection>
         </CTASection>
       </Container>
     </PageWrapper>
