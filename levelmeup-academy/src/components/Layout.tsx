@@ -230,10 +230,10 @@ const NavRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
   
   @media (max-width: 1200px) {
-    gap: 4px;
+    gap: 2px;
   }
   
   @media (max-width: 968px) {
@@ -341,7 +341,7 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
-  padding: 8px 14px !important;
+  padding: 8px 12px !important;
   border-radius: 6px;
   transition: all 0.3s;
   background: transparent;
@@ -397,10 +397,10 @@ const DropdownMenu = styled.div<{ show: boolean }>`
   transform: translateX(-50%);
   background: linear-gradient(135deg, #2d3748 0%, #1a2332 100%);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-  margin-top: 4px;
-  min-width: 160px;
-  padding: 8px 0;
+  border-radius: 6px;
+  margin-top: 2px;
+  min-width: 140px;
+  padding: 6px 0;
   z-index: 9999;
   animation: fadeInDown 0.3s ease;
   
@@ -408,10 +408,10 @@ const DropdownMenu = styled.div<{ show: boolean }>`
   &::before {
     content: '';
     position: absolute;
-    top: -4px;
+    top: -2px;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 2px;
     background: transparent;
   }
   
@@ -435,7 +435,7 @@ const DropdownItem = styled(Link)`
   display: block;
   color: ${colors.text.primary};
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   font-size: 0.875rem;
   transition: all 0.2s;
   
