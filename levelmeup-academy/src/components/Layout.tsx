@@ -204,17 +204,17 @@ const NavContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  gap: 30px;
+  gap: 12px;
   min-height: 60px;
   
   @media (max-width: 1200px) {
-    gap: 20px;
+    gap: 10px;
     min-height: 56px;
     padding: 0 20px;
   }
   
   @media (max-width: 968px) {
-    gap: 15px;
+    gap: 8px;
     min-height: 52px;
     padding: 0 16px;
   }
@@ -251,7 +251,6 @@ const Logo = styled(Link)`
   flex-shrink: 0 !important;
   min-width: 220px !important;
   transition: opacity 0.2s ease;
-  margin-right: -8px;
   
   &:hover {
     opacity: 0.9;
@@ -259,7 +258,6 @@ const Logo = styled(Link)`
   
   @media (max-width: 768px) {
     min-width: 150px !important;
-    margin-right: -4px;
   }
 `;
 
