@@ -61,3 +61,20 @@ header a[href="/"] {
   white-space: nowrap !important;
   display: inline-block !important;
 }
+
+/* === HERO typography modernize (keep text same) === */
+.hero h1, .hero-title, .page-hero h1, .about-hero h1 {
+  font-family: "Pretendard", "Inter", "Noto Sans KR", system-ui, -apple-system, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: none !important;
+  line-height: 1.08 !important;
+}
+
+/* subtitle */
+.hero p, .hero-subtitle, .page-hero p {
+  font-family: "Pretendard", "Inter", "Noto Sans KR", system-ui, -apple-system, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  opacity: 0.92 !important;
+}
