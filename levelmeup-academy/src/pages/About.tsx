@@ -33,27 +33,14 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.div`
   width: 100%;
-  min-height: 480px;
-  background: linear-gradient(135deg, #0B1B2A 0%, #102B3F 100%);
+  min-height: 360px;
+  background: #0B1A2A;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(23, 183, 166, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(23, 183, 166, 0.02) 0%, transparent 50%);
-    pointer-events: none;
-  }
+  padding: 60px 20px;
   
   &::after {
     content: '';
@@ -62,19 +49,19 @@ const HeroSection = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
     pointer-events: none;
   }
   
   @media (max-width: 968px) {
-    min-height: 320px;
-    padding: 60px 20px;
+    min-height: 315px;
+    padding: 50px 20px;
   }
   
   @media (max-width: 768px) {
-    min-height: 280px;
-    padding: 50px 16px;
+    min-height: 250px;
+    padding: 40px 16px;
   }
 `;
 
@@ -88,72 +75,70 @@ const HeroContent = styled.div`
 `;
 
 const HeroMainTitle = styled.h1`
-  font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif;
-  font-size: 4.2rem;
+  font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 3.36rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1.25;
-  color: #F5F7FA;
-  margin: 0 0 36px 0;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: #FFFFFF;
+  margin: 0 0 28px 0;
   
   @media (max-width: 1200px) {
-    font-size: 3.6rem;
+    font-size: 2.88rem;
   }
   
   @media (max-width: 968px) {
-    font-size: 2.8rem;
-    margin-bottom: 28px;
+    font-size: 2.4rem;
+    margin-bottom: 24px;
   }
   
   @media (max-width: 768px) {
-    font-size: 2rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 24px;
+    font-size: 1.8rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
   }
 `;
 
 const HeroAccentLine = styled.div`
-  width: 120px;
+  width: 60px;
   height: 3px;
-  background: #17B7A6;
-  margin: 0 auto 36px;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(23, 183, 166, 0.4), 0 0 20px rgba(23, 183, 166, 0.2);
+  background: linear-gradient(90deg, #17B7A6 0%, #20C9B8 100%);
+  margin: 0 auto 28px;
+  border-radius: 3px;
   animation: ${riseUp} 1s ease-out 0.2s backwards;
   
   @media (max-width: 968px) {
-    width: 100px;
-    margin-bottom: 28px;
+    width: 50px;
+    margin-bottom: 24px;
   }
   
   @media (max-width: 768px) {
-    width: 80px;
+    width: 40px;
     height: 2px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 `;
 
 const HeroSubTitle = styled.h2`
-  font-family: 'Montserrat', 'Inter', 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #D7DEE7;
+  font-family: 'Pretendard', 'Inter', -apple-system, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.75);
   margin: 0;
   animation: ${riseUp} 1s ease-out 0.3s backwards;
   
   @media (max-width: 1200px) {
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
   
   @media (max-width: 968px) {
-    font-size: 1.5rem;
+    font-size: 0.95rem;
   }
   
   @media (max-width: 768px) {
-    font-size: 1.125rem;
-    letter-spacing: 0;
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
   }
 `;
 
