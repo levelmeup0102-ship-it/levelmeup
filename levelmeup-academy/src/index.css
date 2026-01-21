@@ -78,3 +78,62 @@ header a[href="/"] {
   letter-spacing: -0.01em !important;
   opacity: 0.92 !important;
 }
+
+/* ===== NAV ACTIVE LINE FIX (Home underline too wide) ===== */
+
+/* 1) nav item/links 절대 늘어나지 못하게 */
+header nav ul,
+.header nav ul,
+.navbar nav ul,
+.nav-menu,
+.navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+header nav li,
+.header nav li,
+.navbar nav li,
+.nav-menu > li,
+.navbar-nav > li {
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+/* 링크가 flex:1 / width:100% 먹는 걸 강제로 차단 */
+header nav a,
+.header nav a,
+.navbar nav a,
+.nav-menu a,
+.navbar-nav a {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+/* 2) active 밑줄이 a 전체폭(혹은 100%)으로 그려지는 경우 -> 텍스트 폭 기준으로 */
+header nav a::after,
+.header nav a::after,
+.navbar nav a::after,
+.nav-menu a::after,
+.navbar-nav a::after {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 28px) !important;
+  max-width: max-content !important;
+}
+
+/* 어떤 테마는 active에 width:100%를 박아둠 -> 강제 제거 */
+header nav a.active,
+header nav li.active > a,
+.header nav a.active,
+.header nav li.active > a,
+.navbar nav a.active,
+.navbar nav li.active > a {
+  width: auto !important;
+}
