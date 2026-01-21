@@ -196,30 +196,34 @@ const UtilityRight = styled.div`
 `;
 
 const NavContainer = styled.div`
-  max-width: 1400px;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 30px;
   min-height: 60px;
   
   @media (max-width: 1200px) {
-    gap: 15px;
+    gap: 20px;
     min-height: 56px;
+    padding: 0 20px;
   }
   
   @media (max-width: 968px) {
-    gap: 10px;
+    gap: 15px;
     min-height: 52px;
+    padding: 0 16px;
   }
 `;
 
 const NavWrapper = styled.div`
   display: flex;
-  width: 100%;
+  flex: 1;
+  justify-content: center;
 `;
 
 const NavRow = styled.div`
@@ -239,13 +243,13 @@ const NavRow = styled.div`
 `;
 
 const Logo = styled(Link)`
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   justify-content: flex-start;
   text-decoration: none;
-  flex: 0 0 auto;
-  flex-shrink: 0;
-  min-width: 180px;
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  min-width: 160px !important;
   transition: opacity 0.2s ease;
   
   &:hover {
@@ -253,23 +257,26 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    min-width: 120px;
+    min-width: 120px !important;
   }
 `;
 
 const LogoImage = styled.img`
-  height: 48px !important;
+  height: 44px !important;
   width: auto !important;
   max-height: none !important;
-  display: block !important;
+  min-height: 44px !important;
   object-fit: contain !important;
+  display: block !important;
   
   @media (max-width: 1200px) {
-    height: 46px !important;
+    height: 44px !important;
+    min-height: 44px !important;
   }
   
   @media (max-width: 768px) {
     height: 40px !important;
+    min-height: 40px !important;
   }
 `;
 
@@ -296,8 +303,9 @@ const LogoText = styled.span`
 
 const Nav = styled.nav<{ isOpen: boolean }>`
   display: flex;
-  width: 100%;
+  flex: 1;
   justify-content: center;
+  max-width: 800px;
   
   @media (max-width: 968px) {
     display: ${props => props.isOpen ? 'flex' : 'none'};
