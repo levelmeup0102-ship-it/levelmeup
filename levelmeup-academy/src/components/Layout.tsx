@@ -326,6 +326,13 @@ const MenuItemWrapper = styled.div`
   position: relative;
   display: inline-block;
   
+  /* 첫 번째 메뉴 항목 (홈) */
+  &:first-child {
+    a {
+      padding: 8px 8px !important;
+    }
+  }
+  
   @media (max-width: 968px) {
     width: 100%;
     padding: 0;
@@ -333,6 +340,12 @@ const MenuItemWrapper = styled.div`
     
     &:last-child {
       margin-bottom: 0;
+    }
+    
+    &:first-child {
+      a {
+        padding: 11px 13px !important;
+      }
     }
   }
 `;
