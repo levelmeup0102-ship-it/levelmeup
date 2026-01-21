@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* === LOGO SIZE FIX (FORCE) === */
+header .logo img,
+header .navbar-brand img,
+header a[href="/"] img {
+  height: 48px !important;
+  width: auto !important;
+  max-height: none !important;
+  min-height: 48px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* 로고 눌림 방지 */
+header .logo,
+header .navbar-brand,
+header a[href="/"] {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  min-width: 180px !important;
+}
