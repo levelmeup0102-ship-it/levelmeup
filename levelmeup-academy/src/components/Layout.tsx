@@ -346,7 +346,7 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   transition: all 0.3s;
   background: transparent;
   white-space: nowrap;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   position: relative;
   display: inline-flex !important;
   justify-content: center !important;
@@ -436,7 +436,7 @@ const DropdownItem = styled(Link)`
   color: ${colors.text.primary};
   text-decoration: none;
   padding: 10px 20px;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   transition: all 0.2s;
   
   &:hover {
