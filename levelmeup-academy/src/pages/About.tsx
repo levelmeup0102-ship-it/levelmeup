@@ -738,18 +738,22 @@ const About: React.FC = () => {
         {activeTab === 'facility' && (
           <TabContent>
             <FacilityContainer>
-              {/* 1. 강의실 섹션 - 1장 */}
+              {/* 1. 강의실 + 명예의 전당 - 2장 한 줄 */}
               <FacilitySection>
                 <FacilitySectionHeader>
-                  <FacilitySectionTitle>강의실</FacilitySectionTitle>
+                  <FacilitySectionTitle>강의실 / 명예의 전당</FacilitySectionTitle>
                   <FacilitySectionDescription>
-                    국어·영어·수학·과학 과목별 전용 강의실로 구성되어, 과목 특성에 맞는 수업 환경을 제공합니다
+                    과목별 전용 강의실과 학생들의 성적 향상 및 합격 소식을 게시하는 성과 보드
                   </FacilitySectionDescription>
                 </FacilitySectionHeader>
-                <FacilityImageGrid columns={1}>
+                <FacilityImageGrid columns={2}>
                   <FacilityImage>
                     <img src="/images/facility/classroom.jpg" alt="강의실" />
                     <FacilityImageCaption>강의실</FacilityImageCaption>
+                  </FacilityImage>
+                  <FacilityImage>
+                    <img src="/images/facility/hall-of-fame.jpg" alt="명예의 전당" />
+                    <FacilityImageCaption>명예의 전당 (성적 게시)</FacilityImageCaption>
                   </FacilityImage>
                 </FacilityImageGrid>
               </FacilitySection>
@@ -759,7 +763,7 @@ const About: React.FC = () => {
                 <FacilitySectionHeader>
                   <FacilitySectionTitle>자습관 (1관 / 2관)</FacilitySectionTitle>
                   <FacilitySectionDescription>
-                    빈 시간에 자유롭게 이용하는 스터디카페형 자습 공간으로, 1관과 2관으로 구성되어 있습니다
+                    혼자 공부해도 흐트러지지 않는 관리형 자습 공간으로, 1관과 2관으로 구성되어 있습니다
                   </FacilitySectionDescription>
                 </FacilitySectionHeader>
                 <FacilityImageGrid columns={2}>
@@ -790,22 +794,6 @@ const About: React.FC = () => {
                   <FacilityImage>
                     <img src="/images/facility/test-room-mock.jpg" alt="모의고사실" />
                     <FacilityImageCaption>모의고사</FacilityImageCaption>
-                  </FacilityImage>
-                </FacilityImageGrid>
-              </FacilitySection>
-
-              {/* 4. 명예의 전당 섹션 - 1장 */}
-              <FacilitySection>
-                <FacilitySectionHeader>
-                  <FacilitySectionTitle>명예의 전당</FacilitySectionTitle>
-                  <FacilitySectionDescription>
-                    학생들의 성적 향상과 합격 소식을 게시하는 성과 보드입니다
-                  </FacilitySectionDescription>
-                </FacilitySectionHeader>
-                <FacilityImageGrid columns={1}>
-                  <FacilityImage>
-                    <img src="/images/facility/hall-of-fame.jpg" alt="명예의 전당" />
-                    <FacilityImageCaption>명예의 전당 (성적 게시)</FacilityImageCaption>
                   </FacilityImage>
                 </FacilityImageGrid>
               </FacilitySection>
