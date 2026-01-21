@@ -262,21 +262,21 @@ const Logo = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 56px !important;
+  height: 48px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 56px !important;
+  min-height: 48px !important;
   object-fit: contain !important;
   display: block !important;
   
   @media (max-width: 1200px) {
-    height: 52px !important;
-    min-height: 52px !important;
+    height: 46px !important;
+    min-height: 46px !important;
   }
   
   @media (max-width: 768px) {
-    height: 46px !important;
-    min-height: 46px !important;
+    height: 42px !important;
+    min-height: 42px !important;
   }
 `;
 
@@ -303,9 +303,8 @@ const LogoText = styled.span`
 
 const Nav = styled.nav<{ isOpen: boolean }>`
   display: flex;
-  flex: 1;
   justify-content: center;
-  max-width: 800px;
+  flex: 0 1 auto;
   
   @media (max-width: 968px) {
     display: ${props => props.isOpen ? 'flex' : 'none'};
@@ -343,8 +342,6 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
   padding: 8px 14px !important;
-  min-width: 90px !important;
-  max-width: 90px !important;
   border-radius: 6px;
   transition: all 0.3s;
   background: transparent;
@@ -354,6 +351,7 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   display: inline-flex !important;
   justify-content: center !important;
   align-items: center !important;
+  flex: 0 0 auto !important;
   
   ${props => props.$isActive && `
     &::after {

@@ -16,10 +16,10 @@ code {
 header .logo img,
 header .navbar-brand img,
 header a[href="/"] img {
-  height: 56px !important;
+  height: 48px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 56px !important;
+  min-height: 48px !important;
   object-fit: contain !important;
   display: block !important;
 }
@@ -110,7 +110,6 @@ header nav a,
   display: inline-flex !important;
   flex: 0 0 auto !important;
   width: auto !important;
-  min-width: 90px !important;
   justify-content: center !important;
   white-space: nowrap !important;
   padding-left: 14px !important;
