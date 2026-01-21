@@ -343,13 +343,16 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
   padding: 8px 14px;
+  min-width: 90px;
   border-radius: 6px;
   transition: all 0.3s;
   background: transparent;
   white-space: nowrap;
   font-size: 0.95rem;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   
   ${props => props.$isActive && `
     &::after {
