@@ -2926,41 +2926,17 @@ const SchoolDetail: React.FC = () => {
         </Section>
       )}
 
-      {/* 4.5.5. School-Specific One-Liner - Between Achievements and Management */}
-      {school.keyPoint && isHighSchool && (
-        <SchoolOneLiner>{school.keyPoint}</SchoolOneLiner>
-      )}
-
-      {/* 4.6. Custom Management System - Only for High Schools */}
+      {/* 4.6. Curriculum Section - Before Learning Flow (High Schools Only) */}
       {isHighSchool && (
-        <ManagementSection>
-          <ManagementTitle>레벨미업 {school.name} 맞춤 관리</ManagementTitle>
-          <ManagementGrid>
-            <ManagementCard>
-              <ManagementIcon>📚</ManagementIcon>
-              <ManagementCardTitle>단어 주기 테스트<br />+ 누적 관리</ManagementCardTitle>
-              <ManagementCardDesc>
-                매 수업 단어 테스트와 누적 복습으로 어휘력을 탄탄하게 다집니다
-              </ManagementCardDesc>
-            </ManagementCard>
-            
-            <ManagementCard>
-              <ManagementIcon>📖</ManagementIcon>
-              <ManagementCardTitle>학교 맞춤 교재<br />N회독</ManagementCardTitle>
-              <ManagementCardDesc>
-                {school.name} 출제 경향에 최적화된 교재로 반복 학습합니다
-              </ManagementCardDesc>
-            </ManagementCard>
-            
-            <ManagementCard>
-              <ManagementIcon>💬</ManagementIcon>
-              <ManagementCardTitle>지문 꼼꼼 숙지<br />+ 자유 질의응답</ManagementCardTitle>
-              <ManagementCardDesc>
-                시험범위 지문을 완벽히 이해하고 궁금한 점은 바로바로 해결합니다
-              </ManagementCardDesc>
-            </ManagementCard>
-          </ManagementGrid>
-        </ManagementSection>
+        <Section>
+          <SectionTitle>{school.fullName} 맞춤 LEVEL ME UP 커리큘럼</SectionTitle>
+          <InfoBox>
+            <h3>{school.name} 맞춤 LEVEL ME UP 프로그램</h3>
+            {school.features.map((feature, index) => (
+              <p key={index}>✓ {feature}</p>
+            ))}
+          </InfoBox>
+        </Section>
       )}
 
       {/* 5. Learning Flow Infographic - Only for High Schools */}
@@ -3004,6 +2980,19 @@ const SchoolDetail: React.FC = () => {
             </FlowStep>
           </FlowContainer>
         </LearningFlowSection>
+      )}
+
+      {/* Middle School Curriculum Features - Before Process Flow */}
+      {!isHighSchool && (
+        <Section>
+          <SectionTitle>{school.fullName} 맞춤 LEVEL ME UP 커리큘럼</SectionTitle>
+          <InfoBox>
+            <h3>{school.name} 맞춤 LEVEL ME UP 프로그램</h3>
+            {school.features.map((feature, index) => (
+              <p key={index}>✓ {feature}</p>
+            ))}
+          </InfoBox>
+        </Section>
       )}
 
       {/* Middle School Curriculum - Only for Middle Schools */}
@@ -3051,16 +3040,6 @@ const SchoolDetail: React.FC = () => {
           </CurriculumDescription>
         </MiddleCurriculumSection>
       )}
-
-      <Section>
-        <SectionTitle>{school.fullName} 맞춤 LEVEL ME UP 커리큘럼</SectionTitle>
-        <InfoBox>
-          <h3>{school.name} 맞춤 LEVEL ME UP 프로그램</h3>
-          {school.features.map((feature, index) => (
-            <p key={index}>✓ {feature}</p>
-          ))}
-        </InfoBox>
-      </Section>
 
       {/* 최근 내신 결과 - Only for Middle Schools */}
       {school.achievements.length > 0 && !isHighSchool && (
