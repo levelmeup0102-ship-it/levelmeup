@@ -404,7 +404,6 @@ const WinterSchool: React.FC = () => {
         </MenuSection>
 
         <CTASection>
-          <CTATitle>지금 바로 상담 신청하세요</CTATitle>
           <CTADescription>
             윈터스쿨 프로그램에 대해 더 자세히 알고 싶으신가요?<br />
             전문 상담을 통해 자녀에게 맞는 최적의 학습 계획을 안내해 드립니다.
