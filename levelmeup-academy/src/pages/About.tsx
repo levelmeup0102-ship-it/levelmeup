@@ -573,6 +573,84 @@ const FacilityImageWrapper = styled.div`
   }
 `;
 
+// 새로운 Facility 섹션 스타일
+const FacilitySection = styled.div`
+  margin-bottom: 80px;
+  
+  &:last-child {
+    margin-bottom: 40px;
+  }
+`;
+
+const FacilitySectionHeader = styled.div`
+  margin-bottom: 32px;
+`;
+
+const FacilitySectionTitle = styled.h3`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+`;
+
+const FacilitySectionDescription = styled.p`
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+`;
+
+interface FacilityImageGridProps {
+  columns: number;
+}
+
+const FacilityImageGrid = styled.div<FacilityImageGridProps>`
+  display: grid;
+  grid-template-columns: ${props => props.columns === 1 ? '1fr' : '1fr 1fr'};
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+`;
+
+const FacilityImage = styled.div`
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+`;
+
+const FacilityImageCaption = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+`;
+
 const LocationSection = styled.div`
   margin-top: 20px;
 `;
@@ -660,70 +738,77 @@ const About: React.FC = () => {
         {activeTab === 'facility' && (
           <TabContent>
             <FacilityContainer>
-              <FacilityCard>
-                <FacilityImageWrapper>
-                  <img src="/images/facility-placeholder.jpg" alt="강의실" style={{display: 'none'}} />
-                </FacilityImageWrapper>
-                <FacilityTextContent>
-                  <FacilityNumber>01</FacilityNumber>
-                  <FacilityTitle>강의실</FacilityTitle>
-                  <FacilityDescription>
+              {/* 1. 강의실 섹션 - 1장 */}
+              <FacilitySection>
+                <FacilitySectionHeader>
+                  <FacilitySectionTitle>강의실</FacilitySectionTitle>
+                  <FacilitySectionDescription>
                     국어·영어·수학·과학 과목별 전용 강의실로 구성되어, 과목 특성에 맞는 수업 환경을 제공합니다
-                  </FacilityDescription>
-                </FacilityTextContent>
-              </FacilityCard>
+                  </FacilitySectionDescription>
+                </FacilitySectionHeader>
+                <FacilityImageGrid columns={1}>
+                  <FacilityImage>
+                    <img src="/images/facility/classroom.jpg" alt="강의실" />
+                    <FacilityImageCaption>강의실</FacilityImageCaption>
+                  </FacilityImage>
+                </FacilityImageGrid>
+              </FacilitySection>
 
-              <FacilityCard>
-                <FacilityImageWrapper>
-                  <img src="/images/facility-placeholder.jpg" alt="자습관" style={{display: 'none'}} />
-                </FacilityImageWrapper>
-                <FacilityTextContent>
-                  <FacilityNumber>02</FacilityNumber>
-                  <FacilityTitle>자습관</FacilityTitle>
-                  <FacilityDescription>
-                    빈 시간에 자유롭게 이용하는 스터디카페형 자습 공간
-                  </FacilityDescription>
-                </FacilityTextContent>
-              </FacilityCard>
+              {/* 2. 자습관 섹션 - 2장 */}
+              <FacilitySection>
+                <FacilitySectionHeader>
+                  <FacilitySectionTitle>자습관 (1관 / 2관)</FacilitySectionTitle>
+                  <FacilitySectionDescription>
+                    빈 시간에 자유롭게 이용하는 스터디카페형 자습 공간으로, 1관과 2관으로 구성되어 있습니다
+                  </FacilitySectionDescription>
+                </FacilitySectionHeader>
+                <FacilityImageGrid columns={2}>
+                  <FacilityImage>
+                    <img src="/images/facility/study-room-1.jpg" alt="자습관 1관" />
+                    <FacilityImageCaption>자습관 1관</FacilityImageCaption>
+                  </FacilityImage>
+                  <FacilityImage>
+                    <img src="/images/facility/study-room-2.jpg" alt="자습관 2관" />
+                    <FacilityImageCaption>자습관 2관</FacilityImageCaption>
+                  </FacilityImage>
+                </FacilityImageGrid>
+              </FacilitySection>
 
-              <FacilityCard>
-                <FacilityImageWrapper>
-                  <img src="/images/facility-placeholder.jpg" alt="테스트실" style={{display: 'none'}} />
-                </FacilityImageWrapper>
-                <FacilityTextContent>
-                  <FacilityNumber>03</FacilityNumber>
-                  <FacilityTitle>테스트실</FacilityTitle>
-                  <FacilityDescription>
-                    모의고사, 데일리 테스트, ICC를 진행하는 집중 평가 공간
-                  </FacilityDescription>
-                </FacilityTextContent>
-              </FacilityCard>
+              {/* 3. 테스트실 섹션 - 2장 */}
+              <FacilitySection>
+                <FacilitySectionHeader>
+                  <FacilitySectionTitle>테스트실</FacilitySectionTitle>
+                  <FacilitySectionDescription>
+                    데일리 테스트, ICC, 모의고사를 진행하는 집중 평가 공간입니다
+                  </FacilitySectionDescription>
+                </FacilitySectionHeader>
+                <FacilityImageGrid columns={2}>
+                  <FacilityImage>
+                    <img src="/images/facility/test-room-daily.jpg" alt="데일리 테스트실" />
+                    <FacilityImageCaption>데일리 테스트</FacilityImageCaption>
+                  </FacilityImage>
+                  <FacilityImage>
+                    <img src="/images/facility/test-room-mock.jpg" alt="모의고사실" />
+                    <FacilityImageCaption>모의고사</FacilityImageCaption>
+                  </FacilityImage>
+                </FacilityImageGrid>
+              </FacilitySection>
 
-              <FacilityCard>
-                <FacilityImageWrapper>
-                  <img src="/images/facility-placeholder.jpg" alt="라운지" style={{display: 'none'}} />
-                </FacilityImageWrapper>
-                <FacilityTextContent>
-                  <FacilityNumber>04</FacilityNumber>
-                  <FacilityTitle>라운지</FacilityTitle>
-                  <FacilityDescription>
-                    휴식과 자유 학습이 모두 가능한 공용 공간
-                  </FacilityDescription>
-                </FacilityTextContent>
-              </FacilityCard>
-
-              <FacilityCard>
-                <FacilityImageWrapper>
-                  <img src="/images/facility-placeholder.jpg" alt="로비" style={{display: 'none'}} />
-                </FacilityImageWrapper>
-                <FacilityTextContent>
-                  <FacilityNumber>05</FacilityNumber>
-                  <FacilityTitle>로비</FacilityTitle>
-                  <FacilityDescription>
-                    학원의 첫인상이자 주요 안내와 성과를 확인할 수 있는 공간
-                  </FacilityDescription>
-                </FacilityTextContent>
-              </FacilityCard>
+              {/* 4. 명예의 전당 섹션 - 1장 */}
+              <FacilitySection>
+                <FacilitySectionHeader>
+                  <FacilitySectionTitle>명예의 전당</FacilitySectionTitle>
+                  <FacilitySectionDescription>
+                    학생들의 성적 향상과 합격 소식을 게시하는 성과 보드입니다
+                  </FacilitySectionDescription>
+                </FacilitySectionHeader>
+                <FacilityImageGrid columns={1}>
+                  <FacilityImage>
+                    <img src="/images/facility/hall-of-fame.jpg" alt="명예의 전당" />
+                    <FacilityImageCaption>명예의 전당 (성적 게시)</FacilityImageCaption>
+                  </FacilityImage>
+                </FacilityImageGrid>
+              </FacilitySection>
             </FacilityContainer>
           </TabContent>
         )}
