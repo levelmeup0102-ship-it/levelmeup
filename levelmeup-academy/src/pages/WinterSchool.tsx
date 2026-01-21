@@ -222,12 +222,13 @@ const MenuContent = styled.div`
 `;
 
 const CTASection = styled.div`
-  background: linear-gradient(135deg, #17B7A6 0%, #2DD4C1 100%);
-  border-radius: 16px;
-  padding: 50px 40px;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.05) 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
   text-align: center;
   margin-top: 50px;
-  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.3);
+  border: 2px solid #17B7A6;
+  box-shadow: 0 8px 30px rgba(23, 183, 166, 0.15);
   
   @media (max-width: 768px) {
     padding: 40px 25px;
@@ -235,47 +236,88 @@ const CTASection = styled.div`
 `;
 
 const CTATitle = styled.h3`
-  font-size: 2rem;
-  color: white;
+  font-size: 2.2rem;
+  color: #1a1a1a;
   margin-bottom: 15px;
   font-weight: 700;
   
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 `;
 
 const CTADescription = styled.p`
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 30px;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 30px;
+  }
+`;
+
+const ContactInfo = styled.div`
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  h3 {
+    font-size: 1.3rem;
+    color: #17B7A6;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.05rem;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 25px 20px;
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+    
+    p {
+      font-size: 0.95rem;
+    }
   }
 `;
 
 const CTAButton = styled(Link)`
   display: inline-block;
-  background: white;
-  color: #17B7A6;
-  padding: 16px 48px;
+  background: #17B7A6;
+  color: white;
+  padding: 18px 45px;
   border-radius: 50px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(23, 183, 166, 0.3);
   
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    background: #f8f9fa;
+    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.4);
+    background: #0E8F86;
   }
   
   @media (max-width: 768px) {
-    padding: 14px 40px;
+    padding: 15px 35px;
     font-size: 1rem;
   }
 `;
@@ -367,7 +409,12 @@ const WinterSchool: React.FC = () => {
             윈터스쿨 프로그램에 대해 더 자세히 알고 싶으신가요?<br />
             전문 상담을 통해 자녀에게 맞는 최적의 학습 계획을 안내해 드립니다.
           </CTADescription>
-          <CTAButton to="/consulting">상담 신청하기</CTAButton>
+          <ContactInfo>
+            <h3>레벨미업 학원</h3>
+            <p>📍 주소: 경기도 부천시 길주로 275</p>
+            <p>📞 전화: 032-322-0592 / 010-2406-0591</p>
+          </ContactInfo>
+          <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
         </CTASection>
       </Container>
     </PageWrapper>
