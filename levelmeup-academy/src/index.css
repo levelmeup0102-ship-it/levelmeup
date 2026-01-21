@@ -16,10 +16,10 @@ code {
 header .logo img,
 header .navbar-brand img,
 header a[href="/"] img {
-  height: 48px !important;
+  height: 56px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 48px !important;
+  min-height: 56px !important;
   object-fit: contain !important;
   display: block !important;
 }
@@ -32,5 +32,31 @@ header a[href="/"] {
   align-items: center !important;
   flex: 0 0 auto !important;
   flex-shrink: 0 !important;
-  min-width: 180px !important;
+  min-width: 220px !important;
+}
+
+/* === NAV: prevent active item from stretching full width === */
+.navbar-nav, .nav-menu, .nav-links {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar-nav > li, .nav-menu > li, .nav-links > li {
+  flex: 0 0 auto !important;
+}
+
+.navbar-nav a, .nav-menu a, .nav-links a {
+  display: inline-flex !important;
+  width: auto !important;
+}
+
+.navbar-nav a.active,
+.navbar-nav .active > a,
+.nav-menu a.active,
+.nav-menu .active > a,
+.nav-links a.active,
+.nav-links .active > a {
+  width: auto !important;
+  padding: 10px 18px !important;
+  white-space: nowrap !important;
 }
