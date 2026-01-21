@@ -262,21 +262,21 @@ const Logo = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 56px !important;
+  height: 96px !important;
   width: auto !important;
   max-height: none !important;
-  min-height: 56px !important;
+  min-height: 96px !important;
   object-fit: contain !important;
   display: block !important;
   
   @media (max-width: 1200px) {
-    height: 52px !important;
-    min-height: 52px !important;
+    height: 92px !important;
+    min-height: 92px !important;
   }
   
   @media (max-width: 768px) {
-    height: 46px !important;
-    min-height: 46px !important;
+    height: 84px !important;
+    min-height: 84px !important;
   }
 `;
 
