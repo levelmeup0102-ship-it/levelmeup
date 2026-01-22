@@ -119,30 +119,50 @@ const PhoneNumber = styled.a`
 const BlogButton = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: rgba(23, 183, 166, 0.12);
-  color: rgba(23, 183, 166, 0.9);
+  gap: 4px;
+  padding: 8px 16px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.92rem;
   font-weight: 600;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(23, 183, 166, 0.2);
-  
-  svg {
-    width: 13px;
-    height: 13px;
-  }
+  transition: all 0.25s ease;
   
   &:hover {
-    background: rgba(23, 183, 166, 0.25);
-    border-color: #17B7A6;
-    color: #17B7A6;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 1);
   }
   
   @media (max-width: 968px) {
     display: none;
+  }
+`;
+
+const MobileBlogButton = styled.a`
+  display: none;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  white-space: nowrap;
+  
+  &:active {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  @media (max-width: 968px) {
+    display: inline-flex;
   }
 `;
 
@@ -688,11 +708,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span>032-322-0592</span>
           </PhoneNumber>
           <BlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-            블로그
+            블로그 ↗
           </BlogButton>
+          <MobileBlogButton href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
+            블로그 ↗
+          </MobileBlogButton>
           <MenuButtonContainer>
             <MenuText>MENU</MenuText>
             <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
