@@ -214,7 +214,7 @@ const CardDetails = styled.ul`
 const CardButton = styled(Link)`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  background: linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.green.secondary} 100%);
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -226,7 +226,7 @@ const CardButton = styled(Link)`
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
   }
 `;
 
@@ -420,21 +420,6 @@ const Events: React.FC = () => {
         '내신 대비 문법 완벽 정리'
       ],
       link: '/consulting'
-    },
-    {
-      title: '레벨미업 윈텀스쿨',
-      target: '중1 ~ 고3',
-      date: '2026년 1월 5일 (월) 개강',
-      schedule: '월 ~ 금 09:00 ~ 17:00',
-      bgColor: 'linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%)',
-      description: '겨울방학 자습 지도 및 학습 개인 관리 프로그램입니다.',
-      details: [
-        '입시상담 - 진학 목표 설계 및 전략 수립',
-        '자습 관리 - 평일 의무자습 및 출결 관리',
-        '학습 코칭 - 주간 학습계획 작성 및 점검',
-        '멘토의 학습 피드백 및 비교과 활동 설계'
-      ],
-      link: '/winter-school'
     }
   ];
 
