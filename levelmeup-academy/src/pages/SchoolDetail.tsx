@@ -2132,25 +2132,25 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '1등급 배출 (중원고3)'
+        score: '1등급 배출 (고3)'
       },
       {
         semester: '24-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '98점 달성 (중원고3)'
+        score: '98점 달성 (고3)'
       },
       {
         semester: '23-2학기',
-        exam: '(내신)',
+        exam: '합산',
         subject: '영어',
-        score: '1등급 배출 (중원고2)'
+        score: '1등급 배출 (고2)'
       },
       {
         semester: '23-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '96.1점 달성 (중원고1)'
+        score: '96.1점 달성 (고1)'
       }
     ],
     features: [
