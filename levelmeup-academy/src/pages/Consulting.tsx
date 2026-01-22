@@ -376,8 +376,22 @@ const SNSCard = styled.a`
 `;
 
 const SNSIcon = styled.div`
-  font-size: 2.5rem;
+  width: 56px;
+  height: 56px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const SNSTitle = styled.h4`
@@ -517,7 +531,13 @@ const Consulting: React.FC = () => {
         <SNSSectionTitle>레벨미업 SNS</SNSSectionTitle>
         <SNSGrid>
           <SNSCard href="https://blog.naver.com/levelmeup0102" target="_blank" rel="noopener noreferrer">
-            <SNSIcon>📝</SNSIcon>
+            <SNSIcon>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="4" fill="#03C75A"/>
+                <path d="M13.5 10.5L9.5 13.5V7.5L13.5 10.5Z" fill="white"/>
+                <path d="M13.5 10.5L14.5 10.5V13.5L9.5 16.5V13.5L13.5 10.5Z" fill="white"/>
+              </svg>
+            </SNSIcon>
             <SNSTitle>레벨미업 블로그</SNSTitle>
             <SNSDescription>
               블로그에서 학교별 지필 분석·내신 자료·특강 소식을 확인하세요.
@@ -528,7 +548,22 @@ const Consulting: React.FC = () => {
           </SNSCard>
 
           <SNSCard href="https://www.instagram.com/levelmeup_bucheon/" target="_blank" rel="noopener noreferrer">
-            <SNSIcon>📷</SNSIcon>
+            <SNSIcon>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="instagramGradientConsulting" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style={{stopColor: '#FED576'}} />
+                    <stop offset="25%" style={{stopColor: '#F47133'}} />
+                    <stop offset="50%" style={{stopColor: '#BC3081'}} />
+                    <stop offset="75%" style={{stopColor: '#4C63D2'}} />
+                  </linearGradient>
+                </defs>
+                <rect width="24" height="24" rx="6" fill="url(#instagramGradientConsulting)"/>
+                <circle cx="12" cy="12" r="3.5" stroke="white" strokeWidth="1.5" fill="none"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+                <rect x="6" y="6" width="12" height="12" rx="3" stroke="white" strokeWidth="1.5" fill="none"/>
+              </svg>
+            </SNSIcon>
             <SNSTitle>레벨미업 인스타그램</SNSTitle>
             <SNSDescription>
               인스타에서 학원 이벤트·학원 소식·공지 내용을 확인하세요.
