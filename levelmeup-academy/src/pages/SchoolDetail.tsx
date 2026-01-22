@@ -2260,31 +2260,36 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점대 배출 (부천중3)'
+        grade: '중3',
+        score: '90점대 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '80점대 이상 배출 (부천중3)'
+        grade: '중3',
+        score: '80점대 이상 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '학기 합산 만점(100점) 배출 (부천중1)'
+        grade: '중1',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부천중1)'
+        grade: '중1',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '99점 배출 + 90점대 배출 (부천중1)'
+        grade: '중1',
+        score: '99점 배출 + 90점대 배출'
       }
     ],
     features: [
@@ -2307,73 +2312,85 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '만점(100점) 2명 배출 (중흥중2)'
+        grade: '중2',
+        score: '만점(100점) 2명 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '수강생 전원 만점(100점) (중흥중2)'
+        grade: '중2',
+        score: '수강생 전원 만점(100점)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '학기 합산 만점(100점) 다수 배출 (중흥중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 다수 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '수강생 10명 중 7명 만점(100점) (중흥중3)'
+        grade: '중3',
+        score: '수강생 10명 중 7명 만점(100점)'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '수강생 전원 90점 이상 (중흥중3)'
+        grade: '중3',
+        score: '수강생 전원 90점 이상'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 2명 배출 (중흥중1)'
+        grade: '중1',
+        score: '만점(100점) 2명 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 3명 배출 (중흥중2)'
+        grade: '중2',
+        score: '만점(100점) 3명 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '최대 25점 상승 (중흥중3)'
+        grade: '중3',
+        score: '최대 25점 상승'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '만점(100점) 다수 배출 (중흥중3)'
+        grade: '중3',
+        score: '만점(100점) 다수 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '70점대 → 100점 상승 (중흥중3)'
+        grade: '중3',
+        score: '70점대 → 100점 상승'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '95점대 다수 배출 (중흥중3)'
+        grade: '중3',
+        score: '95점대 다수 배출'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '수강생 전원 90점 이상 (중흥중2)'
+        grade: '중2',
+        score: '수강생 전원 90점 이상'
       },
       {
         semester: '25-2학기',
@@ -2391,25 +2408,29 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '수학',
-        score: '만점(100점) 2명 배출 (중흥중2)'
+        grade: '중2',
+        score: '만점(100점) 2명 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '국어',
-        score: '만점(100점) 배출 (중흥중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 2명 배출 (중흥중2)'
+        grade: '중2',
+        score: '만점(100점) 2명 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (중흥중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-1학기',
@@ -2421,13 +2442,15 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '만점(100점) 4명 배출 (중흥중2)'
+        grade: '중2',
+        score: '만점(100점) 4명 배출'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '90점 이상 6명 배출 (중흥중2)'
+        grade: '중2',
+        score: '90점 이상 6명 배출'
       }
     ],
     features: [
@@ -2450,61 +2473,71 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '학기 합산 만점(100점) 배출 (부흥중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부흥중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '10점 이상 상승 (부흥중3)'
+        grade: '중3',
+        score: '10점 이상 상승'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '90점대 배출 (부흥중3)'
+        grade: '중3',
+        score: '90점대 배출'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '20점 상승 (부흥중2)'
+        grade: '중2',
+        score: '20점 상승'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부흥중2)'
+        grade: '중2',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '신규 원생 전원 성적 상승 (부흥중2)'
+        grade: '중2',
+        score: '신규 원생 전원 성적 상승'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '국어',
-        score: '30점 이상 상승 (부흥중2)'
+        grade: '중2',
+        score: '30점 이상 상승'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부흥중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '수학',
-        score: '90점 이상 배출 (부흥중3)'
+        grade: '중3',
+        score: '90점 이상 배출'
       }
     ],
     features: [
@@ -2527,37 +2560,43 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '성취도 A 기록 (계남중1)'
+        grade: '중1',
+        score: '성취도 A 기록'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '80점대 이상 배출 (계남중1)'
+        grade: '중1',
+        score: '80점대 이상 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '90점대 배출 (계남중1)'
+        grade: '중1',
+        score: '90점대 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '학기 합산 만점(100점) 배출 (계남중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (계남중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (계남중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       }
     ],
     features: [
@@ -2580,43 +2619,50 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '학기 합산 만점(100점) 배출 (중원중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (중원중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '학기 합산 만점(100점) 배출 (중원중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '만점(100점) 배출 (중원중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '95점대 배출 (중원중2)'
+        grade: '중2',
+        score: '95점대 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점 이상 배출 (중원중2)'
+        grade: '중2',
+        score: '90점 이상 배출'
       },
       {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '90점 이상 배출 (중원중3)'
+        grade: '중3',
+        score: '90점 이상 배출'
       }
     ],
     features: [
@@ -2639,43 +2685,50 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (심원중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '10점 이상 상승 사례 배출 (심원중3)'
+        grade: '중3',
+        score: '10점 이상 상승 사례 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '14점 상승 사례 배출 (심원중3)'
+        grade: '중3',
+        score: '14점 상승 사례 배출'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '국어',
-        score: '수강생 90점 이상 (심원중3)'
+        grade: '중3',
+        score: '수강생 90점 이상'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '신규 원생 전원 성적 상승 (심원중3)'
+        grade: '중3',
+        score: '신규 원생 전원 성적 상승'
       },
       {
         semester: '25-2학기',
         exam: '중간고사',
         subject: '영어',
-        score: '최대 17점 상승 사례 배출 (심원중3)'
+        grade: '중3',
+        score: '최대 17점 상승 사례 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점 이상 배출 (심원중3)'
+        grade: '중3',
+        score: '90점 이상 배출'
       }
     ],
     features: [
@@ -2698,31 +2751,36 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '국어',
-        score: '학기 합산 만점(100점) 배출 (부천여중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부천여중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '10점 이상 상승 사례 배출 (부천여중3)'
+        grade: '중3',
+        score: '10점 이상 상승 사례 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '학기 합산 만점(100점) 배출 (부천여중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '만점(100점) 배출 (부천여중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       }
     ],
     features: [
@@ -2745,31 +2803,36 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '12점 상승 사례 배출 (까치울중3)'
+        grade: '중3',
+        score: '12점 상승 사례 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점대 배출 (까치울중3)'
+        grade: '중3',
+        score: '90점대 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (까치울중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '90점대 배출 (까치울중3)'
+        grade: '중3',
+        score: '90점대 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '수학',
-        score: '만점(100점) 배출 (까치울중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       }
     ],
     features: [
@@ -2792,19 +2855,22 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '학기 합산 만점(100점) 배출 (성주중3)'
+        grade: '중3',
+        score: '학기 합산 만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (성주중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-1학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 2명 배출 (성주중3)'
+        grade: '중3',
+        score: '만점(100점) 2명 배출'
       }
     ],
     features: [
@@ -2827,13 +2893,15 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '만점(100점) 배출 (부명중3)'
+        grade: '중3',
+        score: '만점(100점) 배출'
       },
       {
         semester: '25-2학기',
         exam: '기말고사',
         subject: '영어',
-        score: '90점대 배출 (부명중3)'
+        grade: '중3',
+        score: '90점대 배출'
       }
     ],
     features: [
