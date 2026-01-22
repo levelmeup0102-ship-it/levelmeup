@@ -1052,11 +1052,11 @@ const About: React.FC = () => {
       <SNSSection>
         <SNSSectionTitle>레벨미업 SNS</SNSSectionTitle>
         <SNSGrid>
-          <SNSCard href="https://blog.naver.com/levelmeup0102" target="_blank" rel="noopener noreferrer">
+          <SNSCard href="https://blog.naver.com/levelmeup" target="_blank" rel="noopener noreferrer">
             <SNSIcon>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="24" height="24" rx="5" fill="#03C75A"/>
-                <path d="M8 6h2.5v6.5L14 6h2.5v12H14v-6.5L10.5 18H8V6z" fill="white"/>
+                <path d="M7.5 6h3v5.5l3.5-5.5h3v12h-3v-5.5L10.5 18h-3V6z" fill="white"/>
               </svg>
             </SNSIcon>
             <SNSTitle>레벨미업 블로그</SNSTitle>
@@ -1068,7 +1068,7 @@ const About: React.FC = () => {
             </SNSButton>
           </SNSCard>
 
-          <SNSCard href="https://www.instagram.com/levelmeup_bucheon/" target="_blank" rel="noopener noreferrer">
+          <SNSCard href="https://www.instagram.com/levelme__up/" target="_blank" rel="noopener noreferrer">
             <SNSIcon>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
