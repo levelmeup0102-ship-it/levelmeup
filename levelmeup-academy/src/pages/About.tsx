@@ -34,12 +34,26 @@ const PageWrapper = styled.div`
 const HeroSection = styled.div`
   width: 100%;
   min-height: 400px;
-  background: #FAFAFA;
+  background: #F5F6F8;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  
+  /* Premium grain texture effect */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 1;
+    mix-blend-mode: overlay;
+  }
   
   @media (max-width: 968px) {
     min-height: 350px;
