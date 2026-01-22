@@ -33,112 +33,113 @@ const PageWrapper = styled.div`
 
 const HeroSection = styled.div`
   width: 100%;
-  min-height: 360px;
-  background: #0B1A2A;
+  min-height: 400px;
+  background: #FAFAFA;
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
-  }
+  justify-content: flex-start;
+  padding: 100px 60px;
   
   @media (max-width: 968px) {
-    min-height: 315px;
-    padding: 50px 20px;
+    min-height: 350px;
+    padding: 80px 40px;
   }
   
   @media (max-width: 768px) {
-    min-height: 250px;
-    padding: 40px 16px;
+    min-height: 300px;
+    padding: 60px 24px;
   }
 `;
 
 const HeroContent = styled.div`
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   position: relative;
-  z-index: 1;
   animation: ${riseUp} 1s ease-out;
 `;
 
 const HeroMainTitle = styled.h1`
   font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 3.36rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-  color: #FFFFFF;
-  margin: 0 0 28px 0;
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: #111111;
+  margin: 0 0 32px 0;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '↗';
+    position: absolute;
+    top: -8px;
+    right: -32px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #111111;
+    opacity: 0.4;
+  }
   
   @media (max-width: 1200px) {
-    font-size: 2.88rem;
+    font-size: 3.2rem;
+    
+    &::after {
+      font-size: 1.2rem;
+      right: -28px;
+    }
   }
   
   @media (max-width: 968px) {
-    font-size: 2.4rem;
-    margin-bottom: 24px;
+    font-size: 2.6rem;
+    margin-bottom: 28px;
+    
+    &::after {
+      font-size: 1rem;
+      right: -24px;
+      top: -6px;
+    }
   }
   
   @media (max-width: 768px) {
-    font-size: 1.8rem;
-    letter-spacing: -0.01em;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    
+    &::after {
+      font-size: 0.9rem;
+      right: -20px;
+      top: -4px;
+    }
   }
 `;
 
 const HeroAccentLine = styled.div`
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #17B7A6 0%, #20C9B8 100%);
-  margin: 0 auto 28px;
-  border-radius: 3px;
-  animation: ${riseUp} 1s ease-out 0.2s backwards;
-  
-  @media (max-width: 968px) {
-    width: 50px;
-    margin-bottom: 24px;
-  }
-  
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 2px;
-    margin-bottom: 20px;
-  }
+  display: none;
 `;
 
 const HeroSubTitle = styled.h2`
   font-family: 'Pretendard', 'Inter', -apple-system, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: #111111;
+  opacity: 0.7;
   margin: 0;
-  animation: ${riseUp} 1s ease-out 0.3s backwards;
+  animation: ${riseUp} 1s ease-out 0.2s backwards;
   
   @media (max-width: 1200px) {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   
   @media (max-width: 968px) {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   
   @media (max-width: 768px) {
-    font-size: 0.875rem;
-    letter-spacing: 0.03em;
+    font-size: 0.95rem;
   }
 `;
 
