@@ -85,19 +85,27 @@ const HeroMainTitle = styled.h1`
     position: absolute;
     left: 0;
     top: 0;
-    bottom: 0;
-    width: 1px;
-    background: #E5E7EB;
+    width: 2px;
+    height: 70px;
+    background: rgba(17, 17, 17, 0.12);
   }
   
   @media (max-width: 1200px) {
     font-size: 3.2rem;
+    
+    &::before {
+      height: 60px;
+    }
   }
   
   @media (max-width: 968px) {
     font-size: 2.6rem;
     margin-bottom: 28px;
     padding-left: 24px;
+    
+    &::before {
+      height: 50px;
+    }
   }
   
   @media (max-width: 768px) {
@@ -105,6 +113,10 @@ const HeroMainTitle = styled.h1`
     letter-spacing: -0.02em;
     margin-bottom: 24px;
     padding-left: 20px;
+    
+    &::before {
+      height: 40px;
+    }
   }
 `;
 
