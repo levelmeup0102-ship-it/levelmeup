@@ -308,15 +308,7 @@ const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
         { name: '대수 B반', grade: '고2', content: '수학I·II 개념 및 문제풀이', days: '화 / 목 / 토' }
       ]
     },
-    science: {
-      title: '고2 과학',
-      classes: [
-        { name: '물리학', grade: '고2', content: '물리학 선택과목', days: '상담 후 안내' },
-        { name: '화학', grade: '고2', content: '화학 선택과목', days: '상담 후 안내' },
-        { name: '생명과학', grade: '고2', content: '생명과학 선택과목', days: '상담 후 안내' },
-        { name: '지구과학', grade: '고2', content: '지구과학 선택과목', days: '상담 후 안내' }
-      ]
-    }
+    science: null
   },
   '고3': {
     korean: {
@@ -391,7 +383,7 @@ const TimeTablePage: React.FC = () => {
         <SubTab active={activeSubject === 'math'} onClick={() => setActiveSubject('math')}>
           수학
         </SubTab>
-        {(activeGrade === '고1' || activeGrade === '고2') && (
+        {activeGrade === '고1' && (
           <SubTab active={activeSubject === 'science'} onClick={() => setActiveSubject('science')}>
             과학
           </SubTab>
