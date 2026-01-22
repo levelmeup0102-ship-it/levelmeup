@@ -251,8 +251,8 @@ const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
     korean: {
       title: '고1 국어',
       classes: [
-        { name: '고1 A', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '주 1회 + 클리닉' },
-        { name: '고1 B', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '주 1회 + 클리닉' },
+        { name: '고1 A', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '토 + 클리닉' },
+        { name: '고1 B', grade: '고1', content: '고1 교과 선행(문법/문학/비문학)', days: '금 + 클리닉' },
         { name: 'weekly 모의', grade: '고1 전체', content: 'weekly 모의 풀이 및 리뷰', days: '주말' }
       ]
     },
