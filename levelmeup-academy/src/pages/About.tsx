@@ -733,7 +733,7 @@ const About: React.FC = () => {
                 </FacilitySectionHeader>
                 <FacilityImageGrid columns={2}>
                   <FacilityImage>
-                    <img src="/images/facility/classroom.jpg" alt="강의실" />
+                    <img src="/images/facility/classroom-new.png" alt="강의실" />
                     <FacilityImageCaption>강의실</FacilityImageCaption>
                   </FacilityImage>
                   <FacilityImage>
