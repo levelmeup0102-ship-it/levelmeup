@@ -214,7 +214,7 @@ const CardDetails = styled.ul`
 const CardButton = styled(Link)`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.green.secondary} 100%);
+  background: linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.green.light} 100%);
   color: white;
   padding: 12px;
   border-radius: 8px;

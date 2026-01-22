@@ -637,6 +637,7 @@ interface SchoolData {
     semester: string;
     exam: string;
     subject: string;
+    grade?: string;
     score: string;
     students?: string;
   }>;
