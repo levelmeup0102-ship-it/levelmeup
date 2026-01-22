@@ -296,24 +296,113 @@ const AddressSection = styled.div`
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
+  margin-bottom: 60px;
 `;
 
 const AddressTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #1a1a1a;
   font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
 `;
 
 const AddressText = styled.p`
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1.1rem;
+  color: #333;
   line-height: 1.8;
   margin-bottom: 10px;
   
   strong {
-    color: ${colors.green.primary};
     font-weight: 700;
+    color: #1a1a1a;
+  }
+`;
+
+// SNS Section Styles
+const SNSSection = styled.div`
+  margin-top: 60px;
+  padding: 0;
+`;
+
+const SNSSectionTitle = styled.h3`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 40px;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #17B7A6;
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+`;
+
+const SNSGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+`;
+
+const SNSCard = styled.a`
+  background: #F5F6F8;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #E0E2E6;
+    background: #FAFBFC;
+  }
+`;
+
+const SNSIcon = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+`;
+
+const SNSTitle = styled.h4`
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+`;
+
+const SNSDescription = styled.p`
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  min-height: 48px;
+`;
+
+const SNSButton = styled.span`
+  font-size: 0.95rem;
+  color: #17B7A6;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  
+  ${SNSCard}:hover & {
+    color: #0E8F84;
   }
 `;
 
@@ -423,6 +512,33 @@ const Consulting: React.FC = () => {
           부천 중동 위치 | 중고등 국영수과 전문 학원
         </AddressText>
       </AddressSection>
+
+      <SNSSection>
+        <SNSSectionTitle>레벨미업 SNS</SNSSectionTitle>
+        <SNSGrid>
+          <SNSCard href="https://blog.naver.com/levelmeup0102" target="_blank" rel="noopener noreferrer">
+            <SNSIcon>📝</SNSIcon>
+            <SNSTitle>레벨미업 블로그</SNSTitle>
+            <SNSDescription>
+              블로그에서 학교별 지필 분석·내신 자료·특강 소식을 확인하세요.
+            </SNSDescription>
+            <SNSButton>
+              블로그 바로가기 ↗
+            </SNSButton>
+          </SNSCard>
+
+          <SNSCard href="https://www.instagram.com/levelmeup_bucheon/" target="_blank" rel="noopener noreferrer">
+            <SNSIcon>📷</SNSIcon>
+            <SNSTitle>레벨미업 인스타그램</SNSTitle>
+            <SNSDescription>
+              인스타에서 학원 이벤트·학원 소식·공지 내용을 확인하세요.
+            </SNSDescription>
+            <SNSButton>
+              인스타그램 바로가기 ↗
+            </SNSButton>
+          </SNSCard>
+        </SNSGrid>
+      </SNSSection>
     </PageWrapper>
   );
 };
