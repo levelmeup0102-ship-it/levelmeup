@@ -318,7 +318,7 @@ const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
         { name: '고3 A반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '토 / 일' },
         { name: '고3 B반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '일' },
         { name: '고3 C반', grade: '고3', content: '수능 국어 전 영역 실전 대비', days: '일' },
-        { name: '언어와매체', grade: '고3', content: '언어와매체 선택과목', days: '개설예정' }
+        { name: '언어와매체', grade: '고3', content: '언어와매체 선택과목', days: '수' }
       ]
     },
     english: {
