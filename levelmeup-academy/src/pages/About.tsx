@@ -54,12 +54,12 @@ const HeroContent = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 120px 80px;
+  padding: 120px 80px 120px 130px;
   position: relative;
   animation: ${riseUp} 1s ease-out;
   
   @media (max-width: 968px) {
-    padding: 80px 40px;
+    padding: 80px 40px 80px 60px;
   }
   
   @media (max-width: 768px) {
@@ -75,8 +75,20 @@ const HeroMainTitle = styled.h1`
   line-height: 1.08;
   color: #111111;
   margin: 0 0 32px 0;
-  max-width: 720px;
+  max-width: 640px;
   text-align: left;
+  position: relative;
+  padding-left: 32px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #E5E7EB;
+  }
   
   @media (max-width: 1200px) {
     font-size: 3.2rem;
@@ -85,12 +97,14 @@ const HeroMainTitle = styled.h1`
   @media (max-width: 968px) {
     font-size: 2.6rem;
     margin-bottom: 28px;
+    padding-left: 24px;
   }
   
   @media (max-width: 768px) {
     font-size: 2rem;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
+    padding-left: 20px;
   }
 `;
 
@@ -107,8 +121,9 @@ const HeroSubTitle = styled.h2`
   color: #111111;
   opacity: 0.7;
   margin: 0;
-  max-width: 720px;
+  max-width: 640px;
   text-align: left;
+  padding-left: 32px;
   animation: ${riseUp} 1s ease-out 0.2s backwards;
   
   @media (max-width: 1200px) {
@@ -117,10 +132,12 @@ const HeroSubTitle = styled.h2`
   
   @media (max-width: 968px) {
     font-size: 1rem;
+    padding-left: 24px;
   }
   
   @media (max-width: 768px) {
     font-size: 0.95rem;
+    padding-left: 20px;
   }
 `;
 
@@ -653,7 +670,7 @@ const About: React.FC = () => {
         <HeroContent>
           <HeroMainTitle>
             SLOW AND STEADY<br />
-            WINS THE RACE. <span style={{ fontSize: '28px', color: '#22C55E', marginLeft: '12px', verticalAlign: 'top' }}>↗</span>
+            WINS THE RACE.
           </HeroMainTitle>
           <HeroAccentLine />
           <HeroSubTitle>Progress, not pressure.</HeroSubTitle>
