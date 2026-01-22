@@ -3011,11 +3011,20 @@ const SchoolDetail: React.FC = () => {
             </thead>
             <tbody>
               {school.achievements.map((achievement, index) => {
-                // Extract grade from score (e.g., "(고1)", "(고2)", "(1학년)")
-                const gradeMatch = achievement.score.match(/\((고\d|[123]학년)\)/);
-                const grade = gradeMatch ? gradeMatch[1].replace('고', '고').replace('학년', '') : '-';
-                // Remove grade from score display
-                const cleanScore = achievement.score.replace(/\s*\((고\d|[123]학년)\)\s*/g, '').trim();
+                // Use achievement.grade if available, otherwise extract from score
+                let grade = '-';
+                let cleanScore = achievement.score;
+                
+                if (achievement.grade) {
+                  // If grade field exists, use it directly
+                  grade = achievement.grade;
+                } else {
+                  // Extract grade from score (e.g., "(고1)", "(고2)", "(1학년)")
+                  const gradeMatch = achievement.score.match(/\((고\d|[123]학년)\)/);
+                  grade = gradeMatch ? gradeMatch[1].replace('학년', '') : '-';
+                  // Remove grade from score display
+                  cleanScore = achievement.score.replace(/\s*\((고\d|[123]학년)\)\s*/g, '').trim();
+                }
                 
                 return (
                   <tr key={index} className={achievement.score.includes('100점') ? 'highlight' : ''}>
