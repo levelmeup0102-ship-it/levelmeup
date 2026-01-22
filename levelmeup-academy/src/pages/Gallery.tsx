@@ -153,23 +153,7 @@ const ImagePlaceholder = styled.div`
   }
   
   &:hover img {
-    transform: scale(1.1);
-  }
-  
-  &::after {
-    content: '🔍';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  
-  &:hover::after {
-    opacity: 0.8;
+    transform: scale(1.05);
   }
 `;
 
