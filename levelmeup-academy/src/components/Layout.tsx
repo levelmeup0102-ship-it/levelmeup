@@ -377,12 +377,10 @@ const MenuItemWrapper = styled.div`
   }
 `;
 
-const NavLink = styled(Link, {
-  shouldForwardProp: (prop) => prop !== 'isActive',
-})<{ isActive: boolean }>`
+const NavLink = styled(Link)<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
-  font-weight: ${props => props.isActive ? '700' : '600'};
+  font-weight: ${props => props.$isActive ? '700' : '600'};
   padding: 8px 12px !important;
   border-radius: 6px;
   transition: all 0.3s;
@@ -395,7 +393,7 @@ const NavLink = styled(Link, {
   align-items: center !important;
   flex: 0 0 auto !important;
   
-  ${props => props.isActive && `
+  ${props => props.$isActive && `
     &::after {
       content: '';
       position: absolute;
@@ -419,10 +417,10 @@ const NavLink = styled(Link, {
     line-height: 1.4;
     width: 100%;
     text-align: left;
-    border-radius: ${props => props.isActive ? '11px' : '8px'};
-    font-weight: ${props => props.isActive ? '600' : '500'};
-    background: ${props => props.isActive ? 'rgba(23, 183, 166, 0.2)' : 'transparent'};
-    border: ${props => props.isActive ? '1px solid rgba(23, 183, 166, 0.3)' : '1px solid transparent'};
+    border-radius: ${props => props.$isActive ? '11px' : '8px'};
+    font-weight: ${props => props.$isActive ? '600' : '500'};
+    background: ${props => props.$isActive ? 'rgba(23, 183, 166, 0.2)' : 'transparent'};
+    border: ${props => props.$isActive ? '1px solid rgba(23, 183, 166, 0.3)' : '1px solid transparent'};
     
     &:hover {
       background: rgba(23, 183, 166, 0.15);
@@ -677,7 +675,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 <NavLink
                   to={item.path}
-                  isActive={location.pathname === item.path}
+                  $isActive={location.pathname === item.path}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
