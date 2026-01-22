@@ -374,7 +374,7 @@ const Events: React.FC = () => {
         '학년별 맞춤 커리큘럼',
         '개념 이해부터 응용까지 단계별 학습'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224129695707'
     },
     {
       title: '수학 기하 특강',
@@ -389,7 +389,7 @@ const Events: React.FC = () => {
         '고난도 문제 대비',
         '내신 및 수능 대비 학습'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224121675503'
     },
     {
       title: '영어 Sentence UP 특강',
@@ -404,7 +404,7 @@ const Events: React.FC = () => {
         '문장 구조 분석 훈련',
         '영작 및 독해 실력 향상'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224130865578'
     },
     {
       title: '영어 Intensive GRAMMAR 특강',
@@ -419,7 +419,7 @@ const Events: React.FC = () => {
         '문법 개념 완성 및 응용',
         '내신 대비 문법 완벽 정리'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224081710747'
     },
     {
       title: '고등 영어 [윈터 일일 듣기] 특강',
@@ -433,7 +433,7 @@ const Events: React.FC = () => {
         '유형별 함정 포인트 정리 및 빠른 판단 훈련',
         '시간 관리·집중력 루틴까지 함께 코칭'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224146785585'
     },
     {
       title: '고등 국어 언어와 매체 완성 특강',
@@ -447,7 +447,7 @@ const Events: React.FC = () => {
         '내신/수능 기출 기반 실전 문제풀이 훈련',
         '방학 기간 선택과목 선행 + 1회독 완성'
       ],
-      link: '/consulting'
+      link: 'https://blog.naver.com/levelmeup/224138170145'
     }
   ];
 
@@ -596,9 +596,9 @@ const Events: React.FC = () => {
                       </li>
                     ))}
                   </CardDetails>
-                  <CardButton to={content.link}>
+                  <ExternalButton href={content.link} target="_blank" rel="noopener noreferrer">
                     자세히 보기 →
-                  </CardButton>
+                  </ExternalButton>
                 </CardContent>
               </ContentCard>
             ))}
