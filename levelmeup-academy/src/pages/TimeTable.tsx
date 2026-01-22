@@ -237,11 +237,12 @@ const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
     math: {
       title: '중등 수학',
       classes: [
-        { name: '중 1-1 B', grade: '중1', content: '중1 1학기 선행 개념 학습 및 유형문풀', days: '주 3회 + ICC' },
-        { name: '중 2-1 A', grade: '중2', content: '중2 1학기 기말~중2 2학기', days: '주 3회 + ICC' },
-        { name: '중 2-1 B', grade: '중2', content: '중2 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' },
-        { name: '중 3-1 A', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' },
-        { name: '중 3-1 B', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '주 3회 + ICC' }
+        { name: '중 1-1 A', grade: '중1', content: '중1 1학기 선행 개념 학습 및 유형문풀', days: '화 / 목' },
+        { name: '중 1-1 B', grade: '중1', content: '중1 1학기 선행 개념 학습 및 유형문풀', days: '월 / 수' },
+        { name: '중 2-1 A', grade: '중2', content: '중2 1학기 기말~중2 2학기', days: '월 / 수' },
+        { name: '중 2-1 B', grade: '중2', content: '중2 1학기 선행 개념 학습 및 유형 문풀', days: '월 / 수' },
+        { name: '중 3-1 A', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '화 / 목' },
+        { name: '중 3-1 B', grade: '중3', content: '중3 1학기 선행 개념 학습 및 유형 문풀', days: '월 / 수' }
       ]
     },
     science: null
