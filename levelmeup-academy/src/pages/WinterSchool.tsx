@@ -425,16 +425,7 @@ const WinterSchool: React.FC = () => {
                   </div>
 
                   <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>2) 겨울방학 집중 커리큘럼</h4>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>핵심 개념 정리 + 유형 훈련 + 실전 적용</li>
-                      <li>약점 단원 집중 보완</li>
-                      <li>주간 목표 점검으로 흐트러지지 않게 관리</li>
-                    </ul>
-                  </div>
-
-                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>3) 학습 루틴 & 계획표 완성</h4>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>2) 학습 루틴 & 계획표 완성</h4>
                     <ul style={{marginLeft: '0', paddingLeft: '0'}}>
                       <li>개인 성향/현재 수준에 맞춘 공부 루틴 설계</li>
                       <li>하루 공부 흐름(자습-복습-오답) 고정</li>
@@ -443,7 +434,7 @@ const WinterSchool: React.FC = () => {
                   </div>
 
                   <div style={{padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>4) 개별 피드백 & 목표 관리</h4>
+                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>3) 개별 피드백 & 목표 관리</h4>
                     <ul style={{marginLeft: '0', paddingLeft: '0'}}>
                       <li>학습 방향 점검</li>
                       <li>과목별 약점 진단</li>
