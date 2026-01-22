@@ -581,16 +581,6 @@ const Curriculum: React.FC = () => {
           '실전 문제 풀이 연습',
           '내신 및 수능 모의고사 대비'
         ]
-      },
-      science: {
-        title: '고2 과학',
-        content: '물리학, 화학, 생명과학, 지구과학 중 선택 과목을 심화 학습합니다.',
-        points: [
-          '선택 과목 개념 심화 학습',
-          '실험 문제 분석 능력 향상',
-          '고난도 문제 해결 전략',
-          '내신 및 수능 모의고사 대비'
-        ]
       }
     },
     high3: {
@@ -754,7 +744,7 @@ const Curriculum: React.FC = () => {
             <SubTab active={activeSubject === 'math'} onClick={() => setActiveSubject('math')}>
               수학
             </SubTab>
-            {(activeGrade === 'high1' || activeGrade === 'high2') && (
+            {activeGrade === 'high1' && (
               <SubTab active={activeSubject === 'science'} onClick={() => setActiveSubject('science')}>
                 과학
               </SubTab>
