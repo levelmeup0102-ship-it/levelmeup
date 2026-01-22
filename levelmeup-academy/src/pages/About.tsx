@@ -1055,9 +1055,8 @@ const About: React.FC = () => {
           <SNSCard href="https://blog.naver.com/levelmeup0102" target="_blank" rel="noopener noreferrer">
             <SNSIcon>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#03C75A"/>
-                <path d="M13.5 10.5L9.5 13.5V7.5L13.5 10.5Z" fill="white"/>
-                <path d="M13.5 10.5L14.5 10.5V13.5L9.5 16.5V13.5L13.5 10.5Z" fill="white"/>
+                <rect width="24" height="24" rx="5" fill="#03C75A"/>
+                <path d="M8 6h2.5v6.5L14 6h2.5v12H14v-6.5L10.5 18H8V6z" fill="white"/>
               </svg>
             </SNSIcon>
             <SNSTitle>레벨미업 블로그</SNSTitle>
