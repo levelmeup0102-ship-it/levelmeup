@@ -120,18 +120,22 @@ const BlogButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 16px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.85);
+  padding: 7px 15px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   font-size: 0.92rem;
   font-weight: 600;
   transition: all 0.25s ease;
+  white-space: nowrap;
   
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
     color: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
   }
   
   @media (max-width: 968px) {
@@ -143,22 +147,23 @@ const MobileBlogButton = styled.a`
   display: none;
   align-items: center;
   gap: 4px;
-  padding: 10px 14px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.88rem;
   font-weight: 600;
   transition: all 0.25s ease;
-  min-width: 44px;
-  min-height: 44px;
+  min-height: 40px;
   justify-content: center;
   white-space: nowrap;
   
   &:active {
-    background: rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0.97);
   }
   
   @media (max-width: 968px) {
