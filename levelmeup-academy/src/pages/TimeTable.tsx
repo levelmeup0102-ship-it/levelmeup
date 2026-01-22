@@ -226,12 +226,12 @@ const classData: Record<GradeTab, Record<SubjectTab, SubjectData | null>> = {
     english: {
       title: '중등 영어',
       classes: [
-        { name: 'Starter 1', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
-        { name: 'Starter 2', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
-        { name: 'Intermediate 1', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
-        { name: 'Intermediate 2', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '주 2회 + ICC' },
-        { name: 'Advanced 1', grade: '중3', content: '고1 모의고사 preview', days: '주 2회 + ICC' },
-        { name: 'Advanced 2', grade: '중3', content: '고1 모의고사 preview', days: '주 2회 + ICC' }
+        { name: 'Starter 1', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '월 / 수 / 금' },
+        { name: 'Starter 2', grade: '중1', content: '중1 수준 단어/문법/독해 학습', days: '화 / 목 / 금' },
+        { name: 'Intermediate 1', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '월 / 수 / 금' },
+        { name: 'Intermediate 2', grade: '중2', content: '중 2~3 수준 단어/문법/독해 학습', days: '화 / 목 / 금' },
+        { name: 'Advanced 1', grade: '중3', content: '고1 모의고사 preview', days: '월 / 수 / 금' },
+        { name: 'Advanced 2', grade: '중3', content: '고1 모의고사 preview', days: '화 / 목 / 금' }
       ]
     },
     math: {
