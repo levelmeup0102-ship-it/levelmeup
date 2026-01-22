@@ -1678,10 +1678,10 @@ const schoolsData: Record<string, SchoolData> = {
         score: '수강생 전원 성적 상승 (고2)'
       },
       {
-        semester: '25-1학기',
-        exam: '기말고사',
+        semester: '25-2학기',
+        exam: '합산',
         subject: '영어',
-        score: '전교 1등 배출(추가) (고2)'
+        score: '전교 2등 배출 (고2)'
       },
       {
         semester: '25-1학기',
@@ -1758,7 +1758,7 @@ const schoolsData: Record<string, SchoolData> = {
       {
         semester: '25-2학기',
         exam: '합산',
-        subject: '영어',
+        subject: '국어',
         score: '전교 5등 배출 (고2)'
       },
       {
