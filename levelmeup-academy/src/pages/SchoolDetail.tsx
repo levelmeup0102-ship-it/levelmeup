@@ -1874,19 +1874,22 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '중간고사',
         subject: '영어',
-        score: '95점 배출 (부천고3)'
+        grade: '고3',
+        score: '95점 배출'
       },
       {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '국어',
-        score: '93점 배출 (부천고2)'
+        grade: '고2',
+        score: '93점 배출'
       },
       {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '수학',
-        score: '4등급 → 3등급 상승 (부천고2)'
+        grade: '고2',
+        score: '4등급 → 3등급 상승'
       }
     ],
     features: [
@@ -1911,25 +1914,29 @@ const schoolsData: Record<string, SchoolData> = {
         semester: '25-1학기',
         exam: '확률과통계',
         subject: '수학',
-        score: '5등급 → 전교 9등 (계남고3)'
+        grade: '고3',
+        score: '5등급 → 전교 9등'
       },
       {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '수학',
-        score: '3등급 → 1등급 상승 (계남고3)'
+        grade: '고3',
+        score: '3등급 → 1등급 상승'
       },
       {
         semester: '24-1학기',
         exam: '합산',
         subject: '수학',
-        score: '2등급 달성 (계남고3)'
+        grade: '고3',
+        score: '2등급 달성'
       },
       {
         semester: '24-1학기',
         exam: '중간고사',
         subject: '수학',
-        score: '90점 배출 (계남고3)'
+        grade: '고3',
+        score: '90점 배출'
       }
     ],
     features: [
