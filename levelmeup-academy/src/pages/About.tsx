@@ -38,26 +38,33 @@ const HeroSection = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 100px 60px;
+  justify-content: center;
+  padding: 0;
   
   @media (max-width: 968px) {
     min-height: 350px;
-    padding: 80px 40px;
   }
   
   @media (max-width: 768px) {
     min-height: 300px;
-    padding: 60px 24px;
   }
 `;
 
 const HeroContent = styled.div`
   max-width: 1200px;
   width: 100%;
-  text-align: left;
+  margin: 0 auto;
+  padding: 120px 80px;
   position: relative;
   animation: ${riseUp} 1s ease-out;
+  
+  @media (max-width: 968px) {
+    padding: 80px 40px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
 `;
 
 const HeroMainTitle = styled.h1`
@@ -68,50 +75,22 @@ const HeroMainTitle = styled.h1`
   line-height: 1.08;
   color: #111111;
   margin: 0 0 32px 0;
-  position: relative;
-  display: inline-block;
-  
-  &::after {
-    content: '↗';
-    position: absolute;
-    top: -8px;
-    right: -32px;
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #111111;
-    opacity: 0.4;
-  }
+  max-width: 720px;
+  text-align: left;
   
   @media (max-width: 1200px) {
     font-size: 3.2rem;
-    
-    &::after {
-      font-size: 1.2rem;
-      right: -28px;
-    }
   }
   
   @media (max-width: 968px) {
     font-size: 2.6rem;
     margin-bottom: 28px;
-    
-    &::after {
-      font-size: 1rem;
-      right: -24px;
-      top: -6px;
-    }
   }
   
   @media (max-width: 768px) {
     font-size: 2rem;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
-    
-    &::after {
-      font-size: 0.9rem;
-      right: -20px;
-      top: -4px;
-    }
   }
 `;
 
@@ -128,6 +107,8 @@ const HeroSubTitle = styled.h2`
   color: #111111;
   opacity: 0.7;
   margin: 0;
+  max-width: 720px;
+  text-align: left;
   animation: ${riseUp} 1s ease-out 0.2s backwards;
   
   @media (max-width: 1200px) {
@@ -672,7 +653,7 @@ const About: React.FC = () => {
         <HeroContent>
           <HeroMainTitle>
             SLOW AND STEADY<br />
-            WINS THE RACE.
+            WINS THE RACE. <span style={{ fontSize: '28px', color: '#22C55E', marginLeft: '12px', verticalAlign: 'top' }}>↗</span>
           </HeroMainTitle>
           <HeroAccentLine />
           <HeroSubTitle>Progress, not pressure.</HeroSubTitle>
