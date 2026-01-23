@@ -92,6 +92,11 @@ button {
     box-sizing: border-box;
   }
   
+  /* 모바일 전용: fixed 헤더 높이만큼 페이지가 위로 말려들지 않게 */
+  body {
+    padding-top: 72px;
+  }
+  
   .container {
     padding: 0 16px;
   }
@@ -152,10 +157,15 @@ button {
     line-height: 1.5;
   }
   
-  /* 모바일 전용: 헤더 z-index 최상단으로 (메뉴 클릭 가능하게) */
-  header {
-    z-index: 10000 !important;
-    position: sticky !important;
+  /* 모바일 전용: 헤더 fixed로 최상단 고정 (sticky보다 확실) */
+  header,
+  .header,
+  .navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999 !important;
   }
   
   /* 모바일 전용: 점수표/테이블 영역 가로 스크롤 */

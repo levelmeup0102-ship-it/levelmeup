@@ -23,7 +23,11 @@ const Header = styled.header`
   }
   
   @media (max-width: 768px) {
-    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
   }
 `;
 
