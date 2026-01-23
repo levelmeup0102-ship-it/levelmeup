@@ -251,6 +251,17 @@ const NavContainer = styled.div`
     min-height: 52px;
     padding: 0 16px;
   }
+  
+  @media (max-width: 768px) {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px;
+  }
 `;
 
 const NavWrapper = styled.div`
@@ -290,7 +301,12 @@ const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    min-width: 150px !important;
+    min-width: auto !important;
+    max-width: calc(100vw - 120px) !important;
+    flex: 1 1 auto !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `;
 
@@ -500,6 +516,12 @@ const MenuButtonContainer = styled.div`
   
   @media (max-width: 968px) {
     display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
   }
 `;
 

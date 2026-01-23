@@ -202,4 +202,39 @@ button {
   .table-container table {
     min-width: 700px;
   }
+  
+  /* 모바일 전용: 성적 결과 표 스크롤 활성화 */
+  .result-table-wrapper,
+  .score-result-table,
+  .achievement-table {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block !important;
+  }
+  
+  /* 모바일 전용: 상위 부모의 overflow hidden 해제 */
+  .result-section,
+  .table-section,
+  .data-section {
+    overflow: visible !important;
+  }
+  
+  /* 모바일 전용: 표 가독성 개선 - 폰트/패딩 축소 */
+  table {
+    font-size: 13px !important;
+    transform: scale(0.92);
+    transform-origin: left top;
+  }
+  
+  table th,
+  table td {
+    padding: 6px 8px !important;
+    font-size: 13px !important;
+  }
+  
+  table th {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
 }
