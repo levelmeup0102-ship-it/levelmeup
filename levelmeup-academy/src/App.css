@@ -87,64 +87,38 @@ button {
 }
 
 @media (max-width: 768px) {
-  /* (0) 모바일 가로폭 계산 꼬임 방지 */
+  /* 0) 모바일 가로폭 계산 꼬임 방지 */
   html, body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
+  
   * { 
-    box-sizing: border-box; 
+    box-sizing: border-box !important;
   }
 
-  /* (1) 헤더/네비: 오른쪽 잘림 방지 + 메뉴 버튼 화면 안에 고정 */
-  header, .header, .navbar {
-    width: 100%;
-    max-width: 100%;
-    left: 0;
-    right: 0;
-    position: sticky;    /* fixed가 더 꼬이면 sticky가 안전 */
-    top: 0;
-    z-index: 999999;
-  }
-
-  /* 헤더 내부를 "무조건 100% 폭" + 양쪽 패딩 주고 정렬 */
-  header > *, .header > *, .navbar > * {
-    max-width: 100%;
-  }
-
-  /* 흔히 쓰는 내부 래퍼/컨테이너들 강제 정렬 */
-  header .container, header .inner, header .wrap,
-  .header .container, .header .inner, .header .wrap,
-  .navbar .container, .navbar .inner, .navbar .wrap {
+  /* 1) 헤더 폭 강제 100% (MENU 잘림/클릭불가 해결) */
+  header {
     width: 100% !important;
     max-width: 100% !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 12px;   /* 오른쪽 잘림 방지 핵심 */
-    gap: 10px;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999999 !important;
   }
 
-  /* 로고가 길어서 MENU를 밀어내는 경우(지금 딱 이 패턴) */
-  .logo, .brand, .site-title, header h1 {
-    min-width: 0;
-    flex: 1 1 auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  /* MENU 버튼(또는 햄버거) 화면 안쪽에 붙이기 */
-  .menu, .menu-btn, .hamburger, #menuBtn {
-    flex: 0 0 auto;
-    margin-left: auto;
-    padding-right: 0 !important;
-    transform: none !important;
-    right: 12px;
+  /* 헤더 안쪽 요소들이 메뉴를 밀어내지 못하게 */
+  header * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   
-  /* 헤더 fixed/sticky로 인해 내용이 가려지는 것 방지 */
+  /* 헤더로 인해 내용이 가려지는 것 방지 */
   body {
     padding-top: 64px;
   }
@@ -184,7 +158,7 @@ button {
     line-height: 1.5;
   }
 
-  /* (2) 표가 오른쪽으로 치우치는 현상: 부모가 flex-end/auto margin인 경우가 많음 */
+  /* 2) 표 컨테이너를 가운데로 고정 + 오른쪽 쏠림 제거 */
   .table-scroll, .table-wrap, .table-container,
   .score-table-wrap, .result-table-wrap,
   .table-responsive, .table-area,
@@ -197,22 +171,9 @@ button {
   .achievement-table {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 auto !important;         /* 가운데로 */
-    padding: 0 12px;                    /* 좌우 여백 */
-    display: block !important;          /* flex로 밀리는 거 차단 */
-  }
-
-  /* (3) 표 잘림/스크롤 안 됨 해결: "가로 스크롤"을 표 감싸는 곳에 강제 */
-  .table-scroll, .table-wrap, .table-container,
-  .score-table-wrap, .result-table-wrap,
-  .table-responsive, .table-area,
-  .score-table,
-  .grade-table,
-  .table-wrapper,
-  .data-table,
-  .result-table-wrapper,
-  .score-result-table,
-  .achievement-table {
+    margin: 0 auto !important;
+    padding: 0 12px;
+    display: block !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
   }
@@ -224,21 +185,23 @@ button {
     overflow: visible !important;
   }
 
-  /* (4) 모바일 가독성: 글씨 더 작게 */
+  /* 표 자체를 가운데로 고정 */
   table {
+    width: 100% !important;
+    margin: 0 auto !important;
     border-collapse: collapse;
     font-size: 11px !important;
-    width: auto !important;
   }
-  
-  table th, table td {
+
+  /* 3) 표 글씨 더 작게 */
+  th, td {
     font-size: 11px !important;
-    padding: 6px 8px !important;
+    padding: 6px 6px !important;
+    white-space: nowrap !important;
     line-height: 1.2 !important;
-    white-space: nowrap;
   }
   
-  table th {
+  th {
     font-weight: 600 !important;
   }
 
@@ -251,7 +214,7 @@ button {
   .table-wrapper table,
   .data-table table {
     min-width: 640px;
-    width: max-content;   /* 내용폭 기준 */
+    width: max-content;
     max-width: none;
   }
 }
