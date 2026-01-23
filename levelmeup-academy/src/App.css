@@ -87,14 +87,72 @@ button {
 }
 
 @media (max-width: 768px) {
-  /* 모바일 전용: box-sizing 확실히 적용 */
+  /* 0) 모바일에서 가로로 삐져나가는 원인 차단 */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* 페이지 전체 옆삐짐 차단 */
+  }
+
   * {
     box-sizing: border-box;
+    max-width: 100%;
   }
-  
-  /* 모바일 전용: fixed 헤더 높이만큼 페이지가 위로 말려들지 않게 */
+
+  /* 1) 헤더/메뉴가 오른쪽으로 잘려서 안 눌리는 문제 해결 */
+  header, .header, .navbar {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    position: fixed;   /* 상단 고정 */
+    top: 0;
+    z-index: 999999;
+    overflow: visible;
+  }
+
+  /* 헤더 내부 정렬: 로고가 메뉴 밀어내지 못하게 */
+  header .container,
+  .header .container,
+  .navbar .container,
+  header .inner,
+  .header .inner,
+  .navbar .inner {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  /* 로고/텍스트가 길면 메뉴를 밀어내니까 줄임표 처리 */
+  .logo, .brand, .site-title, header h1 {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 메뉴 버튼은 항상 화면 안쪽에 있게 */
+  .menu-btn, .hamburger, #menuBtn {
+    flex: 0 0 auto;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+  }
+
+  /* 헤더 fixed로 인해 내용이 가려지는 것 방지 */
   body {
-    padding-top: 72px;
+    padding-top: 64px;
   }
   
   .container {
@@ -109,23 +167,6 @@ button {
     padding-right: 16px;
   }
   
-  /* 모바일 전용: 가로 넘침 방지 */
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-  
-  /* 모바일 전용: 모든 컨테이너/섹션 화면 밖으로 못 나가게 */
-  .container,
-  section,
-  main,
-  header,
-  footer,
-  article,
-  div {
-    max-width: 100%;
-  }
-  
   /* 모바일 전용: 이미지/미디어 크롭 방지 */
   img,
   video,
@@ -133,14 +174,6 @@ button {
   svg {
     max-width: 100%;
     height: auto;
-  }
-  
-  /* 모바일 전용: 테이블 가로 스크롤 */
-  table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
   
   /* 모바일 전용: 폰트 크기 조정 */
@@ -156,61 +189,28 @@ button {
     font-size: 15px;
     line-height: 1.5;
   }
-  
-  /* 모바일 전용: 헤더 fixed로 최상단 고정 (sticky보다 확실) */
-  header,
-  .header,
-  .navbar {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99999 !important;
-  }
-  
-  /* 모바일 전용: 점수표/테이블 영역 가로 스크롤 */
+
+  /* 2) 표 오른쪽 잘림 + 스크롤 안 되는 문제 해결 */
+  .table-scroll, .table-wrap, .table-container,
+  .score-table-wrap, .result-table-wrap,
   .score-table,
   .grade-table,
   .table-wrapper,
-  .data-table {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    display: block;
-  }
-  
-  /* 모바일 전용: 테이블 내부는 최소 너비 유지 */
-  .score-table table,
-  .grade-table table,
-  .table-wrapper table,
-  .data-table table {
-    min-width: 600px;
-  }
-  
-  /* 모바일 전용: 표가 들어있는 섹션은 무조건 가로 스크롤 가능하게 */
-  .table-scroll,
-  .table-wrap,
-  .table-container {
-    width: 100%;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* 모바일 전용: 표 자체는 너무 좁아져서 깨지지 않게 최소 폭 */
-  .table-scroll table,
-  .table-wrap table,
-  .table-container table {
-    min-width: 700px;
-  }
-  
-  /* 모바일 전용: 성적 결과 표 스크롤 활성화 */
+  .data-table,
   .result-table-wrapper,
   .score-result-table,
   .achievement-table {
-    width: 100% !important;
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     display: block !important;
+  }
+
+  /* 부모가 잘라먹는 경우 방지 (표 주변만이라도 풀기) */
+  .table-scroll *, .table-wrap *, .table-container * {
+    max-width: none;
   }
   
   /* 모바일 전용: 상위 부모의 overflow hidden 해제 */
@@ -219,22 +219,33 @@ button {
   .data-section {
     overflow: visible !important;
   }
-  
-  /* 모바일 전용: 표 가독성 개선 - 폰트/패딩 축소 */
+
+  /* 3) 표 글씨 더 작게 + 칸도 좁게 (가독성 개선) */
   table {
-    font-size: 13px !important;
-    transform: scale(0.92);
-    transform-origin: left top;
+    border-collapse: collapse;
+    font-size: 11px !important;
+    width: auto !important;
   }
-  
-  table th,
-  table td {
-    padding: 6px 8px !important;
-    font-size: 13px !important;
+
+  table th, table td {
+    font-size: 11px !important;     /* 더 작게 */
+    padding: 6px 8px !important;    /* 칸 줄이기 */
+    line-height: 1.2 !important;
+    white-space: nowrap;            /* 줄바꿈으로 깨지는 거 방지 */
   }
   
   table th {
-    font-size: 12px !important;
     font-weight: 600 !important;
+  }
+
+  /* 표가 너무 크면 최소 폭만 유지하고 스크롤로 보게 */
+  .table-scroll table,
+  .table-wrap table,
+  .table-container table,
+  .score-table table,
+  .grade-table table,
+  .table-wrapper table,
+  .data-table table {
+    min-width: 520px;
   }
 }
