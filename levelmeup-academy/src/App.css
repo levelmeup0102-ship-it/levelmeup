@@ -176,4 +176,20 @@ button {
   .data-table table {
     min-width: 600px;
   }
+  
+  /* 모바일 전용: 표가 들어있는 섹션은 무조건 가로 스크롤 가능하게 */
+  .table-scroll,
+  .table-wrap,
+  .table-container {
+    width: 100%;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 모바일 전용: 표 자체는 너무 좁아져서 깨지지 않게 최소 폭 */
+  .table-scroll table,
+  .table-wrap table,
+  .table-container table {
+    min-width: 700px;
+  }
 }
