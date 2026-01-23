@@ -87,8 +87,21 @@ button {
 }
 
 @media (max-width: 768px) {
+  /* 모바일 전용: box-sizing 확실히 적용 */
+  * {
+    box-sizing: border-box;
+  }
+  
   .container {
     padding: 0 16px;
+  }
+  
+  /* 모바일 전용: 카드/박스/섹션 패딩 */
+  .card,
+  .box,
+  .section {
+    padding-left: 16px;
+    padding-right: 16px;
   }
   
   /* 모바일 전용: 가로 넘침 방지 */
@@ -123,5 +136,19 @@ button {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 모바일 전용: 폰트 크기 조정 */
+  h1 {
+    font-size: 26px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  p, li {
+    font-size: 15px;
+    line-height: 1.5;
   }
 }
