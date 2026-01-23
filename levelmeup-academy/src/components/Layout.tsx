@@ -21,6 +21,10 @@ const Header = styled.header`
   @media (max-width: 968px) {
     padding: 8px 0;
   }
+  
+  @media (max-width: 768px) {
+    z-index: 10000;
+  }
 `;
 
 const TopBar = styled.div`

@@ -151,4 +151,29 @@ button {
     font-size: 15px;
     line-height: 1.5;
   }
+  
+  /* 모바일 전용: 헤더 z-index 최상단으로 (메뉴 클릭 가능하게) */
+  header {
+    z-index: 10000 !important;
+    position: sticky !important;
+  }
+  
+  /* 모바일 전용: 점수표/테이블 영역 가로 스크롤 */
+  .score-table,
+  .grade-table,
+  .table-wrapper,
+  .data-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    display: block;
+  }
+  
+  /* 모바일 전용: 테이블 내부는 최소 너비 유지 */
+  .score-table table,
+  .grade-table table,
+  .table-wrapper table,
+  .data-table table {
+    min-width: 600px;
+  }
 }

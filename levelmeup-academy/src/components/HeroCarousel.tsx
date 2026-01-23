@@ -179,6 +179,10 @@ const SlideOverlay = styled.div`
     rgba(0,0,0,0.1) 50%, 
     rgba(0,0,0,0.3) 100%);
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    pointer-events: none;
+  }
 `;
 
 const ArrowButton = styled.button<{ direction: 'left' | 'right' }>`
