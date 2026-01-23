@@ -185,17 +185,22 @@ button {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 12px;
+    padding: 0 12px !important;
     display: block !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
+    text-align: center !important;
   }
   
   /* 상위 부모의 overflow hidden 해제 */
   .result-section,
   .table-section,
-  .data-section {
+  .data-section,
+  section,
+  div[class*="Section"],
+  div[class*="Container"] {
     overflow: visible !important;
+    text-align: center !important;
   }
 
   /* 표 자체를 가운데로 고정 */
@@ -204,6 +209,8 @@ button {
     margin: 0 auto !important;
     border-collapse: collapse;
     font-size: 11px !important;
+    text-align: center !important;
+    display: inline-table !important;
   }
 
   /* 3) 표 글씨 더 작게 */

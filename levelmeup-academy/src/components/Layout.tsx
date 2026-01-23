@@ -177,6 +177,10 @@ const MobileBlogButton = styled.a`
   @media (max-width: 968px) {
     display: inline-flex;
   }
+  
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 `;
 
 const UtilityCenter = styled.div`
@@ -302,11 +306,9 @@ const Logo = styled(Link)`
   
   @media (max-width: 768px) {
     min-width: auto !important;
-    max-width: calc(100vw - 120px) !important;
-    flex: 1 1 auto !important;
+    max-width: 150px !important;
+    flex: 0 0 auto !important;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 `;
 
@@ -324,8 +326,9 @@ const LogoImage = styled.img`
   }
   
   @media (max-width: 768px) {
-    height: 84px !important;
-    min-height: 84px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    max-width: 150px !important;
   }
 `;
 
