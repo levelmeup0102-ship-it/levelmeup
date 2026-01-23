@@ -110,12 +110,25 @@ button {
     position: sticky !important;
     top: 0 !important;
     z-index: 999999 !important;
+    pointer-events: auto !important;
   }
 
   /* 헤더 안쪽 요소들이 메뉴를 밀어내지 못하게 */
   header * {
     max-width: 100% !important;
     box-sizing: border-box !important;
+  }
+  
+  /* 메뉴 버튼 클릭 가능하게 최상위 z-index */
+  header button,
+  header .menu-btn,
+  header .hamburger,
+  header #menuBtn {
+    position: relative !important;
+    z-index: 10000000 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
   }
   
   /* 헤더로 인해 내용이 가려지는 것 방지 */

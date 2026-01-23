@@ -522,6 +522,9 @@ const MenuButtonContainer = styled.div`
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
     margin-left: auto !important;
+    position: relative !important;
+    z-index: 10000000 !important;
+    pointer-events: auto !important;
   }
 `;
 
@@ -535,6 +538,18 @@ const MenuButton = styled.button`
   
   @media (max-width: 968px) {
     display: block;
+  }
+  
+  @media (max-width: 768px) {
+    position: relative !important;
+    z-index: 10000000 !important;
+    pointer-events: auto !important;
+    padding: 8px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 `;
 
