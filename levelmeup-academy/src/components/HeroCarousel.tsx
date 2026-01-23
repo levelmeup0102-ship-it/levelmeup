@@ -55,8 +55,8 @@ const CarouselContainer = styled.div`
   }
   
   @media (max-width: 1023px) {
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
     height: 0;

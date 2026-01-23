@@ -90,4 +90,38 @@ button {
   .container {
     padding: 0 16px;
   }
+  
+  /* 모바일 전용: 가로 넘침 방지 */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* 모바일 전용: 모든 컨테이너/섹션 화면 밖으로 못 나가게 */
+  .container,
+  section,
+  main,
+  header,
+  footer,
+  article,
+  div {
+    max-width: 100%;
+  }
+  
+  /* 모바일 전용: 이미지/미디어 크롭 방지 */
+  img,
+  video,
+  iframe,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 모바일 전용: 테이블 가로 스크롤 */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
