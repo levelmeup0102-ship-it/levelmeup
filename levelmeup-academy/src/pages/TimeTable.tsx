@@ -91,6 +91,11 @@ const ContentSection = styled.div`
   padding: 30px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+    overflow: visible !important;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -100,6 +105,18 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   padding-bottom: 15px;
   border-bottom: 2px solid #f0f0f0;
+`;
+
+const TableWrapper = styled.div`
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
 `;
 
 const ClassTable = styled.table`
@@ -153,10 +170,17 @@ const ClassTable = styled.table`
   }
   
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    min-width: 640px;
+    font-size: 11px;
     
-    thead th, tbody td {
-      padding: 10px 8px;
+    thead th {
+      padding: 8px 6px;
+      font-size: 11px;
+    }
+    
+    tbody td {
+      padding: 8px 6px;
+      font-size: 11px;
     }
   }
 `;
@@ -394,26 +418,28 @@ const TimeTablePage: React.FC = () => {
       {subjectData && (
         <ContentSection>
           <SectionTitle>{subjectData.title}</SectionTitle>
-          <ClassTable>
-            <thead>
-              <tr>
-                <th>개설반</th>
-                <th>대상 학년</th>
-                <th>수업 내용</th>
-                <th>수업 요일</th>
-              </tr>
-            </thead>
-            <tbody>
-              {subjectData.classes.map((classInfo, index) => (
-                <tr key={index}>
-                  <td>{classInfo.name}</td>
-                  <td>{classInfo.grade}</td>
-                  <td>{classInfo.content}</td>
-                  <td>{classInfo.days}</td>
+          <TableWrapper>
+            <ClassTable>
+              <thead>
+                <tr>
+                  <th>개설반</th>
+                  <th>대상 학년</th>
+                  <th>수업 내용</th>
+                  <th>수업 요일</th>
                 </tr>
-              ))}
-            </tbody>
-          </ClassTable>
+              </thead>
+              <tbody>
+                {subjectData.classes.map((classInfo, index) => (
+                  <tr key={index}>
+                    <td>{classInfo.name}</td>
+                    <td>{classInfo.grade}</td>
+                    <td>{classInfo.content}</td>
+                    <td>{classInfo.days}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </ClassTable>
+          </TableWrapper>
         </ContentSection>
       )}
 
