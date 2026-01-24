@@ -6,6 +6,10 @@ const PageWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  
+  @media (max-width: 768px) {
+    padding: 20px 12px;
+  }
 `;
 
 const PageTitle = styled.h1`
@@ -38,6 +42,11 @@ const Section = styled.section`
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    padding: 20px 12px;
+    margin-bottom: 25px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -244,7 +253,8 @@ const LearningFlowSection = styled.section`
   border: 2px solid rgba(23, 183, 166, 0.1);
   
   @media (max-width: 768px) {
-    padding: 40px 20px;
+    padding: 25px 12px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -410,7 +420,8 @@ const ManagementSection = styled.section`
   margin: 60px 0;
   
   @media (max-width: 768px) {
-    padding: 40px 24px;
+    padding: 25px 12px;
+    margin: 30px 0;
   }
 `;
 
@@ -496,7 +507,8 @@ const BrandClosing = styled.div`
   }
   
   @media (max-width: 768px) {
-    padding: 40px 24px;
+    padding: 30px 12px;
+    margin: 30px 0 0;
     
     h3 {
       font-size: 1.2rem;
@@ -516,6 +528,11 @@ const MiddleCurriculumSection = styled.div`
   background: linear-gradient(135deg, #F7F9FB 0%, #FFFFFF 100%);
   border-radius: 20px;
   border: 1px solid #E8EEF3;
+  
+  @media (max-width: 768px) {
+    margin: 30px 0;
+    padding: 25px 12px;
+  }
 `;
 
 const CurriculumTitle = styled.h2`

@@ -7,6 +7,10 @@ const PageWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  
+  @media (max-width: 768px) {
+    padding: 20px 12px;
+  }
 `;
 
 const PageTitle = styled.h1`
