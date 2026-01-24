@@ -102,26 +102,30 @@ const AchievementTable = styled.table`
   
   @media (max-width: 768px) {
     width: auto;
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto 20px auto;
-    display: table;
-    font-size: 0.85rem;
+    display: block;
+    font-size: 0.75rem;
+    transform: scale(0.85);
+    transform-origin: center;
     
     th, td {
-      padding: 10px 8px;
-      font-size: 0.8rem;
+      padding: 8px 4px;
+      font-size: 0.7rem;
+      white-space: nowrap;
     }
     
     th {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
+      padding: 10px 4px;
     }
     
     td {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     
     .score {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 `;
