@@ -261,6 +261,8 @@ button {
     overflow: visible !important;
     padding-left: 8px !important;
     padding-right: 8px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
   }
   
   .latest-score-section table {
@@ -285,6 +287,15 @@ button {
   .latest-score-section table th {
     font-size: 0.75rem !important;
     padding: 10px 4px !important;
+  }
+  
+  /* 최신 내신 성과 섹션 제목 여백 최소화 */
+  .latest-score-section h2,
+  .latest-score-section .section-title {
+    margin-top: 5px !important;
+    margin-bottom: 8px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
   
   /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */
