@@ -258,12 +258,27 @@ button {
     justify-content: center !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    overflow: visible !important;
   }
   
   .latest-score-section table {
+    width: auto !important;
+    max-width: 90% !important;
     margin: 0 auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    display: table !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .latest-score-section table th,
+  .latest-score-section table td {
+    padding: 10px 8px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .latest-score-section table th {
+    font-size: 0.85rem !important;
   }
   
   /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */

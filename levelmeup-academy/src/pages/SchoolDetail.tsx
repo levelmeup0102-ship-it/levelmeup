@@ -99,6 +99,31 @@ const AchievementTable = styled.table`
     font-weight: bold;
     font-size: 1.1rem;
   }
+  
+  @media (max-width: 768px) {
+    width: auto;
+    max-width: 90%;
+    margin: 0 auto 20px auto;
+    display: table;
+    font-size: 0.85rem;
+    
+    th, td {
+      padding: 10px 8px;
+      font-size: 0.8rem;
+    }
+    
+    th {
+      font-size: 0.85rem;
+    }
+    
+    td {
+      font-size: 0.8rem;
+    }
+    
+    .score {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 const CollegeAdmissionsSection = styled.div`
