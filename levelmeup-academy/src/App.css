@@ -326,7 +326,7 @@ button {
   .section-title,
   .latest-results-title,
   .results-title {
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
     padding-bottom: 0 !important;
   }
   
@@ -335,6 +335,7 @@ button {
   .latest-results,
   .results-section,
   .latest-score-section {
-    padding-top: 10px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
   }
 }

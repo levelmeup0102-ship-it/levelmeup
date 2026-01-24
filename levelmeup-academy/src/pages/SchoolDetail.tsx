@@ -44,8 +44,8 @@ const Section = styled.section`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    padding: 20px 12px;
-    margin-bottom: 25px;
+    padding: 16px 8px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -56,7 +56,7 @@ const SectionTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 `;
 
