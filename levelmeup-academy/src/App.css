@@ -265,4 +265,38 @@ button {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  
+  /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */
+  /* ContentGrid 컨테이너를 flexbox로 변경하여 카드 중앙 정렬 */
+  div[class*="ContentGrid"],
+  div[class*="SummaryGrid"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+  
+  /* 개별 카드/SummaryCard 중앙 정렬 */
+  div[class*="ContentCard"],
+  div[class*="SummaryCard"] {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* 합격이야기 탭 - 23학년도 합격실적표 중앙 정렬 (모바일 전용) */
+  /* YearSection 컨테이너 중앙 정렬 */
+  section[class*="YearSection"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  /* RecordTable 중앙 정렬 */
+  table[class*="RecordTable"] {
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
