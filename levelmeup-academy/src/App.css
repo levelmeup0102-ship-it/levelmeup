@@ -320,4 +320,21 @@ button {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  
+  /* 최신 내신 성과 제목과 표 사이 여백 축소 */
+  h2,
+  .section-title,
+  .latest-results-title,
+  .results-title {
+    margin-bottom: 12px !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Section 상단 패딩도 축소 */
+  section,
+  .latest-results,
+  .results-section,
+  .latest-score-section {
+    padding-top: 10px !important;
+  }
 }

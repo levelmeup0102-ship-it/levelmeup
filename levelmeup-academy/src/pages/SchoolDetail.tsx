@@ -53,6 +53,11 @@ const SectionTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 30px;
   color: #1a1a1a;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
 `;
 
 const AchievementTable = styled.table`
