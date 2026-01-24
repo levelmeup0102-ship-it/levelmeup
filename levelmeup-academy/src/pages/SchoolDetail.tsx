@@ -8,7 +8,7 @@ const PageWrapper = styled.div`
   padding: 40px 20px;
   
   @media (max-width: 768px) {
-    padding: 20px 12px;
+    padding: 10px 8px;
   }
 `;
 
@@ -44,8 +44,9 @@ const Section = styled.section`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    padding: 16px 8px;
-    margin-bottom: 20px;
+    padding: 8px 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
   }
 `;
 
@@ -56,7 +57,9 @@ const SectionTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    margin-bottom: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0;
   }
 `;
 
