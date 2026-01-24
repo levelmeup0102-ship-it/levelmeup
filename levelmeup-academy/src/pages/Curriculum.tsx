@@ -282,6 +282,12 @@ const DiagramContainer = styled.div`
   @media (max-width: 1200px) {
     flex-direction: column;
   }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    overflow-x: visible;
+  }
 `;
 
 const DiagramRow = styled.div`
@@ -291,6 +297,11 @@ const DiagramRow = styled.div`
   gap: 15px;
   flex-wrap: wrap;
   width: 100%;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 const ProcessBox = styled.div<{ primary?: boolean }>`
@@ -314,7 +325,9 @@ const ProcessBox = styled.div<{ primary?: boolean }>`
   @media (max-width: 768px) {
     font-size: 0.85rem;
     padding: 14px 20px;
-    min-width: 120px;
+    min-width: 200px;
+    width: 100%;
+    max-width: 280px;
   }
 `;
 
@@ -325,7 +338,8 @@ const Arrow = styled.div`
   line-height: 1;
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    transform: rotate(90deg);
   }
 `;
 
