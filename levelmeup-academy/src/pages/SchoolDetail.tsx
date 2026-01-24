@@ -2997,7 +2997,7 @@ const SchoolDetail: React.FC = () => {
 
       {/* 4.5. 최근 내신 결과 - Only for High Schools (moved before Learning Flow) */}
       {school.achievements.length > 0 && isHighSchool && (
-        <Section>
+        <Section className="latest-score-section">
           <SectionTitle>최신 내신 성과</SectionTitle>
           <AchievementTable>
             <thead>

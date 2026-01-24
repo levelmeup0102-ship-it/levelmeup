@@ -248,4 +248,21 @@ button {
     width: max-content;
     max-width: none;
   }
+  
+  /* 최근 내신 성과 섹션 중앙 정렬 (모바일 전용) */
+  .latest-score-section {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .latest-score-section table {
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
