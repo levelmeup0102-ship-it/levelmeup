@@ -289,13 +289,10 @@ button {
     padding: 10px 4px !important;
   }
   
-  /* 최신 내신 성과 섹션 제목 여백 최소화 */
+  /* 최신 내신 성과 섹션 제목과 표 사이 여백만 축소 */
   .latest-score-section h2,
   .latest-score-section .section-title {
-    margin-top: 5px !important;
-    margin-bottom: 8px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin-bottom: 3px !important;
   }
   
   /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */
