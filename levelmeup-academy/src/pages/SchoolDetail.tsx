@@ -59,9 +59,9 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 1.5rem;
     margin-top: 0;
-    margin-bottom: 3px;
+    margin-bottom: 0;
     padding: 0;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 `;
 
@@ -73,6 +73,11 @@ const AchievementTable = styled.table`
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   margin-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    margin-top: 0;
+    padding-top: 0;
+  }
   
   thead {
     background: #17B7A6;
