@@ -44,9 +44,10 @@ const Section = styled.section`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    padding: 6px 8px 8px 8px;
+    padding: 2px 8px 8px 8px;
     margin-bottom: 15px;
     border-radius: 8px;
+    margin-top: 0;
   }
 `;
 

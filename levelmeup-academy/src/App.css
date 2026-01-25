@@ -302,9 +302,17 @@ button {
     padding-top: 0 !important;
   }
   
-  /* 최신 내신 성과 섹션 자체의 상단 패딩 추가 축소 */
+  /* 최신 내신 성과 섹션 자체의 상단 패딩 완전 제거 */
   .latest-score-section {
-    padding-top: 4px !important;
+    padding-top: 2px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  /* 최신 내신 성과 섹션 상단 마진도 제거 */
+  section.latest-score-section,
+  div.latest-score-section {
+    margin-top: 0 !important;
+    padding-top: 2px !important;
   }
   
   /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */
