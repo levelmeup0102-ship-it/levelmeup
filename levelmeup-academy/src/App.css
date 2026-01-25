@@ -304,15 +304,31 @@ button {
   
   /* 최신 내신 성과 섹션 자체의 상단 패딩 완전 제거 */
   .latest-score-section {
-    padding-top: 2px !important;
+    padding-top: 0 !important;
     padding-bottom: 8px !important;
+    margin-top: 0 !important;
   }
   
   /* 최신 내신 성과 섹션 상단 마진도 제거 */
   section.latest-score-section,
   div.latest-score-section {
     margin-top: 0 !important;
-    padding-top: 2px !important;
+    padding-top: 0 !important;
+  }
+  
+  /* 최신 내신 성과 섹션 바로 앞 요소의 하단 마진 제거 */
+  div + section.latest-score-section,
+  section + section.latest-score-section {
+    margin-top: 0 !important;
+  }
+  
+  /* 최신 내신 성과 바로 앞에 오는 요소의 하단 마진 제거 */
+  section.latest-score-section:not(:first-child) {
+    margin-top: 0 !important;
+  }
+  
+  *:has(+ section.latest-score-section) {
+    margin-bottom: 0 !important;
   }
   
   /* 학원소식 탭 카드 중앙 정렬 (모바일 전용) */

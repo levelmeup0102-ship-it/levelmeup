@@ -167,6 +167,10 @@ const AchievementTable = styled.table`
 
 const CollegeAdmissionsSection = styled.div`
   margin-bottom: 50px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 const CollegeTitle = styled.h3`
