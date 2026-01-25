@@ -134,7 +134,7 @@ const TableWrapper = styled.div`
     }
     
     &::-webkit-scrollbar-thumb:hover {
-      background: ${colors.green.dark};
+      background: ${colors.green.hover};
     }
   }
 `;
@@ -153,7 +153,7 @@ const ScrollHint = styled.div`
     border-radius: 8px;
     margin-bottom: 12px;
     font-size: 0.85rem;
-    color: ${colors.green.dark};
+    color: ${colors.green.hover};
     animation: pulse 2s ease-in-out infinite;
     
     &::before {
