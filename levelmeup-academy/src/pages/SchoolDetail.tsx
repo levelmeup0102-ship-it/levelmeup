@@ -48,6 +48,12 @@ const Section = styled.section`
     margin-bottom: 15px;
     border-radius: 8px;
     margin-top: 0;
+    
+    /* 최신 내신 성과 섹션은 상단 패딩 완전 제거 */
+    &.latest-score-section {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
   }
 `;
 
@@ -58,10 +64,15 @@ const SectionTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0;
-    line-height: 1.1;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+    
+    /* 바로 다음에 오는 table 요소의 상단 여백 제거 */
+    & + table {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
   }
 `;
 
