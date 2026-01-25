@@ -109,6 +109,7 @@ const SectionTitle = styled.h2`
 
 const TableWrapper = styled.div`
   width: 100%;
+  position: relative;
   
   @media (max-width: 768px) {
     width: 100%;
@@ -116,6 +117,83 @@ const TableWrapper = styled.div`
     -webkit-overflow-scrolling: touch;
     margin: 0 -16px;
     padding: 0 16px;
+    
+    /* 스크롤바 스타일 */
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: ${colors.green.primary};
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: ${colors.green.dark};
+    }
+  }
+`;
+
+const ScrollHint = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, ${colors.green.primary}15, ${colors.green.light}15);
+    border: 1px solid ${colors.green.primary}30;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: ${colors.green.dark};
+    animation: pulse 2s ease-in-out infinite;
+    
+    &::before {
+      content: '←';
+      font-size: 1.2rem;
+      animation: slideLeft 1.5s ease-in-out infinite;
+    }
+    
+    &::after {
+      content: '→';
+      font-size: 1.2rem;
+      animation: slideRight 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideLeft {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-4px);
+      }
+    }
+    
+    @keyframes slideRight {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(4px);
+      }
+    }
   }
 `;
 
@@ -418,6 +496,7 @@ const TimeTablePage: React.FC = () => {
       {subjectData && (
         <ContentSection>
           <SectionTitle>{subjectData.title}</SectionTitle>
+          <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
           <TableWrapper>
             <ClassTable>
               <thead>
