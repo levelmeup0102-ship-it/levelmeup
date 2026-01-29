@@ -49,6 +49,10 @@ const Section = styled.section`
     margin-bottom: 15px;
     border-radius: 8px;
     margin-top: 0;
+    
+    &.latest-score-block {
+      padding: 4px 8px !important;
+    }
   }
 `;
 
@@ -60,6 +64,11 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    
+    .latest-score-block & {
+      margin-bottom: 4px !important;
+      padding-bottom: 0 !important;
+    }
   }
 `;
 
