@@ -300,9 +300,9 @@ button {
   
   /* 최신 내신 성과 섹션 제목과 표 사이 여백만 축소 */
   .latest-score-section h2 {
-    margin: 0 0 2px !important;
+    margin: 0 !important;
     padding: 0 !important;
-    line-height: 1.1 !important;
+    line-height: 1 !important;
   }
   
   /* 제목 바로 다음에 오는 표 위 간격 제거 */
