@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { colors } from '../theme';
 
 const PageWrapper = styled.div`
   max-width: 1200px;
