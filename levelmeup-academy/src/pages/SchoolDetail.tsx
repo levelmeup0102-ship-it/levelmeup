@@ -3267,7 +3267,7 @@ const SchoolDetail: React.FC = () => {
             to="/consulting"
             style={{
               display: 'inline-block',
-              background: '${colors.green.primary}',
+              background: colors.green.primary,
               color: 'white',
               padding: '15px 40px',
               borderRadius: '50px',
@@ -3276,8 +3276,8 @@ const SchoolDetail: React.FC = () => {
               boxShadow: '0 4px 15px rgba(46, 74, 111, 0.3)',
               transition: 'all 0.3s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.background = '${colors.green.hover}'}
-            onMouseLeave={(e) => e.currentTarget.style.background = '${colors.green.primary}'}
+            onMouseEnter={(e) => e.currentTarget.style.background = colors.green.hover}
+            onMouseLeave={(e) => e.currentTarget.style.background = colors.green.primary}
           >
             무료 상담 신청하기
           </Link>
