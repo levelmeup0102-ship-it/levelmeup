@@ -50,8 +50,9 @@ const Section = styled.section`
     margin-top: 0;
     
     /* 최신 내신 성과 섹션은 상단 패딩 완전 제거 */
-    &.latest-score-section {
-      padding-top: 0 !important;
+    &.latest-score-block {
+      padding: 0 8px 8px 8px !important;
+      margin-top: 0 !important;
       margin-top: 0 !important;
     }
   }
@@ -66,12 +67,20 @@ const SectionTitle = styled.h2`
     font-size: 1.5rem;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1.1 !important;
+    line-height: 1.0 !important;
     
     /* 바로 다음에 오는 table 요소의 상단 여백 제거 */
     & + table {
       margin-top: 0 !important;
       padding-top: 0 !important;
+    }
+  }
+  
+  /* latest-score-block 내에서는 아래 여백도 완전 제거 */
+  .latest-score-block & {
+    @media (max-width: 768px) {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
     }
   }
 `;
@@ -86,8 +95,17 @@ const AchievementTable = styled.table`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    margin-top: 0;
-    padding-top: 0;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  
+  /* latest-score-block 내에서는 상단 여백 완전 제거 */
+  .latest-score-block & {
+    @media (max-width: 768px) {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
   }
   
   thead {

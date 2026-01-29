@@ -302,9 +302,9 @@ button {
   /* latest-score-block 클래스가 있는 섹션만 타겟팅 */
   
   .latest-score-block {
-    padding-top: 0 !important;
-    padding-bottom: 8px !important;
+    padding: 0 8px 8px 8px !important;
     margin-top: 0 !important;
+    padding-top: 0 !important;
   }
   
   /* 제목(h2) 모든 여백 제거 */
@@ -312,7 +312,8 @@ button {
   .latest-score-block .section-title {
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important;
+    line-height: 1.0 !important;
+    margin-bottom: 0 !important;
   }
   
   /* 제목 다음 모든 요소의 상단 여백 제거 */
@@ -346,6 +347,12 @@ button {
   
   .latest-score-block > *:not(:first-child) {
     padding-top: 0 !important;
+  }
+  
+  /* 최신 내신 성과 앞 요소(대학 합격 실적)의 하단 여백 제거 */
+  div:has(+ .latest-score-block) {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
   
   /* 최신 내신 성과 섹션 바로 앞 요소의 하단 마진 제거 */
