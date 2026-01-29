@@ -86,6 +86,15 @@ button {
   padding: 0 20px;
 }
 
+/* PC에서는 스크롤 힌트 숨김 */
+@media (min-width: 769px) {
+  .scroll-cue,
+  .nav-scroll-hint,
+  .scroll-indicator::after {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   /* 0) 모바일 가로폭 계산 꼬임 방지 */
   html, body {
@@ -387,26 +396,96 @@ button {
     margin-bottom: 5px !important;
   }
   
-  /* 스크롤 힌트 (아래 화살표) */
+  /* 스크롤 힌트 (아래 화살표) - 더 눈에 띄게 개선 */
   .scroll-cue {
     position: fixed;
     left: 50%;
-    bottom: 18px;
+    bottom: 20px;
     transform: translateX(-50%);
     z-index: 9999;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.85);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-    animation: bounce 1.2s infinite;
+    background: rgba(23, 183, 166, 0.95);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(23, 183, 166, 0.4);
+    animation: bounce-pulse 2s infinite;
     pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .scroll-cue::before {
+    content: '↓';
+    font-size: 18px;
+    animation: arrow-bounce 1s infinite;
+    display: inline-block;
   }
 
-  @keyframes bounce {
+  @keyframes bounce-pulse {
     0%, 100% { 
-      transform: translateX(-50%) translateY(0); 
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    25% {
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 0.9;
     }
     50% { 
-      transform: translateX(-50%) translateY(-8px); 
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
+  }
+  
+  @keyframes arrow-bounce {
+    0%, 100% { 
+      transform: translateY(0);
+    }
+    50% { 
+      transform: translateY(3px);
+    }
+  }
+  
+  /* 상단 네비게이션에 스크롤 힌트 */
+  .nav-scroll-hint {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 8px 0;
+    background: linear-gradient(to bottom, rgba(23, 183, 166, 0.1), transparent);
+    color: rgba(23, 183, 166, 0.9);
+    font-size: 12px;
+    font-weight: 500;
+    animation: fade-in-out 3s infinite;
+  }
+  
+  @keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  /* 섹션 사이에 스크롤 구분선 */
+  .scroll-indicator {
+    position: relative;
+  }
+  
+  .scroll-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #17B7A6, transparent);
+    border-radius: 2px;
+    opacity: 0.3;
   }
 }
