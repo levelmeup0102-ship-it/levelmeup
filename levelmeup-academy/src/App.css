@@ -498,4 +498,21 @@ button {
     border-radius: 2px;
     opacity: 0.3;
   }
+  
+  /* 학교 탭 - 최신 내신 성과 섹션: 제목과 표 사이 간격 최소화 (모바일 전용) */
+  .latest-score-block {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  .latest-score-block h2 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+  
+  .latest-score-block table {
+    margin-top: 0 !important;
+  }
 }

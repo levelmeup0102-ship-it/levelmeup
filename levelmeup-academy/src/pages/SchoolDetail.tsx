@@ -45,7 +45,7 @@ const Section = styled.section`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    padding: 2px 8px 8px 8px;
+    padding: 8px;
     margin-bottom: 15px;
     border-radius: 8px;
     margin-top: 0;
@@ -59,9 +59,7 @@ const SectionTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1.0 !important;
+    margin-bottom: 10px;
   }
 `;
 
@@ -75,8 +73,6 @@ const AchievementTable = styled.table`
   margin-bottom: 40px;
   
   @media (max-width: 768px) {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
   
