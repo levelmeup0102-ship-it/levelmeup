@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 
 const PageWrapper = styled.div`
   max-width: 1200px;
@@ -41,19 +42,21 @@ const TabContainer = styled.div`
 `;
 
 interface TabProps {
-  active: boolean;
+  $active: boolean;
 }
 
-const Tab = styled.button<TabProps>`
+const Tab = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== '$active',
+})<TabProps>`
   padding: 15px 40px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 3px solid ${(props) => props.active ? '#17B7A6' : '#ddd'};
-  background: ${(props) => props.active ? '#17B7A6' : 'white'};
-  color: ${(props) => props.active ? 'white' : '#666'};
+  border: 3px solid ${(props) => props.$active ? '#17B7A6' : '#ddd'};
+  background: ${(props) => props.$active ? '#17B7A6' : 'white'};
+  color: ${(props) => props.$active ? 'white' : '#666'};
   position: relative;
   overflow: hidden;
   
@@ -74,10 +77,10 @@ const Tab = styled.button<TabProps>`
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 25px rgba(23, 183, 166, 0.3);
     border-color: #17B7A6;
-    background: ${(props) => props.active 
+    background: ${(props) => props.$active 
       ? '#17B7A6' 
       : 'rgba(23, 183, 166, 0.1)'};
-    color: ${(props) => props.active ? 'white' : '#17B7A6'};
+    color: ${(props) => props.$active ? 'white' : '#17B7A6'};
     
     &::before {
       width: 300px;
@@ -300,10 +303,10 @@ const Gallery: React.FC = () => {
       <PageSubtitle>레벨미업 학원의 수업과 학습과정을 소개합니다</PageSubtitle>
 
       <TabContainer>
-        <Tab active={activeTab === 'event'} onClick={() => setActiveTab('event')}>
+        <Tab $active={activeTab === 'event'} onClick={() => setActiveTab('event')}>
           학습 이벤트
         </Tab>
-        <Tab active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
+        <Tab $active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
           학습시스템
         </Tab>
       </TabContainer>

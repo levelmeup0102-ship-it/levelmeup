@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import isPropValid from '@emotion/is-prop-valid';
 
 const riseUp = keyframes`
   from {
@@ -303,7 +304,9 @@ const TabList = styled.div`
   margin-bottom: 50px;
 `;
 
-const Tab = styled.button<{ $active: boolean }>`
+const Tab = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== '$active',
+})<{ $active: boolean }>`
   flex: 1;
   padding: 20px 32px;
   background: ${props => props.$active 
