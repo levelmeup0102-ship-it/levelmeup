@@ -49,28 +49,6 @@ const Section = styled.section`
     margin-bottom: 15px;
     border-radius: 8px;
     margin-top: 0;
-    
-    /* 최신 내신 성과 섹션 전용 */
-    &.latest-score-block {
-      padding: 0 8px 2px 8px !important;
-      margin-top: 0 !important;
-      
-      /* 제목(h2) - 높이 최소화 */
-      > h2 {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1.0 !important;
-        display: block;
-        height: auto;
-        min-height: 0;
-      }
-      
-      /* 표를 음수 마진으로 위로 끌어올려 제목과 붙이기 */
-      > table {
-        margin-top: -4px !important;
-        padding-top: 0 !important;
-      }
-    }
   }
 `;
 
