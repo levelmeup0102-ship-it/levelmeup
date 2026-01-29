@@ -19,7 +19,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: #17B7A6;
+    background: ${colors.green.primary};
     margin: 20px auto;
     border-radius: 2px;
   }
@@ -49,12 +49,12 @@ const ContactSection = styled.div`
 `;
 
 const ContactCard = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.20) 100%);
-  border: 2px solid #17B7A6;
+  background: ${gradients.consultingNavy};
+  border: 2px solid ${colors.green.primary};
   padding: 30px 25px;
   border-radius: 30px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
+  box-shadow: 0 4px 20px rgba(46, 74, 111, 0.15);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -64,8 +64,8 @@ const ContactCard = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(23, 183, 166, 0.35);
-    background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.30) 100%);
+    box-shadow: 0 8px 30px rgba(46, 74, 111, 0.25);
+    background: ${gradients.consultingNavyHover};
   }
   
   @media (max-width: 768px) {
@@ -75,13 +75,13 @@ const ContactCard = styled.div`
 `;
 
 const PhoneSection = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, rgba(23, 183, 166, 0.20) 100%);
-  border: 2px solid #17B7A6;
+  background: ${gradients.consultingNavy};
+  border: 2px solid ${colors.green.primary};
   padding: 30px 40px;
   border-radius: 30px;
   text-align: center;
   margin-bottom: 40px;
-  box-shadow: 0 4px 20px rgba(23, 183, 166, 0.2);
+  box-shadow: 0 4px 20px rgba(46, 74, 111, 0.15);
   
   @media (max-width: 768px) {
     padding: 25px 20px;
@@ -115,7 +115,7 @@ const PhoneNumberContainer = styled.div`
 `;
 
 const PhoneNumber = styled.a`
-  color: #17B7A6;
+  color: ${colors.green.primary};
   font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
@@ -126,7 +126,7 @@ const PhoneNumber = styled.a`
   padding: 2px 4px;
   
   &:hover {
-    color: #0E8F86;
+    color: ${colors.green.hover};
     text-decoration: underline;
   }
   
@@ -221,10 +221,10 @@ const CardDescription = styled.p`
 `;
 
 const InfoSection = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(23, 183, 166, 0.03) 100%);
+  background: ${gradients.consultingNavyLight};
   padding: 40px;
   border-radius: 15px;
-  border-left: 5px solid #17B7A6;
+  border-left: 5px solid ${colors.green.primary};
   margin-bottom: 50px;
   
   @media (max-width: 768px) {

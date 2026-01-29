@@ -203,14 +203,14 @@ const UtilityRight = styled.div`
     align-items: center;
     gap: 6px;
     padding: 6px 16px;
-    background: rgba(23, 183, 166, 0.15);
-    color: #17B7A6;
+    background: ${colors.green.lightBg};
+    color: ${colors.green.primary};
     text-decoration: none;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 1px solid rgba(23, 183, 166, 0.3);
+    border: 1px solid rgba(46, 74, 111, 0.3);
     
     svg {
       width: 14px;
@@ -218,8 +218,8 @@ const UtilityRight = styled.div`
     }
     
     &:hover {
-      background: rgba(23, 183, 166, 0.25);
-      border-color: rgba(23, 183, 166, 0.5);
+      background: rgba(46, 74, 111, 0.25);
+      border-color: rgba(46, 74, 111, 0.5);
       transform: translateY(-1px);
     }
   }
@@ -428,13 +428,13 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
       left: 14px;
       right: 14px;
       height: 2px;
-      background: #17B7A6;
+      background: ${colors.green.primary};
       border-radius: 2px;
     }
   `}
   
   &:hover {
-    background: rgba(23, 183, 166, 0.1);
+    background: ${colors.green.lightBg};
   }
   
   @media (max-width: 968px) {
@@ -446,7 +446,7 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
     text-align: left;
     border-radius: ${props => props.$isActive ? '11px' : '8px'};
     font-weight: ${props => props.$isActive ? '600' : '500'};
-    background: ${props => props.$isActive ? 'rgba(23, 183, 166, 0.2)' : 'transparent'};
+    background: ${props => props.$isActive ? colors.green.lightBg : 'transparent'};
     border: ${props => props.$isActive ? '1px solid rgba(23, 183, 166, 0.3)' : '1px solid transparent'};
     
     &:hover {

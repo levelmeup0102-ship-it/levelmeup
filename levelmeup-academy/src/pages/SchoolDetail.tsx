@@ -23,7 +23,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: #17B7A6;
+    background: ${colors.green.primary};
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -109,7 +109,7 @@ const AchievementTable = styled.table`
   }
   
   thead {
-    background: #17B7A6;
+    background: ${colors.green.primary};
     color: white;
   }
   
@@ -142,13 +142,13 @@ const AchievementTable = styled.table`
   }
   
   .highlight {
-    background: rgba(23, 183, 166, 0.1);
+    background: rgba(46, 74, 111, 0.1);
     font-weight: bold;
-    color: #17B7A6;
+    color: ${colors.green.primary};
   }
   
   .score {
-    color: #17B7A6;
+    color: ${colors.green.primary};
     font-weight: bold;
     font-size: 1.1rem;
   }
@@ -233,14 +233,14 @@ const CollegeCard = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 24px rgba(23, 183, 166, 0.15);
-    border-color: #17B7A6;
+    box-shadow: 0 6px 24px rgba(46, 74, 111, 0.15);
+    border-color: ${colors.green.primary};
   }
 `;
 
 const UniversityName = styled.h4`
   font-size: 1.2rem;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   margin-bottom: 10px;
   font-weight: bold;
 `;
@@ -255,7 +255,7 @@ const BackButton = styled.button`
   display: inline-block;
   margin-bottom: 30px;
   padding: 12px 30px;
-  background: #17B7A6;
+  background: ${colors.green.primary};
   color: white;
   text-decoration: none;
   border-radius: 25px;
@@ -266,9 +266,9 @@ const BackButton = styled.button`
   font-size: 1rem;
   
   &:hover {
-    background: #0E8F86;
+    background: ${colors.green.hover};
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(23, 183, 166, 0.3);
+    box-shadow: 0 6px 20px rgba(46, 74, 111, 0.3);
   }
 `;
 
@@ -276,13 +276,13 @@ const InfoBox = styled.div`
   background: #f8f9fa;
   padding: 25px;
   border-radius: 10px;
-  border-left: 5px solid #17B7A6;
+  border-left: 5px solid ${colors.green.primary};
   margin-bottom: 30px;
   
   h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #17B7A6;
+    color: ${colors.green.primary};
   }
   
   p {
@@ -298,7 +298,7 @@ const LearningFlowSection = styled.section`
   padding: 50px 40px;
   border-radius: 20px;
   margin-bottom: 60px;
-  border: 2px solid rgba(23, 183, 166, 0.1);
+  border: 2px solid rgba(46, 74, 111, 0.1);
   
   @media (max-width: 768px) {
     padding: 25px 12px;
@@ -340,7 +340,7 @@ const FlowStep = styled.div`
   border-radius: 15px;
   padding: 30px 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 2px solid rgba(23, 183, 166, 0.15);
+  border: 2px solid rgba(46, 74, 111, 0.15);
   position: relative;
   transition: all 0.3s ease;
   display: flex;
@@ -350,8 +350,8 @@ const FlowStep = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.2);
-    border-color: #17B7A6;
+    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.2);
+    border-color: ${colors.green.primary};
   }
   
   &::after {
@@ -361,7 +361,7 @@ const FlowStep = styled.div`
     top: 50%;
     transform: translateY(-50%);
     font-size: 2rem;
-    color: #17B7A6;
+    color: ${colors.green.primary};
     font-weight: 300;
     
     @media (max-width: 968px) {
@@ -386,7 +386,7 @@ const FlowStep = styled.div`
 const StepNumber = styled.div`
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%);
+  background: linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.green.hover} 100%);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -395,12 +395,12 @@ const StepNumber = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(23, 183, 166, 0.3);
+  box-shadow: 0 4px 10px rgba(46, 74, 111, 0.3);
 `;
 
 const StepTitle = styled.h3`
   font-size: 1.1rem;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   font-weight: 700;
   margin-bottom: 15px;
   line-height: 1.3;
@@ -436,7 +436,7 @@ const StepIcon = styled.div`
 const TopTagline = styled.p`
   text-align: center;
   font-size: 1rem;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   font-weight: 600;
   margin-bottom: 20px;
   letter-spacing: 0.3px;
@@ -449,7 +449,7 @@ const SchoolOneLiner = styled.div`
   margin: 30px auto;
   padding: 25px 30px;
   background: linear-gradient(135deg, #f8fffe 0%, #ffffff 100%);
-  border-left: 4px solid #17B7A6;
+  border-left: 4px solid ${colors.green.primary};
   border-radius: 8px;
   max-width: 800px;
   line-height: 1.6;
@@ -505,8 +505,8 @@ const ManagementCard = styled.div`
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.15);
-    border-color: #17B7A6;
+    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.15);
+    border-color: ${colors.green.primary};
   }
 `;
 
@@ -517,7 +517,7 @@ const ManagementIcon = styled.div`
 
 const ManagementCardTitle = styled.h3`
   font-size: 1.1rem;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   font-weight: 700;
   margin-bottom: 12px;
   line-height: 1.4;
@@ -623,7 +623,7 @@ const ProcessFlow = styled.div`
     left: 8%;
     right: 8%;
     height: 2px;
-    background: linear-gradient(90deg, #17B7A6 0%, #0B1B2A 100%);
+    background: linear-gradient(90deg, ${colors.green.primary} 0%, #0B1B2A 100%);
     z-index: 0;
   }
   
@@ -666,7 +666,7 @@ const MiddleStepIcon = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #17B7A6 0%, #14A090 100%);
+  background: linear-gradient(135deg, ${colors.green.primary} 0%, #14A090 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -674,7 +674,7 @@ const MiddleStepIcon = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 15px;
-  box-shadow: 0 4px 15px rgba(23, 183, 166, 0.3);
+  box-shadow: 0 4px 15px rgba(46, 74, 111, 0.3);
   border: 3px solid white;
   
   @media (max-width: 768px) {
@@ -711,7 +711,7 @@ const CurriculumDescription = styled.p`
   padding: 30px;
   background: white;
   border-radius: 12px;
-  border-left: 4px solid #17B7A6;
+  border-left: 4px solid ${colors.green.primary};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   
   @media (max-width: 768px) {
@@ -3295,17 +3295,17 @@ const SchoolDetail: React.FC = () => {
             to="/consulting"
             style={{
               display: 'inline-block',
-              background: '#17B7A6',
+              background: '${colors.green.primary}',
               color: 'white',
               padding: '15px 40px',
               borderRadius: '50px',
               fontWeight: 'bold',
               textDecoration: 'none',
-              boxShadow: '0 4px 15px rgba(23, 183, 166, 0.3)',
+              boxShadow: '0 4px 15px rgba(46, 74, 111, 0.3)',
               transition: 'all 0.3s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.background = '#0E8F86'}
-            onMouseLeave={(e) => e.currentTarget.style.background = '#17B7A6'}
+            onMouseEnter={(e) => e.currentTarget.style.background = '${colors.green.hover}'}
+            onMouseLeave={(e) => e.currentTarget.style.background = '${colors.green.primary}'}
           >
             무료 상담 신청하기
           </Link>

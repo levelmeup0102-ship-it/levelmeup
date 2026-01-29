@@ -520,7 +520,7 @@ const MainHeadline = styled.h2`
     display: block;
     width: 60px;
     height: 2px;
-    background: #17B7A6;
+    background: ${colors.green.primary};
     margin: 16px auto 0;
     border-radius: 2px;
   }
@@ -539,7 +539,7 @@ const MainHeadline = styled.h2`
 const SubHeadline = styled.p`
   font-size: 1.1rem;
   font-weight: 500;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   margin: 20px 0 0;
   letter-spacing: 0.2px;
   
@@ -569,7 +569,7 @@ const SchoolsSection = styled.div<{ $variant?: 'high' | 'middle' }>`
 const SchoolsTitleLabel = styled.div`
   font-size: 0.85rem;
   font-weight: 600;
-  color: #17B7A6;
+  color: ${colors.green.primary};
   text-align: center;
   margin-bottom: 8px;
   letter-spacing: 1.5px;
@@ -634,9 +634,9 @@ const SchoolBadge = styled(Link)`
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(23, 183, 166, 0.15);
-    border-color: #17B7A6;
-    color: #17B7A6;
+    box-shadow: 0 8px 20px rgba(46, 74, 111, 0.15);
+    border-color: ${colors.green.primary};
+    color: ${colors.green.primary};
   }
   
   @media (max-width: 768px) {

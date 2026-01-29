@@ -11,12 +11,12 @@ export const colors = {
     medium: '#2D2D2D',    // 중간 차콜
   },
   
-  // 포인트 색 1: 딥 틸(청록) - 버튼, CTA, 클릭 요소
+  // 포인트 색 1: 네이비 블루 - 버튼, CTA, 클릭 요소
   green: {
-    primary: '#18B7A6',   // 딥 틸 메인 컬러
-    hover: '#0E8F86',     // 호버 시 더 진한 틸
-    light: '#2DD4C1',     // 밝은 틸
-    lightBg: 'rgba(24, 183, 166, 0.15)', // 반투명 배경
+    primary: '#2E4A6F',   // 네이비 블루 메인 컬러 (채도 낮춤)
+    hover: '#1E3A5F',     // 호버 시 더 진한 네이비
+    light: '#3E5A7F',     // 밝은 네이비
+    lightBg: 'rgba(46, 74, 111, 0.15)', // 반투명 배경
   },
   
   // 포인트 색 2: 로고의 빨간색 (M) - 성과 숫자, 제한적 강조
@@ -55,4 +55,8 @@ export const gradients = {
   charcoal: `linear-gradient(135deg, ${colors.charcoal.dark} 0%, ${colors.charcoal.medium} 100%)`,
   greenButton: `linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.green.hover} 100%)`,
   greenOrange: `linear-gradient(135deg, ${colors.green.primary} 0%, ${colors.orange.primary} 100%)`,
+  // 상담 페이지용 부드러운 네이비 그라데이션 (채도 낮춤, 명도 차이만)
+  consultingNavy: `linear-gradient(135deg, #F8F9FB 0%, rgba(46, 74, 111, 0.12) 100%)`,
+  consultingNavyHover: `linear-gradient(135deg, #F8F9FB 0%, rgba(46, 74, 111, 0.18) 100%)`,
+  consultingNavyLight: `linear-gradient(135deg, rgba(46, 74, 111, 0.05) 0%, rgba(46, 74, 111, 0.03) 100%)`,
 };
