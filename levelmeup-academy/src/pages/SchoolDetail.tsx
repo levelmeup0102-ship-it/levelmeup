@@ -64,11 +64,6 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    
-    .latest-score-block & {
-      margin-bottom: 4px !important;
-      padding-bottom: 0 !important;
-    }
   }
 `;
 
