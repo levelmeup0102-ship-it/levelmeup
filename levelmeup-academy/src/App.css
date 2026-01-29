@@ -501,20 +501,24 @@ button {
   
   /* 학교 탭 - 최신 내신 성과 섹션: 제목과 표 사이 간격 최소화 (모바일 전용) */
   section.latest-score-block {
-    padding: 4px 8px !important;
+    padding: 2px 8px 0 8px !important;
     margin-top: 0 !important;
+    margin-bottom: 15px !important;
   }
   
   .latest-score-block > h2,
-  section.latest-score-block > h2 {
+  section.latest-score-block > h2,
+  section.latest-score-block h2 {
     margin: 0 !important;
     padding: 0 !important;
+    padding-bottom: 2px !important;
     line-height: 1.1 !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 0 !important;
   }
   
   .latest-score-block > table,
-  section.latest-score-block > table {
+  section.latest-score-block > table,
+  section.latest-score-block table {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
