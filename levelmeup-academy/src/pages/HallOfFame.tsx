@@ -25,7 +25,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: #17B7A6;
+    background: #2E4A6F;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -149,7 +149,7 @@ const SchoolItem = styled.div`
 
 const SchoolName = styled.span`
   font-weight: 700;
-  color: #17B7A6;
+  color: #2E4A6F;
   white-space: nowrap;
   margin-right: 0;
   flex-shrink: 0;
@@ -171,7 +171,7 @@ const SchoolCount = styled.span`
 const TestimonialSection = styled.section`
   margin: 80px 0;
   padding: 60px 0;
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(52, 73, 94, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(46, 74, 111, 0.05) 0%, rgba(52, 73, 94, 0.05) 100%);
   border-radius: 20px;
 `;
 
@@ -219,8 +219,8 @@ const TestimonialCard = styled.div`
   
   &:hover {
     transform: translateY(-8px);
-    border-color: #17B7A6;
-    box-shadow: 0 12px 35px rgba(23, 183, 166, 0.15);
+    border-color: #2E4A6F;
+    box-shadow: 0 12px 35px rgba(46, 74, 111, 0.15);
   }
 `;
 
@@ -236,7 +236,7 @@ const UniversityLogo = styled.div<{ $logoUrl?: string }>`
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: ${props => props.$logoUrl ? `url(${props.$logoUrl}) center/cover` : 'linear-gradient(135deg, #17B7A6 0%, #0E8F86 100%)'};
+  background: ${props => props.$logoUrl ? `url(${props.$logoUrl}) center/cover` : 'linear-gradient(135deg, #2E4A6F 0%, #1E3A5F 100%)'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,7 +299,7 @@ const TestimonialQuote = styled.blockquote`
     left: 0;
     top: -5px;
     font-size: 2.5rem;
-    color: #17B7A6;
+    color: #2E4A6F;
     font-family: Georgia, serif;
     line-height: 1;
     opacity: 0.5;
@@ -313,7 +313,7 @@ const TestimonialButton = styled.a`
   gap: 6px;
   padding: 10px 18px;
   background: transparent;
-  color: #17B7A6;
+  color: #2E4A6F;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   text-decoration: none;
@@ -323,9 +323,9 @@ const TestimonialButton = styled.a`
   margin-top: auto;
   
   &:hover {
-    background: #17B7A6;
+    background: #2E4A6F;
     color: white;
-    border-color: #17B7A6;
+    border-color: #2E4A6F;
     transform: translateX(3px);
   }
   

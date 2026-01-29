@@ -20,7 +20,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: #17B7A6;
+    background: #2E4A6F;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -54,8 +54,8 @@ const Tab = styled('button', {
   font-weight: bold;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 3px solid ${(props) => props.$active ? '#17B7A6' : '#ddd'};
-  background: ${(props) => props.$active ? '#17B7A6' : 'white'};
+  border: 3px solid ${(props) => props.$active ? '#2E4A6F' : '#ddd'};
+  background: ${(props) => props.$active ? '#2E4A6F' : 'white'};
   color: ${(props) => props.$active ? 'white' : '#666'};
   position: relative;
   overflow: hidden;
@@ -75,12 +75,12 @@ const Tab = styled('button', {
   
   &:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.3);
-    border-color: #17B7A6;
+    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.3);
+    border-color: #2E4A6F;
     background: ${(props) => props.$active 
-      ? '#17B7A6' 
-      : 'rgba(23, 183, 166, 0.1)'};
-    color: ${(props) => props.$active ? 'white' : '#17B7A6'};
+      ? '#2E4A6F' 
+      : 'rgba(46, 74, 111, 0.1)'};
+    color: ${(props) => props.$active ? 'white' : '#2E4A6F'};
     
     &::before {
       width: 300px;
@@ -111,7 +111,7 @@ const GalleryCard = styled.div`
     left: 0;
     right: 0;
     height: 4px;
-    background: #17B7A6;
+    background: #2E4A6F;
     transform: scaleX(0);
     transition: transform 0.4s ease;
   }
@@ -337,7 +337,7 @@ const Gallery: React.FC = () => {
           rel="noopener noreferrer"
           style={{
             display: 'inline-block',
-            background: '#17B7A6',
+            background: '#2E4A6F',
             color: 'white',
             padding: '15px 40px',
             borderRadius: '50px',

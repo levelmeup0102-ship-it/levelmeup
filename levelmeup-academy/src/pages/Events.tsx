@@ -25,7 +25,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(135deg, #17B7A6 0%, #1DD1BE 100%);
+    background: linear-gradient(135deg, #2E4A6F 0%, #1DD1BE 100%);
     margin: 20px auto;
     border-radius: 2px;
   }
@@ -230,14 +230,14 @@ const CardButton = styled(Link)`
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
+    box-shadow: 0 4px 12px rgba(46, 74, 111, 0.3);
   }
 `;
 
 const ExternalButton = styled.a`
   display: block;
   width: 100%;
-  background: linear-gradient(135deg, #17B7A6 0%, #1DD1BE 100%);
+  background: linear-gradient(135deg, #2E4A6F 0%, #1DD1BE 100%);
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -249,7 +249,7 @@ const ExternalButton = styled.a`
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
+    box-shadow: 0 4px 12px rgba(46, 74, 111, 0.3);
   }
 `;
 

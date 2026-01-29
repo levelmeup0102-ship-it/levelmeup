@@ -24,7 +24,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: #17B7A6;
+    background: #2E4A6F;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -50,7 +50,7 @@ const MainTab = styled.button<{ active: boolean }>`
   padding: 15px 25px;
   background: ${props => props.active ? 'white' : 'transparent'};
   border: none;
-  border-bottom: 3px solid ${props => props.active ? '#17B7A6' : 'transparent'};
+  border-bottom: 3px solid ${props => props.active ? '#2E4A6F' : 'transparent'};
   font-size: 1.05rem;
   font-weight: ${props => props.active ? '700' : '500'};
   color: ${props => props.active ? colors.green.primary : '#666'};
@@ -162,7 +162,7 @@ const ClassTable = styled.table`
   margin-top: 20px;
   
   thead {
-    background: #17B7A6;
+    background: #2E4A6F;
     color: white;
     
     th {
@@ -217,8 +217,8 @@ const ClassTable = styled.table`
 `;
 
 const CommonSystemSection = styled.div`
-  background: linear-gradient(135deg, rgba(23, 183, 166, 0.05) 0%, rgba(23, 183, 166, 0.03) 100%);
-  border: 1px solid rgba(23, 183, 166, 0.15);
+  background: linear-gradient(135deg, rgba(46, 74, 111, 0.05) 0%, rgba(46, 74, 111, 0.03) 100%);
+  border: 1px solid rgba(46, 74, 111, 0.15);
   border-radius: 12px;
   padding: 30px 40px;
   margin-bottom: 50px;

@@ -228,7 +228,7 @@ const SubTitle = styled.p`
 const AccentLine = styled.div`
   width: 150px;
   height: 4px;
-  background: #17B7A6;
+  background: #2E4A6F;
   margin: 0 auto;
   border-radius: 2px;
   animation: ${riseUp} 1s ease-out 0.5s backwards;
@@ -238,7 +238,7 @@ const AccentLine = styled.div`
 
 const AchievementSection = styled.section`
   padding: 60px 20px;
-  background: rgba(23, 183, 166, 0.03);
+  background: rgba(46, 74, 111, 0.03);
 `;
 
 const AchievementContainer = styled.div`
@@ -263,14 +263,14 @@ const AchievementCard = styled.div`
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
-  border: 2px solid rgba(23, 183, 166, 0.15);
+  border: 2px solid rgba(46, 74, 111, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 24px rgba(23, 183, 166, 0.12);
-    border-color: #17B7A6;
+    box-shadow: 0 6px 24px rgba(46, 74, 111, 0.12);
+    border-color: #2E4A6F;
   }
   
   .number {
@@ -310,22 +310,22 @@ const Tab = styled('button', {
   flex: 1;
   padding: 20px 32px;
   background: ${props => props.$active 
-    ? 'rgba(23, 183, 166, 0.08)'
+    ? 'rgba(46, 74, 111, 0.08)'
     : 'none'};
   border: none;
   font-size: 1.25rem;
   font-weight: ${props => props.$active ? '700' : '500'};
-  color: ${props => props.$active ? '#17B7A6' : '#888'};
-  border-bottom: ${props => props.$active ? `4px solid #17B7A6` : '2px solid transparent'};
+  color: ${props => props.$active ? '#2E4A6F' : '#888'};
+  border-bottom: ${props => props.$active ? `4px solid #2E4A6F` : '2px solid transparent'};
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
   border-radius: ${props => props.$active ? '8px 8px 0 0' : '0'};
-  box-shadow: ${props => props.$active ? '0 -2px 10px rgba(23, 183, 166, 0.1)' : 'none'};
+  box-shadow: ${props => props.$active ? '0 -2px 10px rgba(46, 74, 111, 0.1)' : 'none'};
   
   &:hover {
-    color: #17B7A6;
-    background: rgba(23, 183, 166, 0.05);
+    color: #2E4A6F;
+    background: rgba(46, 74, 111, 0.05);
     transform: translateY(-2px);
   }
   
@@ -357,7 +357,7 @@ const IntroSubtitle = styled.p`
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0.3px;
-  color: #17B7A6;
+  color: #2E4A6F;
   margin-bottom: 28px;
   line-height: 1.6;
   font-style: italic;
@@ -375,7 +375,7 @@ const IntroParagraph = styled.p`
   
   strong {
     font-weight: 700;
-    color: #17B7A6;
+    color: #2E4A6F;
   }
   
   @media (max-width: 768px) {
@@ -386,7 +386,7 @@ const IntroParagraph = styled.p`
 const IntroQuote = styled.p`
   font-size: 1.25rem;
   font-weight: 700;
-  color: #17B7A6;
+  color: #2E4A6F;
   margin: 28px 0;
   line-height: 1.6;
   
@@ -408,7 +408,7 @@ const FacilityItem = styled.li`
   
   &:hover {
     padding-left: 10px;
-    border-left: 3px solid #17B7A6;
+    border-left: 3px solid #2E4A6F;
   }
   
   &:last-child {
@@ -437,7 +437,7 @@ const LocationInfo = styled.div`
   padding: 18px 24px;
   background: #fafafa;
   border-radius: 8px;
-  border-left: 4px solid #17B7A6;
+  border-left: 4px solid #2E4A6F;
   transition: all 0.3s;
   
   &:hover {
@@ -509,7 +509,7 @@ const FacilityCard = styled.div`
     top: 0;
     bottom: 0;
     width: 4px;
-    background: #17B7A6;
+    background: #2E4A6F;
     border-top-left-radius: 24px;
     border-bottom-left-radius: 24px;
   }
@@ -692,7 +692,7 @@ const SNSSectionTitle = styled.h3`
     display: block;
     width: 60px;
     height: 4px;
-    background: #17B7A6;
+    background: #2E4A6F;
     margin: 15px auto 0;
     border-radius: 2px;
   }
@@ -788,7 +788,7 @@ const SNSDescription = styled.p`
 
 const SNSButton = styled.span`
   font-size: 0.95rem;
-  color: #17B7A6;
+  color: #2E4A6F;
   font-weight: 600;
   transition: color 0.2s ease;
   
@@ -979,7 +979,7 @@ const About: React.FC = () => {
                   style={{ 
                     display: 'inline-block',
                     padding: '14px 28px',
-                    background: '#17B7A6',
+                    background: '#2E4A6F',
                     color: 'white',
                     textDecoration: 'none',
                     borderRadius: '8px',
@@ -987,17 +987,17 @@ const About: React.FC = () => {
                     fontWeight: '600',
                     fontSize: '1rem',
                     transition: 'all 0.2s',
-                    boxShadow: '0 4px 12px rgba(23, 183, 166, 0.25)'
+                    boxShadow: '0 4px 12px rgba(46, 74, 111, 0.25)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(23, 183, 166, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(46, 74, 111, 0.35)';
                     e.currentTarget.style.background = '#0E8F84';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(23, 183, 166, 0.25)';
-                    e.currentTarget.style.background = '#17B7A6';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(46, 74, 111, 0.25)';
+                    e.currentTarget.style.background = '#2E4A6F';
                   }}
                 >
                   🗺️ 네이버 지도
@@ -1009,7 +1009,7 @@ const About: React.FC = () => {
                   style={{ 
                     display: 'inline-block',
                     padding: '14px 28px',
-                    background: '#17B7A6',
+                    background: '#2E4A6F',
                     color: 'white',
                     textDecoration: 'none',
                     borderRadius: '8px',
@@ -1017,17 +1017,17 @@ const About: React.FC = () => {
                     fontWeight: '600',
                     fontSize: '1rem',
                     transition: 'all 0.2s',
-                    boxShadow: '0 4px 12px rgba(23, 183, 166, 0.25)'
+                    boxShadow: '0 4px 12px rgba(46, 74, 111, 0.25)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(23, 183, 166, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(46, 74, 111, 0.35)';
                     e.currentTarget.style.background = '#0E8F84';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(23, 183, 166, 0.25)';
-                    e.currentTarget.style.background = '#17B7A6';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(46, 74, 111, 0.25)';
+                    e.currentTarget.style.background = '#2E4A6F';
                   }}
                 >
                   🗺️ 카카오맵
