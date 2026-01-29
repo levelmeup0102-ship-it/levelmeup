@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { colors, gradients } from '../theme';
+import isPropValid from '@emotion/is-prop-valid';
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -353,7 +354,9 @@ const LogoText = styled.span`
   }
 `;
 
-const Nav = styled.nav<{ isOpen: boolean }>`
+const Nav = styled('nav', {
+  shouldForwardProp: (prop) => prop !== 'isOpen',
+})<{ isOpen: boolean }>`
   display: flex;
   justify-content: center;
   flex: 0 1 auto;
@@ -404,7 +407,9 @@ const MenuItemWrapper = styled.div`
   }
 `;
 
-const NavLink = styled(Link)<{ $isActive: boolean }>`
+const NavLink = styled(Link, {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== '$isActive',
+})<{ $isActive: boolean }>`
   color: ${colors.text.primary};
   text-decoration: none;
   font-weight: ${props => props.$isActive ? '700' : '600'};
@@ -456,7 +461,9 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   }
 `;
 
-const DropdownMenu = styled.div<{ show: boolean }>`
+const DropdownMenu = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'show',
+})<{ show: boolean }>`
   display: ${props => props.show ? 'block' : 'none'};
   position: absolute;
   top: 100%;
