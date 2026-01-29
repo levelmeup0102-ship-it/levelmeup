@@ -50,11 +50,22 @@ const Section = styled.section`
     border-radius: 8px;
     margin-top: 0;
     
-    /* 최신 내신 성과 섹션은 상단 패딩 완전 제거 */
+    /* 최신 내신 성과 섹션 전용 */
     &.latest-score-block {
-      padding: 0 8px 8px 8px !important;
+      padding: 0 8px 2px 8px !important;
       margin-top: 0 !important;
-      margin-top: 0 !important;
+      
+      /* 제목(h2)과 표(table) 사이 간격 완전 제거 */
+      > h2 {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      
+      /* 표를 위로 당겨서 제목과 붙이기 */
+      > table {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
     }
   }
 `;
