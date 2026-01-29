@@ -350,13 +350,13 @@ const ContactInfo = styled.div`
   padding: 35px 40px;
   border-radius: 15px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #17B7A6;
+  border-left: 5px solid #2E4A6F;
   margin-bottom: 30px;
   text-align: left;
   
   h3 {
     font-size: 1.4rem;
-    color: #17B7A6;
+    color: #2E4A6F;
     margin-bottom: 20px;
     font-weight: 700;
   }
@@ -385,7 +385,7 @@ const ContactInfo = styled.div`
 
 const CTAButton = styled(Link)`
   display: inline-block;
-  background: #17B7A6;
+  background: #2E4A6F;
   color: white;
   padding: 18px 45px;
   border-radius: 50px;
@@ -398,7 +398,7 @@ const CTAButton = styled(Link)`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(23, 183, 166, 0.4);
-    background: #0E8F86;
+    background: #1E3A5F;
   }
   
   @media (max-width: 768px) {

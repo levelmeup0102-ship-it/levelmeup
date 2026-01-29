@@ -49,7 +49,7 @@ const FacilityNumber = styled.div`
   display: inline-block;
   width: 60px;
   height: 60px;
-  background: #17B7A6;
+  background: #2E4A6F;
   color: white;
   border-radius: 50%;
   display: flex;

@@ -336,7 +336,7 @@ const SNSSectionTitle = styled.h3`
     display: block;
     width: 60px;
     height: 4px;
-    background: #17B7A6;
+    background: #2E4A6F;
     margin: 15px auto 0;
     border-radius: 2px;
   }
@@ -374,7 +374,7 @@ const SNSCard = styled.a`
     background: #FAFBFC;
     
     span {
-      color: #0E8F84;
+      color: #1E3A5F;
     }
   }
 `;
@@ -415,7 +415,7 @@ const SNSDescription = styled.p`
 
 const SNSButton = styled.span`
   font-size: 0.95rem;
-  color: #17B7A6;
+  color: #2E4A6F;
   font-weight: 600;
   transition: color 0.2s ease;
 `;

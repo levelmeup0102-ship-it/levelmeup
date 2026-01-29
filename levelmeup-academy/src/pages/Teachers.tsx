@@ -77,7 +77,7 @@ const Tab = styled.button<{ $active: boolean }>`
   white-space: nowrap;
   
   &:hover {
-    background: ${props => props.$active ? '#0E8F86' : '#e8e8e8'};
+    background: ${props => props.$active ? '#1E3A5F' : '#e8e8e8'};
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
   }

@@ -374,13 +374,13 @@ const ContactInfo = styled.div`
   padding: 35px 40px;
   border-radius: 15px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #17B7A6;
+  border-left: 5px solid #2E4A6F;
   margin-bottom: 30px;
   text-align: left;
   
   h3 {
     font-size: 1.4rem;
-    color: #17B7A6;
+    color: #2E4A6F;
     margin-bottom: 20px;
     font-weight: 700;
   }
@@ -416,22 +416,22 @@ const ButtonGroup = styled.div`
 
 const CTAButton = styled(Link)<{ primary?: boolean }>`
   display: inline-block;
-  background: ${props => props.primary ? '#17B7A6' : 'white'};
+  background: ${props => props.primary ? '#2E4A6F' : 'white'};
   color: ${props => props.primary ? 'white' : '#333'};
   padding: 18px 45px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
-  border: 2px solid ${props => props.primary ? '#17B7A6' : '#e0e0e0'};
+  border: 2px solid ${props => props.primary ? '#2E4A6F' : '#e0e0e0'};
   transition: all 0.3s;
   box-shadow: 0 4px 15px ${props => props.primary ? 'rgba(23, 183, 166, 0.3)' : 'rgba(0, 0, 0, 0.1)'};
   
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px ${props => props.primary ? 'rgba(23, 183, 166, 0.4)' : 'rgba(23, 183, 166, 0.25)'};
-    background: ${props => props.primary ? '#0E8F86' : '#f8f9fa'};
-    border-color: #17B7A6;
+    background: ${props => props.primary ? '#1E3A5F' : '#f8f9fa'};
+    border-color: #2E4A6F;
   }
   
   @media (max-width: 768px) {

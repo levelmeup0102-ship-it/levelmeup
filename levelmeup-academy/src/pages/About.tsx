@@ -734,7 +734,7 @@ const SNSCard = styled.a`
     background: #FAFBFC;
     
     span {
-      color: #0E8F84;
+      color: #1E3A5F;
     }
   }
   
@@ -992,7 +992,7 @@ const About: React.FC = () => {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
                     e.currentTarget.style.boxShadow = '0 6px 16px rgba(46, 74, 111, 0.35)';
-                    e.currentTarget.style.background = '#0E8F84';
+                    e.currentTarget.style.background = '#1E3A5F';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
@@ -1022,7 +1022,7 @@ const About: React.FC = () => {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
                     e.currentTarget.style.boxShadow = '0 6px 16px rgba(46, 74, 111, 0.35)';
-                    e.currentTarget.style.background = '#0E8F84';
+                    e.currentTarget.style.background = '#1E3A5F';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
