@@ -808,6 +808,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </Copyright>
         </FooterContainer>
       </Footer>
+      
+      {/* 모바일 스크롤 힌트 */}
+      <div className="scroll-cue">↓</div>
     </LayoutWrapper>
   );
 };
