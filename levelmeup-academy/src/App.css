@@ -305,27 +305,29 @@ button {
     padding: 0 8px 2px 8px !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
-    
-    /* Section 내부의 모든 요소 간 간격 제거 */
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
   }
   
-  /* 제목(h2) 모든 여백 제거 */
+  /* 제목(h2) 모든 여백 제거 + 높이 최소화 */
   .latest-score-block h2,
   .latest-score-block .section-title {
     margin: 0 !important;
     padding: 0 !important;
     line-height: 1.0 !important;
-    margin-bottom: 0 !important;
-    flex-shrink: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+  }
+  
+  /* 표를 음수 마진으로 제목 쪽으로 당기기 */
+  .latest-score-block h2 + table,
+  .latest-score-block .section-title + table {
+    margin-top: -4px !important;
+    padding-top: 0 !important;
   }
   
   /* 제목 다음 모든 요소의 상단 여백 제거 */
   .latest-score-block h2 + *,
   .latest-score-block .section-title + * {
-    margin-top: 0 !important;
     padding-top: 0 !important;
   }
   
@@ -340,11 +342,10 @@ button {
     row-gap: 0 !important;
   }
   
-  /* 표(table) 상단 여백 완전 제거 */
+  /* 표(table) 상단 여백 음수 적용 */
   .latest-score-block table {
-    margin-top: 0 !important;
+    margin-top: -4px !important;
     padding-top: 0 !important;
-    flex-shrink: 0 !important;
   }
   
   /* 블록 내부 모든 자식의 상단 여백 제거 */
@@ -354,7 +355,7 @@ button {
   
   .latest-score-block > *:not(:first-child) {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -4px !important;
   }
   
   /* 최신 내신 성과 앞 요소(대학 합격 실적)의 하단 여백 제거 */

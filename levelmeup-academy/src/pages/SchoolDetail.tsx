@@ -55,15 +55,19 @@ const Section = styled.section`
       padding: 0 8px 2px 8px !important;
       margin-top: 0 !important;
       
-      /* 제목(h2)과 표(table) 사이 간격 완전 제거 */
+      /* 제목(h2) - 높이 최소화 */
       > h2 {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.0 !important;
+        display: block;
+        height: auto;
+        min-height: 0;
       }
       
-      /* 표를 위로 당겨서 제목과 붙이기 */
+      /* 표를 음수 마진으로 위로 끌어올려 제목과 붙이기 */
       > table {
-        margin-top: 0 !important;
+        margin-top: -4px !important;
         padding-top: 0 !important;
       }
     }
