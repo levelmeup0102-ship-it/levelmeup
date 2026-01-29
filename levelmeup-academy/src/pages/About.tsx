@@ -732,6 +732,10 @@ const SNSCard = styled.a`
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     border-color: #E0E2E6;
     background: #FAFBFC;
+    
+    span {
+      color: #0E8F84;
+    }
   }
   
   @media (max-width: 768px) {
@@ -787,10 +791,6 @@ const SNSButton = styled.span`
   color: #17B7A6;
   font-weight: 600;
   transition: color 0.2s ease;
-  
-  ${SNSCard}:hover & {
-    color: #0E8F84;
-  }
   
   @media (max-width: 768px) {
     font-size: 0.9rem;
