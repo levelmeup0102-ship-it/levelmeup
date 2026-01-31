@@ -499,9 +499,9 @@ button {
     opacity: 0.3;
   }
   
-  /* 학교 탭 - 최신 내신 성과 섹션: 제목과 표 사이 간격 최소화 (모바일 전용) */
+  /* 학교 탭 - 최신 내신 성과 섹션: 제목과 표 사이 간격 조정 (모바일 전용) */
   section.latest-score-block {
-    padding: 0 8px !important;
+    padding: 8px !important;
     margin-top: 0 !important;
     margin-bottom: 15px !important;
   }
@@ -512,8 +512,8 @@ button {
     margin: 0 !important;
     padding: 0 !important;
     padding-bottom: 0 !important;
-    line-height: 1.2 !important;
-    margin-bottom: -8px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
   }
   
   .latest-score-block > table,
