@@ -432,12 +432,12 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
       { name: '[중흥중2]', day: '금' }
     ],
     수학: [
-      { name: 'A반', day: '월/수/금', time: '20:45-22:15' },
-      { name: 'B반', day: '화/목/토', time: '20:45-22:15' }
+      { name: 'A반', day: '월/수/금' },
+      { name: 'B반', day: '화/목/토' }
     ],
     영어: [
-      { name: 'Intermediate A반', day: '월/수', time: '19:00-20:30' },
-      { name: 'Intermediate B반', day: '화/목', time: '20:45-22:15' }
+      { name: 'Intermediate A반', day: '월/수' },
+      { name: 'Intermediate B반', day: '화/목' }
     ]
   },
   '중3': {
@@ -445,12 +445,12 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
       { name: '[중흥중3]', day: '토' }
     ],
     수학: [
-      { name: 'A반', day: '월/수/금', time: '17:00-18:30' },
-      { name: 'B반', day: '화/목/토', time: '17:00-18:30' }
+      { name: 'A반', day: '월/수/금' },
+      { name: 'B반', day: '화/목/토' }
     ],
     영어: [
-      { name: 'Advanced A반', day: '월/수', time: '20:45-22:15' },
-      { name: 'Advanced B반', day: '화/목', time: '17:00-18:30' }
+      { name: 'Advanced A반', day: '월/수' },
+      { name: 'Advanced B반', day: '화/목' }
     ]
   }
 };
@@ -585,7 +585,7 @@ const TimeTablePage: React.FC = () => {
                   <tr>
                     <th>개설반</th>
                     <th>요일</th>
-                    {middleSchoolSubject !== '국어' && <th>시간</th>}
+                    {middleSchoolGrade === '중1' && middleSchoolSubject !== '국어' && <th>시간</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -593,7 +593,7 @@ const TimeTablePage: React.FC = () => {
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.day}</td>
-                      {middleSchoolSubject !== '국어' && <td>{classInfo.time}</td>}
+                      {middleSchoolGrade === '중1' && middleSchoolSubject !== '국어' && <td>{classInfo.time}</td>}
                     </tr>
                   ))}
                 </tbody>
