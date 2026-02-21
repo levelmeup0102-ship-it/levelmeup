@@ -314,7 +314,12 @@ interface ClassInfo {
 
 type MainTab = '고등부' | '중등부';
 type HighSchoolGrade = '고1' | '고2' | '고3';
-type MiddleSchoolSubject = '수학' | '영어';
+type MiddleSchoolGrade = '중1' | '중2' | '중3';
+
+interface MiddleSchoolData {
+  수학: ClassInfo[];
+  영어: ClassInfo[];
+}
 
 // 26-1학기 고등부 시간표 데이터 (2026년 기준)
 const highSchoolTimetable: Record<HighSchoolGrade, ClassInfo[]> = {
@@ -388,30 +393,44 @@ const highSchoolTimetable: Record<HighSchoolGrade, ClassInfo[]> = {
   ]
 };
 
-// 중등부 시간표 데이터
-const middleSchoolTimetable = {
-  '수학': [
-    { name: '중1 A반', grade: '중1', day: '월/수/금', time: '19:00-20:30', teacher: '김수학', status: '확정' },
-    { name: '중1 B반', grade: '중1', day: '화/목/토', time: '19:00-20:30', teacher: '김수학', status: '확정' },
-    { name: '중2 A반', grade: '중2', day: '월/수/금', time: '20:45-22:15', teacher: '이수학', status: '확정' },
-    { name: '중2 B반', grade: '중2', day: '화/목/토', time: '20:45-22:15', teacher: '이수학', status: '확정' },
-    { name: '중3 A반', grade: '중3', day: '월/수/금', time: '17:00-18:30', teacher: '박수학', status: '확정' },
-    { name: '중3 B반', grade: '중3', day: '화/목/토', time: '17:00-18:30', teacher: '박수학', status: '확정' }
-  ],
-  '영어': [
-    { name: 'Starter A반', grade: '중1', day: '화/목', time: '19:00-20:30', teacher: 'Chris', status: '확정' },
-    { name: 'Starter B반', grade: '중1', day: '수/금', time: '19:00-20:30', teacher: 'Sarah', status: '확정' },
-    { name: 'Intermediate A반', grade: '중2', day: '월/수', time: '19:00-20:30', teacher: 'Michael', status: '확정' },
-    { name: 'Intermediate B반', grade: '중2', day: '화/목', time: '20:45-22:15', teacher: 'Jessica', status: '확정' },
-    { name: 'Advanced A반', grade: '중3', day: '월/수', time: '20:45-22:15', teacher: 'David', status: '확정' },
-    { name: 'Advanced B반', grade: '중3', day: '화/목', time: '17:00-18:30', teacher: 'Emma', status: '확정' }
-  ]
+// 중등부 시간표 데이터 - 학년별로 구조화
+const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
+  '중1': {
+    수학: [
+      { name: 'A반', day: '월/수/금', time: '19:00-20:30', status: '확정' },
+      { name: 'B반', day: '화/목/토', time: '19:00-20:30', status: '확정' }
+    ],
+    영어: [
+      { name: 'Starter A반', day: '화/목', time: '19:00-20:30', status: '확정' },
+      { name: 'Starter B반', day: '수/금', time: '19:00-20:30', status: '확정' }
+    ]
+  },
+  '중2': {
+    수학: [
+      { name: 'A반', day: '월/수/금', time: '20:45-22:15', status: '확정' },
+      { name: 'B반', day: '화/목/토', time: '20:45-22:15', status: '확정' }
+    ],
+    영어: [
+      { name: 'Intermediate A반', day: '월/수', time: '19:00-20:30', status: '확정' },
+      { name: 'Intermediate B반', day: '화/목', time: '20:45-22:15', status: '확정' }
+    ]
+  },
+  '중3': {
+    수학: [
+      { name: 'A반', day: '월/수/금', time: '17:00-18:30', status: '확정' },
+      { name: 'B반', day: '화/목/토', time: '17:00-18:30', status: '확정' }
+    ],
+    영어: [
+      { name: 'Advanced A반', day: '월/수', time: '20:45-22:15', status: '확정' },
+      { name: 'Advanced B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+    ]
+  }
 };
 
 const TimeTablePage: React.FC = () => {
   const [mainTab, setMainTab] = useState<MainTab>('고등부');
   const [highSchoolGrade, setHighSchoolGrade] = useState<HighSchoolGrade>('고1');
-  const [middleSchoolSubject, setMiddleSchoolSubject] = useState<MiddleSchoolSubject>('수학');
+  const [middleSchoolGrade, setMiddleSchoolGrade] = useState<MiddleSchoolGrade>('중1');
 
   return (
     <PageWrapper>
@@ -476,37 +495,65 @@ const TimeTablePage: React.FC = () => {
       {mainTab === '중등부' && (
         <>
           <SubTabContainer>
-            <SubTab active={middleSchoolSubject === '수학'} onClick={() => setMiddleSchoolSubject('수학')}>
-              수학
+            <SubTab active={middleSchoolGrade === '중1'} onClick={() => setMiddleSchoolGrade('중1')}>
+              중1
             </SubTab>
-            <SubTab active={middleSchoolSubject === '영어'} onClick={() => setMiddleSchoolSubject('영어')}>
-              영어
+            <SubTab active={middleSchoolGrade === '중2'} onClick={() => setMiddleSchoolGrade('중2')}>
+              중2
+            </SubTab>
+            <SubTab active={middleSchoolGrade === '중3'} onClick={() => setMiddleSchoolGrade('중3')}>
+              중3
             </SubTab>
           </SubTabContainer>
 
+          {/* 수학 섹션 */}
           <ContentSection>
-            <SectionTitle>중등 {middleSchoolSubject} 개설 수업</SectionTitle>
+            <SectionTitle>{middleSchoolGrade} 수학</SectionTitle>
             <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
             <TableWrapper>
               <ClassTable>
                 <thead>
                   <tr>
                     <th>개설반</th>
-                    <th>학년</th>
                     <th>요일</th>
                     <th>시간</th>
-                    <th>강사</th>
                     <th>상태</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {middleSchoolTimetable[middleSchoolSubject].map((classInfo, index) => (
+                  {middleSchoolTimetable[middleSchoolGrade].수학.map((classInfo, index) => (
                     <tr key={index}>
                       <td>{classInfo.name}</td>
-                      <td>{classInfo.grade}</td>
                       <td>{classInfo.day}</td>
                       <td>{classInfo.time}</td>
-                      <td>{classInfo.teacher}</td>
+                      <td>{classInfo.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </ClassTable>
+            </TableWrapper>
+          </ContentSection>
+
+          {/* 영어 섹션 */}
+          <ContentSection>
+            <SectionTitle>{middleSchoolGrade} 영어</SectionTitle>
+            <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
+            <TableWrapper>
+              <ClassTable>
+                <thead>
+                  <tr>
+                    <th>개설반</th>
+                    <th>요일</th>
+                    <th>시간</th>
+                    <th>상태</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {middleSchoolTimetable[middleSchoolGrade].영어.map((classInfo, index) => (
+                    <tr key={index}>
+                      <td>{classInfo.name}</td>
+                      <td>{classInfo.day}</td>
+                      <td>{classInfo.time}</td>
                       <td>{classInfo.status}</td>
                     </tr>
                   ))}
