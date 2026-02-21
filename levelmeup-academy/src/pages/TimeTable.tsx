@@ -449,6 +449,7 @@ const TimeTablePage: React.FC = () => {
   const [highSchoolGrade, setHighSchoolGrade] = useState<HighSchoolGrade>('고1');
   const [highSchoolSubject, setHighSchoolSubject] = useState<keyof SubjectData>('국어');
   const [middleSchoolGrade, setMiddleSchoolGrade] = useState<MiddleSchoolGrade>('중1');
+  const [middleSchoolSubject, setMiddleSchoolSubject] = useState<keyof MiddleSchoolData>('수학');
 
   // 고등부 선택된 학년의 과목 목록 가져오기
   const availableSubjects = Object.keys(highSchoolTimetable[highSchoolGrade]) as (keyof SubjectData)[];
@@ -537,6 +538,7 @@ const TimeTablePage: React.FC = () => {
       {/* 중등부 */}
       {mainTab === '중등부' && (
         <>
+          {/* 학년 선택 */}
           <SubTabContainer>
             <SubTab active={middleSchoolGrade === '중1'} onClick={() => setMiddleSchoolGrade('중1')}>
               중1
@@ -549,37 +551,19 @@ const TimeTablePage: React.FC = () => {
             </SubTab>
           </SubTabContainer>
 
-          {/* 수학 섹션 */}
-          <ContentSection>
-            <SectionTitle>{middleSchoolGrade} 수학</SectionTitle>
-            <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
-            <TableWrapper>
-              <ClassTable>
-                <thead>
-                  <tr>
-                    <th>개설반</th>
-                    <th>요일</th>
-                    <th>시간</th>
-                    <th>상태</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {middleSchoolTimetable[middleSchoolGrade].수학.map((classInfo, index) => (
-                    <tr key={index}>
-                      <td>{classInfo.name}</td>
-                      <td>{classInfo.day}</td>
-                      <td>{classInfo.time}</td>
-                      <td>{classInfo.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </ClassTable>
-            </TableWrapper>
-          </ContentSection>
+          {/* 과목 선택 */}
+          <SubTabContainer>
+            <SubTab active={middleSchoolSubject === '수학'} onClick={() => setMiddleSchoolSubject('수학')}>
+              수학
+            </SubTab>
+            <SubTab active={middleSchoolSubject === '영어'} onClick={() => setMiddleSchoolSubject('영어')}>
+              영어
+            </SubTab>
+          </SubTabContainer>
 
-          {/* 영어 섹션 */}
+          {/* 선택된 과목 시간표 */}
           <ContentSection>
-            <SectionTitle>{middleSchoolGrade} 영어</SectionTitle>
+            <SectionTitle>{middleSchoolGrade} {middleSchoolSubject}</SectionTitle>
             <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
             <TableWrapper>
               <ClassTable>
@@ -592,7 +576,7 @@ const TimeTablePage: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {middleSchoolTimetable[middleSchoolGrade].영어.map((classInfo, index) => (
+                  {middleSchoolTimetable[middleSchoolGrade][middleSchoolSubject].map((classInfo, index) => (
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.day}</td>
