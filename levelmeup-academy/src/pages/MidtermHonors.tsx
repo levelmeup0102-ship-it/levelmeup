@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
 const HeroSection = styled.div`
   text-align: center;
   margin-bottom: 60px;
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: linear-gradient(135deg, #2E4A6F 0%, #1a3a52 100%);
   border-radius: 20px;
   position: relative;
@@ -45,34 +45,34 @@ const HeroSection = styled.div`
   }
   
   @media (max-width: 768px) {
-    padding: 50px 20px;
+    padding: 40px 20px;
   }
 `;
 
 const MainTitle = styled.h1`
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 800;
   position: relative;
   z-index: 1;
   letter-spacing: -1px;
   
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-weight: 600;
   position: relative;
   z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -82,11 +82,11 @@ const DateBadge = styled.div`
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
-  padding: 12px 40px;
+  padding: 10px 35px;
   border-radius: 50px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-top: 25px;
+  margin-top: 20px;
   position: relative;
   z-index: 1;
   transition: all 0.3s;
@@ -98,8 +98,8 @@ const DateBadge = styled.div`
   }
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    padding: 10px 30px;
+    font-size: 1rem;
+    padding: 8px 25px;
   }
 `;
 
