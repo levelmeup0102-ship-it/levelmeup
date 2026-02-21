@@ -415,42 +415,42 @@ const highSchoolTimetable: Record<HighSchoolGrade, SubjectData> = {
 const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   '중1': {
     국어: [
-      { name: '중등기초반 (중1)', day: '금', time: '17:00-18:30', status: '확정' }
+      { name: '중등기초반 (중1)', day: '금', time: '17:00-18:30' }
     ],
     수학: [
-      { name: 'A반', day: '월/수/금', time: '19:00-20:30', status: '확정' },
-      { name: 'B반', day: '화/목/토', time: '19:00-20:30', status: '확정' }
+      { name: 'A반', day: '월/수/금', time: '19:00-20:30' },
+      { name: 'B반', day: '화/목/토', time: '19:00-20:30' }
     ],
     영어: [
-      { name: 'Starter A반', day: '화/목', time: '19:00-20:30', status: '확정' },
-      { name: 'Starter B반', day: '수/금', time: '19:00-20:30', status: '확정' }
+      { name: 'Starter A반', day: '화/목', time: '19:00-20:30' },
+      { name: 'Starter B반', day: '수/금', time: '19:00-20:30' }
     ]
   },
   '중2': {
     국어: [
-      { name: '[계남중2]', day: '금', time: '17:00-18:30', status: '확정' },
-      { name: '[중흥중2]', day: '금', time: '20:45-22:15', status: '확정' }
+      { name: '[계남중2]', day: '금', time: '17:00-18:30' },
+      { name: '[중흥중2]', day: '금', time: '20:45-22:15' }
     ],
     수학: [
-      { name: 'A반', day: '월/수/금', time: '20:45-22:15', status: '확정' },
-      { name: 'B반', day: '화/목/토', time: '20:45-22:15', status: '확정' }
+      { name: 'A반', day: '월/수/금', time: '20:45-22:15' },
+      { name: 'B반', day: '화/목/토', time: '20:45-22:15' }
     ],
     영어: [
-      { name: 'Intermediate A반', day: '월/수', time: '19:00-20:30', status: '확정' },
-      { name: 'Intermediate B반', day: '화/목', time: '20:45-22:15', status: '확정' }
+      { name: 'Intermediate A반', day: '월/수', time: '19:00-20:30' },
+      { name: 'Intermediate B반', day: '화/목', time: '20:45-22:15' }
     ]
   },
   '중3': {
     국어: [
-      { name: '[중흥중3]', day: '토', time: '17:00-18:30', status: '확정' }
+      { name: '[중흥중3]', day: '토', time: '17:00-18:30' }
     ],
     수학: [
-      { name: 'A반', day: '월/수/금', time: '17:00-18:30', status: '확정' },
-      { name: 'B반', day: '화/목/토', time: '17:00-18:30', status: '확정' }
+      { name: 'A반', day: '월/수/금', time: '17:00-18:30' },
+      { name: 'B반', day: '화/목/토', time: '17:00-18:30' }
     ],
     영어: [
-      { name: 'Advanced A반', day: '월/수', time: '20:45-22:15', status: '확정' },
-      { name: 'Advanced B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+      { name: 'Advanced A반', day: '월/수', time: '20:45-22:15' },
+      { name: 'Advanced B반', day: '화/목', time: '17:00-18:30' }
     ]
   }
 };
@@ -585,7 +585,7 @@ const TimeTablePage: React.FC = () => {
                   <tr>
                     <th>개설반</th>
                     <th>요일</th>
-                    <th>상태</th>
+                    <th>시간</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -593,7 +593,7 @@ const TimeTablePage: React.FC = () => {
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.day}</td>
-                      <td>{classInfo.status}</td>
+                      <td>{classInfo.time}</td>
                     </tr>
                   ))}
                 </tbody>
