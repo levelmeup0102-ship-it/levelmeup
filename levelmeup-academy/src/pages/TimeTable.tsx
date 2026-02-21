@@ -415,8 +415,7 @@ const highSchoolTimetable: Record<HighSchoolGrade, SubjectData> = {
 const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   '중1': {
     국어: [
-      { name: 'A반', day: '월/수', time: '17:00-18:30', status: '확정' },
-      { name: 'B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+      { name: '중등기초반 (중1)', day: '금', time: '17:00-18:30', status: '확정' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '19:00-20:30', status: '확정' },
@@ -429,8 +428,8 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   },
   '중2': {
     국어: [
-      { name: 'A반', day: '월/수', time: '17:00-18:30', status: '확정' },
-      { name: 'B반', day: '화/목', time: '20:45-22:15', status: '확정' }
+      { name: '[계남중2]', day: '금', time: '17:00-18:30', status: '확정' },
+      { name: '[중흥중2]', day: '금', time: '20:45-22:15', status: '확정' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '20:45-22:15', status: '확정' },
@@ -443,8 +442,7 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   },
   '중3': {
     국어: [
-      { name: 'A반', day: '월/수', time: '20:45-22:15', status: '확정' },
-      { name: 'B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+      { name: '[중흥중3]', day: '토', time: '17:00-18:30', status: '확정' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '17:00-18:30', status: '확정' },
