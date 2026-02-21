@@ -678,7 +678,7 @@ const Home: React.FC = () => {
         <Container>
           <BannerCardsGrid>
             <BannerCardWrapper>
-              <BannerCardLink to="/hall-of-fame">
+              <BannerCardLink to="/midterm-honors">
                 <BannerCardImageContainer>
                   <BannerCardImage src="/images/banner-hall-of-fame-resized.jpg" alt="레벨미업학원 명예의 전당" />
                 </BannerCardImageContainer>

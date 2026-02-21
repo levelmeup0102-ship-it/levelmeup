@@ -7,6 +7,7 @@ import About from './pages/About';
 import Teachers from './pages/Teachers';
 import Promotions from './pages/Promotions';
 import HallOfFame from './pages/HallOfFame';
+import MidtermHonors from './pages/MidtermHonors';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import QnA from './pages/QnA';
@@ -35,6 +36,7 @@ function App() {
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/hall-of-fame" element={<HallOfFame />} />
+          <Route path="/midterm-honors" element={<MidtermHonors />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/movie-day" element={<MovieDay />} />
           <Route path="/events/halloween" element={<HalloweenEvent />} />
