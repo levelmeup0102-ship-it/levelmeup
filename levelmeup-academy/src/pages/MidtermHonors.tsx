@@ -277,17 +277,6 @@ const MidtermHonors: React.FC = () => {
         </AchievementList>
       </HighlightBox>
 
-      <ContentSection>
-        <SectionTitle>🎖️ 시상 안내</SectionTitle>
-        <DescriptionText>
-          2학기 중간고사와 기말고사 합산 성적표를 확인한 후, 
-          시상 대상에 해당하는 학생에게는 상품을 지급할 예정입니다.
-        </DescriptionText>
-        <DescriptionText style={{ marginTop: '20px', fontWeight: 600, color: '#2E4A6F' }}>
-          모두 고생 많으셨습니다! 🎉
-        </DescriptionText>
-      </ContentSection>
-
       <BlogLinkSection>
         <BlogButton 
           href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224150084140&navType=by" 
