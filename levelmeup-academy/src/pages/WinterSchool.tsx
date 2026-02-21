@@ -280,10 +280,10 @@ const timetableData: Record<GradeType, ClassInfo[]> = {
   ],
   '고3': [
     // 국어
-    { name: '[부천북고3] 국어', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
-    { name: '[도당고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
-    { name: '[덕산고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
-    { name: '[심원고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+    { name: '[부천북고3] 국어', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '화법과 작문' },
+    { name: '[도당고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '화법과 작문' },
+    { name: '[덕산고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '화법과 작문' },
+    { name: '[심원고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '화법과 작문' },
     { name: '[심원고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
     { name: '[정명고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
     // 수학
