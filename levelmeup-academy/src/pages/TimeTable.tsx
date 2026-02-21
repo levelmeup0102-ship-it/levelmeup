@@ -312,7 +312,7 @@ interface ClassInfo {
   status?: string;
 }
 
-type MainTab = '고등부' | '중등부';
+type MainTab = '고등부' | '중등부' | '선생님';
 type HighSchoolGrade = '고1' | '고2' | '고3';
 type MiddleSchoolGrade = '중1' | '중2' | '중3';
 
@@ -466,13 +466,16 @@ const TimeTablePage: React.FC = () => {
       <PageTitle>26-1학기 정규 수업 안내</PageTitle>
       <PageSubtitle>2026년 1학기 학교별·과목별 정규 수업 시간표입니다</PageSubtitle>
 
-      {/* 메인 탭: 고등부 / 중등부 */}
+      {/* 메인 탭: 고등부 / 중등부 / 선생님 */}
       <MainTabContainer>
         <MainTab active={mainTab === '고등부'} onClick={() => setMainTab('고등부')}>
           고등부
         </MainTab>
         <MainTab active={mainTab === '중등부'} onClick={() => setMainTab('중등부')}>
           중등부
+        </MainTab>
+        <MainTab active={mainTab === '선생님'} onClick={() => setMainTab('선생님')}>
+          선생님
         </MainTab>
       </MainTabContainer>
 
@@ -585,6 +588,57 @@ const TimeTablePage: React.FC = () => {
                 </tbody>
               </ClassTable>
             </TableWrapper>
+          </ContentSection>
+        </>
+      )}
+
+      {/* 선생님 */}
+      {mainTab === '선생님' && (
+        <>
+          <ContentSection>
+            <SectionTitle>조서영 선생님</SectionTitle>
+            <div style={{ padding: '20px 0' }}>
+              <div style={{ marginBottom: '20px', lineHeight: '1.8' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '15px', color: '#2E4A6F' }}>
+                  담당 학년
+                </h3>
+                <p style={{ fontSize: '1rem', color: '#555', marginLeft: '10px' }}>
+                  초등 4, 5, 6학년 / 중등 1, 2, 3학년
+                </p>
+              </div>
+              
+              <div style={{ marginBottom: '20px', lineHeight: '1.8' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '15px', color: '#2E4A6F' }}>
+                  수업 내용
+                </h3>
+                <ul style={{ listStyle: 'none', padding: 0, marginLeft: '10px' }}>
+                  <li style={{ padding: '8px 0', fontSize: '1rem', color: '#555' }}>
+                    <span style={{ color: '#2E4A6F', fontWeight: 'bold', marginRight: '8px' }}>•</span>
+                    원서 읽기
+                  </li>
+                  <li style={{ padding: '8px 0', fontSize: '1rem', color: '#555' }}>
+                    <span style={{ color: '#2E4A6F', fontWeight: 'bold', marginRight: '8px' }}>•</span>
+                    영어로 다양한 활동
+                  </li>
+                  <li style={{ padding: '8px 0', fontSize: '1rem', color: '#555' }}>
+                    <span style={{ color: '#2E4A6F', fontWeight: 'bold', marginRight: '8px' }}>•</span>
+                    교재 읽고 라이팅 하기
+                  </li>
+                </ul>
+              </div>
+
+              <div style={{ 
+                marginTop: '30px', 
+                padding: '20px', 
+                background: 'linear-gradient(135deg, rgba(46, 74, 111, 0.05) 0%, rgba(62, 90, 127, 0.05) 100%)',
+                borderRadius: '8px',
+                borderLeft: '4px solid #2E4A6F'
+              }}>
+                <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.7', margin: 0 }}>
+                  📚 수업 시간 및 등록 문의는 학원으로 연락 주시기 바랍니다.
+                </p>
+              </div>
+            </div>
           </ContentSection>
         </>
       )}
