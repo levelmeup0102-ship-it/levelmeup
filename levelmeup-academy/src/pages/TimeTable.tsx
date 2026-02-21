@@ -316,81 +316,98 @@ type MainTab = '고등부' | '중등부';
 type HighSchoolGrade = '고1' | '고2' | '고3';
 type MiddleSchoolGrade = '중1' | '중2' | '중3';
 
+interface SubjectData {
+  국어?: ClassInfo[];
+  영어?: ClassInfo[];
+  수학?: ClassInfo[];
+  과학?: ClassInfo[];
+}
+
 interface MiddleSchoolData {
   수학: ClassInfo[];
   영어: ClassInfo[];
 }
 
-// 26-1학기 고등부 시간표 데이터 (2026년 기준)
-const highSchoolTimetable: Record<HighSchoolGrade, ClassInfo[]> = {
-  '고1': [
-    // 국어
-    { name: '국어 [개남고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '국어 [단산고]', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
-    { name: '국어 [부천고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [심원고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [정명고]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
-    { name: '국어 [중흥고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    // 영어
-    { name: '영어 [경기에고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '영어 [개남고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [덕산고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [부평고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [부천고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [부천여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [상동고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [소명여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
-    { name: '영어 [심원고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [원미고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
-    { name: '영어 [원종고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [정명고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [중흥고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/목)' },
-    // 수학
-    { name: '수학 [공통수학 A]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/토)' },
-    { name: '수학 [공통수학 B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
-    // 과학
-    { name: '과학 [통합과학 A]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '과학 [통합과학 B]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
-  ],
-  '고2': [
-    // 국어
-    { name: '국어 [심원고2]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [중흥고2]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
-    // 수학
-    { name: '수학 [대수A]', startDate: '3/4(수) 개강', schedule: '주 3회 (수/금/토)' },
-    { name: '수학 [대수B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
-    // 영어
-    { name: '영어 [정명고2 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
-    { name: '영어 [정명고2 A]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
-    { name: '영어 [정명고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [부평고2]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
-    { name: '영어 [심원고2]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [중흥고2 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
-    { name: '영어 [중흥고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '영어 [소명여고2]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' }
-  ],
-  '고3': [
-    // 국어
-    { name: '국어 [부천북고3]', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
-    { name: '국어 [도당고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
-    { name: '국어 [덕산고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
-    { name: '국어 [심원고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
-    { name: '국어 [심원고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
-    { name: '국어 [정명고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
-    // 수학
-    { name: '수학 [미적분]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/금)' },
-    { name: '수학 [확률과통계]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' },
-    // 영어
-    { name: '영어 [도당고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [부평고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [소명여고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [중흥고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [정명고3 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
-    { name: '영어 [정명고3 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
-    { name: '영어 [정명고3 C]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [심원고3]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '영어 [덕산고3]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/금)' }
-  ]
+// 26-1학기 고등부 시간표 데이터 (2026년 기준) - 과목별로 구조화
+const highSchoolTimetable: Record<HighSchoolGrade, SubjectData> = {
+  '고1': {
+    국어: [
+      { name: '[개남고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+      { name: '[단산고]', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
+      { name: '[부천고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+      { name: '[심원고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+      { name: '[정명고]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
+      { name: '[중흥고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
+    ],
+    영어: [
+      { name: '[경기에고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+      { name: '[개남고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[덕산고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[부평고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+      { name: '[부천고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+      { name: '[부천여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[상동고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+      { name: '[소명여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+      { name: '[심원고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[원미고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+      { name: '[원종고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+      { name: '[정명고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+      { name: '[중흥고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/목)' }
+    ],
+    수학: [
+      { name: '[공통수학 A]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/토)' },
+      { name: '[공통수학 B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' }
+    ],
+    과학: [
+      { name: '[통합과학 A]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+      { name: '[통합과학 B]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
+    ]
+  },
+  '고2': {
+    국어: [
+      { name: '[심원고2]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+      { name: '[중흥고2]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' }
+    ],
+    영어: [
+      { name: '[정명고2 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+      { name: '[정명고2 A]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
+      { name: '[정명고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+      { name: '[부평고2]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
+      { name: '[심원고2]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[중흥고2 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+      { name: '[중흥고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+      { name: '[소명여고2]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' }
+    ],
+    수학: [
+      { name: '[대수A]', startDate: '3/4(수) 개강', schedule: '주 3회 (수/금/토)' },
+      { name: '[대수B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' }
+    ]
+  },
+  '고3': {
+    국어: [
+      { name: '[부천북고3]', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
+      { name: '[도당고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+      { name: '[덕산고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
+      { name: '[심원고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+      { name: '[심원고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
+      { name: '[정명고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' }
+    ],
+    영어: [
+      { name: '[도당고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[부평고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[소명여고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[중흥고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+      { name: '[정명고3 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+      { name: '[정명고3 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+      { name: '[정명고3 C]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+      { name: '[심원고3]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+      { name: '[덕산고3]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/금)' }
+    ],
+    수학: [
+      { name: '[미적분]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/금)' },
+      { name: '[확률과통계]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' }
+    ]
+  }
 };
 
 // 중등부 시간표 데이터 - 학년별로 구조화
@@ -430,7 +447,18 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
 const TimeTablePage: React.FC = () => {
   const [mainTab, setMainTab] = useState<MainTab>('고등부');
   const [highSchoolGrade, setHighSchoolGrade] = useState<HighSchoolGrade>('고1');
+  const [highSchoolSubject, setHighSchoolSubject] = useState<keyof SubjectData>('국어');
   const [middleSchoolGrade, setMiddleSchoolGrade] = useState<MiddleSchoolGrade>('중1');
+
+  // 고등부 선택된 학년의 과목 목록 가져오기
+  const availableSubjects = Object.keys(highSchoolTimetable[highSchoolGrade]) as (keyof SubjectData)[];
+  
+  // 학년 변경 시 첫 번째 과목으로 초기화
+  React.useEffect(() => {
+    if (availableSubjects.length > 0 && !availableSubjects.includes(highSchoolSubject)) {
+      setHighSchoolSubject(availableSubjects[0]);
+    }
+  }, [highSchoolGrade]);
 
   return (
     <PageWrapper>
@@ -450,6 +478,7 @@ const TimeTablePage: React.FC = () => {
       {/* 고등부 */}
       {mainTab === '고등부' && (
         <>
+          {/* 학년 선택 */}
           <SubTabContainer>
             <SubTab active={highSchoolGrade === '고1'} onClick={() => setHighSchoolGrade('고1')}>
               고1
@@ -462,8 +491,22 @@ const TimeTablePage: React.FC = () => {
             </SubTab>
           </SubTabContainer>
 
+          {/* 과목 선택 */}
+          <SubTabContainer>
+            {availableSubjects.map((subject) => (
+              <SubTab
+                key={subject}
+                active={highSchoolSubject === subject}
+                onClick={() => setHighSchoolSubject(subject)}
+              >
+                {subject}
+              </SubTab>
+            ))}
+          </SubTabContainer>
+
+          {/* 선택된 과목 시간표 */}
           <ContentSection>
-            <SectionTitle>{highSchoolGrade} 정규 개설 수업</SectionTitle>
+            <SectionTitle>{highSchoolGrade} {highSchoolSubject}</SectionTitle>
             <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
             <TableWrapper>
               <ClassTable>
@@ -472,16 +515,16 @@ const TimeTablePage: React.FC = () => {
                     <th>개설반</th>
                     <th>수업 일정</th>
                     <th>시간표</th>
-                    {highSchoolGrade === '고3' && <th>비고</th>}
+                    {highSchoolGrade === '고3' && highSchoolSubject === '국어' && <th>비고</th>}
                   </tr>
                 </thead>
                 <tbody>
-                  {highSchoolTimetable[highSchoolGrade].map((classInfo, index) => (
+                  {highSchoolTimetable[highSchoolGrade][highSchoolSubject]?.map((classInfo, index) => (
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.startDate}</td>
                       <td>{classInfo.schedule}</td>
-                      {highSchoolGrade === '고3' && <td>{classInfo.note || '-'}</td>}
+                      {highSchoolGrade === '고3' && highSchoolSubject === '국어' && <td>{classInfo.note || '-'}</td>}
                     </tr>
                   ))}
                 </tbody>
