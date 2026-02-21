@@ -221,6 +221,7 @@ const ContactSection = styled.div`
   border-radius: 15px;
   text-align: center;
   margin-top: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   
   @media (max-width: 768px) {
     padding: 35px 25px;
@@ -231,6 +232,8 @@ const ContactTitle = styled.h3`
   font-size: 1.8rem;
   margin-bottom: 20px;
   font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -240,7 +243,8 @@ const ContactTitle = styled.h3`
 const ContactText = styled.p`
   font-size: 1.15rem;
   margin-bottom: 10px;
-  opacity: 0.95;
+  color: #ffffff;
+  line-height: 1.8;
   
   @media (max-width: 768px) {
     font-size: 1rem;
