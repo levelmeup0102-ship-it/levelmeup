@@ -415,7 +415,7 @@ const highSchoolTimetable: Record<HighSchoolGrade, SubjectData> = {
 const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   '중1': {
     국어: [
-      { name: '중등기초반 (중1)', day: '금', time: '17:00-18:30' }
+      { name: '중등기초반 (중1)', day: '금' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '19:00-20:30' },
@@ -428,8 +428,8 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   },
   '중2': {
     국어: [
-      { name: '[계남중2]', day: '금', time: '17:00-18:30' },
-      { name: '[중흥중2]', day: '금', time: '20:45-22:15' }
+      { name: '[계남중2]', day: '금' },
+      { name: '[중흥중2]', day: '금' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '20:45-22:15' },
@@ -442,7 +442,7 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   },
   '중3': {
     국어: [
-      { name: '[중흥중3]', day: '토', time: '17:00-18:30' }
+      { name: '[중흥중3]', day: '토' }
     ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '17:00-18:30' },
@@ -585,7 +585,7 @@ const TimeTablePage: React.FC = () => {
                   <tr>
                     <th>개설반</th>
                     <th>요일</th>
-                    <th>시간</th>
+                    {middleSchoolSubject !== '국어' && <th>시간</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -593,7 +593,7 @@ const TimeTablePage: React.FC = () => {
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.day}</td>
-                      <td>{classInfo.time}</td>
+                      {middleSchoolSubject !== '국어' && <td>{classInfo.time}</td>}
                     </tr>
                   ))}
                 </tbody>
