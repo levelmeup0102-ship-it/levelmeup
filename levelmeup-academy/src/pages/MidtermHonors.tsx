@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
 const HeroSection = styled.div`
   text-align: center;
   margin-bottom: 60px;
-  padding: 50px 20px;
+  padding: 40px 20px;
   background: linear-gradient(135deg, #2E4A6F 0%, #1a3a52 100%);
   border-radius: 20px;
   position: relative;
@@ -45,34 +45,54 @@ const HeroSection = styled.div`
   }
   
   @media (max-width: 768px) {
-    padding: 40px 20px;
+    padding: 30px 20px;
+  }
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    gap: 12px;
   }
 `;
 
 const MainTitle = styled.h1`
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: #ffffff;
-  margin-bottom: 15px;
+  margin: 0;
   font-weight: 800;
-  position: relative;
-  z-index: 1;
   letter-spacing: -1px;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+`;
+
+const Divider = styled.span`
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2rem;
+  font-weight: 300;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 12px;
+  margin: 0;
   font-weight: 600;
-  position: relative;
-  z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 `;
 
@@ -82,13 +102,10 @@ const DateBadge = styled.div`
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
-  padding: 10px 35px;
+  padding: 8px 30px;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-top: 20px;
-  position: relative;
-  z-index: 1;
   transition: all 0.3s;
   
   &:hover {
@@ -99,7 +116,7 @@ const DateBadge = styled.div`
   
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding: 8px 25px;
+    padding: 6px 20px;
   }
 `;
 
@@ -276,9 +293,13 @@ const MidtermHonors: React.FC = () => {
   return (
     <PageWrapper>
       <HeroSection>
-        <MainTitle>명예의 전당</MainTitle>
-        <SubTitle>레벨미업학원</SubTitle>
-        <DateBadge>25-2 기말고사</DateBadge>
+        <TitleWrapper>
+          <MainTitle>명예의 전당</MainTitle>
+          <Divider>|</Divider>
+          <SubTitle>레벨미업학원</SubTitle>
+          <Divider>|</Divider>
+          <DateBadge>25-2 기말고사</DateBadge>
+        </TitleWrapper>
       </HeroSection>
 
       <ContentSection>
