@@ -234,71 +234,71 @@ interface ClassInfo {
 const timetableData: Record<GradeType, ClassInfo[]> = {
   '고1': [
     // 국어
-    { name: '국어 [개남고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '국어 [단산고]', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
-    { name: '국어 [부천고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [심원고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [정명고]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
-    { name: '국어 [중흥고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[개남고] 국어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '[단산고] 국어', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
+    { name: '[부천고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[심원고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[정명고] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
+    { name: '[중흥고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
     // 영어
-    { name: '영어 [경기에고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '영어 [개남고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [덕산고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [부평고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [부천고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [부천여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [상동고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [소명여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
-    { name: '영어 [심원고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [원미고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
-    { name: '영어 [원종고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [정명고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
-    { name: '영어 [중흥고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/목)' },
+    { name: '[경기에고] 영어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[개남고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[덕산고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[부평고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '[부천고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '[부천여고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[상동고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '[소명여고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+    { name: '[심원고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[원미고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+    { name: '[원종고] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '[정명고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '[중흥고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/목)' },
     // 수학
-    { name: '수학 [공통수학 A]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/토)' },
-    { name: '수학 [공통수학 B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
+    { name: '[공통수학 A] 수학', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/토)' },
+    { name: '[공통수학 B] 수학', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
     // 과학
-    { name: '과학 [통합과학 A]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '과학 [통합과학 B]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
+    { name: '[통합과학 A] 과학', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[통합과학 B] 과학', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
   ],
   '고2': [
     // 국어
-    { name: '국어 [심원고2]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '국어 [중흥고2]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
+    { name: '[심원고2] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '[중흥고2] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
     // 수학
-    { name: '수학 [대수A]', startDate: '3/4(수) 개강', schedule: '주 3회 (수/금/토)' },
-    { name: '수학 [대수B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
+    { name: '[대수A] 수학', startDate: '3/4(수) 개강', schedule: '주 3회 (수/금/토)' },
+    { name: '[대수B] 수학', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
     // 영어
-    { name: '영어 [정명고2 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
-    { name: '영어 [정명고2 A]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
-    { name: '영어 [정명고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [부평고2]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
-    { name: '영어 [심원고2]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [중흥고2 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
-    { name: '영어 [중흥고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '영어 [소명여고2]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' }
+    { name: '[정명고2 S] 영어', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+    { name: '[정명고2 A] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
+    { name: '[정명고2 B] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '[부평고2] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
+    { name: '[심원고2] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[중흥고2 A] 영어', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+    { name: '[중흥고2 B] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '[소명여고2] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' }
   ],
   '고3': [
     // 국어
-    { name: '국어 [부천북고3]', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
-    { name: '국어 [도당고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
-    { name: '국어 [덕산고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
-    { name: '국어 [심원고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
-    { name: '국어 [심원고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
-    { name: '국어 [정명고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
+    { name: '[부천북고3] 국어', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
+    { name: '[도당고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+    { name: '[덕산고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
+    { name: '[심원고3] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+    { name: '[심원고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
+    { name: '[정명고3] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
     // 수학
-    { name: '수학 [미적분]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/금)' },
-    { name: '수학 [확률과통계]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' },
+    { name: '[미적분] 수학', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/금)' },
+    { name: '[확률과통계] 수학', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' },
     // 영어
-    { name: '영어 [도당고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [부평고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [소명여고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [중흥고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '영어 [정명고3 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
-    { name: '영어 [정명고3 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
-    { name: '영어 [정명고3 C]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '영어 [심원고3]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '영어 [덕산고3]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/금)' }
+    { name: '[도당고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[부평고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[소명여고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[중흥고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[정명고3 S] 영어', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+    { name: '[정명고3 A] 영어', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+    { name: '[정명고3 C] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '[심원고3] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '[덕산고3] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/금)' }
   ]
 };
 
