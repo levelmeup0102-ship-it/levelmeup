@@ -571,7 +571,6 @@ const TimeTablePage: React.FC = () => {
                   <tr>
                     <th>개설반</th>
                     <th>요일</th>
-                    <th>시간</th>
                     <th>상태</th>
                   </tr>
                 </thead>
@@ -580,7 +579,6 @@ const TimeTablePage: React.FC = () => {
                     <tr key={index}>
                       <td>{classInfo.name}</td>
                       <td>{classInfo.day}</td>
-                      <td>{classInfo.time}</td>
                       <td>{classInfo.status}</td>
                     </tr>
                   ))}
