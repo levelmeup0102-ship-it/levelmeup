@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
 const HeroSection = styled.div`
   text-align: center;
   margin-bottom: 60px;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
   border-radius: 20px;
   position: relative;
@@ -24,7 +24,7 @@ const HeroSection = styled.div`
   &::before {
     content: '🏆';
     position: absolute;
-    font-size: 200px;
+    font-size: 250px;
     opacity: 0.05;
     top: 50%;
     left: 50%;
@@ -32,34 +32,34 @@ const HeroSection = styled.div`
   }
   
   @media (max-width: 768px) {
-    padding: 40px 20px;
+    padding: 50px 20px;
   }
 `;
 
 const MainTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #FFD700;
   margin-bottom: 20px;
   font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: 600;
   position: relative;
   z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -68,36 +68,48 @@ const DateBadge = styled.div`
   background: rgba(255, 215, 0, 0.2);
   border: 2px solid #FFD700;
   color: #FFD700;
-  padding: 10px 30px;
+  padding: 12px 40px;
   border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 25px;
   position: relative;
   z-index: 1;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 8px 20px;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+  }
+`;
+
+const ContentSection = styled.section`
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #2E4A6F;
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
   }
 `;
 
 const SectionTitle = styled.h3`
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
   color: #2c3e50;
   font-weight: 700;
-  text-align: center;
-  padding-bottom: 15px;
   position: relative;
+  padding-bottom: 15px;
   
   &::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 50px;
     height: 4px;
     background: #2E4A6F;
-    margin: 15px auto 0;
+    margin-top: 10px;
     border-radius: 2px;
   }
   
@@ -106,177 +118,99 @@ const SectionTitle = styled.h3`
   }
 `;
 
-const Section = styled.section`
-  margin-bottom: 80px;
+const DescriptionText = styled.p`
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 15px;
   
   @media (max-width: 768px) {
-    margin-bottom: 60px;
+    font-size: 1.05rem;
   }
 `;
 
-const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 60px;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-`;
-
-const StatCard = styled.div`
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 40px;
-  border-radius: 15px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  }
-  
-  @media (max-width: 768px) {
-    padding: 30px;
-  }
-`;
-
-const StatNumber = styled.div`
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const StatLabel = styled.div`
-  font-size: 1.1rem;
-  font-weight: 500;
-  opacity: 0.9;
-  
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const HonorsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const HonorCard = styled.div`
+const HighlightBox = styled.div`
   background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
   padding: 30px;
-  transition: all 0.3s;
-  
-  &:hover {
-    border-color: #2E4A6F;
-    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.15);
-    transform: translateY(-3px);
-  }
-  
-  @media (max-width: 768px) {
-    padding: 25px;
-  }
-`;
-
-const HonorBadge = styled.div`
-  display: inline-block;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-`;
-
-const StudentName = styled.h4`
-  font-size: 1.5rem;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-weight: 700;
-`;
-
-const StudentInfo = styled.div`
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 8px;
-`;
-
-const Achievement = styled.div`
-  font-size: 1.1rem;
-  color: #2E4A6F;
-  font-weight: 600;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #e0e0e0;
-`;
-
-const SubjectGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 60px;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const SubjectCard = styled.div`
-  background: #f8f9fa;
   border-radius: 12px;
-  padding: 25px;
-  border-left: 4px solid #2E4A6F;
+  margin: 30px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
-const SubjectTitle = styled.h4`
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 15px;
+const HighlightTitle = styled.h4`
+  font-size: 1.4rem;
+  color: #2E4A6F;
+  margin-bottom: 20px;
   font-weight: 700;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
-const StudentList = styled.ul`
+const AchievementList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
 `;
 
-const StudentItem = styled.li`
-  padding: 8px 0;
-  color: #555;
-  font-size: 1rem;
+const AchievementItem = styled.li`
+  font-size: 1.1rem;
+  color: #444;
+  padding: 12px 0;
+  padding-left: 30px;
+  position: relative;
   border-bottom: 1px solid #e0e0e0;
   
   &:last-child {
     border-bottom: none;
+  }
+  
+  &::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2E4A6F;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 10px 0 10px 25px;
+  }
+`;
+
+const BlogLinkSection = styled.div`
+  text-align: center;
+  margin: 60px 0;
+`;
+
+const BlogButton = styled.a`
+  display: inline-block;
+  background: linear-gradient(135deg, #2E4A6F 0%, #1a2942 100%);
+  color: white;
+  padding: 20px 50px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(46, 74, 111, 0.3);
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(46, 74, 111, 0.4);
+    background: linear-gradient(135deg, #1a2942 0%, #2E4A6F 100%);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 18px 40px;
+    font-size: 1.1rem;
   }
 `;
 
@@ -286,10 +220,10 @@ const ContactSection = styled.div`
   padding: 50px;
   border-radius: 15px;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
   
   @media (max-width: 768px) {
-    padding: 30px 20px;
+    padding: 35px 25px;
   }
 `;
 
@@ -304,7 +238,7 @@ const ContactTitle = styled.h3`
 `;
 
 const ContactText = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 10px;
   opacity: 0.95;
   
@@ -322,128 +256,55 @@ const MidtermHonors: React.FC = () => {
         <DateBadge>25-2 기말고사</DateBadge>
       </HeroSection>
 
-      {/* 주요 성과 통계 */}
-      <Section>
-        <SectionTitle>주요 성과</SectionTitle>
-        <StatsGrid>
-          <StatCard>
-            <StatNumber>47명</StatNumber>
-            <StatLabel>1등급 달성</StatLabel>
-          </StatCard>
-          <StatCard>
-            <StatNumber>82명</StatNumber>
-            <StatLabel>2등급 이상</StatLabel>
-          </StatCard>
-          <StatCard>
-            <StatNumber>35명</StatNumber>
-            <StatLabel>2등급 향상</StatLabel>
-          </StatCard>
-          <StatCard>
-            <StatNumber>100%</StatNumber>
-            <StatLabel>성적 향상률</StatLabel>
-          </StatCard>
-        </StatsGrid>
-      </Section>
+      <ContentSection>
+        <SectionTitle>🏆 레벨미업학원 명예의 전당이란?</SectionTitle>
+        <DescriptionText>
+          레벨미업학원의 명예의 전당은 시험에서 우수한 성적을 거둔 학생들과 
+          눈부신 성적 향상을 이룬 학생들을 칭찬하고 격려하기 위한 공간입니다.
+        </DescriptionText>
+        <DescriptionText>
+          매 학기 중간고사와 기말고사를 통해 뛰어난 성과를 보인 학생들의 
+          노력과 열정을 기록하고 있습니다.
+        </DescriptionText>
+      </ContentSection>
 
-      {/* 우수 학생 */}
-      <Section>
-        <SectionTitle>🏆 우수 학생</SectionTitle>
-        <HonorsGrid>
-          <HonorCard>
-            <HonorBadge>국어 1등급</HonorBadge>
-            <StudentName>김○○</StudentName>
-            <StudentInfo>정명고등학교 2학년</StudentInfo>
-            <Achievement>4등급 → 1등급 (3등급 향상)</Achievement>
-          </HonorCard>
-          
-          <HonorCard>
-            <HonorBadge>영어 1등급</HonorBadge>
-            <StudentName>이○○</StudentName>
-            <StudentInfo>부명고등학교 1학년</StudentInfo>
-            <Achievement>3등급 → 1등급 (2등급 향상)</Achievement>
-          </HonorCard>
-          
-          <HonorCard>
-            <HonorBadge>수학 1등급</HonorBadge>
-            <StudentName>박○○</StudentName>
-            <StudentInfo>계남고등학교 3학년</StudentInfo>
-            <Achievement>1학기 1등급 유지</Achievement>
-          </HonorCard>
-          
-          <HonorCard>
-            <HonorBadge>국어 1등급</HonorBadge>
-            <StudentName>최○○</StudentName>
-            <StudentInfo>심원고등학교 2학년</StudentInfo>
-            <Achievement>2등급 → 1등급 향상</Achievement>
-          </HonorCard>
-          
-          <HonorCard>
-            <HonorBadge>영어 1등급</HonorBadge>
-            <StudentName>정○○</StudentName>
-            <StudentInfo>덕산고등학교 3학년</StudentInfo>
-            <Achievement>2등급 → 1등급 향상</Achievement>
-          </HonorCard>
-          
-          <HonorCard>
-            <HonorBadge>과학 1등급</HonorBadge>
-            <StudentName>강○○</StudentName>
-            <StudentInfo>소명여고 1학년</StudentInfo>
-            <Achievement>3등급 → 1등급 (2등급 향상)</Achievement>
-          </HonorCard>
-        </HonorsGrid>
-      </Section>
+      <HighlightBox>
+        <HighlightTitle>📚 25-2 기말고사 주요 성과</HighlightTitle>
+        <AchievementList>
+          <AchievementItem><strong>중등부</strong>: 100점 36명, 90점 이상 31명</AchievementItem>
+          <AchievementItem><strong>고등부</strong>: 전교권(10등 이내) 21명, 100점 6명, 90점 이상 53명</AchievementItem>
+          <AchievementItem><strong>학업도약</strong>: 수강과목 30점 이상 상승 학생 2명</AchievementItem>
+        </AchievementList>
+      </HighlightBox>
 
-      {/* 과목별 1등급 달성자 */}
-      <Section>
-        <SectionTitle>📚 과목별 1등급 달성자</SectionTitle>
-        <SubjectGrid>
-          <SubjectCard>
-            <SubjectTitle>국어</SubjectTitle>
-            <StudentList>
-              <StudentItem>김○○ (정명고 2)</StudentItem>
-              <StudentItem>최○○ (심원고 2)</StudentItem>
-              <StudentItem>송○○ (부명고 1)</StudentItem>
-              <StudentItem>외 12명</StudentItem>
-            </StudentList>
-          </SubjectCard>
-          
-          <SubjectCard>
-            <SubjectTitle>영어</SubjectTitle>
-            <StudentList>
-              <StudentItem>이○○ (부명고 1)</StudentItem>
-              <StudentItem>정○○ (덕산고 3)</StudentItem>
-              <StudentItem>한○○ (계남고 2)</StudentItem>
-              <StudentItem>외 15명</StudentItem>
-            </StudentList>
-          </SubjectCard>
-          
-          <SubjectCard>
-            <SubjectTitle>수학</SubjectTitle>
-            <StudentList>
-              <StudentItem>박○○ (계남고 3)</StudentItem>
-              <StudentItem>윤○○ (중흥고 2)</StudentItem>
-              <StudentItem>조○○ (부천고 1)</StudentItem>
-              <StudentItem>외 10명</StudentItem>
-            </StudentList>
-          </SubjectCard>
-          
-          <SubjectCard>
-            <SubjectTitle>과학</SubjectTitle>
-            <StudentList>
-              <StudentItem>강○○ (소명여고 1)</StudentItem>
-              <StudentItem>안○○ (도당고 2)</StudentItem>
-              <StudentItem>홍○○ (원미고 3)</StudentItem>
-              <StudentItem>외 10명</StudentItem>
-            </StudentList>
-          </SubjectCard>
-        </SubjectGrid>
-      </Section>
+      <ContentSection>
+        <SectionTitle>🎖️ 시상 안내</SectionTitle>
+        <DescriptionText>
+          2학기 중간고사와 기말고사 합산 성적표를 확인한 후, 
+          시상 대상에 해당하는 학생에게는 상품을 지급할 예정입니다.
+        </DescriptionText>
+        <DescriptionText style={{ marginTop: '20px', fontWeight: 600, color: '#2E4A6F' }}>
+          모두 고생 많으셨습니다! 🎉
+        </DescriptionText>
+      </ContentSection>
 
-      {/* 문의 안내 */}
+      <BlogLinkSection>
+        <BlogButton 
+          href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224150084140&navType=by" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📖 자세한 명예의 전당 보러가기
+        </BlogButton>
+      </BlogLinkSection>
+
       <ContactSection>
-        <ContactTitle>🎯 다음 시험도 레벨미업과 함께!</ContactTitle>
-        <ContactText>개인별 맞춤 학습 관리로 성적 향상을 약속합니다</ContactText>
-        <ContactText>📞 문의 및 상담: 032-322-0592 / 010-2406-0591</ContactText>
+        <ContactTitle>상담 및 문의</ContactTitle>
+        <ContactText>부천 중동 레벨미업학원</ContactText>
+        <ContactText>📞 032-322-0592 / 010-2406-0591</ContactText>
+        <ContactText style={{ marginTop: '15px', fontSize: '1rem', opacity: 0.85 }}>
+          경기도 부천시 원미구 길주로 275 중동프라자 609호
+        </ContactText>
       </ContactSection>
     </PageWrapper>
   );
