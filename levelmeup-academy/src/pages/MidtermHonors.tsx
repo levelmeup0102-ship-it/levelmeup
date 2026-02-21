@@ -16,19 +16,32 @@ const HeroSection = styled.div`
   text-align: center;
   margin-bottom: 60px;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+  background: linear-gradient(135deg, #2E4A6F 0%, #1a3a52 100%);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 40px rgba(46, 74, 111, 0.2);
   
   &::before {
-    content: '🏆';
+    content: '';
     position: absolute;
-    font-size: 250px;
-    opacity: 0.05;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    bottom: -50px;
+    left: -50px;
+    border-radius: 50%;
   }
   
   @media (max-width: 768px) {
@@ -38,12 +51,12 @@ const HeroSection = styled.div`
 
 const MainTitle = styled.h1`
   font-size: 3.5rem;
-  color: #FFD700;
+  color: #ffffff;
   margin-bottom: 20px;
   font-weight: 800;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 1;
+  letter-spacing: -1px;
   
   @media (max-width: 768px) {
     font-size: 2.2rem;
@@ -52,7 +65,7 @@ const MainTitle = styled.h1`
 
 const SubTitle = styled.h2`
   font-size: 2rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 15px;
   font-weight: 600;
   position: relative;
@@ -65,9 +78,10 @@ const SubTitle = styled.h2`
 
 const DateBadge = styled.div`
   display: inline-block;
-  background: rgba(255, 215, 0, 0.2);
-  border: 2px solid #FFD700;
-  color: #FFD700;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
   padding: 12px 40px;
   border-radius: 50px;
   font-size: 1.3rem;
@@ -75,6 +89,13 @@ const DateBadge = styled.div`
   margin-top: 25px;
   position: relative;
   z-index: 1;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
   
   @media (max-width: 768px) {
     font-size: 1.1rem;
