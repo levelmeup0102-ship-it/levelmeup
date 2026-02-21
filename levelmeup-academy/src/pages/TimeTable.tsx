@@ -324,6 +324,7 @@ interface SubjectData {
 }
 
 interface MiddleSchoolData {
+  국어: ClassInfo[];
   수학: ClassInfo[];
   영어: ClassInfo[];
 }
@@ -413,6 +414,10 @@ const highSchoolTimetable: Record<HighSchoolGrade, SubjectData> = {
 // 중등부 시간표 데이터 - 학년별로 구조화
 const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
   '중1': {
+    국어: [
+      { name: 'A반', day: '월/수', time: '17:00-18:30', status: '확정' },
+      { name: 'B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+    ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '19:00-20:30', status: '확정' },
       { name: 'B반', day: '화/목/토', time: '19:00-20:30', status: '확정' }
@@ -423,6 +428,10 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
     ]
   },
   '중2': {
+    국어: [
+      { name: 'A반', day: '월/수', time: '17:00-18:30', status: '확정' },
+      { name: 'B반', day: '화/목', time: '20:45-22:15', status: '확정' }
+    ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '20:45-22:15', status: '확정' },
       { name: 'B반', day: '화/목/토', time: '20:45-22:15', status: '확정' }
@@ -433,6 +442,10 @@ const middleSchoolTimetable: Record<MiddleSchoolGrade, MiddleSchoolData> = {
     ]
   },
   '중3': {
+    국어: [
+      { name: 'A반', day: '월/수', time: '20:45-22:15', status: '확정' },
+      { name: 'B반', day: '화/목', time: '17:00-18:30', status: '확정' }
+    ],
     수학: [
       { name: 'A반', day: '월/수/금', time: '17:00-18:30', status: '확정' },
       { name: 'B반', day: '화/목/토', time: '17:00-18:30', status: '확정' }
@@ -449,7 +462,7 @@ const TimeTablePage: React.FC = () => {
   const [highSchoolGrade, setHighSchoolGrade] = useState<HighSchoolGrade>('고1');
   const [highSchoolSubject, setHighSchoolSubject] = useState<keyof SubjectData>('국어');
   const [middleSchoolGrade, setMiddleSchoolGrade] = useState<MiddleSchoolGrade>('중1');
-  const [middleSchoolSubject, setMiddleSchoolSubject] = useState<keyof MiddleSchoolData>('수학');
+  const [middleSchoolSubject, setMiddleSchoolSubject] = useState<keyof MiddleSchoolData>('국어');
 
   // 고등부 선택된 학년의 과목 목록 가져오기
   const availableSubjects = Object.keys(highSchoolTimetable[highSchoolGrade]) as (keyof SubjectData)[];
@@ -553,6 +566,9 @@ const TimeTablePage: React.FC = () => {
 
           {/* 과목 선택 */}
           <SubTabContainer>
+            <SubTab active={middleSchoolSubject === '국어'} onClick={() => setMiddleSchoolSubject('국어')}>
+              국어
+            </SubTab>
             <SubTab active={middleSchoolSubject === '수학'} onClick={() => setMiddleSchoolSubject('수학')}>
               수학
             </SubTab>
