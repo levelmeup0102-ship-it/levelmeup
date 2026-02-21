@@ -59,6 +59,32 @@ const MainTab = styled.button<{ active: boolean }>`
   }
 `;
 
+const SubTabContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+`;
+
+const SubTab = styled.button<{ active: boolean }>`
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 1px solid ${props => props.active ? '#2E4A6F' : '#e0e0e0'};
+  background: ${props => props.active ? '#2E4A6F' : 'white'};
+  color: ${props => props.active ? 'white' : '#555'};
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(46, 74, 111, 0.15);
+  }
+`;
+
 const ContentSection = styled.div`
   background: white;
   border-radius: 12px;
@@ -276,15 +302,22 @@ const InfoBox = styled.div`
 
 interface ClassInfo {
   name: string;
-  startDate: string;
-  schedule: string;
+  grade?: string;
+  time?: string;
+  day?: string;
+  teacher?: string;
+  startDate?: string;
+  schedule?: string;
   note?: string;
+  status?: string;
 }
 
-type GradeTab = '고1' | '고2' | '고3';
+type MainTab = '고등부' | '중등부';
+type HighSchoolGrade = '고1' | '고2' | '고3';
+type MiddleSchoolSubject = '수학' | '영어';
 
-// 26-1학기 시간표 데이터 (2026년 기준)
-const timetableData: Record<GradeTab, ClassInfo[]> = {
+// 26-1학기 고등부 시간표 데이터 (2026년 기준)
+const highSchoolTimetable: Record<HighSchoolGrade, ClassInfo[]> = {
   '고1': [
     // 국어
     { name: '국어 [개남고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
@@ -355,54 +388,134 @@ const timetableData: Record<GradeTab, ClassInfo[]> = {
   ]
 };
 
-const TimeTablePage: React.FC = () => {
-  const [activeGrade, setActiveGrade] = useState<GradeTab>('고1');
+// 중등부 시간표 데이터
+const middleSchoolTimetable = {
+  '수학': [
+    { name: '중1 A반', grade: '중1', day: '월/수/금', time: '19:00-20:30', teacher: '김수학', status: '확정' },
+    { name: '중1 B반', grade: '중1', day: '화/목/토', time: '19:00-20:30', teacher: '김수학', status: '확정' },
+    { name: '중2 A반', grade: '중2', day: '월/수/금', time: '20:45-22:15', teacher: '이수학', status: '확정' },
+    { name: '중2 B반', grade: '중2', day: '화/목/토', time: '20:45-22:15', teacher: '이수학', status: '확정' },
+    { name: '중3 A반', grade: '중3', day: '월/수/금', time: '17:00-18:30', teacher: '박수학', status: '확정' },
+    { name: '중3 B반', grade: '중3', day: '화/목/토', time: '17:00-18:30', teacher: '박수학', status: '확정' }
+  ],
+  '영어': [
+    { name: 'Starter A반', grade: '중1', day: '화/목', time: '19:00-20:30', teacher: 'Chris', status: '확정' },
+    { name: 'Starter B반', grade: '중1', day: '수/금', time: '19:00-20:30', teacher: 'Sarah', status: '확정' },
+    { name: 'Intermediate A반', grade: '중2', day: '월/수', time: '19:00-20:30', teacher: 'Michael', status: '확정' },
+    { name: 'Intermediate B반', grade: '중2', day: '화/목', time: '20:45-22:15', teacher: 'Jessica', status: '확정' },
+    { name: 'Advanced A반', grade: '중3', day: '월/수', time: '20:45-22:15', teacher: 'David', status: '확정' },
+    { name: 'Advanced B반', grade: '중3', day: '화/목', time: '17:00-18:30', teacher: 'Emma', status: '확정' }
+  ]
+};
 
-  const classList = timetableData[activeGrade];
+const TimeTablePage: React.FC = () => {
+  const [mainTab, setMainTab] = useState<MainTab>('고등부');
+  const [highSchoolGrade, setHighSchoolGrade] = useState<HighSchoolGrade>('고1');
+  const [middleSchoolSubject, setMiddleSchoolSubject] = useState<MiddleSchoolSubject>('수학');
 
   return (
     <PageWrapper>
       <PageTitle>26-1학기 정규 수업 안내</PageTitle>
       <PageSubtitle>2026년 1학기 학교별·과목별 정규 수업 시간표입니다</PageSubtitle>
 
+      {/* 메인 탭: 고등부 / 중등부 */}
       <MainTabContainer>
-        <MainTab active={activeGrade === '고1'} onClick={() => setActiveGrade('고1')}>
-          고1
+        <MainTab active={mainTab === '고등부'} onClick={() => setMainTab('고등부')}>
+          고등부
         </MainTab>
-        <MainTab active={activeGrade === '고2'} onClick={() => setActiveGrade('고2')}>
-          고2
-        </MainTab>
-        <MainTab active={activeGrade === '고3'} onClick={() => setActiveGrade('고3')}>
-          고3
+        <MainTab active={mainTab === '중등부'} onClick={() => setMainTab('중등부')}>
+          중등부
         </MainTab>
       </MainTabContainer>
 
-      <ContentSection>
-        <SectionTitle>{activeGrade} 정규 개설 수업</SectionTitle>
-        <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
-        <TableWrapper>
-          <ClassTable>
-            <thead>
-              <tr>
-                <th>개설반</th>
-                <th>수업 일정</th>
-                <th>시간표</th>
-                {activeGrade === '고3' && <th>비고</th>}
-              </tr>
-            </thead>
-            <tbody>
-              {classList.map((classInfo, index) => (
-                <tr key={index}>
-                  <td>{classInfo.name}</td>
-                  <td>{classInfo.startDate}</td>
-                  <td>{classInfo.schedule}</td>
-                  {activeGrade === '고3' && <td>{classInfo.note || '-'}</td>}
-                </tr>
-              ))}
-            </tbody>
-          </ClassTable>
-        </TableWrapper>
-      </ContentSection>
+      {/* 고등부 */}
+      {mainTab === '고등부' && (
+        <>
+          <SubTabContainer>
+            <SubTab active={highSchoolGrade === '고1'} onClick={() => setHighSchoolGrade('고1')}>
+              고1
+            </SubTab>
+            <SubTab active={highSchoolGrade === '고2'} onClick={() => setHighSchoolGrade('고2')}>
+              고2
+            </SubTab>
+            <SubTab active={highSchoolGrade === '고3'} onClick={() => setHighSchoolGrade('고3')}>
+              고3
+            </SubTab>
+          </SubTabContainer>
+
+          <ContentSection>
+            <SectionTitle>{highSchoolGrade} 정규 개설 수업</SectionTitle>
+            <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
+            <TableWrapper>
+              <ClassTable>
+                <thead>
+                  <tr>
+                    <th>개설반</th>
+                    <th>수업 일정</th>
+                    <th>시간표</th>
+                    {highSchoolGrade === '고3' && <th>비고</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {highSchoolTimetable[highSchoolGrade].map((classInfo, index) => (
+                    <tr key={index}>
+                      <td>{classInfo.name}</td>
+                      <td>{classInfo.startDate}</td>
+                      <td>{classInfo.schedule}</td>
+                      {highSchoolGrade === '고3' && <td>{classInfo.note || '-'}</td>}
+                    </tr>
+                  ))}
+                </tbody>
+              </ClassTable>
+            </TableWrapper>
+          </ContentSection>
+        </>
+      )}
+
+      {/* 중등부 */}
+      {mainTab === '중등부' && (
+        <>
+          <SubTabContainer>
+            <SubTab active={middleSchoolSubject === '수학'} onClick={() => setMiddleSchoolSubject('수학')}>
+              수학
+            </SubTab>
+            <SubTab active={middleSchoolSubject === '영어'} onClick={() => setMiddleSchoolSubject('영어')}>
+              영어
+            </SubTab>
+          </SubTabContainer>
+
+          <ContentSection>
+            <SectionTitle>중등 {middleSchoolSubject} 개설 수업</SectionTitle>
+            <ScrollHint>좌우로 스크롤하여 전체 내용을 확인하세요</ScrollHint>
+            <TableWrapper>
+              <ClassTable>
+                <thead>
+                  <tr>
+                    <th>개설반</th>
+                    <th>학년</th>
+                    <th>요일</th>
+                    <th>시간</th>
+                    <th>강사</th>
+                    <th>상태</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {middleSchoolTimetable[middleSchoolSubject].map((classInfo, index) => (
+                    <tr key={index}>
+                      <td>{classInfo.name}</td>
+                      <td>{classInfo.grade}</td>
+                      <td>{classInfo.day}</td>
+                      <td>{classInfo.time}</td>
+                      <td>{classInfo.teacher}</td>
+                      <td>{classInfo.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </ClassTable>
+            </TableWrapper>
+          </ContentSection>
+        </>
+      )}
 
       <InfoBox>
         <h3>수업 운영 안내</h3>
