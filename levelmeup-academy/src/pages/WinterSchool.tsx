@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -23,8 +23,8 @@ const BackButton = styled(Link)`
   
   &:hover {
     background: #f8f9fa;
-    border-color: #4CAF50;
-    color: #4CAF50;
+    border-color: #2E4A6F;
+    color: #2E4A6F;
     transform: translateX(-5px);
   }
 `;
@@ -35,13 +35,12 @@ const Container = styled.div`
 `;
 
 const HeroCard = styled.div`
-  background: white;
+  background: linear-gradient(135deg, #2E4A6F 0%, #3E5A7F 100%);
   border-radius: 16px;
   padding: 60px 40px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin-bottom: 50px;
-  border: 1px solid #e9ecef;
   
   @media (max-width: 768px) {
     padding: 40px 25px;
@@ -50,7 +49,7 @@ const HeroCard = styled.div`
 
 const HeroTitle = styled.h1`
   font-size: 2.8rem;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 20px;
   font-weight: 700;
   
@@ -60,325 +59,145 @@ const HeroTitle = styled.h1`
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.3rem;
+  color: #E8F5E9;
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto;
-  font-weight: 400;
+  font-weight: 500;
   
   strong {
-    color: #1a1a1a;
-    font-weight: 600;
+    color: white;
+    font-weight: 700;
   }
 `;
 
-const ContentWithThumbnail = styled.div`
+const TabContainer = styled.div`
+  margin: 40px 0;
   display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  margin-top: 40px;
-  
-  @media (max-width: 968px) {
-    flex-direction: column;
-    gap: 30px;
-  }
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
-const ThumbnailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex-shrink: 0;
-  
-  @media (max-width: 968px) {
-    width: 100%;
-    align-items: center;
-  }
-`;
-
-const ThumbnailImage = styled.img`
-  width: 350px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e0e0e0;
-  
-  @media (max-width: 968px) {
-    width: 100%;
-    max-width: 500px;
-  }
-`;
-
-const BlogButton = styled.a`
-  display: inline-block;
-  width: 350px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: white;
-  padding: 16px 24px;
+const Tab = styled.button<{ $active: boolean }>`
+  padding: 14px 28px;
+  background: ${props => props.$active ? '#2E4A6F' : 'white'};
+  color: ${props => props.$active ? 'white' : '#666'};
+  border: 2px solid ${props => props.$active ? '#2E4A6F' : '#e0e0e0'};
   border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
+  cursor: pointer;
   transition: all 0.3s;
-  border: none;
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.5);
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  }
-  
-  &::after {
-    content: ' →';
-    margin-left: 8px;
-    transition: margin-left 0.3s;
-  }
-  
-  &:hover::after {
-    margin-left: 12px;
-  }
-  
-  @media (max-width: 968px) {
-    width: 100%;
-    max-width: 500px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 74, 111, 0.2);
   }
 `;
 
-const ContentArea = styled.div`
-  flex: 1;
-`;
-
-const MenuSection = styled.div`
+const ContentCard = styled.div`
   background: white;
-  border-radius: 16px;
-  padding: 50px 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  margin-bottom: 50px;
-  border: 1px solid #e9ecef;
-  
-  @media (max-width: 768px) {
-    padding: 25px 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-`;
-
-const MenuTitle = styled.h2`
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #1a1a1a;
-  font-weight: 700;
-`;
-
-const MenuContent = styled.div`
-  padding: 40px;
-  background: #fafbfc;
   border-radius: 12px;
-  line-height: 1.8;
-  border: 1px solid #e9ecef;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+  font-weight: 700;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #2E4A6F;
+`;
+
+const TableWrapper = styled.div`
+  overflow-x: auto;
+  margin-top: 20px;
+`;
+
+const ClassTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
   
-  @media (max-width: 768px) {
-    padding: 20px 16px;
-    width: 100%;
-    box-sizing: border-box;
+  thead {
+    background: #2E4A6F;
+    color: white;
+    
+    th {
+      padding: 15px 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
   }
+  
+  tbody {
+    tr {
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.2s;
+      
+      &:hover {
+        background-color: #f9f9f9;
+      }
+    }
+    
+    td {
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      border-right: 1px solid #f0f0f0;
+      
+      &:last-child {
+        border-right: none;
+      }
+      
+      &:first-of-type {
+        font-weight: 600;
+      }
+    }
+  }
+`;
+
+const InfoBox = styled.div`
+  background: linear-gradient(135deg, rgba(46, 74, 111, 0.05) 0%, rgba(62, 90, 127, 0.05) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 40px;
+  border-left: 4px solid #2E4A6F;
   
   h3 {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
     color: #1a1a1a;
-    margin-bottom: 25px;
     font-weight: 700;
-    
-    @media (max-width: 768px) {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-    }
-  }
-  
-  p {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    
-    @media (max-width: 768px) {
-      font-size: 0.95rem;
-    }
-    
-    strong {
-      color: #1a1a1a;
-      font-weight: 600;
-    }
   }
   
   ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
-    
-    li {
-      padding: 12px 0;
-      color: #444;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 1.05rem;
-      
-      @media (max-width: 768px) {
-        padding: 10px 0;
-        font-size: 0.95rem;
-        gap: 10px;
-        align-items: flex-start;
-        flex-direction: row;
-      }
-      
-      &::before {
-        content: '✓';
-        color: #4CAF50;
-        font-weight: bold;
-        font-size: 1.3rem;
-        margin-top: -2px;
-        flex-shrink: 0;
-        
-        @media (max-width: 768px) {
-          font-size: 1.2rem;
-          margin-top: 0;
-        }
-      }
-    }
+    margin: 0;
   }
-`;
-
-const CTASection = styled.div`
-  margin-top: 60px;
   
-  @media (max-width: 768px) {
-    margin-top: 40px;
-  }
-`;
-
-const BrandClosing = styled.div`
-  background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
-  border-radius: 20px;
-  padding: 50px 40px;
-  text-align: center;
-  margin-bottom: 40px;
-  
-  @media (max-width: 768px) {
-    padding: 35px 25px;
-    margin-bottom: 30px;
-  }
-`;
-
-const BrandMotto = styled.h2`
-  font-size: 2rem;
-  color: white;
-  font-weight: 700;
-  font-style: italic;
-  margin-bottom: 15px;
-  
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-const BrandSubtitle = styled.p`
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  
-  @media (max-width: 768px) {
+  li {
+    padding: 12px 0;
+    color: #555;
     font-size: 1rem;
-  }
-`;
-
-const ConsultSection = styled.div`
-  background: transparent;
-`;
-
-const ConsultTitle = styled.h3`
-  font-size: 1.8rem;
-  color: #1a1a1a;
-  margin-bottom: 30px;
-  font-weight: 700;
-  text-align: left;
-  
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-`;
-
-const CTATitle = styled.h3`
-  font-size: 2.2rem;
-  color: #1a1a1a;
-  margin-bottom: 15px;
-  font-weight: 700;
-  
-  @media (max-width: 768px) {
-    font-size: 1.8rem;
-  }
-`;
-
-const CTADescription = styled.p`
-  font-size: 1.15rem;
-  color: #555;
-  margin-bottom: 40px;
-  line-height: 1.8;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
-`;
-
-const ContactInfo = styled.div`
-  background: white;
-  padding: 35px 40px;
-  border-radius: 15px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #2E4A6F;
-  margin-bottom: 30px;
-  text-align: left;
-  
-  h3 {
-    font-size: 1.4rem;
-    color: #2E4A6F;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-  
-  p {
-    font-size: 1.05rem;
-    color: #333;
-    margin: 12px 0;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 25px 20px;
+    line-height: 1.7;
     
-    h3 {
+    &:before {
+      content: '✓';
+      color: #2E4A6F;
+      font-weight: bold;
+      display: inline-block;
+      width: 1.5em;
+      margin-right: 8px;
       font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-    
-    p {
-      font-size: 0.95rem;
-      margin: 10px 0;
     }
   }
 `;
@@ -393,110 +212,158 @@ const CTAButton = styled(Link)`
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(23, 183, 166, 0.3);
+  box-shadow: 0 4px 15px rgba(46, 74, 111, 0.3);
+  margin-top: 30px;
   
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(23, 183, 166, 0.4);
+    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.4);
     background: #1E3A5F;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 15px 35px;
-    font-size: 1rem;
   }
 `;
 
+type GradeType = '고1' | '고2' | '고3';
+
+interface ClassInfo {
+  name: string;
+  startDate: string;
+  schedule: string;
+  note?: string;
+}
+
+const timetableData: Record<GradeType, ClassInfo[]> = {
+  '고1': [
+    // 국어
+    { name: '국어 [개남고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '국어 [단산고]', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
+    { name: '국어 [부천고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '국어 [심원고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '국어 [정명고]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
+    { name: '국어 [중흥고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    // 영어
+    { name: '영어 [경기에고]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '영어 [개남고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [덕산고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [부평고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '영어 [부천고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '영어 [부천여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [상동고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '영어 [소명여고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+    { name: '영어 [심원고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [원미고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/토)' },
+    { name: '영어 [원종고]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '영어 [정명고]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '영어 [중흥고]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/목)' },
+    // 수학
+    { name: '수학 [공통수학 A]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/토)' },
+    { name: '수학 [공통수학 B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
+    // 과학
+    { name: '과학 [통합과학 A]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '과학 [통합과학 B]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' }
+  ],
+  '고2': [
+    // 국어
+    { name: '국어 [심원고2]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
+    { name: '국어 [중흥고2]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
+    // 수학
+    { name: '수학 [대수A]', startDate: '3/4(수) 개강', schedule: '주 3회 (수/금/토)' },
+    { name: '수학 [대수B]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/일)' },
+    // 영어
+    { name: '영어 [정명고2 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+    { name: '영어 [정명고2 A]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
+    { name: '영어 [정명고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '영어 [부평고2]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
+    { name: '영어 [심원고2]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [중흥고2 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+    { name: '영어 [중흥고2 B]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '영어 [소명여고2]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' }
+  ],
+  '고3': [
+    // 국어
+    { name: '국어 [부천북고3]', startDate: '3/3(화) 개강', schedule: '주 1회 (화)', note: '확립과 작문' },
+    { name: '국어 [도당고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+    { name: '국어 [덕산고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '확립과 작문' },
+    { name: '국어 [심원고3]', startDate: '3/7(토) 개강', schedule: '주 1회 (토)', note: '확립과 작문' },
+    { name: '국어 [심원고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
+    { name: '국어 [정명고3]', startDate: '3/8(일) 개강', schedule: '주 1회 (일)', note: '언어와 매체' },
+    // 수학
+    { name: '수학 [미적분]', startDate: '3/2(월) 개강', schedule: '주 3회 (월/수/금)' },
+    { name: '수학 [확률과통계]', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' },
+    // 영어
+    { name: '영어 [도당고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [부평고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [소명여고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [중흥고3]', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '영어 [정명고3 S]', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
+    { name: '영어 [정명고3 A]', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
+    { name: '영어 [정명고3 C]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
+    { name: '영어 [심원고3]', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '영어 [덕산고3]', startDate: '3/4(수) 개강', schedule: '주 2회 (수/금)' }
+  ]
+};
+
 const WinterSchool: React.FC = () => {
+  const [activeGrade, setActiveGrade] = useState<GradeType>('고1');
+
   return (
     <PageWrapper>
       <Container>
         <BackButton to="/">← 홈으로</BackButton>
         
         <HeroCard>
-          <HeroTitle>윈터스쿨 학습 특강</HeroTitle>
+          <HeroTitle>2026학년도 1학기 고등부 내신대비 개강</HeroTitle>
           <HeroSubtitle>
-            방학은 길지만, 성적이 오르는 시간은 짧습니다.<br />
-            레벨미업 윈터스쿨은 "열심히"를 강요하는 프로그램이 아니라, <strong>레벨미업 졸업생 멘토의 1:1 케어</strong>로 공부 루틴을 끝까지 잡아주는 겨울 프로그램입니다.<br />
-            혼자 하면 흐트러지는 계획도, <strong>옆에서 함께 점검하고 피드백</strong>해 주면 결과가 달라집니다.
+            <strong>3월 2일(월)부터</strong> 학교별·과목별 정규 수업이 시작됩니다.<br />
+            학교 내신에 최적화된 맞춤형 커리큘럼으로 새 학기를 준비하세요.
           </HeroSubtitle>
         </HeroCard>
 
-        <MenuSection>
-          <MenuTitle>윈터스쿨 진행 내용</MenuTitle>
-          
-          <ContentWithThumbnail>
-            <ThumbnailContainer>
-              <ThumbnailImage src="/images/winter-school-poster.jpg" alt="레벨미업 윈터스쿨 학습 특강 포스터" />
-              <BlogButton href="https://m.blog.naver.com/PostView.naver?blogId=levelmeup&logNo=224085414673&referrerCode=0&searchKeyword=%EC%9C%88%ED%84%B0" target="_blank" rel="noopener noreferrer">
-                자세히 알아보기
-              </BlogButton>
-            </ThumbnailContainer>
-            
-            <ContentArea>
-              <MenuContent style={{marginBottom: '30px'}}>
-                <div style={{padding: '25px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e0e0e0'}}>
-                  
-                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>이런 학생에게 추천합니다</h4>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>겨울방학에 무엇부터 해야 할지 막막한 학생</li>
-                      <li>내신과 수능을 동시에 잡고 싶은 학생</li>
-                      <li>공부 시간은 늘었는데 성적이 안 오르는 학생</li>
-                    </ul>
-                  </div>
+        <TabContainer>
+          <Tab $active={activeGrade === '고1'} onClick={() => setActiveGrade('고1')}>고1</Tab>
+          <Tab $active={activeGrade === '고2'} onClick={() => setActiveGrade('고2')}>고2</Tab>
+          <Tab $active={activeGrade === '고3'} onClick={() => setActiveGrade('고3')}>고3</Tab>
+        </TabContainer>
 
-                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>1) 학년별 맞춤 학습 전략</h4>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>중등/고1/고2/고3 학년별 목표 설정</li>
-                      <li>내신 중심 / 수능 중심 / 병행 전략 정리</li>
-                      <li>과목별 공부 우선순위와 시간 배분</li>
-                    </ul>
-                  </div>
+        <ContentCard>
+          <SectionTitle>{activeGrade} 개설 수업</SectionTitle>
+          <TableWrapper>
+            <ClassTable>
+              <thead>
+                <tr>
+                  <th>개설반</th>
+                  <th>개강일</th>
+                  <th>수업 요일</th>
+                  {activeGrade === '고3' && <th>비고</th>}
+                </tr>
+              </thead>
+              <tbody>
+                {timetableData[activeGrade].map((classInfo, index) => (
+                  <tr key={index}>
+                    <td>{classInfo.name}</td>
+                    <td>{classInfo.startDate}</td>
+                    <td>{classInfo.schedule}</td>
+                    {activeGrade === '고3' && <td>{classInfo.note || '-'}</td>}
+                  </tr>
+                ))}
+              </tbody>
+            </ClassTable>
+          </TableWrapper>
+        </ContentCard>
 
-                  <div style={{marginBottom: '25px', padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>2) 학습 루틴 & 계획표 완성</h4>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>개인 성향/현재 수준에 맞춘 공부 루틴 설계</li>
-                      <li>하루 공부 흐름(자습-복습-오답) 고정</li>
-                      <li>실천 가능한 방학 계획표 작성</li>
-                    </ul>
-                  </div>
+        <InfoBox>
+          <h3>수업 안내</h3>
+          <ul>
+            <li>학교별 내신 범위와 난이도에 맞춘 맞춤형 수업</li>
+            <li>과목별 전문 강사진의 체계적인 지도</li>
+            <li>정규 수업과 연계된 자습관 운영</li>
+            <li>학교별 시험 일정에 맞춘 내신 대비 특강</li>
+            <li>개인별 학습 상담 및 관리 시스템</li>
+          </ul>
+        </InfoBox>
 
-                  <div style={{padding: '20px', background: 'white', borderRadius: '10px'}}>
-                    <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#1a1a1a'}}>3) 개별 피드백 & 목표 관리</h4>
-                    <ul style={{marginLeft: '0', paddingLeft: '0'}}>
-                      <li>학습 방향 점검</li>
-                      <li>과목별 약점 진단</li>
-                      <li>목표 달성을 위한 구체적 수정 피드백</li>
-                    </ul>
-                  </div>
-                </div>
-              </MenuContent>
-            </ContentArea>
-          </ContentWithThumbnail>
-
-        </MenuSection>
-
-        <CTASection>
-          <BrandClosing>
-            <BrandMotto>Slow and steady wins the race.</BrandMotto>
-            <BrandSubtitle>흔들리지 않는 실력의 리듬을 만들어드립니다</BrandSubtitle>
-          </BrandClosing>
-          
-          <ConsultSection>
-            <ConsultTitle>수강 신청 및 상담</ConsultTitle>
-            <ContactInfo>
-              <h3>레벨미업 학원</h3>
-              <p>📍 주소: 경기도 부천시 길주로 275</p>
-              <p>📞 전화: 032-322-0592 / 010-2406-0591</p>
-            </ContactInfo>
-            <ButtonGroup>
-              <CTAButton to="/consulting">무료 상담 신청하기</CTAButton>
-            </ButtonGroup>
-          </ConsultSection>
-        </CTASection>
+        <div style={{ textAlign: 'center' }}>
+          <CTAButton to="/timetable">전체 시간표 보기</CTAButton>
+        </div>
       </Container>
     </PageWrapper>
   );
