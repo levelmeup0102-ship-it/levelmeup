@@ -234,17 +234,17 @@ interface ClassInfo {
 const timetableData: Record<GradeType, ClassInfo[]> = {
   '고1': [
     // 국어
-    { name: '[개남고] 국어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
-    { name: '[단산고] 국어', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
+    { name: '[계남고] 국어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
+    { name: '[덕산고] 국어', startDate: '3/6(금) 개강', schedule: '주 1회 (금)' },
     { name: '[부천고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
     { name: '[심원고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
     { name: '[정명고] 국어', startDate: '3/8(일) 개강', schedule: '주 1회 (일)' },
     { name: '[중흥고] 국어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
     // 영어
     { name: '[경기에고] 영어', startDate: '3/7(토) 개강', schedule: '주 1회 (토)' },
-    { name: '[개남고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[계남고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[덕산고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '[부평고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
+    { name: '[부명고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
     { name: '[부천고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
     { name: '[부천여고] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[상동고] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/토)' },
@@ -272,7 +272,7 @@ const timetableData: Record<GradeType, ClassInfo[]> = {
     { name: '[정명고2 S] 영어', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
     { name: '[정명고2 A] 영어', startDate: '3/4(수) 개강', schedule: '주 2회 (수/일)' },
     { name: '[정명고2 B] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/토)' },
-    { name: '[부평고2] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
+    { name: '[부명고2] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/수)' },
     { name: '[심원고2] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[중흥고2 A] 영어', startDate: '3/5(목) 개강', schedule: '주 2회 (목/일)' },
     { name: '[중흥고2 B] 영어', startDate: '3/2(월) 개강', schedule: '주 2회 (월/금)' },
@@ -291,7 +291,7 @@ const timetableData: Record<GradeType, ClassInfo[]> = {
     { name: '[확률과통계] 수학', startDate: '3/3(화) 개강', schedule: '주 3회 (화/목/토)' },
     // 영어
     { name: '[도당고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
-    { name: '[부평고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
+    { name: '[부명고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[소명여고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[중흥고3] 영어', startDate: '3/3(화) 개강', schedule: '주 2회 (화/일)' },
     { name: '[정명고3 S] 영어', startDate: '3/7(토) 개강', schedule: '주 2회 (토/일)' },
