@@ -417,7 +417,7 @@ const High3Guide: React.FC = () => {
         </HeroCard>
 
         <MenuSection>
-          <MenuTitle>예비고3 겨울방학 특강 안내</MenuTitle>
+          <MenuTitle>예비고3 수능대비 수강 안내</MenuTitle>
           
           <ContentWithThumbnail>
             <ThumbnailContainer>

@@ -873,6 +873,35 @@ const About: React.FC = () => {
                 Slow and steady wins the race.<br />
                 그 문장은 레벨미업의 방식이자 약속입니다.
               </IntroQuote>
+
+              <div style={{ marginTop: '80px', textAlign: 'center' as const }}>
+                <div style={{
+                  fontSize: '2.8rem',
+                  fontWeight: '800',
+                  color: '#1a1a1a',
+                  letterSpacing: '-0.03em',
+                  lineHeight: '1.2',
+                  marginBottom: '12px'
+                }}>
+                  I.C.C
+                </div>
+                <div style={{
+                  fontSize: '1rem',
+                  color: '#888',
+                  fontWeight: '400',
+                  marginBottom: '48px'
+                }}>
+                  Incentive Care Class
+                </div>
+                <IntroParagraph style={{ textAlign: 'center' as const, maxWidth: '520px', margin: '0 auto 16px' }}>
+                  수업이 끝난 뒤에도, 그날 배운 것이<br />
+                  진짜 내 것이 됐는지 확인합니다.
+                </IntroParagraph>
+                <IntroParagraph style={{ textAlign: 'center' as const, maxWidth: '520px', margin: '0 auto 16px' }}>
+                  과제 마무리, 이해도 점검, 부족한 부분 즉시 보충.<br />
+                  <strong>한 명도 넘어가지 않는 개인 케어</strong>입니다.
+                </IntroParagraph>
+              </div>
             </Section>
           </TabContent>
         )}

@@ -637,7 +637,7 @@ const Curriculum: React.FC = () => {
 
   const iccContent = {
     title: 'I.C.C 개인관리 시스템',
-    subtitle: 'Individual Care & Coaching - 학생 개개인의 학습을 체계적으로 관리하고 분석하는 레벨미업만의 학습 관리 시스템입니다.',
+    subtitle: 'Incentive Care Class - 학생 개개인의 학습을 체계적으로 관리하고 분석하는 레벨미업만의 학습 관리 시스템입니다.',
     cards: [
       {
         title: '학생별 학습 진단',

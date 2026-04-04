@@ -16,43 +16,13 @@ const CarouselContainer = styled.div`
   width: 100%;
   max-width: 1920px;
   height: auto;
+  max-height: 600px;
   margin: 0 auto;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1a2332;
-  
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 20%;
-    z-index: 10;
-    pointer-events: none;
-  }
-  
-  &::before {
-    left: 0;
-    background: linear-gradient(to right, 
-      #1a2332 0%, 
-      rgba(26, 35, 50, 0.9) 20%,
-      rgba(26, 35, 50, 0.6) 40%,
-      rgba(26, 35, 50, 0.3) 60%,
-      transparent 100%);
-  }
-  
-  &::after {
-    right: 0;
-    background: linear-gradient(to left, 
-      #1a2332 0%, 
-      rgba(26, 35, 50, 0.9) 20%,
-      rgba(26, 35, 50, 0.6) 40%,
-      rgba(26, 35, 50, 0.3) 60%,
-      transparent 100%);
-  }
+  background: transparent;
   
   @media (max-width: 1023px) {
     width: 100%;
@@ -148,6 +118,7 @@ const SlideImage = styled.img`
   max-width: 100%;
   width: auto;
   height: auto;
+  max-height: 600px;
   display: block;
   object-fit: contain;
   object-position: center;
@@ -267,7 +238,7 @@ const slides: Slide[] = [
     image: '/images/slide1.png',
     mobileImage: '/images/slide1-mobile.png',
     alt: '국영수과 입시학원 LEVEL ME UP - 개념 기출까지 잡는 내신 집중! 관리 - 전교 1등 12명 달성 - 실원고·정명고·중흥고·부천북고·부명고·원미고 등 - 2025학년도 1~2학기 고등부 중간기말고사 누적 기준',
-    backgroundColor: '#0a1a2a'
+    backgroundColor: '#d4eef8'
   },
   {
     image: '/images/slide2.jpg',

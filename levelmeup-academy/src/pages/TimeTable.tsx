@@ -312,7 +312,7 @@ interface ClassInfo {
   status?: string;
 }
 
-type MainTab = '고등부' | '중등부';
+type MainTab = '고등부' | '중등부' | '교습비';
 type HighSchoolGrade = '고1' | '고2' | '고3';
 type MiddleSchoolGrade = '중1' | '중2' | '중3';
 
@@ -485,6 +485,9 @@ const TimeTablePage: React.FC = () => {
         <MainTab active={mainTab === '중등부'} onClick={() => setMainTab('중등부')}>
           중등부
         </MainTab>
+        <MainTab active={mainTab === '교습비'} onClick={() => setMainTab('교습비')}>
+          교습비
+        </MainTab>
       </MainTabContainer>
 
       {/* 고등부 */}
@@ -599,6 +602,32 @@ const TimeTablePage: React.FC = () => {
             </TableWrapper>
           </ContentSection>
         </>
+      )}
+
+      {/* 교습비 */}
+      {mainTab === '교습비' && (
+        <ContentSection>
+          <TableWrapper>
+            <ClassTable>
+              <thead>
+                <tr>
+                  <th>과목</th>
+                  <th>교습비 (월)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>고등수학 2</td><td>450,000원</td></tr>
+                <tr><td>고등수학 1</td><td>400,000원</td></tr>
+                <tr><td>고등영어</td><td>320,000원</td></tr>
+                <tr><td>고등국어</td><td>280,000원</td></tr>
+                <tr><td>고등과학</td><td>280,000원</td></tr>
+                <tr><td>중등수학</td><td>240,000원</td></tr>
+                <tr><td>중등영어</td><td>240,000원</td></tr>
+                <tr><td>중등국어</td><td>180,000원</td></tr>
+              </tbody>
+            </ClassTable>
+          </TableWrapper>
+        </ContentSection>
       )}
 
       <InfoBox>

@@ -21,6 +21,7 @@ import PreHighSchool from './pages/PreHighSchool';
 import WinterProgram2026 from './pages/WinterProgram2026';
 import WinterSchool from './pages/WinterSchool';
 import High3Guide from './pages/High3Guide';
+import CoreStudy from './pages/CoreStudy';
 import FacilityDetail from './pages/FacilityDetail';
 import './App.css';
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/winter-program-2026" element={<WinterProgram2026 />} />
           <Route path="/winter-school" element={<WinterSchool />} />
           <Route path="/high3-guide" element={<High3Guide />} />
+          <Route path="/core-study" element={<CoreStudy />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/timetable" element={<TimeTable />} />
           <Route path="/curriculum" element={<Curriculum />} />
