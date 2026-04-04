@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 
 const PageWrapper = styled.div`
   max-width: 1200px;
@@ -18,7 +20,7 @@ const PageTitle = styled.h1`
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: #2E4A6F;
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -39,20 +41,51 @@ const TabContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const Tab = styled.button<{ active: boolean }>`
+interface TabProps {
+  $active: boolean;
+}
+
+const Tab = styled('button', {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== '$active',
+})<TabProps>`
   padding: 15px 40px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 3px solid ${props => props.active ? '#1a5f3d' : '#ddd'};
-  background: ${props => props.active ? 'linear-gradient(135deg, #1a5f3d 0%, #2d8659 100%)' : 'white'};
-  color: ${props => props.active ? 'white' : '#666'};
+  border: 3px solid ${(props) => props.$active ? '#2E4A6F' : '#ddd'};
+  background: ${(props) => props.$active ? '#2E4A6F' : 'white'};
+  color: ${(props) => props.$active ? 'white' : '#666'};
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(26, 95, 61, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(46, 74, 111, 0.3);
+    border-color: #2E4A6F;
+    background: ${(props) => props.$active 
+      ? '#2E4A6F' 
+      : 'rgba(46, 74, 111, 0.1)'};
+    color: ${(props) => props.$active ? 'white' : '#2E4A6F'};
+    
+    &::before {
+      width: 300px;
+      height: 300px;
+    }
   }
 `;
 
@@ -63,36 +96,13 @@ const GalleryGrid = styled.div`
   margin-bottom: 60px;
 `;
 
-const GalleryCard = styled.a`
+const GalleryCard = styled.div`
   background: white;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: all 0.3s;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-  }
-`;
-
-const ImagePlaceholder = styled.div<{ bgColor: string; imageUrl?: string }>`
-  width: 100%;
-  height: 250px;
-  background: ${props => props.imageUrl ? `url(${props.imageUrl}) center/cover` : props.bgColor};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  transition: all 0.4s ease;
   position: relative;
-  overflow: hidden;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-weight: bold;
   
   &::before {
     content: '';
@@ -100,26 +110,80 @@ const ImagePlaceholder = styled.div<{ bgColor: string; imageUrl?: string }>`
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: ${props => props.imageUrl ? 'rgba(0,0,0,0.3)' : 'linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)'};
-    background-size: 50px 50px;
+    height: 4px;
+    background: #2E4A6F;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(26, 95, 61, 0.25);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    h3 {
+      color: #1a5f3d;
+    }
+    
+    p {
+      color: #333;
+      font-weight: 500;
+    }
+  }
+`;
+
+const ImagePlaceholder = styled.div`
+  width: 100%;
+  height: 280px;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
   }
 `;
 
 const CardContent = styled.div`
   padding: 25px;
+  
+  h3 {
+    transition: color 0.3s ease;
+  }
+  
+  p {
+    transition: color 0.3s ease;
+  }
 `;
 
 const CardTitle = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 10px;
   color: #1a1a1a;
+  transition: color 0.3s ease;
 `;
 
 const CardDescription = styled.p`
   color: #666;
   line-height: 1.6;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
 `;
 
 const InfoSection = styled.div`
@@ -163,195 +227,105 @@ const FeatureItem = styled.li`
 `;
 
 const Gallery: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'facility' | 'class' | 'event'>('facility');
-
-  const facilityImages = [
-    {
-      title: 'Level ME Up 본관',
-      description: '8개의 쾌적한 강의실에서 소규모 맞춤 수업이 진행됩니다. 빈 강의실은 자습 시 이용 가능합니다.',
-      bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '본관 강의실',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
-    },
-    {
-      title: 'Pre ME Up 자습관',
-      description: '35석 규모의 독립된 자습 공간입니다. 스터디카페 스타일로 조용하고 집중하기 좋은 환경을 제공합니다.',
-      bgColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      category: '자습관',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
-    },
-    {
-      title: '멘토링 룸',
-      description: '개별 질문이나 1:1 멘토링을 위한 독립된 상담 공간입니다.',
-      bgColor: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      category: '상담실',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
-    },
-    {
-      title: '로비 & 휴게 공간',
-      description: '수업 전후 여유로운 시간을 보낼 수 있는 편안한 공간입니다.',
-      bgColor: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      category: '로비',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
-    },
-    {
-      title: '강의 시설',
-      description: '프로젝터, 화이트보드 등 최신 교육 장비를 갖춘 강의실입니다.',
-      bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      category: '강의실',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
-    },
-    {
-      title: '쾌적한 환경',
-      description: '청결한 화장실과 정기적인 환기로 쾌적한 학습 환경을 유지합니다.',
-      bgColor: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-      category: '학습환경',
-      blogLink: 'https://blog.naver.com/levelmeup/221653275180'
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState<'class' | 'event'>('event');
+  
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab === 'system') {
+      setActiveTab('class');
+    } else if (tab === 'event') {
+      setActiveTab('event');
     }
-  ];
+  }, [location]);
 
   const classImages = [
     {
-      title: '국어 수업',
-      description: '비문학, 문학, 문법 영역별 집중 학습으로 내신과 수능을 동시에 대비합니다.',
-      bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '국어',
-      blogLink: 'https://blog.naver.com/levelmeup'
+      title: 'I.C.C (Intensive Care Class)',
+      description: '과제·테스트 결과를 즉시 점검해 미흡한 학습을 그날 바로 보완하는 집중 관리 클래스',
+      imageUrl: '/images/gallery-icc.jpg'
     },
     {
-      title: '영어 수업',
-      description: 'I.C.C. 시스템으로 학생 개개인의 학습 진도를 세심하게 관리합니다.',
-      bgColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      category: '영어',
-      blogLink: 'https://blog.naver.com/levelmeup'
+      title: 'Weekly 모의고사',
+      description: '실전과 동일한 환경에서 매주 응시하고, 수업 시간에 리뷰와 랭킹까지 관리하는 주간 모의고사 시스템',
+      imageUrl: '/images/gallery-mock-test.jpg'
     },
     {
-      title: '수학 수업',
-      description: '개념 이해부터 심화 문제까지 단계별 맞춤 수업을 진행합니다.',
-      bgColor: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      category: '수학',
-      blogLink: 'https://blog.naver.com/levelmeup'
+      title: '학부모·학생 설명회',
+      description: '학생에게는 학습 전략을, 학부모에게는 부천 지역 내신·입시 흐름을 제공하는 정기 설명회',
+      imageUrl: '/images/gallery-class.jpg'
     },
     {
-      title: '과학 수업',
-      description: '물리, 화학, 생명과학 등 과목별 전문 선생님의 체계적인 수업입니다.',
-      bgColor: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      category: '과학',
-      blogLink: 'https://blog.naver.com/levelmeup'
+      title: '시험기간 코어자습제',
+      description: '시험 기간 동안 의무 자습과 출결 관리로 면학 분위기를 조성하는 집중 학습 프로그램',
+      imageUrl: '/images/gallery-core-study.jpg'
+    },
+    {
+      title: '명예의 전당',
+      description: '내신 기간 우수 성적 및 성적 향상 학생을 게시하고 보상하여 학습 동기를 높이는 성취 관리 시스템',
+      imageUrl: '/images/gallery-hall-of-fame.jpg'
     }
   ];
 
   const eventImages = [
     {
-      title: 'MOVIE DAY 극장 대관',
-      description: '재원생 전원을 초대하는 특별한 영화 관람 이벤트입니다.',
-      bgColor: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
-      category: '특별행사',
-      blogLink: 'https://www.instagram.com/levelme__up/'
+      title: '우수학생 시상식',
+      description: '내신 기간 우수 성적 및 성적 향상 학생을 공식적으로 시상하여 성취 경험을 강화하는 동기 부여 프로그램',
+      imageUrl: '/images/event-award-ceremony.jpg'
     },
     {
-      title: '할로윈 이벤트',
-      description: '학생들과 함께하는 즐거운 할로윈 포토존 이벤트입니다.',
-      bgColor: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      category: '계절행사',
-      blogLink: 'https://www.instagram.com/levelme__up/'
+      title: '무빙데이',
+      description: '한 학기 성취를 함께 축하하며, 다음 도약을 위한 동기를 채우는 레벨미업 학습 리워드 이벤트',
+      imageUrl: '/images/event-moving-day.jpg'
     },
     {
-      title: '성적 우수 시상식',
-      description: '열심히 노력한 학생들을 위한 시상식 및 격려 행사입니다.',
-      bgColor: 'linear-gradient(135deg, #ffd700 0%, #ff8c42 100%)',
-      category: '시상식',
-      blogLink: 'https://blog.naver.com/levelmeup'
-    },
-    {
-      title: '여름/겨울방학 특강',
-      description: '방학 기간 동안 진행되는 집중 특강 프로그램입니다.',
-      bgColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      category: '특강',
-      blogLink: 'https://blog.naver.com/levelmeup'
+      title: '할로윈데이 퀴즈 이벤트',
+      description: '학습 내용을 퀴즈로 즐기며 참여와 몰입을 높이는 시즌 한정 학습 이벤트',
+      imageUrl: '/images/event-halloween-quiz.jpg'
     }
   ];
 
   const getCurrentImages = () => {
     switch (activeTab) {
-      case 'facility':
-        return facilityImages;
       case 'class':
         return classImages;
       case 'event':
         return eventImages;
       default:
-        return facilityImages;
+        return classImages;
     }
   };
 
   return (
     <PageWrapper>
       <PageTitle>갤러리</PageTitle>
-      <PageSubtitle>레벨미업 학원의 시설과 수업 모습을 소개합니다</PageSubtitle>
+      <PageSubtitle>레벨미업 학원의 수업과 학습과정을 소개합니다</PageSubtitle>
 
       <TabContainer>
-        <Tab active={activeTab === 'facility'} onClick={() => setActiveTab('facility')}>
-          학원 시설
+        <Tab $active={activeTab === 'event'} onClick={() => setActiveTab('event')}>
+          학습 이벤트
         </Tab>
-        <Tab active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
-          수업 모습
-        </Tab>
-        <Tab active={activeTab === 'event'} onClick={() => setActiveTab('event')}>
-          이벤트
+        <Tab $active={activeTab === 'class'} onClick={() => setActiveTab('class')}>
+          학습시스템
         </Tab>
       </TabContainer>
 
       <GalleryGrid>
-        {getCurrentImages().map((image, index) => (
-          <GalleryCard 
-            key={index}
-            href={image.blogLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ImagePlaceholder bgColor={image.bgColor}>
-              <div style={{position: 'relative', zIndex: 1, fontSize: '2rem', fontWeight: 'bold', color: 'white'}}>
-                {image.category}
-                <div style={{fontSize: '0.9rem', marginTop: '10px', opacity: 0.9}}>
-                  클릭하여 사진 보기 →
-                </div>
-              </div>
-            </ImagePlaceholder>
-            <CardContent>
-              <CardTitle>{image.title}</CardTitle>
-              <CardDescription>{image.description}</CardDescription>
-            </CardContent>
-          </GalleryCard>
-        ))}
+        {getCurrentImages()
+          .filter(image => image.imageUrl) // 이미지가 있는 카드만 표시
+          .map((image, index) => (
+            <GalleryCard key={index}>
+              <ImagePlaceholder>
+                <img src={image.imageUrl} alt={image.title} />
+              </ImagePlaceholder>
+              <CardContent>
+                <CardTitle>{image.title}</CardTitle>
+                <CardDescription>{image.description}</CardDescription>
+              </CardContent>
+            </GalleryCard>
+          ))}
       </GalleryGrid>
-
-      <InfoSection>
-        <SectionTitle>학원 시설 정보</SectionTitle>
-        <FeatureList>
-          <FeatureItem>본관 8개 강의실 (소규모 맞춤 수업)</FeatureItem>
-          <FeatureItem>자습관 35석 (스터디카페 스타일)</FeatureItem>
-          <FeatureItem>멘토링 룸 (1:1 상담 공간)</FeatureItem>
-          <FeatureItem>청결한 화장실 및 휴게 공간</FeatureItem>
-          <FeatureItem>최신 교육 장비 (프로젝터, 화이트보드)</FeatureItem>
-          <FeatureItem>쾌적한 학습 환경 (정기 환기)</FeatureItem>
-        </FeatureList>
-      </InfoSection>
-
-      <InfoSection>
-        <SectionTitle>찾아오시는 길</SectionTitle>
-        <div style={{padding: '20px', background: '#f8f9fa', borderRadius: '10px'}}>
-          <p style={{fontSize: '1.1rem', marginBottom: '15px', color: '#1a1a1a'}}>
-            <strong>📍 주소:</strong> 경기도 부천시 길주로 275 중동프라자 6층
-          </p>
-          <p style={{fontSize: '1.1rem', marginBottom: '15px', color: '#1a1a1a'}}>
-            <strong>🚇 교통:</strong> 신중동역 4번 출구 방향
-          </p>
-          <p style={{fontSize: '1.1rem', color: '#1a1a1a'}}>
-            <strong>📞 문의:</strong> 032-322-0592 / 010-2406-0591
-          </p>
-        </div>
-      </InfoSection>
 
       <div style={{textAlign: 'center', marginTop: '60px'}}>
         <p style={{fontSize: '1.1rem', color: '#666', marginBottom: '20px'}}>
@@ -363,7 +337,7 @@ const Gallery: React.FC = () => {
           rel="noopener noreferrer"
           style={{
             display: 'inline-block',
-            background: 'linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%)',
+            background: '#2E4A6F',
             color: 'white',
             padding: '15px 40px',
             borderRadius: '50px',

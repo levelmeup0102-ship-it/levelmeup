@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import { colors } from '../theme';
+import { keyframes } from '@emotion/react';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const PageWrapper = styled.div`
   max-width: 1200px;
@@ -12,13 +25,14 @@ const PageTitle = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   color: #1a1a1a;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   
   &::after {
     content: '';
     display: block;
     width: 80px;
     height: 5px;
-    background: linear-gradient(135deg, #1a5f3d 0%, #ff8c42 100%);
+    background: linear-gradient(90deg, ${colors.green.primary} 0%, ${colors.green.primary} 100%);
     margin: 20px auto;
     border-radius: 3px;
   }
@@ -28,267 +42,313 @@ const PageSubtitle = styled.p`
   text-align: center;
   font-size: 1.2rem;
   color: #666;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+`;
+
+const TabContainer = styled.div`
+  margin: 0 0 50px;
+`;
+
+const TabList = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+`;
+
+const Tab = styled.button<{ $active: boolean }>`
+  flex: 1;
+  min-width: 120px;
+  padding: 16px 24px;
+  background: ${props => props.$active ? colors.green.primary : '#f5f5f5'};
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: ${props => props.$active ? '700' : '600'};
+  color: ${props => props.$active ? '#ffffff' : '#666'};
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  white-space: nowrap;
+  
+  &:hover {
+    background: ${props => props.$active ? '#1E3A5F' : '#e8e8e8'};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 183, 166, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 100px;
+    font-size: 0.95rem;
+    padding: 14px 18px;
+  }
+`;
+
+const TabContent = styled.div`
+  animation: ${fadeIn} 0.5s ease-out;
 `;
 
 const TeacherGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const TeacherCard = styled.div`
   background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: all 0.3s;
+  border-left: 4px solid transparent;
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    border-left-color: ${colors.green.primary};
   }
-`;
-
-const TeacherImage = styled.div`
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
-    background-size: 50px 50px;
-  }
-`;
-
-const TeacherInfo = styled.div`
-  padding: 30px;
 `;
 
 const TeacherName = styled.h3`
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 10px;
   color: #1a1a1a;
+  font-weight: 700;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 `;
 
-const TeacherSubject = styled.div`
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+const TeacherGrade = styled.div`
+  font-size: 1.2rem;
+  color: ${colors.green.primary};
+  font-weight: 600;
+  margin-bottom: 14px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 `;
 
 const TeacherDescription = styled.p`
   color: #666;
   line-height: 1.8;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  white-space: pre-line;
 `;
 
-const TeacherHighlights = styled.ul`
-  list-style: none;
-  padding: 0;
-  
-  li {
-    padding: 8px 0;
-    color: #444;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-    &::before {
-      content: '✓';
-      color: #667eea;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-  }
-`;
 
-const SubjectSection = styled.section`
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 40px;
-`;
-
-const SubjectTitle = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-`;
-
-const SubjectContent = styled.div`
-  color: #444;
-  line-height: 1.8;
-  
-  p {
-    margin-bottom: 15px;
-  }
-  
-  ul {
-    margin-left: 20px;
-    margin-top: 15px;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-`;
 
 const Teachers: React.FC = () => {
-  const teachers = [
+  const [activeTab, setActiveTab] = useState('korean');
+
+  const subjects = [
     {
-      name: '김영수 원장',
-      subject: '수학',
-      emoji: '👨‍🏫',
-      description: '서울대학교 수학교육과 출신으로 15년간 수학 교육에 전념해온 수학 전문가입니다. 복잡한 개념을 쉽게 풀어내는 강의로 학생들의 수학에 대한 흥미를 이끌어냅니다.',
-      highlights: [
-        '서울대 수학교육과 졸업',
-        '15년 교육 경력',
-        '수능 수학 만점자 50명 이상 배출',
-        '자체 개발 학습 교재 5권 저자'
+      id: 'korean',
+      icon: '📘',
+      title: '국어',
+      teachers: [
+        {
+          name: '김재광 선생님',
+          grade: '중등 국어',
+          subtitle: '중등 기초·심화 전담 + ICC 보충관리',
+          description: `중등 국어 전 학년을 담당하며,
+어휘·문법·문학의 기초부터 심화까지 단계적으로 지도합니다.
+이론 학습 후 문제 적용과 반복 훈련을 통해
+국어 기본기를 안정적으로 완성하는 수업을 진행합니다.
+ICC 보충 학습을 통해 학습 누락 없이 관리합니다.`
+        },
+        {
+          name: '김단비 선생님',
+          grade: '고등 국어',
+          subtitle: '내신 선행 · 수능 기출·유형 집중',
+          description: `고등 국어 전담 강사로,
+고1 내신 선행부터 고3 수능 대비까지 연계 지도합니다.
+문법·독서·문학을 기출 중심으로 정리하여
+내신과 수능을 동시에 대비할 수 있도록 설계된 수업을 진행합니다.
+고3 선택과목 특강까지 체계적으로 운영합니다.`
+        }
       ]
     },
     {
-      name: '이지은 선생님',
-      subject: '영어',
-      emoji: '👩‍🏫',
-      description: '연세대학교 영문과 출신으로 미국 유학 경험을 바탕으로 한 실용적인 영어 교육을 실천합니다. 듣기, 말하기, 읽기, 쓰기를 통합한 종합적인 영어 실력 향상을 이끕니다.',
-      highlights: [
-        '연세대 영문과 졸업',
-        '미국 UCLA 교환학생',
-        '토익 990점, 토플 120점',
-        '10년 이상 수능 영어 전문 강의'
+      id: 'math',
+      icon: '📐',
+      title: '수학',
+      teachers: [
+        {
+          name: '문혜련 선생님',
+          grade: '중등 수학',
+          subtitle: '중등 선행 개념 · 유형문풀 · 관리형 수업',
+          description: `중등 수학 전담 강사로,
+학기 선행 개념 학습과 유형별 문제풀이를 병행합니다.
+과제·테스트·보충으로 이어지는 관리형 수업을 통해
+개념 이해부터 실전 적용까지 꼼꼼하게 지도합니다.
+중등 수학 기초를 탄탄히 다지는 데 중점을 둡니다.`
+        },
+        {
+          name: '오서영 선생님',
+          grade: '공통수학',
+          subtitle: '공통수학 전담 · 중등 기초 특강 & CLASS UP',
+          description: `공통수학을 중심으로 수업을 진행하며,
+중등 기초 특강과 CLASS UP 같은 수학 특강을 담당합니다.
+기초부터 심화까지 단계적으로 학습할 수 있도록 설계된 수업으로
+수학 실력을 체계적으로 완성합니다.
+특강을 통해 취약한 부분을 집중 보완하고 수학 자신감을 키웁니다.`
+        },
+        {
+          name: '박재현 선생님',
+          grade: '고등 수학',
+          subtitle: '대수·기하·미적·확통 선택과목 전담',
+          description: `고등 수학 전담 강사로,
+공통수학부터 대수·기하·미적분·확률과 통계까지 담당합니다.
+선행 개념 정리 후 유형별 문제풀이를 통해
+내신과 수능 선택과목을 체계적으로 대비합니다.
+고등 수학 전반을 장기적으로 설계하는 수업을 진행합니다.`
+        }
       ]
     },
     {
-      name: '박준호 선생님',
-      subject: '국어',
-      emoji: '👨‍💼',
-      description: '고려대학교 국어국문학과 출신으로 비문학, 문학, 문법 영역을 아우르는 체계적인 국어 교육을 제공합니다. 논리적 사고력과 독해력 향상에 중점을 둡니다.',
-      highlights: [
-        '고려대 국어국문학과 졸업',
-        '12년 국어 교육 경력',
-        '수능 국어 1등급 배출률 85%',
-        '논술 지도 전문가'
+      id: 'english',
+      icon: '📕',
+      title: '영어',
+      teachers: [
+        {
+          name: '백지원 선생님',
+          grade: '중등 영어',
+          subtitle: '기초부터 필수·심화 과정까지 지도',
+          description: `중등 영어의 기본기를 탄탄하게 다질 수 있도록
+문법과 독해를 중심으로 체계적인 학습을 진행합니다.
+또한 중등 과정 내용을 바탕으로 고등 영어 과정까지 자연스럽게 연계하여
+실력 향상을 목표로 지도합니다.`
+        },
+        {
+          name: '최아영 선생님',
+          grade: '고등 영어',
+          subtitle: '내신 독해 중심 · 학교별 대비',
+          description: `고등 영어 내신 대비를 담당합니다.
+학교 시험에 자주 출제되는 지문을 중심으로
+독해 구조 분석과 정확한 해석을 지도합니다.
+학교별 내신 범위에 맞춘 수업으로 실전 대비를 강화합니다.`
+        },
+        {
+          name: '조서정 선생님',
+          grade: '고등 영어',
+          subtitle: '지필·내신 대비 · 기출 기반 수업',
+          description: `고등 영어 내신 및 지필 평가 대비를 담당합니다.
+기출 지문과 학교별 출제 경향을 반영하여
+시험에 바로 적용 가능한 수업을 진행합니다.
+내신 성적 향상을 목표로 한 실전 중심 지도에 강점이 있습니다.`
+        },
+        {
+          name: '구태림 선생님',
+          grade: '고등 영어',
+          subtitle: '내신 문법·독해 + 수능 기출·주간 모의',
+          description: `고등 영어 내신과 수능을 모두 담당합니다.
+내신에서는 문법과 독해를 균형 있게 지도하며,
+수능에서는 기출 분석과 수능특강 연계를 통해
+실전 독해 능력과 시간 관리 능력을 함께 훈련합니다.
+주간 모의고사와 특강으로 수능 실전 감각을 지속적으로 점검합니다.`
+        },
+        {
+          name: '장민지 선생님',
+          grade: '고등 영어',
+          subtitle: '내신 대비 · 학교별 맞춤 · 꼼꼼한 관리형 수업',
+          description: `고등 영어 내신 대비를 담당합니다.
+학교별 출제 경향을 분석하여 맞춤형 수업을 진행하며,
+학생 개개인의 이해도를 꼼꼼하게 확인하는 관리형 수업을 합니다.
+내신 성적 향상을 위한 체계적인 학습 관리에 강점이 있습니다.`
+        },
+        {
+          name: '조서영 선생님',
+          grade: '초등·중등 영어',
+          subtitle: '원서 읽기 · 영어 활동 · 리딩&라이팅',
+          description: `초등 4~6학년과 중등 1~3학년 영어를 담당합니다.
+원서를 직접 읽고 영어로 다양한 활동을 진행하며,
+교재를 읽고 라이팅까지 연계하여 영어 실력을 종합적으로 향상시킵니다.
+읽기, 말하기, 쓰기를 균형 있게 발달시키는 수업을 진행합니다.`
+        }
       ]
     },
     {
-      name: '최서연 선생님',
-      subject: '과학 (물리/화학)',
-      emoji: '👩‍🔬',
-      description: '카이스트 화학과 출신으로 과학의 원리를 깊이 있게 이해시키는 교육을 추구합니다. 실험과 이론을 접목한 생동감 있는 수업으로 과학에 대한 흥미를 높입니다.',
-      highlights: [
-        'KAIST 화학과 졸업',
-        '물리/화학 모두 지도 가능',
-        '과학 경시대회 입상자 다수 배출',
-        '8년 과학 교육 경력'
+      id: 'science',
+      icon: '🔬',
+      title: '과학',
+      teachers: [
+        {
+          name: '신초이 선생님',
+          grade: '중등·고등 과학',
+          subtitle: '내신 선행 · 개념 중심 수업',
+          description: `중등 과학과 고등 통합과학을 담당합니다.
+내신 선행을 중심으로 개념 이해를 확실히 다진 뒤
+문제 적용을 통해 실력을 완성합니다.
+과학 과목을 체계적으로 정리하고 싶은 학생에게 적합한 수업입니다.`
+        }
+      ]
+    },
+    {
+      id: 'consulting',
+      icon: '🎯',
+      title: '컨설팅',
+      teachers: [
+        {
+          name: '최윤서 선생님',
+          grade: '중고등 컨설팅',
+          subtitle: 'DREAM UP 입시전략연구소장',
+          description: `학원 등록부터 대입까지, 원내 학습과 입시에 대한 상담을 진행합니다.
+
+입시컨설팅(원서상담/생기부진단): 학생별 진학 목표에 따라 입시에 대한 로드맵을 설계하고 학습방향성을 제시합니다.
+
+학습컨설팅(코어스쿨/썸머스쿨/윈터스쿨): 학기 중 상시 자습과 방학 중 자습관리 프로그램 담당`
+        }
       ]
     }
   ];
 
+  const getCurrentSubject = () => {
+    return subjects.find(subject => subject.id === activeTab) || subjects[0];
+  };
+
+  const currentSubject = getCurrentSubject();
+
   return (
     <PageWrapper>
       <PageTitle>강사 소개</PageTitle>
-      <PageSubtitle>최고의 실력과 열정을 갖춘 레벨미업의 강사진을 소개합니다</PageSubtitle>
+      <PageSubtitle>레벨미업 학원의 과목별 전문 강사진을 소개합니다</PageSubtitle>
 
-      <TeacherGrid>
-        {teachers.map((teacher, index) => (
-          <TeacherCard key={index}>
-            <TeacherImage>
-              {teacher.emoji}
-            </TeacherImage>
-            <TeacherInfo>
+      <TabContainer>
+        <TabList>
+          {subjects.map((subject) => (
+            <Tab
+              key={subject.id}
+              $active={activeTab === subject.id}
+              onClick={() => setActiveTab(subject.id)}
+            >
+              {subject.title}
+            </Tab>
+          ))}
+        </TabList>
+      </TabContainer>
+
+      <TabContent>
+        <TeacherGrid>
+          {currentSubject.teachers.map((teacher, index) => (
+            <TeacherCard key={index}>
               <TeacherName>{teacher.name}</TeacherName>
-              <TeacherSubject>{teacher.subject}</TeacherSubject>
+              <TeacherGrade>{teacher.grade}</TeacherGrade>
+              <TeacherGrade style={{ color: '#1a1a1a', marginBottom: '18px', fontSize: '1.15rem' }}>
+                {teacher.subtitle}
+              </TeacherGrade>
               <TeacherDescription>{teacher.description}</TeacherDescription>
-              <TeacherHighlights>
-                {teacher.highlights.map((highlight, idx) => (
-                  <li key={idx}>{highlight}</li>
-                ))}
-              </TeacherHighlights>
-            </TeacherInfo>
-          </TeacherCard>
-        ))}
-      </TeacherGrid>
-
-      <SubjectSection>
-        <SubjectTitle>📚 과목별 수업 안내</SubjectTitle>
-        <SubjectContent>
-          <h3 style={{fontSize: '1.4rem', marginTop: '20px', marginBottom: '15px', color: '#667eea'}}>
-            🔢 수학
-          </h3>
-          <p>
-            개념 이해부터 문제 풀이까지 단계별 학습으로 수학 실력을 완성합니다.
-          </p>
-          <ul>
-            <li>기초부터 심화까지 체계적인 단계별 커리큘럼</li>
-            <li>유형별 문제 풀이 전략 집중 훈련</li>
-            <li>오답 노트 작성 및 복습 시스템</li>
-            <li>정기 모의고사 및 약점 보완 특강</li>
-          </ul>
-
-          <h3 style={{fontSize: '1.4rem', marginTop: '30px', marginBottom: '15px', color: '#667eea'}}>
-            🗣️ 영어
-          </h3>
-          <p>
-            듣기, 독해, 문법, 어휘를 통합한 종합 영어 실력 향상 프로그램
-          </p>
-          <ul>
-            <li>영역별 맞춤 학습 (듣기, 독해, 문법, 어휘)</li>
-            <li>실전 모의고사 및 분석 수업</li>
-            <li>매일 단어 테스트 및 관리</li>
-            <li>수능 유형 집중 공략</li>
-          </ul>
-
-          <h3 style={{fontSize: '1.4rem', marginTop: '30px', marginBottom: '15px', color: '#667eea'}}>
-            📖 국어
-          </h3>
-          <p>
-            비문학, 문학, 문법 영역별 전문 강의로 국어 실력 극대화
-          </p>
-          <ul>
-            <li>비문학 독해 전략 및 논리적 사고력 훈련</li>
-            <li>문학 작품 분석 및 감상 능력 향상</li>
-            <li>문법 개념 정리 및 적용 연습</li>
-            <li>고난도 문제 풀이 테크닉</li>
-          </ul>
-
-          <h3 style={{fontSize: '1.4rem', marginTop: '30px', marginBottom: '15px', color: '#667eea'}}>
-            🔬 과학 (물리/화학/생명과학/지구과학)
-          </h3>
-          <p>
-            과목별 전문 강사의 깊이 있는 개념 설명과 문제 풀이
-          </p>
-          <ul>
-            <li>과목별 선택 수강 가능</li>
-            <li>개념 이해 중심의 원리 학습</li>
-            <li>실험 영상 및 시뮬레이션 활용</li>
-            <li>수능 및 내신 대비 통합 관리</li>
-          </ul>
-        </SubjectContent>
-      </SubjectSection>
+            </TeacherCard>
+          ))}
+        </TeacherGrid>
+      </TabContent>
     </PageWrapper>
   );
 };
